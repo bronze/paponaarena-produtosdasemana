@@ -29,7 +29,7 @@ export function AppSidebar() {
             <Package className="w-5 h-5 text-primary-foreground" />
           </div>
           <div className="flex flex-col">
-            <span className="font-semibold text-sm text-sidebar-foreground">Product Arena</span>
+            <span className="font-semibold text-sm text-sidebar-foreground">Papo na Arena</span>
             <span className="text-xs text-muted-foreground">Radar</span>
           </div>
         </div>
