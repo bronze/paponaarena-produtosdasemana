@@ -46,20 +46,18 @@ export default function Dashboard() {
 
       {/* Main Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Top Products Chart - Takes 2 columns */}
-        <div className="lg:col-span-2">
+        {/* Left Column - Charts (2 columns) */}
+        <div className="lg:col-span-2 space-y-6">
           <TopProductsChart />
+          <ProductTrendsChart />
         </div>
 
-        {/* Right Column - Latest Episode + Stats */}
+        {/* Right Column - Latest Episode + Recent Mentions */}
         <div className="space-y-6">
           <LatestEpisodeCard />
           <RecentMentions />
         </div>
       </div>
-
-      {/* Product Trends Line Chart - Full Width */}
-      <ProductTrendsChart />
     </div>
   );
 }
