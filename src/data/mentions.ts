@@ -85,6 +85,8 @@ export const products: Product[] = [
   { id: "duolingo", name: "Duolingo", category: "Education" },
   { id: "ipod-fake", name: "iPod Fake Classic", category: "Lifestyle" },
   { id: "camisa-preta", name: "Camisa Preta Básica", category: "Lifestyle" },
+  { id: "art-science-engineering", name: "The Art of Doing Science and Engineering: Learning to Learn", category: "Education", url: "https://substack.com/redirect/d44ff958-d2d1-476e-b90e-720a653353bc?j=eyJ1IjoiM2Z4N2xsIn0.hprP9-m3wJcmtKuXGObKSXN8QwqEhdmH1uzVY49NegA" },
+  { id: "spa-inflavel-intex", name: "Spa Inflável 795L 120 Jatos PureSpa Bubbles Intex", category: "Lifestyle", url: "https://substack.com/redirect/4e097965-e146-4a63-b675-520b7728263f?j=eyJ1IjoiM2Z4N2xsIn0.hprP9-m3wJcmtKuXGObKSXN8QwqEhdmH1uzVY49NegA" },
 ];
 
 // People (contributors/hosts)
@@ -155,6 +157,8 @@ export const mentions: Mention[] = [
   { id: "m12", episodeId: 101, personId: "lucao", productId: "twitter" },
   { id: "m13", episodeId: 101, personId: "matt-lopes", productId: "loom" },
   { id: "m14", episodeId: 101, personId: "andrezao", productId: "vocabulary" },
+  { id: "m53", episodeId: 101, personId: "aiquis", productId: "art-science-engineering" },
+  { id: "m54", episodeId: 101, personId: "arthur", productId: "spa-inflavel-intex" },
   // Episode 102
   { id: "m15", episodeId: 102, personId: "arthur", productId: "replit" },
   { id: "m16", episodeId: 102, personId: "aiquis", productId: "hevy" },
