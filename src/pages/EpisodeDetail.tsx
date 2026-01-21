@@ -130,7 +130,13 @@ export default function EpisodeDetail() {
           </CardHeader>
           <CardContent>
             <div className="space-y-4 max-h-[300px] overflow-auto">
-              {Array.from(mentionsByPerson.entries()).map(([personId, personMentions]) => {
+              {Array.from(mentionsByPerson.entries())
+                .sort(([aId], [bId]) => {
+                  const aName = getPersonById(aId)?.name || "";
+                  const bName = getPersonById(bId)?.name || "";
+                  return aName.localeCompare(bName);
+                })
+                .map(([personId, personMentions]) => {
                 const person = getPersonById(personId);
                 if (!person) return null;
 
