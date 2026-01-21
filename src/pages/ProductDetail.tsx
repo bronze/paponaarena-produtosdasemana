@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, MessageSquare, Mic, Users } from "lucide-react";
+import { ArrowLeft, MessageSquare, Mic, Users, ExternalLink } from "lucide-react";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import {
   getProductById,
@@ -46,10 +46,18 @@ export default function ProductDetail() {
             <ArrowLeft className="w-4 h-4" />
           </Link>
         </Button>
-        <div>
-          <div className="flex items-center gap-3">
+        <div className="flex-1">
+          <div className="flex items-center gap-3 flex-wrap">
             <h1 className="text-2xl font-bold text-foreground">{product.name}</h1>
             <Badge variant="secondary">{product.category}</Badge>
+            {product.url && (
+              <Button asChild variant="outline" size="sm">
+                <a href={product.url} target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  Visit
+                </a>
+              </Button>
+            )}
           </div>
           <p className="text-muted-foreground mt-1">
             Product mention analytics
