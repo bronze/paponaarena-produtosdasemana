@@ -1,6 +1,7 @@
 import { Mic, Package, Users, MessageSquare } from "lucide-react";
 import { StatCard } from "@/components/dashboard/StatCard";
 import { TopProductsChart } from "@/components/dashboard/TopProductsChart";
+import { ProductTrendsChart } from "@/components/dashboard/ProductTrendsChart";
 import { RecentMentions } from "@/components/dashboard/RecentMentions";
 import { LatestEpisodeCard } from "@/components/dashboard/LatestEpisodeCard";
 import { episodes, products, people, mentions } from "@/data/mentions";
@@ -56,6 +57,9 @@ export default function Dashboard() {
           <RecentMentions />
         </div>
       </div>
+
+      {/* Product Trends Line Chart - Full Width */}
+      <ProductTrendsChart />
     </div>
   );
 }
