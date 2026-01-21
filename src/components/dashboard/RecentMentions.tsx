@@ -4,9 +4,12 @@ import { Badge } from "@/components/ui/badge";
 import { mentions, getProductById, getPersonById, getEpisodeById } from "@/data/mentions";
 
 export function RecentMentions() {
-  // Get the 8 most recent mentions (from Episode 2)
+  // Get the latest episode ID
+  const latestEpisodeId = Math.max(...mentions.map((m) => m.episodeId));
+  
+  // Get the 8 most recent mentions from the latest episode
   const recentMentions = mentions
-    .filter((m) => m.episodeId === 2)
+    .filter((m) => m.episodeId === latestEpisodeId)
     .slice(0, 8);
 
   return (
