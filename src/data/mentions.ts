@@ -287,3 +287,26 @@ export function getCategories(): string[] {
 export function getProductsByCategory(category: string): Product[] {
   return products.filter((p) => p.category === category);
 }
+
+export function getTopProductsMentionsOverTime(limit: number = 10): Record<string, any>[] {
+  const topProducts = getTopProducts(limit);
+
+  return episodes
+    .slice()
+    .sort((a, b) => a.id - b.id)
+    .map((episode) => {
+      const dataPoint: Record<string, any> = {
+        episode: `Ep ${episode.id}`,
+        episodeId: episode.id,
+      };
+
+      topProducts.forEach(({ product }) => {
+        const count = mentions.filter(
+          (m) => m.episodeId === episode.id && m.productId === product.id
+        ).length;
+        dataPoint[product.name] = count;
+      });
+
+      return dataPoint;
+    });
+}
