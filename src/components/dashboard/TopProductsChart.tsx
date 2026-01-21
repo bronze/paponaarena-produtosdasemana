@@ -3,11 +3,11 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 
 import { getTopProducts } from "@/data/mentions";
 
 const COLORS = [
-  "hsl(140 20% 40%)",
-  "hsl(18 50% 55%)",
-  "hsl(45 40% 55%)",
-  "hsl(200 25% 50%)",
-  "hsl(340 30% 55%)",
+  "hsl(355 75% 65%)",
+  "hsl(330 60% 45%)",
+  "hsl(25 80% 55%)",
+  "hsl(200 60% 50%)",
+  "hsl(280 50% 55%)",
 ];
 
 export function TopProductsChart() {

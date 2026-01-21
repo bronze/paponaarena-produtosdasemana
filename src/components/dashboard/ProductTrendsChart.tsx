@@ -11,16 +11,16 @@ import {
 import { getTopProductsMentionsOverTime, getTopProducts } from "@/data/mentions";
 
 const LINE_COLORS = [
-  "hsl(140 50% 40%)",
-  "hsl(18 70% 55%)",
-  "hsl(45 60% 50%)",
+  "hsl(355 75% 65%)",
+  "hsl(330 60% 45%)",
+  "hsl(25 80% 55%)",
   "hsl(200 60% 50%)",
-  "hsl(340 50% 55%)",
   "hsl(280 50% 55%)",
-  "hsl(170 50% 45%)",
-  "hsl(30 70% 50%)",
-  "hsl(220 60% 55%)",
-  "hsl(0 60% 55%)",
+  "hsl(170 55% 45%)",
+  "hsl(45 70% 50%)",
+  "hsl(0 65% 55%)",
+  "hsl(220 55% 55%)",
+  "hsl(300 45% 55%)",
 ];
 
 export function ProductTrendsChart() {
