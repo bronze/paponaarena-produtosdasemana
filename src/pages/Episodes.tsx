@@ -1,10 +1,16 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Mic, ArrowRight, Calendar } from "lucide-react";
-import { episodes, getMentionsByEpisode } from "@/data/mentions";
+import { getEpisodeYears, getEpisodesByYear, getMentionsByEpisode } from "@/data/mentions";
 
 export default function Episodes() {
+  const years = getEpisodeYears();
+  const [selectedYear, setSelectedYear] = useState<number | "all">("all");
+  const filteredEpisodes = getEpisodesByYear(selectedYear);
+
   return (
     <div className="space-y-6">
       <div>
@@ -14,8 +20,19 @@ export default function Episodes() {
         </p>
       </div>
 
+      <Tabs value={String(selectedYear)} onValueChange={(v) => setSelectedYear(v === "all" ? "all" : Number(v))}>
+        <TabsList>
+          <TabsTrigger value="all">All</TabsTrigger>
+          {years.map((year) => (
+            <TabsTrigger key={year} value={String(year)}>
+              {year}
+            </TabsTrigger>
+          ))}
+        </TabsList>
+      </Tabs>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {episodes.map((episode) => {
+        {filteredEpisodes.map((episode) => {
           const mentionCount = getMentionsByEpisode(episode.id).length;
 
           return (

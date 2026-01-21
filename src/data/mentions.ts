@@ -288,6 +288,16 @@ export function getProductsByCategory(category: string): Product[] {
   return products.filter((p) => p.category === category);
 }
 
+export function getEpisodeYears(): number[] {
+  const years = episodes.map((e) => new Date(e.date).getFullYear());
+  return [...new Set(years)].sort((a, b) => b - a);
+}
+
+export function getEpisodesByYear(year: number | "all"): Episode[] {
+  if (year === "all") return episodes;
+  return episodes.filter((e) => new Date(e.date).getFullYear() === year);
+}
+
 export function getTopProductsMentionsOverTime(limit: number = 10): Record<string, any>[] {
   const topProducts = getTopProducts(limit);
 
