@@ -19,7 +19,14 @@ export default function People() {
         episodeCount: episodeIds.size,
       };
     })
-    .sort((a, b) => b.mentionCount - a.mentionCount);
+    .sort((a, b) => {
+      // Primary: sort by mention count (descending)
+      if (b.mentionCount !== a.mentionCount) {
+        return b.mentionCount - a.mentionCount;
+      }
+      // Secondary: sort by name (A-Z)
+      return a.name.localeCompare(b.name);
+    });
 
   const filteredPeople = peopleData.filter((p) =>
     p.name.toLowerCase().includes(search.toLowerCase())
