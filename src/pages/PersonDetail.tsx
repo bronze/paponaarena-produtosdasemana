@@ -158,7 +158,9 @@ export default function PersonDetail() {
           </CardHeader>
           <CardContent>
             <div className="space-y-3 max-h-[280px] overflow-auto">
-              {mentions.map((mention) => {
+              {[...mentions]
+                .sort((a, b) => b.episodeId - a.episodeId)
+                .map((mention) => {
                 const product = getProductById(mention.productId);
                 const episode = getEpisodeById(mention.episodeId);
                 if (!product || !episode) return null;
