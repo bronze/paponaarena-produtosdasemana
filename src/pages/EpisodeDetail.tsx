@@ -141,43 +141,43 @@ export default function EpisodeDetail() {
             <CardTitle className="text-lg">Mentions by Person</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="space-y-4 max-h-[300px] overflow-auto">
-              {Array.from(mentionsByPerson.entries())
-                .sort(([aId], [bId]) => {
-                  const aName = getPersonById(aId)?.name || "";
-                  const bName = getPersonById(bId)?.name || "";
+            <div className="space-y-2 max-h-[300px] overflow-auto">
+              {mentions
+                .slice()
+                .sort((a, b) => {
+                  const aName = getPersonById(a.personId)?.name || "";
+                  const bName = getPersonById(b.personId)?.name || "";
                   return aName.localeCompare(bName);
                 })
-                .map(([personId, personMentions]) => {
-                const person = getPersonById(personId);
-                if (!person) return null;
+                .map((mention) => {
+                  const person = getPersonById(mention.personId);
+                  const product = getProductById(mention.productId);
+                  if (!person || !product) return null;
 
-                return (
-                  <div key={personId} className="space-y-2">
-                    <Link
-                      to={`/people/${personId}`}
-                      className="font-medium text-foreground hover:text-primary transition-colors"
+                  return (
+                    <div
+                      key={mention.id}
+                      className="flex items-center justify-between p-3 rounded-lg bg-muted/50"
                     >
-                      {person.name}
-                    </Link>
-                    <div className="flex flex-wrap gap-2">
-                      {personMentions.map((m) => {
-                        const product = getProductById(m.productId);
-                        return (
-                          <Link key={m.id} to={`/products/${m.productId}`}>
-                            <Badge
-                              variant="secondary"
-                              className="hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer"
-                            >
-                              {product?.name}
-                            </Badge>
-                          </Link>
-                        );
-                      })}
+                      <div className="flex items-center gap-3 flex-wrap">
+                        <Link
+                          to={`/people/${mention.personId}`}
+                          className="font-medium text-foreground hover:text-primary transition-colors"
+                        >
+                          {person.name}
+                        </Link>
+                        <Link to={`/products/${mention.productId}`}>
+                          <Badge
+                            variant="secondary"
+                            className="hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer text-xs"
+                          >
+                            {product.name}
+                          </Badge>
+                        </Link>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
             </div>
           </CardContent>
         </Card>
