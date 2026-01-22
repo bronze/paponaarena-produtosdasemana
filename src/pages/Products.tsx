@@ -11,12 +11,20 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Search, ArrowUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   products,
   getProductMentionCount,
   getMentionsByProduct,
+  getCategories,
   episodes,
 } from "@/data/mentions";
 
@@ -25,8 +33,11 @@ type SortDir = "asc" | "desc";
 
 export default function Products() {
   const [search, setSearch] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [sortKey, setSortKey] = useState<SortKey>("mentions");
   const [sortDir, setSortDir] = useState<SortDir>("desc");
+
+  const categories = getCategories();
 
   const productData = products
     .filter((p) => !p.parentId && !p.alsoCredits) // Hide variants AND combo products
@@ -42,6 +53,9 @@ export default function Products() {
     .filter((p) => p.mentionCount > 0); // Only show products with mentions
 
   const filteredProducts = productData
+    .filter(
+      (p) => selectedCategory === "all" || p.category === selectedCategory
+    )
     .filter(
       (p) =>
         p.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -85,14 +99,32 @@ export default function Products() {
         <CardHeader>
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <CardTitle className="text-lg">Product Leaderboard</CardTitle>
-            <div className="relative w-full sm:w-72">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-              <Input
-                placeholder="Search products..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="pl-9"
-              />
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Select
+                value={selectedCategory}
+                onValueChange={setSelectedCategory}
+              >
+                <SelectTrigger className="w-full sm:w-[180px]">
+                  <SelectValue placeholder="All Categories" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All Categories</SelectItem>
+                  {categories.map((cat) => (
+                    <SelectItem key={cat} value={cat}>
+                      {cat}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <div className="relative w-full sm:w-72">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                <Input
+                  placeholder="Search products..."
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  className="pl-9"
+                />
+              </div>
             </div>
           </div>
         </CardHeader>
