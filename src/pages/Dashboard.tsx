@@ -4,6 +4,7 @@ import { TopProductsChart } from "@/components/dashboard/TopProductsChart";
 import { ProductTrendsChart } from "@/components/dashboard/ProductTrendsChart";
 import { RecentMentions } from "@/components/dashboard/RecentMentions";
 import { LatestEpisodeCard } from "@/components/dashboard/LatestEpisodeCard";
+import { CategoryPieChart } from "@/components/dashboard/CategoryPieChart";
 import { episodes, products, people, mentions } from "@/data/mentions";
 
 export default function Dashboard() {
@@ -52,9 +53,10 @@ export default function Dashboard() {
           <ProductTrendsChart />
         </div>
 
-        {/* Right Column - Latest Episode + Recent Mentions */}
+        {/* Right Column - Latest Episode + Category Pie + Recent Mentions */}
         <div className="space-y-6">
           <LatestEpisodeCard />
+          <CategoryPieChart />
           <RecentMentions />
         </div>
       </div>
