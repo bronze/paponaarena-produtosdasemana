@@ -1203,6 +1203,76 @@ export function getTopProductsMentionsOverTime(limit: number = 10): Record<strin
     });
 }
 
+export function getCategoryMentionsOverTime(limit: number = 8): Record<string, any>[] {
+  // Get all categories with their mention counts
+  const allCategories = getCategories();
+  const categoryTotals = allCategories
+    .map((category) => {
+      const categoryProducts = getProductsByCategory(category).filter(
+        (p) => !p.parentId && !p.alsoCredits
+      );
+      const mentionCount = categoryProducts.reduce(
+        (sum, p) => sum + getMentionsByProduct(p.id).length,
+        0
+      );
+      return { name: category, count: mentionCount };
+    })
+    .filter((c) => c.count > 0)
+    .sort((a, b) => b.count - a.count)
+    .slice(0, limit);
+
+  // Initialize cumulative counters
+  const cumulativeCounts: Record<string, number> = {};
+  categoryTotals.forEach(({ name }) => {
+    cumulativeCounts[name] = 0;
+  });
+
+  // Build data points for each episode
+  const sortedEpisodes = episodes.slice().sort((a, b) => a.id - b.id);
+  
+  return sortedEpisodes.map((episode) => {
+    const dataPoint: Record<string, any> = {
+      episode: `Ep ${episode.id}`,
+      episodeId: episode.id,
+    };
+
+    categoryTotals.forEach(({ name }) => {
+      const categoryProducts = getProductsByCategory(name).filter(
+        (p) => !p.parentId && !p.alsoCredits
+      );
+      const count = mentions.filter(
+        (m) =>
+          m.episodeId === episode.id &&
+          categoryProducts.some((p) => p.id === m.productId)
+      ).length;
+
+      cumulativeCounts[name] += count;
+      dataPoint[name] = cumulativeCounts[name];
+    });
+
+    return dataPoint;
+  });
+}
+
+export function getTopCategoryNames(limit: number = 8): string[] {
+  const allCategories = getCategories();
+  return allCategories
+    .map((category) => {
+      const categoryProducts = getProductsByCategory(category).filter(
+        (p) => !p.parentId && !p.alsoCredits
+      );
+      const mentionCount = categoryProducts.reduce(
+        (sum, p) => sum + getMentionsByProduct(p.id).length,
+        0
+      );
+      return { name: category, count: mentionCount };
+    })
+    .filter((c) => c.count > 0)
+    .sort((a, b) => b.count - a.count)
+    .slice(0, limit)
+    .map((c) => c.name);
+}
+
 // Add missing product for beerpass
 const beerpassProduct: Product = { id: "beerpass", name: "Beerpass", category: "Lifestyle" };
 const sitlyProduct: Product = { id: "sitly", name: "Sitly", category: "Apps" };
