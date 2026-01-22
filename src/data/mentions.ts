@@ -1191,9 +1191,10 @@ export function getTopProductsMentionsOverTime(limit: number = 10): Record<strin
       };
 
       topProducts.forEach(({ product }) => {
-        // Count mentions for this episode
-        const count = mentions.filter(
-          (m) => m.episodeId === episode.id && m.productId === product.id
+        // Count mentions for this episode (includes variants and combos)
+        const productMentions = getMentionsByProduct(product.id);
+        const count = productMentions.filter(
+          (m) => m.episodeId === episode.id
         ).length;
         
         // Add to cumulative total
