@@ -13,6 +13,8 @@ export interface Product {
   name: string;
   category: string;
   url?: string;
+  parentId?: string;      // For variants that roll up to a parent (e.g., uber-black → uber)
+  alsoCredits?: string[]; // For combo mentions that credit multiple products (e.g., uber-livelo → uber + livelo)
 }
 
 export interface Person {
@@ -167,9 +169,9 @@ export const products: Product[] = [
   // Transportation
   { id: "99", name: "99", category: "Transportation", url: "https://99app.com" },
   { id: "uber", name: "Uber", category: "Transportation", url: "https://uber.com" },
-  { id: "uber-livelo", name: "Uber + Livelo", category: "Transportation" },
-  { id: "uber-black", name: "Uber Black", category: "Transportation" },
-  { id: "uber-agendamento", name: "Agendamento de corrida Uber", category: "Transportation" },
+  { id: "uber-livelo", name: "Uber + Livelo", category: "Transportation", alsoCredits: ["uber", "livelo"] },
+  { id: "uber-black", name: "Uber Black", category: "Transportation", parentId: "uber" },
+  { id: "uber-agendamento", name: "Agendamento de corrida Uber", category: "Transportation", parentId: "uber" },
   { id: "waze", name: "Waze", category: "Transportation", url: "https://waze.com" },
   { id: "blablacar", name: "Blablacar", category: "Transportation", url: "https://blablacar.com" },
   { id: "turbi", name: "Turbi", category: "Transportation" },
@@ -246,6 +248,7 @@ export const products: Product[] = [
   { id: "acquired-podcast", name: "Acquired Podcast", category: "Entertainment" },
 
   // Finance
+  { id: "livelo", name: "Livelo", category: "Finance", url: "https://livelo.com.br" },
   { id: "c6", name: "C6", category: "Finance", url: "https://c6bank.com.br" },
   { id: "picpay", name: "PicPay", category: "Finance", url: "https://picpay.com" },
   { id: "wise", name: "Wise", category: "Finance", url: "https://wise.com" },
@@ -1066,7 +1069,24 @@ export function getEpisodeById(id: number): Episode | undefined {
 }
 
 export function getMentionsByProduct(productId: string): Mention[] {
-  return mentions.filter((m) => m.productId === productId);
+  // Get direct mentions
+  const directMentions = mentions.filter((m) => m.productId === productId);
+  
+  // Get mentions from child products (parentId pointing to this product)
+  const childProducts = products.filter((p) => p.parentId === productId);
+  const childMentions = mentions.filter((m) => 
+    childProducts.some((child) => child.id === m.productId)
+  );
+  
+  // Get mentions from combo products (alsoCredits including this product)
+  const comboProducts = products.filter((p) => p.alsoCredits?.includes(productId));
+  const comboMentions = mentions.filter((m) => 
+    comboProducts.some((combo) => combo.id === m.productId)
+  );
+  
+  // Combine and dedupe by mention id
+  const allMentions = [...directMentions, ...childMentions, ...comboMentions];
+  return [...new Map(allMentions.map((m) => [m.id, m])).values()];
 }
 
 export function getMentionsByPerson(personId: string): Mention[] {
@@ -1078,7 +1098,7 @@ export function getMentionsByEpisode(episodeId: number): Mention[] {
 }
 
 export function getProductMentionCount(productId: string): number {
-  return mentions.filter((m) => m.productId === productId).length;
+  return getMentionsByProduct(productId).length;
 }
 
 export function getPersonMentionCount(personId: string): number {
@@ -1086,17 +1106,15 @@ export function getPersonMentionCount(personId: string): number {
 }
 
 export function getTopProducts(limit: number = 10): { product: Product; count: number }[] {
-  const counts = new Map<string, number>();
-  mentions.forEach((m) => {
-    counts.set(m.productId, (counts.get(m.productId) || 0) + 1);
-  });
-
-  return Array.from(counts.entries())
-    .map(([productId, count]) => ({
-      product: getProductById(productId)!,
-      count,
+  // Only consider "main" products (no parentId) to avoid double-counting
+  const mainProducts = products.filter((p) => !p.parentId);
+  
+  return mainProducts
+    .map((product) => ({
+      product,
+      count: getMentionsByProduct(product.id).length,
     }))
-    .filter((item) => item.product)
+    .filter((item) => item.count > 0)
     .sort((a, b) => b.count - a.count)
     .slice(0, limit);
 }
