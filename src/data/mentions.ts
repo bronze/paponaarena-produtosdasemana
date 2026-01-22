@@ -86,7 +86,7 @@ export const products: Product[] = [
   { id: "cursor", name: "Cursor", category: "AI Tools", url: "https://cursor.com" },
   { id: "elevenlabs", name: "ElevenLabs", category: "AI Tools", url: "https://elevenlabs.io" },
   { id: "chatgpt", name: "ChatGPT", category: "AI Tools", url: "https://chat.openai.com" },
-  { id: "notion-ai", name: "Notion AI", category: "Productivity", url: "https://notion.so" },
+  { id: "notion-ai", name: "Notion AI", category: "Productivity", url: "https://notion.so", parentId: "notion" },
   { id: "claude-code", name: "Claude Code", category: "AI Tools", url: "https://claude.ai" },
   { id: "huxe", name: "Huxe", category: "AI Tools" },
   { id: "claude", name: "Claude", category: "AI Tools", url: "https://claude.ai" },
