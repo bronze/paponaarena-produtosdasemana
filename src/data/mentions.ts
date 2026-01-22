@@ -246,13 +246,13 @@ export const episodes: Episode[] = [
   // 2026 Episodes
   {
     id: 101,
-    title: "Episode 101 - As previsões 2026 que ninguém pediu sobre Produto, AI e mercado tech",
+    title: "As previsões 2026 que ninguém pediu sobre Produto, AI e mercado tech",
     date: "2026-01-14",
     description: "Previsões ousadas sobre produto, IA e o mercado tech para 2026.",
   },
   {
     id: 102,
-    title: "Episode 102 - Claude Code: acabou pro ChatGPT?",
+    title: "Claude Code: acabou pro ChatGPT?",
     date: "2026-01-21",
     description: "Discussão sobre Claude Code e o futuro das ferramentas de IA.",
   },
