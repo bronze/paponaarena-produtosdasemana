@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Card, CardContent } from "@/components/ui/card";
+
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -98,82 +98,78 @@ export default function Products() {
         </div>
       </div>
 
-      <Card className="bg-card border-border">
-        <CardContent className="pt-6">
-          <div className="rounded-lg border border-border overflow-hidden">
-            <Table>
-              <TableHeader>
-                <TableRow className="bg-muted/50">
-                  <TableHead className="w-12">#</TableHead>
-                  <TableHead>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="h-8 -ml-3 font-medium"
-                      onClick={() => handleSort("name")}
-                    >
-                      Product
-                      <ArrowUpDown className="ml-2 h-4 w-4" />
-                    </Button>
-                  </TableHead>
-                  <TableHead>Category</TableHead>
-                  <TableHead>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="h-8 -ml-3 font-medium"
-                      onClick={() => handleSort("mentions")}
-                    >
-                      Mentions
-                      <ArrowUpDown className="ml-2 h-4 w-4" />
-                    </Button>
-                  </TableHead>
-                  <TableHead>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="h-8 -ml-3 font-medium"
-                      onClick={() => handleSort("episodes")}
-                    >
-                      Episodes
-                      <ArrowUpDown className="ml-2 h-4 w-4" />
-                    </Button>
-                  </TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {filteredProducts.map((product, index) => (
-                  <TableRow key={product.id} className="hover:bg-muted/50">
-                    <TableCell className="font-medium text-muted-foreground">{index + 1}</TableCell>
-                    <TableCell>
-                      <Link
-                        to={`/products/${product.id}`}
-                        className="font-medium text-foreground hover:text-primary transition-colors"
-                      >
-                        {product.name}
-                      </Link>
-                    </TableCell>
-                    <TableCell>
-                      <Badge variant="secondary">{product.category}</Badge>
-                    </TableCell>
-                    <TableCell>
-                      <span className="font-semibold text-primary">{product.mentionCount}</span>
-                    </TableCell>
-                    <TableCell>
-                      <span className="text-muted-foreground">
-                        {product.episodeCount} / {episodes.length}
-                      </span>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </div>
-          {filteredProducts.length === 0 && (
-            <div className="text-center py-8 text-muted-foreground">No products found matching "{search}"</div>
-          )}
-        </CardContent>
-      </Card>
+      <div className="rounded-lg border border-border overflow-hidden">
+        <Table>
+          <TableHeader>
+            <TableRow className="bg-muted/50">
+              <TableHead className="w-12">#</TableHead>
+              <TableHead>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="h-8 -ml-3 font-medium"
+                  onClick={() => handleSort("name")}
+                >
+                  Product
+                  <ArrowUpDown className="ml-2 h-4 w-4" />
+                </Button>
+              </TableHead>
+              <TableHead>Category</TableHead>
+              <TableHead>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="h-8 -ml-3 font-medium"
+                  onClick={() => handleSort("mentions")}
+                >
+                  Mentions
+                  <ArrowUpDown className="ml-2 h-4 w-4" />
+                </Button>
+              </TableHead>
+              <TableHead>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="h-8 -ml-3 font-medium"
+                  onClick={() => handleSort("episodes")}
+                >
+                  Episodes
+                  <ArrowUpDown className="ml-2 h-4 w-4" />
+                </Button>
+              </TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {filteredProducts.map((product, index) => (
+              <TableRow key={product.id} className="hover:bg-muted/50">
+                <TableCell className="font-medium text-muted-foreground">{index + 1}</TableCell>
+                <TableCell>
+                  <Link
+                    to={`/products/${product.id}`}
+                    className="font-medium text-foreground hover:text-primary transition-colors"
+                  >
+                    {product.name}
+                  </Link>
+                </TableCell>
+                <TableCell>
+                  <Badge variant="secondary">{product.category}</Badge>
+                </TableCell>
+                <TableCell>
+                  <span className="font-semibold text-primary">{product.mentionCount}</span>
+                </TableCell>
+                <TableCell>
+                  <span className="text-muted-foreground">
+                    {product.episodeCount} / {episodes.length}
+                  </span>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
+      {filteredProducts.length === 0 && (
+        <div className="text-center py-8 text-muted-foreground">No products found matching "{search}"</div>
+      )}
     </div>
   );
 }
