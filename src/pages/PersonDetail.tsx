@@ -200,13 +200,36 @@ export default function PersonDetail() {
                     key={mention.id}
                     className="flex items-center justify-between p-3 rounded-lg bg-muted/50"
                   >
-                    <div className="flex items-center gap-3">
-                      <Link
-                        to={`/products/${product.id}`}
-                        className="font-medium text-foreground hover:text-primary transition-colors"
-                      >
-                        {product.name}
-                      </Link>
+                    <div className="flex items-center gap-3 flex-wrap">
+                      {product.alsoCredits ? (
+                        <>
+                          {product.alsoCredits.map((creditedId, idx) => {
+                            const creditedProduct = getProductById(creditedId);
+                            if (!creditedProduct) return null;
+                            return (
+                              <span key={creditedId} className="flex items-center gap-1">
+                                {idx > 0 && <span className="text-muted-foreground">+</span>}
+                                <Link
+                                  to={`/products/${creditedProduct.id}`}
+                                  className="font-medium text-foreground hover:text-primary transition-colors"
+                                >
+                                  {creditedProduct.name}
+                                </Link>
+                              </span>
+                            );
+                          })}
+                          <Badge variant="outline" className="text-xs">
+                            combo
+                          </Badge>
+                        </>
+                      ) : (
+                        <Link
+                          to={`/products/${product.id}`}
+                          className="font-medium text-foreground hover:text-primary transition-colors"
+                        >
+                          {product.name}
+                        </Link>
+                      )}
                       <Badge variant="secondary" className="text-xs">
                         {product.category}
                       </Badge>
