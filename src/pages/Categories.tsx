@@ -49,10 +49,21 @@ export default function Categories() {
     })
     .sort((a, b) => b.mentionCount - a.mentionCount);
 
-  // Filter categories based on search
-  const filteredCategories = categoryData.filter((item) =>
-    item.category.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  // Filter categories based on search (category name OR product names)
+  const filteredCategories = categoryData.filter((item) => {
+    const query = searchQuery.toLowerCase();
+    
+    // Match category name
+    if (item.category.toLowerCase().includes(query)) {
+      return true;
+    }
+    
+    // Match any product in the category
+    const categoryProducts = getProductsByCategory(item.category);
+    return categoryProducts.some((product) =>
+      product.name.toLowerCase().includes(query)
+    );
+  });
 
   return (
     <div className="space-y-6">
@@ -66,7 +77,7 @@ export default function Categories() {
       <div className="relative w-full sm:w-72">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
         <Input
-          placeholder="Search categories..."
+          placeholder="Search categories or products..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="pl-9"
