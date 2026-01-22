@@ -38,10 +38,17 @@ export default function PersonDetail() {
   }
 
   const topProducts = getPersonTopProducts(person.id, 10);
-  const chartData = topProducts.map((item) => ({
-    name: item.product.name,
-    mentions: item.count,
-  }));
+  const chartData = topProducts.map((item) => {
+    const productMentions = mentions.filter(m => m.productId === item.product.id);
+    const episodeNumbers = [...new Set(productMentions.map(m => m.episodeId))]
+      .sort((a, b) => b - a);
+    
+    return {
+      name: item.product.name,
+      mentions: item.count,
+      episodes: episodeNumbers,
+    };
+  });
 
   const episodeIds = [...new Set(mentions.map((m) => m.episodeId))];
   const productIds = [...new Set(mentions.map((m) => m.productId))];
@@ -52,6 +59,35 @@ export default function PersonDetail() {
       .map((n) => n[0])
       .join("")
       .toUpperCase();
+  };
+
+  const CustomTooltip = ({ active, payload }: { active?: boolean; payload?: Array<{ payload: { name: string; mentions: number; episodes: number[] } }> }) => {
+    if (!active || !payload?.length) return null;
+    
+    const data = payload[0].payload;
+    return (
+      <div className="bg-card border border-border rounded-lg p-3 shadow-lg">
+        <p className="font-semibold text-foreground">{data.name}</p>
+        <p className="text-sm text-muted-foreground">
+          {data.mentions} {data.mentions === 1 ? 'menção' : 'menções'}
+        </p>
+        <div className="mt-2 pt-2 border-t border-border">
+          <p className="text-xs text-muted-foreground mb-1">Episódios:</p>
+          <div className="flex flex-wrap gap-1">
+            {data.episodes.slice(0, 8).map((ep: number) => (
+              <span key={ep} className="text-xs bg-muted px-1.5 py-0.5 rounded">
+                Ep {ep}
+              </span>
+            ))}
+            {data.episodes.length > 8 && (
+              <span className="text-xs text-muted-foreground">
+                +{data.episodes.length - 8} mais
+              </span>
+            )}
+          </div>
+        </div>
+      </div>
+    );
   };
 
   return (
@@ -133,13 +169,7 @@ export default function PersonDetail() {
                     tick={{ fontSize: 12 }}
                     width={100}
                   />
-                  <Tooltip
-                    contentStyle={{
-                      backgroundColor: "hsl(40 25% 99%)",
-                      border: "1px solid hsl(35 20% 88%)",
-                      borderRadius: "8px",
-                    }}
-                  />
+                  <Tooltip content={<CustomTooltip />} cursor={{ fill: 'hsl(var(--muted))' }} />
                   <Bar dataKey="mentions" radius={[0, 4, 4, 0]}>
                     {chartData.map((_, index) => (
                       <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
