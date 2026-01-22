@@ -79,8 +79,8 @@ export function CategoryPieChart() {
                     const data = payload[0].payload;
                     const percentage = ((data.value / total) * 100).toFixed(1);
                     return (
-                      <div className="rounded-lg border border-border bg-background px-3 py-2 text-sm shadow-xl">
-                        <p className="font-medium">{data.name}</p>
+                      <div className="bg-card border border-border rounded-lg px-3 py-2 text-sm shadow-lg">
+                        <p className="font-medium text-foreground">{data.name}</p>
                         <p className="text-muted-foreground">
                           {data.value} mentions ({percentage}%)
                         </p>

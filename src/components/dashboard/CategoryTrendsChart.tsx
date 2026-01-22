@@ -50,8 +50,8 @@ export function CategoryTrendsChart() {
               />
               <Tooltip
                 contentStyle={{
-                  backgroundColor: "hsl(40 25% 99%)",
-                  border: "1px solid hsl(35 20% 88%)",
+                  backgroundColor: "hsl(var(--card))",
+                  border: "1px solid hsl(var(--border))",
                   borderRadius: "8px",
                   boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
                 }}

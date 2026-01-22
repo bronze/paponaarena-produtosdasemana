@@ -13,18 +13,11 @@ import {
   getChildProducts,
 } from "@/data/mentions";
 
-const CustomTooltip = ({ active, payload }: TooltipProps<number, string>) => {
-  if (!active || !payload?.length) return null;
-
-  const data = payload[0].payload;
-  return (
-    <div className="bg-card border border-border rounded-lg p-3 shadow-lg">
-      <p className="font-semibold text-foreground">{data.episode}</p>
-      <p className="text-sm text-muted-foreground">
-        {data.mentions} {data.mentions === 1 ? 'menção' : 'menções'}
-      </p>
-    </div>
-  );
+const TOOLTIP_STYLE = {
+  backgroundColor: "hsl(var(--card))",
+  border: "1px solid hsl(var(--border))",
+  borderRadius: "8px",
+  boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
 };
 
 export default function ProductDetail() {
@@ -144,7 +137,7 @@ export default function ProductDetail() {
                 <LineChart data={chartData} margin={{ left: 0, right: 20 }}>
                   <XAxis dataKey="episode" tickLine={false} axisLine={false} tick={{ fontSize: 12 }} />
                   <YAxis tickLine={false} axisLine={false} tick={{ fontSize: 12 }} allowDecimals={false} />
-                  <Tooltip content={<CustomTooltip />} cursor={{ fill: 'hsl(var(--muted))' }} />
+                  <Tooltip contentStyle={TOOLTIP_STYLE} cursor={{ fill: 'hsl(var(--muted))' }} />
                   <Line
                     type="monotone"
                     dataKey="mentions"
