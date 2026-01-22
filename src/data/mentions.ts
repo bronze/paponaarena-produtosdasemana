@@ -13,7 +13,7 @@ export interface Product {
   name: string;
   category: string;
   url?: string;
-  parentId?: string;      // For variants that roll up to a parent (e.g., uber-black → uber)
+  parentId?: string; // For variants that roll up to a parent (e.g., uber-black → uber)
   alsoCredits?: string[]; // For combo mentions that credit multiple products (e.g., uber-livelo → uber + livelo)
 }
 
@@ -33,44 +33,229 @@ export interface Mention {
 // Episodes
 export const episodes: Episode[] = [
   // 2025 Episodes
-  { id: 65, title: "As previsões que ninguém pediu sobre Produto, AI e mercado tech em 2025", date: "2025-01-08", description: "Previsões sobre produto, IA e o mercado tech para 2025." },
-  { id: 66, title: "Dicas para ter conversas difíceis e Como fazer protótipos com AI", date: "2025-01-15", description: "Discussões sobre conversas difíceis e prototipagem com IA." },
-  { id: 67, title: "A importância dos 'selos' na carreira de produtos e a hora dos generalistas", date: "2025-01-22", description: "Reflexões sobre carreira de produtos e o papel dos generalistas." },
-  { id: 68, title: "DeepSeek para Leigos: o modelo chinês que chegou para causar!", date: "2025-01-29", description: "Análise do DeepSeek e seu impacto no mercado de IA." },
-  { id: 69, title: "Criando comunidades, matando features e priorizando no-code, com Beatriz Kinguti, CPO da LITI saúde", date: "2025-02-05", description: "Entrevista com Beatriz Kinguti sobre comunidades e no-code." },
-  { id: 70, title: "Nossas experiências construindo apps com AI", date: "2025-02-12", description: "Experiências práticas construindo aplicativos com IA." },
-  { id: 71, title: "O Handbook do Duolingo vai ser o novo 'modelo Spotify'?", date: "2025-02-19", description: "Análise do handbook do Duolingo e seu impacto na indústria." },
-  { id: 72, title: "Seu roadmap vai mudar, e tá tudo bem.", date: "2025-02-26", description: "Discussão sobre flexibilidade no planejamento de produto." },
-  { id: 73, title: "AI Mudando o roadmap da Apple e Figma e Como manter a energia de produto no alto?", date: "2025-03-12", description: "Impacto da IA nos roadmaps de grandes empresas." },
-  { id: 74, title: "Métricas, pra que te quero?!", date: "2025-03-19", description: "Discussão sobre o uso de métricas em produto." },
-  { id: 75, title: "Contratação de PMs - o que não pode faltar?", date: "2025-03-26", description: "Dicas para contratação de Product Managers." },
-  { id: 76, title: "O que muda em produto com o novo modelo da OpenAI", date: "2025-04-02", description: "Impacto do novo modelo da OpenAI em produtos." },
-  { id: 77, title: "O plano do Shopify para forçar toda a empresa a usar AI", date: "2025-04-08", description: "Análise da estratégia de IA do Shopify." },
-  { id: 78, title: "Porque você deveria revisar sua agenda", date: "2025-04-16", description: "Reflexões sobre gestão de tempo e agenda." },
-  { id: 79, title: "Mitos da Liderança de Produtos", date: "2025-04-22", description: "Desmistificando crenças sobre liderança de produto." },
-  { id: 80, title: "Ray-Ban, anúncios e AI: os planos do Zuck para a Meta", date: "2025-05-07", description: "Análise dos planos da Meta para IA e wearables." },
-  { id: 81, title: "Síndrome do Impostor na Liderança de Produtos", date: "2025-05-15", description: "Discussão sobre síndrome do impostor em líderes de produto." },
-  { id: 82, title: "SEMANA INSANA EM AI: Lançamentos da Anthropic, Google IO, Microsoft Build e OpenAI", date: "2025-05-28", description: "Cobertura dos principais lançamentos de IA." },
-  { id: 83, title: "Como estamos usando IA no dia a dia? Com Éfrem Filho, Principal PM @ Pipefy", date: "2025-06-05", description: "Entrevista sobre uso prático de IA no dia a dia." },
-  { id: 84, title: "Redesign do iOS e os lançamentos da WWDC", date: "2025-06-10", description: "Cobertura da WWDC e novo design do iOS." },
-  { id: 85, title: "Como formar times que sabem levar porrada", date: "2025-06-18", description: "Discussão sobre resiliência em times de produto." },
-  { id: 86, title: "Como a AI está reescrevendo as regras de produto e distribuição", date: "2025-07-01", description: "Impacto da IA nas regras de produto e distribuição." },
-  { id: 87, title: "O guia prático para adoção de IA na sua empresa", date: "2025-07-10", description: "Guia prático para implementar IA em empresas." },
-  { id: 88, title: "Quão longe dá pra ir com AI sem um dev?", date: "2025-07-23", description: "Explorando limites do no-code com IA." },
-  { id: 89, title: "Tomando decisões com AI", date: "2025-07-30", description: "Como usar IA para tomada de decisões." },
-  { id: 90, title: "ChatGPT-5: Flopou ou Revolucionou?", date: "2025-08-13", description: "Análise do ChatGPT-5 e seu impacto." },
-  { id: 91, title: "Entre tapas e beijos: a relação entre produto e engenharia", date: "2025-08-22", description: "Dinâmica entre times de produto e engenharia." },
-  { id: 92, title: "O que está por trás da 'exigência' de IA nas empresas?", date: "2025-08-27", description: "Reflexões sobre a pressão por IA nas empresas." },
-  { id: 93, title: "Reorgs na Prática: Erros, Aprendizados e Trade-offs", date: "2025-09-04", description: "Discussão sobre reorganizações empresariais." },
-  { id: 94, title: "Os novos iPhones: A Apple perdeu a magia?", date: "2025-09-10", description: "Análise dos novos iPhones da Apple." },
-  { id: 95, title: "Meta Display: o novo iPhone?", date: "2025-09-22", description: "Análise do Meta Display e seu potencial." },
-  { id: 96, title: "Uma semana insana de lançamentos em IA", date: "2025-10-01", description: "Cobertura de lançamentos de IA." },
-  { id: 97, title: "Panorama de Produto 2025: salários e tendências", date: "2025-10-08", description: "Análise de salários e tendências em produto." },
-  { id: 98, title: "Como foi o Product Leader Summit 2025?", date: "2025-11-06", description: "Cobertura do Product Leader Summit 2025." },
-  { id: 99, title: "IA é uma bolha? O que isso muda na sua vida", date: "2025-11-21", description: "Discussão sobre a sustentabilidade da IA." },
+  {
+    id: 65,
+    title: "As previsões que ninguém pediu sobre Produto, AI e mercado tech em 2025",
+    date: "2025-01-08",
+    description: "Previsões sobre produto, IA e o mercado tech para 2025.",
+  },
+  {
+    id: 66,
+    title: "Dicas para ter conversas difíceis e Como fazer protótipos com AI",
+    date: "2025-01-15",
+    description: "Discussões sobre conversas difíceis e prototipagem com IA.",
+  },
+  {
+    id: 67,
+    title: "A importância dos 'selos' na carreira de produtos e a hora dos generalistas",
+    date: "2025-01-22",
+    description: "Reflexões sobre carreira de produtos e o papel dos generalistas.",
+  },
+  {
+    id: 68,
+    title: "DeepSeek para Leigos: o modelo chinês que chegou para causar!",
+    date: "2025-01-29",
+    description: "Análise do DeepSeek e seu impacto no mercado de IA.",
+  },
+  {
+    id: 69,
+    title: "Criando comunidades, matando features e priorizando no-code, com Beatriz Kinguti, CPO da LITI saúde",
+    date: "2025-02-05",
+    description: "Entrevista com Beatriz Kinguti sobre comunidades e no-code.",
+  },
+  {
+    id: 70,
+    title: "Nossas experiências construindo apps com AI",
+    date: "2025-02-12",
+    description: "Experiências práticas construindo aplicativos com IA.",
+  },
+  {
+    id: 71,
+    title: "O Handbook do Duolingo vai ser o novo 'modelo Spotify'?",
+    date: "2025-02-19",
+    description: "Análise do handbook do Duolingo e seu impacto na indústria.",
+  },
+  {
+    id: 72,
+    title: "Seu roadmap vai mudar, e tá tudo bem.",
+    date: "2025-02-26",
+    description: "Discussão sobre flexibilidade no planejamento de produto.",
+  },
+  {
+    id: 73,
+    title: "AI Mudando o roadmap da Apple e Figma e Como manter a energia de produto no alto?",
+    date: "2025-03-12",
+    description: "Impacto da IA nos roadmaps de grandes empresas.",
+  },
+  {
+    id: 74,
+    title: "Métricas, pra que te quero?!",
+    date: "2025-03-19",
+    description: "Discussão sobre o uso de métricas em produto.",
+  },
+  {
+    id: 75,
+    title: "Contratação de PMs - o que não pode faltar?",
+    date: "2025-03-26",
+    description: "Dicas para contratação de Product Managers.",
+  },
+  {
+    id: 76,
+    title: "O que muda em produto com o novo modelo da OpenAI",
+    date: "2025-04-02",
+    description: "Impacto do novo modelo da OpenAI em produtos.",
+  },
+  {
+    id: 77,
+    title: "O plano do Shopify para forçar toda a empresa a usar AI",
+    date: "2025-04-08",
+    description: "Análise da estratégia de IA do Shopify.",
+  },
+  {
+    id: 78,
+    title: "Porque você deveria revisar sua agenda",
+    date: "2025-04-16",
+    description: "Reflexões sobre gestão de tempo e agenda.",
+  },
+  {
+    id: 79,
+    title: "Mitos da Liderança de Produtos",
+    date: "2025-04-22",
+    description: "Desmistificando crenças sobre liderança de produto.",
+  },
+  {
+    id: 80,
+    title: "Ray-Ban, anúncios e AI: os planos do Zuck para a Meta",
+    date: "2025-05-07",
+    description: "Análise dos planos da Meta para IA e wearables.",
+  },
+  {
+    id: 81,
+    title: "Síndrome do Impostor na Liderança de Produtos",
+    date: "2025-05-15",
+    description: "Discussão sobre síndrome do impostor em líderes de produto.",
+  },
+  {
+    id: 82,
+    title: "SEMANA INSANA EM AI: Lançamentos da Anthropic, Google IO, Microsoft Build e OpenAI",
+    date: "2025-05-28",
+    description: "Cobertura dos principais lançamentos de IA.",
+  },
+  {
+    id: 83,
+    title: "Como estamos usando IA no dia a dia? Com Éfrem Filho, Principal PM @ Pipefy",
+    date: "2025-06-05",
+    description: "Entrevista sobre uso prático de IA no dia a dia.",
+  },
+  {
+    id: 84,
+    title: "Redesign do iOS e os lançamentos da WWDC",
+    date: "2025-06-10",
+    description: "Cobertura da WWDC e novo design do iOS.",
+  },
+  {
+    id: 85,
+    title: "Como formar times que sabem levar porrada",
+    date: "2025-06-18",
+    description: "Discussão sobre resiliência em times de produto.",
+  },
+  {
+    id: 86,
+    title: "Como a AI está reescrevendo as regras de produto e distribuição",
+    date: "2025-07-01",
+    description: "Impacto da IA nas regras de produto e distribuição.",
+  },
+  {
+    id: 87,
+    title: "O guia prático para adoção de IA na sua empresa",
+    date: "2025-07-10",
+    description: "Guia prático para implementar IA em empresas.",
+  },
+  {
+    id: 88,
+    title: "Quão longe dá pra ir com AI sem um dev?",
+    date: "2025-07-23",
+    description: "Explorando limites do no-code com IA.",
+  },
+  {
+    id: 89,
+    title: "Tomando decisões com AI",
+    date: "2025-07-30",
+    description: "Como usar IA para tomada de decisões.",
+  },
+  {
+    id: 90,
+    title: "ChatGPT-5: Flopou ou Revolucionou?",
+    date: "2025-08-13",
+    description: "Análise do ChatGPT-5 e seu impacto.",
+  },
+  {
+    id: 91,
+    title: "Entre tapas e beijos: a relação entre produto e engenharia",
+    date: "2025-08-22",
+    description: "Dinâmica entre times de produto e engenharia.",
+  },
+  {
+    id: 92,
+    title: "O que está por trás da 'exigência' de IA nas empresas?",
+    date: "2025-08-27",
+    description: "Reflexões sobre a pressão por IA nas empresas.",
+  },
+  {
+    id: 93,
+    title: "Reorgs na Prática: Erros, Aprendizados e Trade-offs",
+    date: "2025-09-04",
+    description: "Discussão sobre reorganizações empresariais.",
+  },
+  {
+    id: 94,
+    title: "Os novos iPhones: A Apple perdeu a magia?",
+    date: "2025-09-10",
+    description: "Análise dos novos iPhones da Apple.",
+  },
+  {
+    id: 95,
+    title: "Meta Display: o novo iPhone?",
+    date: "2025-09-22",
+    description: "Análise do Meta Display e seu potencial.",
+  },
+  {
+    id: 96,
+    title: "Uma semana insana de lançamentos em IA",
+    date: "2025-10-01",
+    description: "Cobertura de lançamentos de IA.",
+  },
+  {
+    id: 97,
+    title: "Panorama de Produto 2025: salários e tendências",
+    date: "2025-10-08",
+    description: "Análise de salários e tendências em produto.",
+  },
+  {
+    id: 98,
+    title: "Como foi o Product Leader Summit 2025?",
+    date: "2025-11-06",
+    description: "Cobertura do Product Leader Summit 2025.",
+  },
+  {
+    id: 99,
+    title: "IA é uma bolha? O que isso muda na sua vida",
+    date: "2025-11-21",
+    description: "Discussão sobre a sustentabilidade da IA.",
+  },
   // 2026 Episodes
-  { id: 101, title: "Episode 101 - As previsões 2026 que ninguém pediu sobre Produto, AI e mercado tech", date: "2026-01-14", description: "Previsões ousadas sobre produto, IA e o mercado tech para 2026." },
-  { id: 102, title: "Episode 102 - Claude Code: acabou pro ChatGPT?", date: "2026-01-21", description: "Discussão sobre Claude Code e o futuro das ferramentas de IA." },
+  {
+    id: 101,
+    title: "Episode 101 - As previsões 2026 que ninguém pediu sobre Produto, AI e mercado tech",
+    date: "2026-01-14",
+    description: "Previsões ousadas sobre produto, IA e o mercado tech para 2026.",
+  },
+  {
+    id: 102,
+    title: "Episode 102 - Claude Code: acabou pro ChatGPT?",
+    date: "2026-01-21",
+    description: "Discussão sobre Claude Code e o futuro das ferramentas de IA.",
+  },
 ];
 
 // Products (unique across all episodes)
@@ -82,47 +267,69 @@ export const products: Product[] = [
   { id: "gemini", name: "Gemini", category: "AI Tools", url: "https://gemini.google.com" },
   { id: "replit", name: "Replit", category: "AI Tools", url: "https://replit.com" },
   { id: "notebooklm", name: "NotebookLM", category: "AI Tools", url: "https://notebooklm.google.com" },
-  { id: "google-ai-studio", name: "Google AI Studio", category: "AI Tools", url: "https://aistudio.google.com", parentId: "gemini" },
+  {
+    id: "google-ai-studio",
+    name: "Google AI Studio",
+    category: "AI Tools",
+    url: "https://aistudio.google.com",
+    parentId: "gemini",
+  },
   { id: "cursor", name: "Cursor", category: "AI Tools", url: "https://cursor.com" },
   { id: "elevenlabs", name: "ElevenLabs", category: "AI Tools", url: "https://elevenlabs.io" },
   { id: "chatgpt", name: "ChatGPT", category: "AI Tools", url: "https://chat.openai.com" },
   { id: "notion-ai", name: "Notion AI", category: "Productivity", url: "https://notion.so", parentId: "notion" },
   { id: "claude-code", name: "Claude Code", category: "AI Tools", url: "https://claude.ai" },
-  { id: "huxe", name: "Huxe", category: "AI Tools" },
+  { id: "huxe", name: "Huxe", category: "AI Tools", url: "https://www.huxe.com" },
   { id: "claude", name: "Claude", category: "AI Tools", url: "https://claude.ai" },
   { id: "ollama", name: "Ollama", category: "AI Tools", url: "https://ollama.ai" },
   { id: "glean", name: "Glean", category: "AI Tools", url: "https://glean.com" },
   { id: "perplexity", name: "Perplexity", category: "AI Tools", url: "https://perplexity.ai" },
-  { id: "manus-ai", name: "Manus AI", category: "AI Tools" },
+  { id: "manus-ai", name: "Manus AI", category: "AI Tools", url: "https://manusai.ai" },
   { id: "v0", name: "v0", category: "AI Tools", url: "https://v0.dev" },
-  { id: "windsurf", name: "Windsurf", category: "AI Tools" },
+  { id: "windsurf", name: "Windsurf", category: "AI Tools", url: "https://windsurf.com" },
   { id: "claude-opus-4", name: "Claude Opus 4", category: "AI Tools", url: "https://claude.ai", parentId: "claude" },
-  { id: "claude-sonnet-45", name: "Claude Sonnet 4.5", category: "AI Tools", url: "https://claude.ai", parentId: "claude" },
+  {
+    id: "claude-sonnet-45",
+    name: "Claude Sonnet 4.5",
+    category: "AI Tools",
+    url: "https://claude.ai",
+    parentId: "claude",
+  },
   { id: "deepseek", name: "DeepSeek", category: "AI Tools", url: "https://deepseek.com" },
-  { id: "dola-ai", name: "Dola AI", category: "AI Tools" },
+  { id: "dola-ai", name: "Dola AI", category: "AI Tools", url: "https://heydola.com" },
   { id: "opusclip", name: "OpusClip", category: "AI Tools", url: "https://opus.pro" },
   { id: "comet-perplexity", name: "Comet Perplexity", category: "AI Tools", parentId: "perplexity" },
   { id: "openai", name: "Open AI", category: "AI Tools", url: "https://openai.com" },
   { id: "lechat", name: "LeChat", category: "AI Tools" },
   { id: "perplexity-labs", name: "Perplexity Labs", category: "AI Tools", parentId: "perplexity" },
-  { id: "firebase-studio", name: "Firebase Studio", category: "AI Tools" },
-  { id: "mindstudio", name: "MindStudio", category: "AI Tools" },
-  { id: "kayak-gpt", name: "Kayak GPT", category: "AI Tools" },
+  { id: "firebase-studio", name: "Firebase Studio", category: "AI Tools", url: "https://firebase.studio" },
+  { id: "mindstudio", name: "MindStudio", category: "AI Tools", url: "https://www.mindstudio.ai" },
+  { id: "kayak-gpt", name: "Kayak GPT", category: "AI Tools", url: "https://kayak.ai" },
   { id: "chatgpt-o3", name: "ChatGPT o3", category: "AI Tools", parentId: "chatgpt" },
   { id: "chatgpt-search", name: "ChatGPT Search", category: "AI Tools", parentId: "chatgpt" },
   { id: "chatgpt-images", name: "ChatGPT - novo modelo de imagens", category: "AI Tools", parentId: "chatgpt" },
   { id: "chatgpt-projects", name: "ChatGPT Projects", category: "AI Tools", parentId: "chatgpt" },
-  { id: "claude-code-chatgpt", name: "Claude Code + ChatGPT", category: "AI Tools", alsoCredits: ["claude-code", "chatgpt"] },
+  {
+    id: "claude-code-chatgpt",
+    name: "Claude Code + ChatGPT",
+    category: "AI Tools",
+    alsoCredits: ["claude-code", "chatgpt"],
+  },
   { id: "codex-openai", name: "Codex da OpenAI", category: "AI Tools" },
-  { id: "acrobat-ai", name: "Acrobat AI Assistant", category: "AI Tools" },
-  { id: "veo3", name: "Veo3", category: "AI Tools" },
+  {
+    id: "acrobat-ai",
+    name: "Acrobat AI Assistant",
+    category: "AI Tools",
+    url: "https://www.adobe.com/acrobat/generative-ai-pdf.html",
+  },
+  { id: "veo3", name: "Veo3", category: "AI Tools", url: "https://aistudio.google.com/models/veo-3" },
   { id: "suno-ai", name: "Suno AI", category: "AI Tools", url: "https://suno.ai" },
   { id: "moises-ai", name: "Moises.AI", category: "AI Tools", url: "https://moises.ai" },
-  { id: "captions", name: "Captions", category: "AI Tools" },
-  { id: "napkin", name: "Napkin", category: "AI Tools" },
+  { id: "captions", name: "Captions", category: "AI Tools", url: "https://www.captions.ai" },
+  { id: "napkin", name: "Napkin", category: "AI Tools", url: "https://www.napkin.ai" },
   { id: "tldv", name: "TL;DV", category: "AI Tools", url: "https://tldv.io" },
-  { id: "plaude", name: "Plaude", category: "AI Tools" },
-  { id: "magie", name: "Magie", category: "AI Tools" },
+  { id: "plaud", name: "Plaud", category: "AI Tools", url: "https://plaud.ai" },
+  { id: "magie", name: "Magie", category: "AI Tools", url: "https://magicai.ai" },
 
   // Automation
   { id: "make", name: "Make", category: "Automation", url: "https://make.com" },
@@ -142,7 +349,7 @@ export const products: Product[] = [
   { id: "training-peaks", name: "Training Peaks", category: "Fitness", url: "https://trainingpeaks.com" },
   { id: "trainiac", name: "Trainiac", category: "Fitness" },
   { id: "total-pass", name: "Total Pass", category: "Fitness" },
-  { id: "wellhub", name: "Wellhub", category: "Fitness" },
+  { id: "wellhub", name: "Wellhub", category: "Fitness", url: "https://wellhub.com" },
   { id: "mfit-personal", name: "MFIT Personal", category: "Fitness" },
   { id: "runstory", name: "RunStory", category: "Fitness" },
   { id: "bicicleta-equilibrio", name: "Bicicleta de equilíbrio", category: "Fitness" },
@@ -150,8 +357,8 @@ export const products: Product[] = [
   { id: "asics-house", name: "Asics House no Parque Bruno Covas", category: "Fitness" },
   { id: "liti", name: "Liti", category: "Fitness" },
   { id: "fitness-plus", name: "Fitness+", category: "Fitness" },
-  { id: "yazio", name: "Yazio", category: "Fitness" },
-  { id: "streaks", name: "Streaks", category: "Fitness" },
+  { id: "yazio", name: "Yazio", category: "Fitness", url: "https://www.yazio.com" },
+  { id: "streaks", name: "Streaks", category: "Fitness", url: "https://streaksapp.com" },
 
   // Analytics
   { id: "amplitude", name: "Amplitude", category: "Analytics", url: "https://amplitude.com" },
@@ -163,7 +370,7 @@ export const products: Product[] = [
   { id: "klook", name: "Klook", category: "Travel", url: "https://klook.com" },
   { id: "wanderlog", name: "Wanderlog", category: "Travel", url: "https://wanderlog.com" },
   { id: "skyscanner", name: "Skyscanner", category: "Travel", url: "https://skyscanner.com" },
-  { id: "time-shifter", name: "Time Shifter", category: "Travel" },
+  { id: "time-shifter", name: "Time Shifter", category: "Travel", url: "https://www.timeshifter.com" },
   { id: "uk-eta", name: "UK ETA", category: "Travel" },
 
   // Transportation
@@ -185,7 +392,7 @@ export const products: Product[] = [
   { id: "twitter", name: "Twitter", category: "Social", url: "https://x.com" },
   { id: "tiktok", name: "TikTok", category: "Social", url: "https://tiktok.com" },
   { id: "linkedin", name: "LinkedIn", category: "Social", url: "https://linkedin.com" },
-  { id: "pixelfed", name: "Pixelfed", category: "Social" },
+  { id: "pixelfed", name: "Pixelfed", category: "Social", url: "https://pixelfed.org" },
 
   // Productivity
   { id: "loom", name: "Loom", category: "Productivity", url: "https://loom.com" },
@@ -197,29 +404,29 @@ export const products: Product[] = [
   { id: "figma", name: "Figma", category: "Productivity", url: "https://figma.com" },
   { id: "figma-make", name: "Figma Make", category: "Productivity", parentId: "figma" },
   { id: "clickup", name: "ClickUp", category: "Productivity", url: "https://clickup.com" },
-  { id: "google-slides", name: "Google Slides", category: "Productivity" },
+  { id: "google-slides", name: "Google Slides", category: "Productivity", url: "https://slides.google.com" },
   { id: "google-maps", name: "Google Maps", category: "Productivity", url: "https://maps.google.com" },
   { id: "raindrop", name: "Raindrop", category: "Productivity", url: "https://raindrop.io" },
-  { id: "onesec", name: "OneSec", category: "Productivity" },
+  { id: "onesec", name: "OneSec", category: "Productivity", url: "https://one-sec.app" },
   { id: "shortcuts-ios", name: "Shortcuts do iOS", category: "Productivity" },
   { id: "apple-shortcut", name: "Shortcut da Apple", category: "Productivity", parentId: "shortcuts-ios" },
   { id: "copilot-365", name: "Microsoft Copilot 365", category: "Productivity" },
   { id: "post-it", name: "Post It", category: "Productivity" },
-  { id: "insight-timer", name: "Insight Timer", category: "Productivity" },
+  { id: "insight-timer", name: "Insight Timer", category: "Productivity", url: "https://insighttimer.com" },
   { id: "timeline-sheets", name: "Timeline no Google Sheets", category: "Productivity" },
-  { id: "polycam", name: "Polycam - Scanner 3D", category: "Productivity" },
-  { id: "kong-api", name: "Kong API Gateway", category: "Productivity" },
-  { id: "testflight", name: "TestFlight", category: "Productivity" },
+  { id: "polycam", name: "Polycam - Scanner 3D", category: "Productivity", url: "https://poly.cam" },
+  { id: "kong-api", name: "Kong API Gateway", category: "Productivity", url: "https://konghq.com" },
+  { id: "testflight", name: "TestFlight", category: "Productivity", url: "https://testflight.apple.com" },
 
   // Education
   { id: "vocabulary", name: "Vocabulary", category: "Education", url: "https://vocabulary.com" },
   { id: "duolingo", name: "Duolingo", category: "Education", url: "https://duolingo.com" },
-  { id: "12min", name: "12min", category: "Education" },
-  { id: "headway", name: "Headway", category: "Education" },
+  { id: "12min", name: "12min", category: "Education", url: "https://12min.com" },
+  { id: "headway", name: "Headway", category: "Education", url: "https://makeheadway.com" },
   { id: "brilliant", name: "Brilliant", category: "Education", url: "https://brilliant.org" },
   { id: "mimo", name: "Mimo.org", category: "Education", url: "https://mimo.org" },
   { id: "curso-ia-nocode", name: "Curso de IA + NoCode", category: "Education" },
-  { id: "focumon", name: "Focumon", category: "Education" },
+  { id: "focumon", name: "Focumon", category: "Education", url: "https://www.focumon.com" },
   { id: "audible", name: "Audible", category: "Education", url: "https://audible.com" },
 
   // Entertainment
@@ -237,8 +444,8 @@ export const products: Product[] = [
   { id: "viki", name: "Viki", category: "Entertainment", url: "https://viki.com" },
   { id: "tidal-hifi", name: "Tidal HiFi", category: "Entertainment" },
   { id: "spotify", name: "Spotify", category: "Entertainment", url: "https://spotify.com" },
-  { id: "shazam", name: "Shazam", category: "Entertainment" },
-  { id: "songsterr", name: "Songsterr", category: "Entertainment" },
+  { id: "shazam", name: "Shazam", category: "Entertainment", url: "https://www.shazam.com" },
+  { id: "songsterr", name: "Songsterr", category: "Entertainment", url: "https://www.songsterr.com" },
   { id: "cazetv", name: "CazeTV", category: "Entertainment" },
   { id: "pixverse", name: "Pixverse", category: "Entertainment" },
   { id: "pokeflix", name: "Pokeflix", category: "Entertainment" },
@@ -256,10 +463,10 @@ export const products: Product[] = [
   { id: "binance", name: "Binance", category: "Finance", url: "https://binance.com" },
   { id: "irpf25", name: "IRPF25", category: "Finance" },
   { id: "irpf2025", name: "IRPF2025", category: "Finance", parentId: "irpf25" },
-  { id: "coinmarket-cap", name: "Coinmarket Cap", category: "Finance" },
-  { id: "mercado-bitcoin", name: "Mercado Bitcoin", category: "Finance" },
-  { id: "gorila", name: "Gorila", category: "Finance" },
-  { id: "pagaleve", name: "Pagaleve", category: "Finance" },
+  { id: "coinmarket-cap", name: "Coinmarket Cap", category: "Finance", url: "https://coinmarketcap.com" },
+  { id: "mercado-bitcoin", name: "Mercado Bitcoin", category: "Finance", url: "https://www.mercadobitcoin.com.br" },
+  { id: "gorila", name: "Gorila", category: "Finance", url: "https://gorila.com.br" },
+  { id: "pagaleve", name: "Pagaleve", category: "Finance", url: "https://www.pagaleve.com.br" },
   { id: "pagol", name: "PaGol", category: "Finance" },
   { id: "calculadora-loft", name: "Calculadora financiamento loft", category: "Finance" },
   { id: "minhas-financas", name: "Minhas Finanças", category: "Finance" },
@@ -286,19 +493,29 @@ export const products: Product[] = [
   { id: "rentbrella", name: "Rentbrella", category: "Lifestyle" },
   { id: "uno", name: "Uno", category: "Lifestyle" },
   { id: "hidrogel", name: "Hidrogel", category: "Lifestyle" },
-  { id: "waterminder", name: "WaterMinder", category: "Lifestyle" },
-  { id: "tag-sem-parar", name: "Tag Sem Parar", category: "Lifestyle" },
-  { id: "smart-things-samsung", name: "Smart Things Samsung", category: "Lifestyle" },
-  { id: "xbox-series-s", name: "Xbox Series S", category: "Lifestyle" },
+  { id: "waterminder", name: "WaterMinder", category: "Lifestyle", url: "https://waterminder.com" },
+  { id: "tag-sem-parar", name: "Tag Sem Parar", category: "Lifestyle", url: "https://www.semparar.com.br" },
+  {
+    id: "smart-things-samsung",
+    name: "Smart Things Samsung",
+    category: "Lifestyle",
+    url: "https://www.samsung.com/us/smartthings",
+  },
+  {
+    id: "xbox-series-s",
+    name: "Xbox Series S",
+    category: "Lifestyle",
+    url: "https://www.xbox.com/en-US/consoles/xbox-series-s",
+  },
   { id: "nintendo-switch-2", name: "Nintendo Switch 2", category: "Lifestyle" },
   { id: "cereal-snowflake", name: "Cereal Snowflake", category: "Lifestyle" },
   { id: "as-semanas-magicas", name: "As semanas mágicas", category: "Lifestyle" },
 
   // Wellness
   { id: "opal", name: "Opal", category: "Wellness", url: "https://opal.so" },
-  { id: "beep-saude", name: "Beep Saúde", category: "Wellness" },
-  { id: "dasa", name: "Dasa", category: "Wellness" },
-  { id: "fleury", name: "Fleury", category: "Wellness" },
+  { id: "beep-saude", name: "Beep Saúde", category: "Wellness", url: "https://beepsaude.com.br" },
+  { id: "dasa", name: "Dasa", category: "Wellness", url: "https://dasa.com.br" },
+  { id: "fleury", name: "Fleury", category: "Wellness", url: "https://www.fleury.com.br" },
   { id: "dia", name: "Dia", category: "Wellness" },
 
   // Delivery
@@ -312,20 +529,20 @@ export const products: Product[] = [
   { id: "supabase", name: "Supabase", category: "Tech", url: "https://supabase.com" },
   { id: "warp", name: "Warp", category: "Tech", url: "https://warp.dev" },
   { id: "ghost", name: "Ghost", category: "Tech", url: "https://ghost.org" },
-  { id: "obs-studio", name: "OBS Studio", category: "Tech" },
+  { id: "obs-studio", name: "OBS Studio", category: "Tech", url: "https://obsproject.com" },
   { id: "capcut", name: "CapCut", category: "Tech", url: "https://capcut.com" },
-  { id: "easypanel", name: "EasyPanel", category: "Tech" },
+  { id: "easypanel", name: "EasyPanel", category: "Tech", url: "https://easypanel.io" },
   { id: "artigo-app", name: "Artigo.app", category: "Tech" },
   { id: "riverside", name: "Riverside", category: "Tech", url: "https://riverside.fm" },
-  { id: "elementor", name: "Elementor", category: "Tech" },
+  { id: "elementor", name: "Elementor", category: "Tech", url: "https://elementor.com" },
   { id: "anyigo", name: "AnyIGo", category: "Tech" },
   { id: "cam-studio", name: "Cam Studio", category: "Tech" },
   { id: "substack", name: "Substack", category: "Tech", url: "https://substack.com" },
-  { id: "grit", name: "Grit", category: "Tech" },
-  { id: "fanthom", name: "Fanthom", category: "Tech" },
+  { id: "grit", name: "Grit", category: "Tech", url: "https://www.grit.io" },
+  { id: "fanthom", name: "Fanthom", category: "Tech", url: "https://usefathom.com" },
   { id: "chrome", name: "Chrome", category: "Tech" },
   { id: "api-facebook", name: "API do Facebook", category: "Tech" },
-  { id: "adobe-lightroom", name: "Adobe Lightroom", category: "Tech" },
+  { id: "adobe-lightroom", name: "Adobe Lightroom", category: "Tech", url: "https://lightroom.adobe.com" },
 
   // Insurance
   { id: "allianz-seguros", name: "Allianz Seguros", category: "Insurance" },
@@ -339,10 +556,10 @@ export const products: Product[] = [
   { id: "maze", name: "maze.co", category: "Business", url: "https://maze.co" },
   { id: "trela", name: "Trela", category: "Business" },
   { id: "splitwise", name: "Splitwise", category: "Business", url: "https://splitwise.com" },
-  { id: "tricount", name: "Tricount", category: "Business" },
-  { id: "boosteroid", name: "Boosteroid", category: "Business" },
-  { id: "skoob", name: "Skoob", category: "Business" },
-  { id: "skeelo", name: "Skeelo", category: "Business" },
+  { id: "tricount", name: "Tricount", category: "Business", url: "https://tricount.com" },
+  { id: "boosteroid", name: "Boosteroid", category: "Business", url: "https://boosteroid.com" },
+  { id: "skoob", name: "Skoob", category: "Business", url: "https://skoob.com.br" },
+  { id: "skeelo", name: "Skeelo", category: "Business", url: "https://skeelo.com" },
   { id: "etsy", name: "Etsy", category: "Business", url: "https://etsy.com" },
   { id: "olx", name: "OLX", category: "Business", url: "https://olx.com.br" },
   { id: "ebay", name: "Ebay", category: "Business", url: "https://ebay.com" },
@@ -366,11 +583,11 @@ export const products: Product[] = [
   { id: "bblend", name: "BBlend", category: "Business" },
   { id: "ultragas", name: "Ultragás", category: "Business" },
   { id: "calculadora-ios18", name: "Calculadora do iOS 18", category: "Business" },
-  { id: "speechify", name: "Speechify", category: "Business" },
+  { id: "speechify", name: "Speechify", category: "Business", url: "https://speechify.com" },
   { id: "raizs", name: "Raizs", category: "Business" },
   { id: "icasei", name: "Assessoria Vip / iCasei", category: "Business" },
   { id: "event-tracker-aiquis", name: "Event Tracker do Aíquis", category: "Business" },
-  { id: "be-my-eyes", name: "Be My Eyes", category: "Business" },
+  { id: "be-my-eyes", name: "Be My Eyes", category: "Business", url: "https://www.bemyeyes.com" },
   { id: "whatsapp", name: "WhatsApp", category: "Business", url: "https://whatsapp.com" },
 
   // Apps
@@ -382,13 +599,23 @@ export const products: Product[] = [
   { id: "soundcore-q30", name: "Anker Soundcore Q30", category: "Apps" },
   { id: "anker-powerconf", name: "Anker Powerconf C200", category: "Apps" },
   { id: "logitech-mx-vertical", name: "Logitech MX Vertical", category: "Apps" },
-  { id: "mymind", name: "Mymind", category: "Apps" },
-  { id: "atlas", name: "Atlas", category: "Apps" },
+  { id: "mymind", name: "Mymind", category: "Apps", url: "https://mymind.com" },
+  { id: "atlas", name: "Atlas", category: "Apps", url: "https://atlas.co" },
   { id: "gravador-voz", name: "Gravador de voz com transcrição", category: "Apps" },
 
   // Original products from 2026 episodes
-  { id: "art-science-engineering", name: "The Art of Doing Science and Engineering: Learning to Learn", category: "Education", url: "https://substack.com/redirect/d44ff958-d2d1-476e-b90e-720a653353bc?j=eyJ1IjoiM2Z4N2xsIn0.hprP9-m3wJcmtKuXGObKSXN8QwqEhdmH1uzVY49NegA" },
-  { id: "spa-inflavel-intex", name: "Spa Inflável 795L 120 Jatos PureSpa Bubbles Intex", category: "Lifestyle", url: "https://substack.com/redirect/4e097965-e146-4a63-b675-520b7728263f?j=eyJ1IjoiM2Z4N2xsIn0.hprP9-m3wJcmtKuXGObKSXN8QwqEhdmH1uzVY49NegA" },
+  {
+    id: "art-science-engineering",
+    name: "The Art of Doing Science and Engineering: Learning to Learn",
+    category: "Education",
+    url: "https://substack.com/redirect/d44ff958-d2d1-476e-b90e-720a653353bc?j=eyJ1IjoiM2Z4N2xsIn0.hprP9-m3wJcmtKuXGObKSXN8QwqEhdmH1uzVY49NegA",
+  },
+  {
+    id: "spa-inflavel-intex",
+    name: "Spa Inflável 795L 120 Jatos PureSpa Bubbles Intex",
+    category: "Lifestyle",
+    url: "https://substack.com/redirect/4e097965-e146-4a63-b675-520b7728263f?j=eyJ1IjoiM2Z4N2xsIn0.hprP9-m3wJcmtKuXGObKSXN8QwqEhdmH1uzVY49NegA",
+  },
 ];
 
 // People (contributors/hosts)
@@ -598,7 +825,7 @@ export const mentions: Mention[] = [
   { id: "m68-7", episodeId: 68, personId: "agata-cristina", productId: "skeelo" },
   { id: "m68-8", episodeId: 68, personId: "alexandre-pereira", productId: "canva" },
   { id: "m68-9", episodeId: 68, personId: "pedro-motta", productId: "calculadora-loft" },
-  { id: "m68-10", episodeId: 68, personId: "thiago-oliveira", productId: "plaude" },
+  { id: "m68-10", episodeId: 68, personId: "thiago-oliveira", productId: "plaud" },
   { id: "m68-11", episodeId: 68, personId: "cloves", productId: "pixelfed" },
   { id: "m68-12", episodeId: 68, personId: "pilon", productId: "mercado-livre" },
   { id: "m68-13", episodeId: 68, personId: "nana", productId: "binance" },
@@ -994,18 +1221,42 @@ export const mentions: Mention[] = [
   { id: "m99-13", episodeId: 99, personId: "vinicius-maricato", productId: "notebooklm" },
   { id: "m99-14", episodeId: 99, personId: "huxley", productId: "cursor" },
   { id: "m99-15", episodeId: 99, personId: "filipe-barros", productId: "claude" },
-  { id: "m99-16", episodeId: 99, personId: "marina-moreira", productId: "n8n", context: "n8n + Vertex API testando automações de vídeo com o Veo 3.1" },
+  {
+    id: "m99-16",
+    episodeId: 99,
+    personId: "marina-moreira",
+    productId: "n8n",
+    context: "n8n + Vertex API testando automações de vídeo com o Veo 3.1",
+  },
 
   // Episode 101
   { id: "m101-1", episodeId: 101, personId: "daniel-gonzalez", productId: "bolt" },
   { id: "m101-2", episodeId: 101, personId: "thiago-simao", productId: "lovable" },
-  { id: "m101-3", episodeId: 101, personId: "iona-oliveira", productId: "wisprflow", context: "Uso para interação com Claude Code" },
+  {
+    id: "m101-3",
+    episodeId: 101,
+    personId: "iona-oliveira",
+    productId: "wisprflow",
+    context: "Uso para interação com Claude Code",
+  },
   { id: "m101-4", episodeId: 101, personId: "walmir", productId: "make" },
   { id: "m101-5", episodeId: 101, personId: "ronald-falcao", productId: "n8n" },
   { id: "m101-6", episodeId: 101, personId: "ronald-falcao", productId: "agua", context: "Calor intenso" },
-  { id: "m101-7", episodeId: 101, personId: "wilson-moraes", productId: "strava", context: "Atenção ao Quitter's Day em 19 de janeiro" },
+  {
+    id: "m101-7",
+    episodeId: 101,
+    personId: "wilson-moraes",
+    productId: "strava",
+    context: "Atenção ao Quitter's Day em 19 de janeiro",
+  },
   { id: "m101-8", episodeId: 101, personId: "portinho", productId: "gemini", context: "Cancelou assinatura ChatGPT" },
-  { id: "m101-9", episodeId: 101, personId: "vanessa", productId: "99", context: "Novo código de segurança ao chegar no carro" },
+  {
+    id: "m101-9",
+    episodeId: 101,
+    personId: "vanessa",
+    productId: "99",
+    context: "Novo código de segurança ao chegar no carro",
+  },
   { id: "m101-10", episodeId: 101, personId: "novellino", productId: "amplitude" },
   { id: "m101-11", episodeId: 101, personId: "glauco", productId: "airbnb" },
   { id: "m101-12", episodeId: 101, personId: "lucao", productId: "twitter" },
@@ -1075,19 +1326,15 @@ export function getEpisodeById(id: number): Episode | undefined {
 export function getMentionsByProduct(productId: string): Mention[] {
   // Get direct mentions
   const directMentions = mentions.filter((m) => m.productId === productId);
-  
+
   // Get mentions from child products (parentId pointing to this product)
   const childProducts = products.filter((p) => p.parentId === productId);
-  const childMentions = mentions.filter((m) => 
-    childProducts.some((child) => child.id === m.productId)
-  );
-  
+  const childMentions = mentions.filter((m) => childProducts.some((child) => child.id === m.productId));
+
   // Get mentions from combo products (alsoCredits including this product)
   const comboProducts = products.filter((p) => p.alsoCredits?.includes(productId));
-  const comboMentions = mentions.filter((m) => 
-    comboProducts.some((combo) => combo.id === m.productId)
-  );
-  
+  const comboMentions = mentions.filter((m) => comboProducts.some((combo) => combo.id === m.productId));
+
   // Combine and dedupe by mention id
   const allMentions = [...directMentions, ...childMentions, ...comboMentions];
   return [...new Map(allMentions.map((m) => [m.id, m])).values()];
@@ -1112,7 +1359,7 @@ export function getPersonMentionCount(personId: string): number {
 export function getTopProducts(limit: number = 10): { product: Product; count: number }[] {
   // Only consider "main" products (no parentId) to avoid double-counting
   const mainProducts = products.filter((p) => !p.parentId);
-  
+
   return mainProducts
     .map((product) => ({
       product,
@@ -1174,7 +1421,7 @@ export function getEpisodesByYear(year: number | "all"): Episode[] {
 
 export function getTopProductsMentionsOverTime(limit: number = 10): Record<string, any>[] {
   const topProducts = getTopProducts(limit);
-  
+
   // Initialize cumulative counters for each product
   const cumulativeCounts: Record<string, number> = {};
   topProducts.forEach(({ product }) => {
@@ -1193,13 +1440,11 @@ export function getTopProductsMentionsOverTime(limit: number = 10): Record<strin
       topProducts.forEach(({ product }) => {
         // Count mentions for this episode (includes variants and combos)
         const productMentions = getMentionsByProduct(product.id);
-        const count = productMentions.filter(
-          (m) => m.episodeId === episode.id
-        ).length;
-        
+        const count = productMentions.filter((m) => m.episodeId === episode.id).length;
+
         // Add to cumulative total
         cumulativeCounts[product.id] += count;
-        
+
         // Store cumulative value
         dataPoint[product.name] = cumulativeCounts[product.id];
       });
@@ -1213,13 +1458,8 @@ export function getCategoryMentionsOverTime(limit: number = 8): Record<string, a
   const allCategories = getCategories();
   const categoryTotals = allCategories
     .map((category) => {
-      const categoryProducts = getProductsByCategory(category).filter(
-        (p) => !p.parentId && !p.alsoCredits
-      );
-      const mentionCount = categoryProducts.reduce(
-        (sum, p) => sum + getMentionsByProduct(p.id).length,
-        0
-      );
+      const categoryProducts = getProductsByCategory(category).filter((p) => !p.parentId && !p.alsoCredits);
+      const mentionCount = categoryProducts.reduce((sum, p) => sum + getMentionsByProduct(p.id).length, 0);
       return { name: category, count: mentionCount };
     })
     .filter((c) => c.count > 0)
@@ -1234,7 +1474,7 @@ export function getCategoryMentionsOverTime(limit: number = 8): Record<string, a
 
   // Build data points for each episode
   const sortedEpisodes = episodes.slice().sort((a, b) => a.id - b.id);
-  
+
   return sortedEpisodes.map((episode) => {
     const dataPoint: Record<string, any> = {
       episode: `Ep ${episode.id}`,
@@ -1242,13 +1482,9 @@ export function getCategoryMentionsOverTime(limit: number = 8): Record<string, a
     };
 
     categoryTotals.forEach(({ name }) => {
-      const categoryProducts = getProductsByCategory(name).filter(
-        (p) => !p.parentId && !p.alsoCredits
-      );
+      const categoryProducts = getProductsByCategory(name).filter((p) => !p.parentId && !p.alsoCredits);
       const count = mentions.filter(
-        (m) =>
-          m.episodeId === episode.id &&
-          categoryProducts.some((p) => p.id === m.productId)
+        (m) => m.episodeId === episode.id && categoryProducts.some((p) => p.id === m.productId),
       ).length;
 
       cumulativeCounts[name] += count;
@@ -1263,13 +1499,8 @@ export function getTopCategoryNames(limit: number = 8): string[] {
   const allCategories = getCategories();
   return allCategories
     .map((category) => {
-      const categoryProducts = getProductsByCategory(category).filter(
-        (p) => !p.parentId && !p.alsoCredits
-      );
-      const mentionCount = categoryProducts.reduce(
-        (sum, p) => sum + getMentionsByProduct(p.id).length,
-        0
-      );
+      const categoryProducts = getProductsByCategory(category).filter((p) => !p.parentId && !p.alsoCredits);
+      const mentionCount = categoryProducts.reduce((sum, p) => sum + getMentionsByProduct(p.id).length, 0);
       return { name: category, count: mentionCount };
     })
     .filter((c) => c.count > 0)
@@ -1281,5 +1512,5 @@ export function getTopCategoryNames(limit: number = 8): string[] {
 // Add missing product for beerpass
 const beerpassProduct: Product = { id: "beerpass", name: "Beerpass", category: "Lifestyle" };
 const sitlyProduct: Product = { id: "sitly", name: "Sitly", category: "Apps" };
-if (!products.find(p => p.id === "beerpass")) products.push(beerpassProduct);
-if (!products.find(p => p.id === "sitly")) products.push(sitlyProduct);
+if (!products.find((p) => p.id === "beerpass")) products.push(beerpassProduct);
+if (!products.find((p) => p.id === "sitly")) products.push(sitlyProduct);
