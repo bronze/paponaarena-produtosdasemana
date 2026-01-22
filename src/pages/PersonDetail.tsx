@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -23,6 +23,7 @@ const COLORS = [
 
 export default function PersonDetail() {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
   const person = getPersonById(id || "");
   const mentions = getMentionsByPerson(id || "");
 
@@ -44,6 +45,7 @@ export default function PersonDetail() {
       .sort((a, b) => b - a);
     
     return {
+      id: item.product.id,
       name: item.product.name,
       mentions: item.count,
       episodes: episodeNumbers,
@@ -170,7 +172,14 @@ export default function PersonDetail() {
                     width={100}
                   />
                   <Tooltip content={<CustomTooltip />} cursor={{ fill: 'hsl(var(--muted))' }} />
-                  <Bar dataKey="mentions" radius={[0, 4, 4, 0]}>
+                  <Bar
+                    dataKey="mentions"
+                    radius={[0, 4, 4, 0]}
+                    cursor="pointer"
+                    onClick={(data) => {
+                      if (data?.id) navigate(`/products/${data.id}`);
+                    }}
+                  >
                     {chartData.map((_, index) => (
                       <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                     ))}
