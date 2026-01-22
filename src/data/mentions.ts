@@ -264,7 +264,7 @@ export const products: Product[] = [
   { id: "bolt", name: "Bolt", category: "AI Tools", url: "https://bolt.new" },
   { id: "lovable", name: "Lovable", category: "AI Tools", url: "https://lovable.dev" },
   { id: "wisprflow", name: "WisprFlow", category: "AI Tools", url: "https://wisprflow.ai" },
-  { id: "gemini", name: "Gemini", category: "AI Tools", url: "https://gemini.google.com/app" },
+  { id: "gemini", name: "Gemini", category: "AI Tools", url: "https://gemini.google.com/" },
   { id: "replit", name: "Replit", category: "AI Tools", url: "https://replit.com" },
   { id: "notebooklm", name: "NotebookLM", category: "AI Tools", url: "https://notebooklm.google.com" },
   {
