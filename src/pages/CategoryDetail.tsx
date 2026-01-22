@@ -229,7 +229,7 @@ export default function CategoryDetail() {
                   <TableCell>
                     <Link
                       to={`/products/${item.product.id}`}
-                      className="text-primary hover:underline font-medium"
+                      className="font-medium text-foreground hover:text-primary transition-colors"
                     >
                       {item.product.name}
                     </Link>
