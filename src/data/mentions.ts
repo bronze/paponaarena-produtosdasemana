@@ -1152,6 +1152,12 @@ export function getEpisodesByYear(year: number | "all"): Episode[] {
 
 export function getTopProductsMentionsOverTime(limit: number = 10): Record<string, any>[] {
   const topProducts = getTopProducts(limit);
+  
+  // Initialize cumulative counters for each product
+  const cumulativeCounts: Record<string, number> = {};
+  topProducts.forEach(({ product }) => {
+    cumulativeCounts[product.id] = 0;
+  });
 
   return episodes
     .slice()
@@ -1163,10 +1169,16 @@ export function getTopProductsMentionsOverTime(limit: number = 10): Record<strin
       };
 
       topProducts.forEach(({ product }) => {
+        // Count mentions for this episode
         const count = mentions.filter(
           (m) => m.episodeId === episode.id && m.productId === product.id
         ).length;
-        dataPoint[product.name] = count;
+        
+        // Add to cumulative total
+        cumulativeCounts[product.id] += count;
+        
+        // Store cumulative value
+        dataPoint[product.name] = cumulativeCounts[product.id];
       });
 
       return dataPoint;
