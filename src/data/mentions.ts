@@ -335,6 +335,7 @@ export const products: Product[] = [
   { id: "tldv", name: "TL;DV", category: "AI Tools", url: "https://tldv.io" },
   { id: "plaud", name: "Plaud", category: "AI Tools", url: "https://www.plaud.ai/" },
   { id: "magie", name: "Magie", category: "AI Tools", url: "https://magie.com.br/" },
+  { id: "antigravity", name: "Antigravity", category: "AI Tools", url: "https://antigravity.google/" },
 
   // Automation
   { id: "make", name: "Make", category: "Automation", url: "https://make.com" },
@@ -347,7 +348,6 @@ export const products: Product[] = [
   { id: "hevy", name: "Hevy", category: "Fitness", url: "https://hevyapp.com" },
   { id: "gymrats", name: "GymRats", category: "Fitness", url: "https://gymratsapp.com" },
   { id: "bike-spinning", name: "Bike de Spinning", category: "Fitness" },
-  { id: "antigravity", name: "Antigravity", category: "Fitness" },
   { id: "whoop", name: "Whoop", category: "Fitness", url: "https://whoop.com" },
   { id: "samsung-watch-ultra", name: "Samsung Watch Ultra", category: "Fitness", parentId: "samsung-wearable" },
   { id: "samsung-wearable", name: "Samsung Wearable", category: "Fitness" },
