@@ -10,6 +10,7 @@ import {
   getProductMentionsByEpisode,
   getPersonById,
   getEpisodeById,
+  getChildProducts,
 } from "@/data/mentions";
 
 export default function ProductDetail() {
@@ -38,6 +39,9 @@ export default function ProductDetail() {
   const peopleIds = [...new Set(mentions.map((m) => m.personId))];
   const episodeIds = [...new Set(mentions.map((m) => m.episodeId))];
 
+  // Get child products (variants) that aggregate into this product
+  const childProducts = getChildProducts(product.id);
+
   return (
     <div className="space-y-6">
       <div className="flex items-center gap-4">
@@ -62,6 +66,16 @@ export default function ProductDetail() {
           <p className="text-muted-foreground mt-1">
             Product mention analytics
           </p>
+          {childProducts.length > 0 && (
+            <div className="flex items-center gap-2 mt-2 flex-wrap">
+              <span className="text-sm text-muted-foreground">Includes variants:</span>
+              {childProducts.map((child) => (
+                <Badge key={child.id} variant="outline" className="text-xs">
+                  {child.name}
+                </Badge>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
