@@ -9,7 +9,7 @@ import { getEpisodeYears, getEpisodesByYear, getMentionsByEpisode } from "@/data
 export default function Episodes() {
   const years = getEpisodeYears();
   const [selectedYear, setSelectedYear] = useState<number | "all">("all");
-  const filteredEpisodes = getEpisodesByYear(selectedYear);
+  const filteredEpisodes = getEpisodesByYear(selectedYear).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return (
     <div className="space-y-6">
