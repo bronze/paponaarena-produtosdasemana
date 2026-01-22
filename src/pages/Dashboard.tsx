@@ -2,6 +2,7 @@ import { Mic, Package, Users, MessageSquare } from "lucide-react";
 import { StatCard } from "@/components/dashboard/StatCard";
 import { TopProductsChart } from "@/components/dashboard/TopProductsChart";
 import { ProductTrendsChart } from "@/components/dashboard/ProductTrendsChart";
+import { CategoryTrendsChart } from "@/components/dashboard/CategoryTrendsChart";
 import { RecentMentions } from "@/components/dashboard/RecentMentions";
 import { LatestEpisodeCard } from "@/components/dashboard/LatestEpisodeCard";
 import { CategoryPieChart } from "@/components/dashboard/CategoryPieChart";
@@ -51,6 +52,7 @@ export default function Dashboard() {
         <div className="lg:col-span-2 space-y-6">
           <TopProductsChart />
           <ProductTrendsChart />
+          <CategoryTrendsChart />
         </div>
 
         {/* Right Column - Latest Episode + Category Pie + Recent Mentions */}
