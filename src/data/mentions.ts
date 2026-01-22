@@ -495,6 +495,7 @@ export const products: Product[] = [
   { id: "nintendo-switch-2", name: "Nintendo Switch 2", category: "Lifestyle" },
   { id: "cereal-snowflake", name: "Cereal Snowflake", category: "Lifestyle" },
   { id: "as-semanas-magicas", name: "As semanas mágicas", category: "Lifestyle" },
+  { id: "beerpass", name: "Beerpass", category: "Lifestyle", url: "https://beerpass.com.br" },
 
   // Wellness
   { id: "opal", name: "Opal", category: "Wellness", url: "https://opal.so" },
@@ -602,7 +603,6 @@ export const products: Product[] = [
     category: "Lifestyle",
     url: "https://substack.com/redirect/4e097965-e146-4a63-b675-520b7728263f?j=eyJ1IjoiM2Z4N2xsIn0.hprP9-m3wJcmtKuXGObKSXN8QwqEhdmH1uzVY49NegA",
   },
-  { id: "beerpass", name: "Beerpass", category: "Lifestyle", url: "https://beerpass.com.br" },
 ];
 
 // People (contributors/hosts)
@@ -1495,4 +1495,3 @@ export function getTopCategoryNames(limit: number = 8): string[] {
     .slice(0, limit)
     .map((c) => c.name);
 }
-
