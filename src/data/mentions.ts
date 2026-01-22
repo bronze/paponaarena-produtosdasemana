@@ -1060,6 +1060,10 @@ export function getProductById(id: string): Product | undefined {
   return products.find((p) => p.id === id);
 }
 
+export function getChildProducts(parentId: string): Product[] {
+  return products.filter((p) => p.parentId === parentId);
+}
+
 export function getPersonById(id: string): Person | undefined {
   return people.find((p) => p.id === id);
 }
