@@ -585,11 +585,11 @@ export const products: Product[] = [
   { id: "porto-seguro", name: "Porto Seguro Chatbot", category: "Insurance", url: "https://www.portoseguro.com.br" },
 
   // Business
-  { id: "home-planner", name: "Home Planner", category: "Business" },
-  { id: "mlabs", name: "MLabs", category: "Business" },
+  { id: "home-planner", name: "Home Planner", category: "Business", url: "https://www.homeplannerapp.com/" },
+  { id: "mlabs", name: "MLabs", category: "Business", url: "https://www.mlabs.com.br/" },
   { id: "afya-receita-pro", name: "Afya Receita Pro", category: "Business" },
   { id: "maze", name: "maze.co", category: "Business", url: "https://maze.co" },
-  { id: "trela", name: "Trela", category: "Business" },
+  { id: "trela", name: "Trela", category: "Business", url: "https://trela.com.br/" },
   { id: "splitwise", name: "Splitwise", category: "Business", url: "https://splitwise.com" },
   { id: "tricount", name: "Tricount", category: "Business", url: "https://tricount.com" },
   { id: "boosteroid", name: "Boosteroid", category: "Business", url: "https://boosteroid.com" },
