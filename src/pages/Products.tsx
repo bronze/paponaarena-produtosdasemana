@@ -3,30 +3,11 @@ import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Search, ArrowUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  products,
-  getProductMentionCount,
-  getMentionsByProduct,
-  getCategories,
-  episodes,
-} from "@/data/mentions";
+import { products, getProductMentionCount, getMentionsByProduct, getCategories, episodes } from "@/data/mentions";
 
 type SortKey = "name" | "mentions" | "episodes";
 type SortDir = "asc" | "desc";
@@ -53,13 +34,10 @@ export default function Products() {
     .filter((p) => p.mentionCount > 0); // Only show products with mentions
 
   const filteredProducts = productData
-    .filter(
-      (p) => selectedCategory === "all" || p.category === selectedCategory
-    )
+    .filter((p) => selectedCategory === "all" || p.category === selectedCategory)
     .filter(
       (p) =>
-        p.name.toLowerCase().includes(search.toLowerCase()) ||
-        p.category.toLowerCase().includes(search.toLowerCase())
+        p.name.toLowerCase().includes(search.toLowerCase()) || p.category.toLowerCase().includes(search.toLowerCase()),
     )
     .sort((a, b) => {
       let comparison = 0;
@@ -90,17 +68,21 @@ export default function Products() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-foreground">Products</h1>
-        <p className="text-muted-foreground mt-1">
-          All products mentioned across {episodes.length} episodes
-        </p>
+        <p className="text-muted-foreground mt-1">All products mentioned across {episodes.length} episodes</p>
       </div>
 
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
         <div className="flex flex-col sm:flex-row gap-3">
-          <Select
-            value={selectedCategory}
-            onValueChange={setSelectedCategory}
-          >
+          <div className="relative w-full sm:w-72">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <Input
+              placeholder="Search products..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="pl-9"
+            />
+          </div>
+          <Select value={selectedCategory} onValueChange={setSelectedCategory}>
             <SelectTrigger className="w-full sm:w-[180px]">
               <SelectValue placeholder="All Categories" />
             </SelectTrigger>
@@ -113,15 +95,6 @@ export default function Products() {
               ))}
             </SelectContent>
           </Select>
-          <div className="relative w-full sm:w-72">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-            <Input
-              placeholder="Search products..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="pl-9"
-            />
-          </div>
         </div>
       </div>
 
@@ -171,9 +144,7 @@ export default function Products() {
               <TableBody>
                 {filteredProducts.map((product, index) => (
                   <TableRow key={product.id} className="hover:bg-muted/50">
-                    <TableCell className="font-medium text-muted-foreground">
-                      {index + 1}
-                    </TableCell>
+                    <TableCell className="font-medium text-muted-foreground">{index + 1}</TableCell>
                     <TableCell>
                       <Link
                         to={`/products/${product.id}`}
@@ -186,9 +157,7 @@ export default function Products() {
                       <Badge variant="secondary">{product.category}</Badge>
                     </TableCell>
                     <TableCell>
-                      <span className="font-semibold text-primary">
-                        {product.mentionCount}
-                      </span>
+                      <span className="font-semibold text-primary">{product.mentionCount}</span>
                     </TableCell>
                     <TableCell>
                       <span className="text-muted-foreground">
@@ -201,9 +170,7 @@ export default function Products() {
             </Table>
           </div>
           {filteredProducts.length === 0 && (
-            <div className="text-center py-8 text-muted-foreground">
-              No products found matching "{search}"
-            </div>
+            <div className="text-center py-8 text-muted-foreground">No products found matching "{search}"</div>
           )}
         </CardContent>
       </Card>
