@@ -586,6 +586,7 @@ export const products: Product[] = [
   { id: "logitech-mx-vertical", name: "Logitech MX Vertical", category: "Apps" },
   { id: "mymind", name: "Mymind", category: "Apps" },
   { id: "atlas", name: "Atlas", category: "Apps" },
+  { id: "sitly", name: "Sitly", category: "Apps", url: "https://sitly.com.br" },
   { id: "gravador-voz", name: "Gravador de voz com transcrição", category: "Apps" },
 
   // Original products from 2026 episodes
@@ -601,6 +602,7 @@ export const products: Product[] = [
     category: "Lifestyle",
     url: "https://substack.com/redirect/4e097965-e146-4a63-b675-520b7728263f?j=eyJ1IjoiM2Z4N2xsIn0.hprP9-m3wJcmtKuXGObKSXN8QwqEhdmH1uzVY49NegA",
   },
+  { id: "beerpass", name: "Beerpass", category: "Lifestyle", url: "https://beerpass.com.br" },
 ];
 
 // People (contributors/hosts)
@@ -1494,8 +1496,3 @@ export function getTopCategoryNames(limit: number = 8): string[] {
     .map((c) => c.name);
 }
 
-// Add missing product for beerpass
-const beerpassProduct: Product = { id: "beerpass", name: "Beerpass", category: "Lifestyle" };
-const sitlyProduct: Product = { id: "sitly", name: "Sitly", category: "Apps" };
-if (!products.find((p) => p.id === "beerpass")) products.push(beerpassProduct);
-if (!products.find((p) => p.id === "sitly")) products.push(sitlyProduct);
