@@ -76,7 +76,9 @@ export default function EpisodeDetail() {
           </Link>
         </Button>
         <div>
-          <h1 className="text-2xl font-bold text-foreground">{episode.title}</h1>
+          <h1 className="text-2xl font-bold text-foreground">
+            Ep. {episode.id}: {episode.title}
+          </h1>
           <div className="flex items-center gap-4 mt-1">
             <div className="flex items-center gap-1 text-sm text-muted-foreground">
               <Calendar className="w-4 h-4" />
