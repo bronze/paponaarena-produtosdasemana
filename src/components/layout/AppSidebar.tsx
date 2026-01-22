@@ -1,4 +1,4 @@
-import { Home, Mic, Package, Users, Youtube } from "lucide-react";
+import { Home, Mic, Package, Users, Youtube, FolderOpen } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import {
   Sidebar,
@@ -17,6 +17,7 @@ const navigationItems = [
   { title: "Dashboard", url: "/", icon: Home },
   { title: "Episodes", url: "/episodes", icon: Mic },
   { title: "Products", url: "/products", icon: Package },
+  { title: "Categories", url: "/categories", icon: FolderOpen },
   { title: "People", url: "/people", icon: Users },
 ];
 
