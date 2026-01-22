@@ -68,13 +68,13 @@ export default function PersonDetail() {
     
     const data = payload[0].payload;
     return (
-      <div className="bg-card border border-border rounded-lg p-3 shadow-lg">
+      <div className="bg-card border border-border rounded-lg p-3 shadow-lg max-w-xs">
         <p className="font-semibold text-foreground">{data.name}</p>
         <p className="text-sm text-muted-foreground">
-          {data.mentions} {data.mentions === 1 ? 'menção' : 'menções'}
+          {data.mentions} mentions
         </p>
         <div className="mt-2 pt-2 border-t border-border">
-          <p className="text-xs text-muted-foreground mb-1">Episódios:</p>
+          <p className="text-xs text-muted-foreground mb-1">Episodes:</p>
           <div className="flex flex-wrap gap-1">
             {data.episodes.slice(0, 8).map((ep: number) => (
               <span key={ep} className="text-xs bg-muted px-1.5 py-0.5 rounded">
@@ -83,7 +83,7 @@ export default function PersonDetail() {
             ))}
             {data.episodes.length > 8 && (
               <span className="text-xs text-muted-foreground">
-                +{data.episodes.length - 8} mais
+                +{data.episodes.length - 8} more
               </span>
             )}
           </div>
