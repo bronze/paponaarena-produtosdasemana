@@ -10,12 +10,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import {
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
-} from "@/components/ui/chart";
-import { BarChart, Bar, XAxis, YAxis, Cell } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, Cell, Tooltip, ResponsiveContainer, TooltipProps } from "recharts";
 import { ArrowLeft, Package, MessageSquare, Mic } from "lucide-react";
 import {
   getProductsByCategory,
@@ -30,6 +25,20 @@ const COLORS = [
   "hsl(var(--chart-4))",
   "hsl(var(--chart-5))",
 ];
+
+const CustomTooltip = ({ active, payload }: TooltipProps<number, string>) => {
+  if (!active || !payload?.length) return null;
+
+  const data = payload[0].payload;
+  return (
+    <div className="bg-card border border-border rounded-lg p-3 shadow-lg">
+      <p className="font-semibold text-foreground">{data.name}</p>
+      <p className="text-sm text-muted-foreground">
+        {data.mentions} {data.mentions === 1 ? 'menção' : 'menções'}
+      </p>
+    </div>
+  );
+};
 
 export default function CategoryDetail() {
   const { category } = useParams<{ category: string }>();
@@ -71,12 +80,6 @@ export default function CategoryDetail() {
     mentions: item.mentionCount,
   }));
 
-  const chartConfig = {
-    mentions: {
-      label: "Mentions",
-      color: "hsl(var(--chart-1))",
-    },
-  };
 
   if (categoryProducts.length === 0) {
     return (
@@ -165,36 +168,38 @@ export default function CategoryDetail() {
             <CardTitle>Top Products in {decodedCategory}</CardTitle>
           </CardHeader>
           <CardContent>
-            <ChartContainer config={chartConfig} className="h-[300px] w-full">
-              <BarChart
-                data={chartData}
-                layout="vertical"
-                margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-              >
-                <XAxis type="number" />
-                <YAxis
-                  dataKey="name"
-                  type="category"
-                  width={120}
-                  tick={{ fontSize: 12 }}
-                />
-                <ChartTooltip content={<ChartTooltipContent />} />
-                <Bar
-                  dataKey="mentions"
-                  radius={[0, 4, 4, 0]}
-                  cursor="pointer"
-                  onClick={(data) => {
-                    if (data?.productId) {
-                      navigate(`/products/${data.productId}`);
-                    }
-                  }}
+            <div className="h-[300px] w-full">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart
+                  data={chartData}
+                  layout="vertical"
+                  margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
                 >
-                  {chartData.map((_, index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                  ))}
-                </Bar>
-              </BarChart>
-            </ChartContainer>
+                  <XAxis type="number" />
+                  <YAxis
+                    dataKey="name"
+                    type="category"
+                    width={120}
+                    tick={{ fontSize: 12 }}
+                  />
+                  <Tooltip content={<CustomTooltip />} cursor={{ fill: 'hsl(var(--muted))' }} />
+                  <Bar
+                    dataKey="mentions"
+                    radius={[0, 4, 4, 0]}
+                    cursor="pointer"
+                    onClick={(data) => {
+                      if (data?.productId) {
+                        navigate(`/products/${data.productId}`);
+                      }
+                    }}
+                  >
+                    {chartData.map((_, index) => (
+                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
           </CardContent>
         </Card>
       )}

@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, MessageSquare, Mic, Users, ExternalLink } from "lucide-react";
-import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, TooltipProps } from "recharts";
 import {
   getProductById,
   getMentionsByProduct,
@@ -12,6 +12,20 @@ import {
   getEpisodeById,
   getChildProducts,
 } from "@/data/mentions";
+
+const CustomTooltip = ({ active, payload }: TooltipProps<number, string>) => {
+  if (!active || !payload?.length) return null;
+
+  const data = payload[0].payload;
+  return (
+    <div className="bg-card border border-border rounded-lg p-3 shadow-lg">
+      <p className="font-semibold text-foreground">{data.episode}</p>
+      <p className="text-sm text-muted-foreground">
+        {data.mentions} {data.mentions === 1 ? 'menção' : 'menções'}
+      </p>
+    </div>
+  );
+};
 
 export default function ProductDetail() {
   const { id } = useParams<{ id: string }>();
@@ -130,13 +144,7 @@ export default function ProductDetail() {
                 <LineChart data={chartData} margin={{ left: 0, right: 20 }}>
                   <XAxis dataKey="episode" tickLine={false} axisLine={false} tick={{ fontSize: 12 }} />
                   <YAxis tickLine={false} axisLine={false} tick={{ fontSize: 12 }} allowDecimals={false} />
-                  <Tooltip
-                    contentStyle={{
-                      backgroundColor: "hsl(40 25% 99%)",
-                      border: "1px solid hsl(35 20% 88%)",
-                      borderRadius: "8px",
-                    }}
-                  />
+                  <Tooltip content={<CustomTooltip />} cursor={{ fill: 'hsl(var(--muted))' }} />
                   <Line
                     type="monotone"
                     dataKey="mentions"

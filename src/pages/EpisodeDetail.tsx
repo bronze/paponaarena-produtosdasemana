@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Calendar, MessageSquare } from "lucide-react";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, TooltipProps } from "recharts";
 import {
   getEpisodeById,
   getMentionsByEpisode,
@@ -18,6 +18,20 @@ const COLORS = [
   "hsl(200 25% 50%)",
   "hsl(340 30% 55%)",
 ];
+
+const CustomTooltip = ({ active, payload }: TooltipProps<number, string>) => {
+  if (!active || !payload?.length) return null;
+
+  const data = payload[0].payload;
+  return (
+    <div className="bg-card border border-border rounded-lg p-3 shadow-lg">
+      <p className="font-semibold text-foreground">{data.name}</p>
+      <p className="text-sm text-muted-foreground">
+        {data.mentions} {data.mentions === 1 ? 'menção' : 'menções'}
+      </p>
+    </div>
+  );
+};
 
 export default function EpisodeDetail() {
   const { id } = useParams<{ id: string }>();
@@ -108,13 +122,7 @@ export default function EpisodeDetail() {
                     tick={{ fontSize: 12 }}
                     width={100}
                   />
-                  <Tooltip
-                    contentStyle={{
-                      backgroundColor: "hsl(40 25% 99%)",
-                      border: "1px solid hsl(35 20% 88%)",
-                      borderRadius: "8px",
-                    }}
-                  />
+                  <Tooltip content={<CustomTooltip />} cursor={{ fill: 'hsl(var(--muted))' }} />
                   <Bar
                     dataKey="mentions"
                     radius={[0, 4, 4, 0]}
