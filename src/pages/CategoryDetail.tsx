@@ -178,13 +178,7 @@ export default function CategoryDetail() {
                   width={120}
                   tick={{ fontSize: 12 }}
                 />
-                <ChartTooltip
-                  content={
-                    <ChartTooltipContent
-                      formatter={(value) => [`${value} mentions`, "Mentions"]}
-                    />
-                  }
-                />
+                <ChartTooltip content={<ChartTooltipContent />} />
                 <Bar
                   dataKey="mentions"
                   radius={[0, 4, 4, 0]}
