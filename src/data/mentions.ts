@@ -441,7 +441,7 @@ export const products: Product[] = [
   { id: "spotify", name: "Spotify", category: "Entertainment", url: "https://spotify.com" },
   { id: "shazam", name: "Shazam", category: "Entertainment" },
   { id: "songsterr", name: "Songsterr", category: "Entertainment" },
-  { id: "cazetv", name: "CazeTV", category: "Entertainment", url: "https://www.youtube.com/cazetv" },
+  { id: "cazetv", name: "CazéTV", category: "Entertainment", url: "https://www.youtube.com/cazetv" },
   { id: "pixverse", name: "Pixverse", category: "Entertainment" },
   { id: "pokeflix", name: "Pokeflix", category: "Entertainment" },
   { id: "gameboy-advanced", name: "Game Boy Advanced", category: "Entertainment" },
