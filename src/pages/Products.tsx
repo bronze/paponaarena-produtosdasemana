@@ -29,7 +29,7 @@ export default function Products() {
   const [sortDir, setSortDir] = useState<SortDir>("desc");
 
   const productData = products
-    .filter((p) => !p.parentId) // Hide variants, show only main products
+    .filter((p) => !p.parentId && !p.alsoCredits) // Hide variants AND combo products
     .map((product) => {
       const mentions = getMentionsByProduct(product.id);
       const episodeIds = new Set(mentions.map((m) => m.episodeId));
