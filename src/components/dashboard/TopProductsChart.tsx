@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import { getTopProducts } from "@/data/mentions";
@@ -11,9 +12,11 @@ const COLORS = [
 ];
 
 export function TopProductsChart() {
+  const navigate = useNavigate();
   const topProducts = getTopProducts(10);
 
   const data = topProducts.map((item) => ({
+    id: item.product.id,
     name: item.product.name,
     mentions: item.count,
   }));
@@ -45,7 +48,16 @@ export function TopProductsChart() {
                 }}
                 cursor={{ fill: "hsl(130 15% 94%)" }}
               />
-              <Bar dataKey="mentions" radius={[0, 4, 4, 0]}>
+              <Bar
+                dataKey="mentions"
+                radius={[0, 4, 4, 0]}
+                cursor="pointer"
+                onClick={(data) => {
+                  if (data?.id) {
+                    navigate(`/products/${data.id}`);
+                  }
+                }}
+              >
                 {data.map((_, index) => (
                   <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                 ))}
