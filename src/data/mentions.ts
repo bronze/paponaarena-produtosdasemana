@@ -489,7 +489,7 @@ export const products: Product[] = [
   { id: "uno", name: "Uno", category: "Lifestyle" },
   { id: "hidrogel", name: "Hidrogel", category: "Lifestyle" },
   { id: "waterminder", name: "WaterMinder", category: "Lifestyle" },
-  { id: "tag-sem-parar", name: "Tag Sem Parar", category: "Lifestyle" },
+  { id: "tag-sem-parar", name: "Tag Sem Parar", category: "Lifestyle", url: "https://www.semparar.com.br/" },
   { id: "smart-things-samsung", name: "Smart Things Samsung", category: "Lifestyle" },
   { id: "xbox-series-s", name: "Xbox Series S", category: "Lifestyle" },
   { id: "nintendo-switch-2", name: "Nintendo Switch 2", category: "Lifestyle" },
