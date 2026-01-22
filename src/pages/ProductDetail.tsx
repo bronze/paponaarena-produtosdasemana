@@ -161,6 +161,8 @@ export default function ProductDetail() {
               {mentions.map((mention) => {
                 const person = getPersonById(mention.personId);
                 const episode = getEpisodeById(mention.episodeId);
+                const mentionedProduct = getProductById(mention.productId);
+                const isVariant = mention.productId !== product.id;
                 if (!person || !episode) return null;
 
                 return (
@@ -168,13 +170,18 @@ export default function ProductDetail() {
                     key={mention.id}
                     className="flex items-center justify-between p-3 rounded-lg bg-muted/50"
                   >
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 flex-wrap">
                       <Link
                         to={`/people/${person.id}`}
                         className="font-medium text-foreground hover:text-primary transition-colors"
                       >
                         {person.name}
                       </Link>
+                      {isVariant && mentionedProduct && (
+                        <Badge variant="secondary" className="text-xs">
+                          via {mentionedProduct.name}
+                        </Badge>
+                      )}
                       {mention.context && (
                         <span className="text-sm text-muted-foreground">
                           "{mention.context}"
