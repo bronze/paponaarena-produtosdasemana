@@ -28,15 +28,18 @@ export default function Products() {
   const [sortKey, setSortKey] = useState<SortKey>("mentions");
   const [sortDir, setSortDir] = useState<SortDir>("desc");
 
-  const productData = products.map((product) => {
-    const mentions = getMentionsByProduct(product.id);
-    const episodeIds = new Set(mentions.map((m) => m.episodeId));
-    return {
-      ...product,
-      mentionCount: mentions.length,
-      episodeCount: episodeIds.size,
-    };
-  });
+  const productData = products
+    .filter((p) => !p.parentId) // Hide variants, show only main products
+    .map((product) => {
+      const mentions = getMentionsByProduct(product.id);
+      const episodeIds = new Set(mentions.map((m) => m.episodeId));
+      return {
+        ...product,
+        mentionCount: mentions.length,
+        episodeCount: episodeIds.size,
+      };
+    })
+    .filter((p) => p.mentionCount > 0); // Only show products with mentions
 
   const filteredProducts = productData
     .filter(
