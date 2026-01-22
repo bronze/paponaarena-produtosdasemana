@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -42,8 +42,11 @@ export default function EpisodeDetail() {
     productCounts.set(m.productId, (productCounts.get(m.productId) || 0) + 1);
   });
 
+  const navigate = useNavigate();
+
   const chartData = Array.from(productCounts.entries())
     .map(([productId, count]) => ({
+      productId,
       name: getProductById(productId)?.name || productId,
       mentions: count,
     }))
@@ -112,7 +115,16 @@ export default function EpisodeDetail() {
                       borderRadius: "8px",
                     }}
                   />
-                  <Bar dataKey="mentions" radius={[0, 4, 4, 0]}>
+                  <Bar
+                    dataKey="mentions"
+                    radius={[0, 4, 4, 0]}
+                    cursor="pointer"
+                    onClick={(data) => {
+                      if (data?.productId) {
+                        navigate(`/products/${data.productId}`);
+                      }
+                    }}
+                  >
                     {chartData.map((_, index) => (
                       <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                     ))}
