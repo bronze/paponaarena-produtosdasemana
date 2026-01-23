@@ -3,20 +3,47 @@ import { Link } from "react-router-dom";
 
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Search, ArrowUpDown } from "lucide-react";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Search, ArrowUpDown, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { products, getProductMentionCount, getMentionsByProduct, getCategories, episodes } from "@/data/mentions";
 
 type SortKey = "name" | "mentions" | "episodes";
 type SortDir = "asc" | "desc";
+
+const ProductCard = ({ product, index }: { product: { id: string; name: string; category: string; mentionCount: number; episodeCount: number }; index: number }) => (
+  <Link to={`/products/${product.id}`} className="block group">
+    <Card className="p-4 border-border hover:border-primary/50 transition-colors">
+      <div className="flex items-start justify-between gap-3">
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="text-sm text-muted-foreground font-medium">#{index + 1}</span>
+            <h3 className="font-medium text-foreground group-hover:text-primary transition-colors truncate">{product.name}</h3>
+          </div>
+          <Badge variant="secondary" className="text-xs">{product.category}</Badge>
+        </div>
+        <div className="flex items-center gap-3">
+          <div className="text-right shrink-0">
+            <div className="font-semibold text-primary text-lg">{product.mentionCount}</div>
+            <div className="text-xs text-muted-foreground">menções</div>
+          </div>
+          <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
+        </div>
+      </div>
+    </Card>
+  </Link>
+);
 
 export default function Products() {
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [sortKey, setSortKey] = useState<SortKey>("mentions");
   const [sortDir, setSortDir] = useState<SortDir>("desc");
+  const isMobile = useIsMobile();
 
   const categories = getCategories();
 
@@ -64,6 +91,11 @@ export default function Products() {
     }
   };
 
+  const handleTabSort = (value: string) => {
+    setSortKey(value as SortKey);
+    setSortDir("desc");
+  };
+
   return (
     <div className="space-y-6">
       <div>
@@ -71,9 +103,9 @@ export default function Products() {
         <p className="text-muted-foreground mt-1">All products mentioned across {episodes.length} episodes</p>
       </div>
 
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+      <div className="flex flex-col gap-4">
         <div className="flex flex-col sm:flex-row gap-3">
-          <div className="relative w-full sm:w-72">
+          <div className="relative flex-1 sm:max-w-72">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <Input
               placeholder="Search products..."
@@ -96,77 +128,96 @@ export default function Products() {
             </SelectContent>
           </Select>
         </div>
+
+        {isMobile && (
+          <Tabs value={sortKey} onValueChange={handleTabSort}>
+            <TabsList className="w-full">
+              <TabsTrigger value="mentions" className="flex-1">Menções</TabsTrigger>
+              <TabsTrigger value="name" className="flex-1">Nome</TabsTrigger>
+              <TabsTrigger value="episodes" className="flex-1">Episódios</TabsTrigger>
+            </TabsList>
+          </Tabs>
+        )}
       </div>
 
-      <div className="rounded-lg border border-border overflow-hidden bg-card">
-        <Table>
-          <TableHeader>
-            <TableRow className="bg-muted/50">
-              <TableHead className="w-12">#</TableHead>
-              <TableHead>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="h-8 -ml-3 font-medium"
-                  onClick={() => handleSort("name")}
-                >
-                  Product
-                  <ArrowUpDown className="ml-2 h-4 w-4" />
-                </Button>
-              </TableHead>
-              <TableHead>Category</TableHead>
-              <TableHead>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="h-8 -ml-3 font-medium"
-                  onClick={() => handleSort("mentions")}
-                >
-                  Mentions
-                  <ArrowUpDown className="ml-2 h-4 w-4" />
-                </Button>
-              </TableHead>
-              <TableHead>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="h-8 -ml-3 font-medium"
-                  onClick={() => handleSort("episodes")}
-                >
-                  Episodes
-                  <ArrowUpDown className="ml-2 h-4 w-4" />
-                </Button>
-              </TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {filteredProducts.map((product, index) => (
-              <TableRow key={product.id} className="hover:bg-muted/50">
-                <TableCell className="font-medium text-muted-foreground">{index + 1}</TableCell>
-                <TableCell>
-                  <Link
-                    to={`/products/${product.id}`}
-                    className="font-medium text-foreground hover:text-primary transition-colors"
+      {isMobile ? (
+        <div className="space-y-3">
+          {filteredProducts.map((product, index) => (
+            <ProductCard key={product.id} product={product} index={index} />
+          ))}
+        </div>
+      ) : (
+        <div className="rounded-lg border border-border overflow-hidden bg-card">
+          <Table>
+            <TableHeader>
+              <TableRow className="bg-muted/50">
+                <TableHead className="w-12">#</TableHead>
+                <TableHead>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="h-8 -ml-3 font-medium"
+                    onClick={() => handleSort("name")}
                   >
-                    {product.name}
-                  </Link>
-                </TableCell>
-                <TableCell>
-                  <Badge variant="secondary">{product.category}</Badge>
-                </TableCell>
-                <TableCell>
-                  <span className="font-semibold text-primary">{product.mentionCount}</span>
-                </TableCell>
-                <TableCell>
-                  <span className="text-muted-foreground">
-                    {product.episodeCount} / {episodes.length}
-                  </span>
-                </TableCell>
+                    Product
+                    <ArrowUpDown className="ml-2 h-4 w-4" />
+                  </Button>
+                </TableHead>
+                <TableHead>Category</TableHead>
+                <TableHead>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="h-8 -ml-3 font-medium"
+                    onClick={() => handleSort("mentions")}
+                  >
+                    Mentions
+                    <ArrowUpDown className="ml-2 h-4 w-4" />
+                  </Button>
+                </TableHead>
+                <TableHead>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="h-8 -ml-3 font-medium"
+                    onClick={() => handleSort("episodes")}
+                  >
+                    Episodes
+                    <ArrowUpDown className="ml-2 h-4 w-4" />
+                  </Button>
+                </TableHead>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </div>
+            </TableHeader>
+            <TableBody>
+              {filteredProducts.map((product, index) => (
+                <TableRow key={product.id} className="hover:bg-muted/50">
+                  <TableCell className="font-medium text-muted-foreground">{index + 1}</TableCell>
+                  <TableCell>
+                    <Link
+                      to={`/products/${product.id}`}
+                      className="font-medium text-foreground hover:text-primary transition-colors"
+                    >
+                      {product.name}
+                    </Link>
+                  </TableCell>
+                  <TableCell>
+                    <Badge variant="secondary">{product.category}</Badge>
+                  </TableCell>
+                  <TableCell>
+                    <span className="font-semibold text-primary">{product.mentionCount}</span>
+                  </TableCell>
+                  <TableCell>
+                    <span className="text-muted-foreground">
+                      {product.episodeCount} / {episodes.length}
+                    </span>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      )}
+
       {filteredProducts.length === 0 && (
         <div className="text-center py-8 text-muted-foreground">No products found matching "{search}"</div>
       )}
