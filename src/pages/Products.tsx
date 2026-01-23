@@ -7,7 +7,7 @@ import { Card } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Search, ArrowUpDown, ChevronRight } from "lucide-react";
+import { Search, ArrowUpDown, ArrowUp, ArrowDown, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { products, getProductMentionCount, getMentionsByProduct, getCategories, episodes } from "@/data/mentions";
@@ -160,7 +160,15 @@ export default function Products() {
                     onClick={() => handleSort("name")}
                   >
                     Product
-                    <ArrowUpDown className="ml-2 h-4 w-4" />
+                    {sortKey === "name" ? (
+                      sortDir === "desc" ? (
+                        <ArrowDown className="ml-2 h-4 w-4 text-primary" />
+                      ) : (
+                        <ArrowUp className="ml-2 h-4 w-4 text-primary" />
+                      )
+                    ) : (
+                      <ArrowUpDown className="ml-2 h-4 w-4 text-muted-foreground" />
+                    )}
                   </Button>
                 </TableHead>
                 <TableHead>Category</TableHead>
@@ -172,7 +180,15 @@ export default function Products() {
                     onClick={() => handleSort("mentions")}
                   >
                     Mentions
-                    <ArrowUpDown className="ml-2 h-4 w-4" />
+                    {sortKey === "mentions" ? (
+                      sortDir === "desc" ? (
+                        <ArrowDown className="ml-2 h-4 w-4 text-primary" />
+                      ) : (
+                        <ArrowUp className="ml-2 h-4 w-4 text-primary" />
+                      )
+                    ) : (
+                      <ArrowUpDown className="ml-2 h-4 w-4 text-muted-foreground" />
+                    )}
                   </Button>
                 </TableHead>
                 <TableHead>
@@ -183,7 +199,15 @@ export default function Products() {
                     onClick={() => handleSort("episodes")}
                   >
                     Episodes
-                    <ArrowUpDown className="ml-2 h-4 w-4" />
+                    {sortKey === "episodes" ? (
+                      sortDir === "desc" ? (
+                        <ArrowDown className="ml-2 h-4 w-4 text-primary" />
+                      ) : (
+                        <ArrowUp className="ml-2 h-4 w-4 text-primary" />
+                      )
+                    ) : (
+                      <ArrowUpDown className="ml-2 h-4 w-4 text-muted-foreground" />
+                    )}
                   </Button>
                 </TableHead>
               </TableRow>
