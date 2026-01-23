@@ -20,14 +20,14 @@ const ProductCard = ({ product, index }: { product: { id: string; name: string; 
     <Card className="p-4 border-border hover:border-primary/50 transition-colors">
       <div className="flex items-start justify-between gap-3">
         <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 mb-2">
+          <div className="mb-2">
             <span className="text-sm text-muted-foreground font-medium">#{index + 1}</span>
-            <h3 className="font-medium text-foreground group-hover:text-primary transition-colors truncate">{product.name}</h3>
+            <h3 className="font-medium text-foreground group-hover:text-primary transition-colors mt-1">{product.name}</h3>
           </div>
           <Badge variant="secondary" className="text-xs">{product.category}</Badge>
         </div>
-        <div className="flex items-center gap-3">
-          <div className="text-right shrink-0">
+        <div className="flex items-center gap-3 shrink-0">
+          <div className="text-right">
             <div className="font-semibold text-primary text-lg">{product.mentionCount}</div>
             <div className="text-xs text-muted-foreground">menções</div>
           </div>
