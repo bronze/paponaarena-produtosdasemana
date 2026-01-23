@@ -253,10 +253,10 @@ export default function CategoryDetail() {
                     {item.product.name}
                   </Link>
                 </TableCell>
-                <TableCell className="text-right">
+                <TableCell>
                   <span className="font-semibold text-primary">{item.mentionCount}</span>
                 </TableCell>
-                <TableCell className="text-right text-muted-foreground">
+                <TableCell className="text-muted-foreground">
                   {item.episodeCount}/{episodes.length}
                 </TableCell>
               </TableRow>
