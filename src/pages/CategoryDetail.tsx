@@ -206,69 +206,64 @@ export default function CategoryDetail() {
         {/* <CardHeader>
           <CardTitle>All Products</CardTitle>
         </CardHeader> */}
-        <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow className="bg-muted/50">
-                <TableHead className="w-12">#</TableHead>
-                <TableHead>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="h-8 -ml-3 font-medium"
-                    onClick={() => handleSort("name")}
+        {/* <CardContent> */}
+        <Table>
+          <TableHeader>
+            <TableRow className="bg-muted/50">
+              <TableHead className="w-12">#</TableHead>
+              <TableHead>
+                <Button variant="ghost" size="sm" className="h-8 -ml-3 font-medium" onClick={() => handleSort("name")}>
+                  Product
+                  <ArrowUpDown className="ml-2 h-4 w-4" />
+                </Button>
+              </TableHead>
+              <TableHead>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="h-8 -ml-3 font-medium"
+                  onClick={() => handleSort("mentions")}
+                >
+                  Mentions
+                  <ArrowUpDown className="ml-2 h-4 w-4" />
+                </Button>
+              </TableHead>
+              <TableHead>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="h-8 -ml-3 font-medium"
+                  onClick={() => handleSort("episodes")}
+                >
+                  Episodes
+                  <ArrowUpDown className="ml-2 h-4 w-4" />
+                </Button>
+              </TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {sortedProductData.map((item, index) => (
+              <TableRow key={item.product.id}>
+                <TableCell className="font-medium text-muted-foreground">{index + 1}</TableCell>
+                <TableCell>
+                  <Link
+                    to={`/products/${item.product.id}`}
+                    className="font-medium text-foreground hover:text-primary transition-colors"
                   >
-                    Product
-                    <ArrowUpDown className="ml-2 h-4 w-4" />
-                  </Button>
-                </TableHead>
-                <TableHead>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="h-8 -ml-3 font-medium"
-                    onClick={() => handleSort("mentions")}
-                  >
-                    Mentions
-                    <ArrowUpDown className="ml-2 h-4 w-4" />
-                  </Button>
-                </TableHead>
-                <TableHead>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="h-8 -ml-3 font-medium"
-                    onClick={() => handleSort("episodes")}
-                  >
-                    Episodes
-                    <ArrowUpDown className="ml-2 h-4 w-4" />
-                  </Button>
-                </TableHead>
+                    {item.product.name}
+                  </Link>
+                </TableCell>
+                <TableCell className="text-right">
+                  <span className="font-semibold text-primary">{item.mentionCount}</span>
+                </TableCell>
+                <TableCell className="text-right text-muted-foreground">
+                  {item.episodeCount}/{episodes.length}
+                </TableCell>
               </TableRow>
-            </TableHeader>
-            <TableBody>
-              {sortedProductData.map((item, index) => (
-                <TableRow key={item.product.id}>
-                  <TableCell className="font-medium text-muted-foreground">{index + 1}</TableCell>
-                  <TableCell>
-                    <Link
-                      to={`/products/${item.product.id}`}
-                      className="font-medium text-foreground hover:text-primary transition-colors"
-                    >
-                      {item.product.name}
-                    </Link>
-                  </TableCell>
-                  <TableCell className="text-right">
-                    <span className="font-semibold text-primary">{item.mentionCount}</span>
-                  </TableCell>
-                  <TableCell className="text-right text-muted-foreground">
-                    {item.episodeCount}/{episodes.length}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </CardContent>
+            ))}
+          </TableBody>
+        </Table>
+        {/* </CardContent> */}
       </Card>
     </div>
   );
