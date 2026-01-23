@@ -227,7 +227,7 @@ export default function CategoryDetail() {
                     </Link>
                   </TableCell>
                   <TableCell className="text-right">
-                    <Badge variant="secondary">{item.mentionCount}</Badge>
+                    <span className="font-semibold text-primary">{item.mentionCount}</span>
                   </TableCell>
                   <TableCell className="text-right text-muted-foreground">
                     {item.episodeCount}/{episodes.length}
