@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { BarChart, Bar, XAxis, YAxis, Cell, Tooltip, ResponsiveContainer, TooltipProps } from "recharts";
-import { ArrowLeft, Package, MessageSquare, Mic, ArrowUpDown } from "lucide-react";
+import { ArrowLeft, Package, MessageSquare, Mic, ArrowUpDown, ArrowUp, ArrowDown } from "lucide-react";
 import { getProductsByCategory, getMentionsByProduct, episodes } from "@/data/mentions";
 
 const COLORS = [
@@ -214,7 +214,15 @@ export default function CategoryDetail() {
               <TableHead>
                 <Button variant="ghost" size="sm" className="h-8 -ml-3 font-medium" onClick={() => handleSort("name")}>
                   Product
-                  <ArrowUpDown className="ml-2 h-4 w-4" />
+                  {sortKey === "name" ? (
+                    sortDir === "desc" ? (
+                      <ArrowDown className="ml-2 h-4 w-4 text-primary" />
+                    ) : (
+                      <ArrowUp className="ml-2 h-4 w-4 text-primary" />
+                    )
+                  ) : (
+                    <ArrowUpDown className="ml-2 h-4 w-4 text-muted-foreground" />
+                  )}
                 </Button>
               </TableHead>
               <TableHead>
@@ -225,7 +233,15 @@ export default function CategoryDetail() {
                   onClick={() => handleSort("mentions")}
                 >
                   Mentions
-                  <ArrowUpDown className="ml-2 h-4 w-4" />
+                  {sortKey === "mentions" ? (
+                    sortDir === "desc" ? (
+                      <ArrowDown className="ml-2 h-4 w-4 text-primary" />
+                    ) : (
+                      <ArrowUp className="ml-2 h-4 w-4 text-primary" />
+                    )
+                  ) : (
+                    <ArrowUpDown className="ml-2 h-4 w-4 text-muted-foreground" />
+                  )}
                 </Button>
               </TableHead>
               <TableHead>
@@ -236,7 +252,15 @@ export default function CategoryDetail() {
                   onClick={() => handleSort("episodes")}
                 >
                   Episodes
-                  <ArrowUpDown className="ml-2 h-4 w-4" />
+                  {sortKey === "episodes" ? (
+                    sortDir === "desc" ? (
+                      <ArrowDown className="ml-2 h-4 w-4 text-primary" />
+                    ) : (
+                      <ArrowUp className="ml-2 h-4 w-4 text-primary" />
+                    )
+                  ) : (
+                    <ArrowUpDown className="ml-2 h-4 w-4 text-muted-foreground" />
+                  )}
                 </Button>
               </TableHead>
             </TableRow>
