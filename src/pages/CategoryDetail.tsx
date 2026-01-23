@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -11,7 +12,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { BarChart, Bar, XAxis, YAxis, Cell, Tooltip, ResponsiveContainer, TooltipProps } from "recharts";
-import { ArrowLeft, Package, MessageSquare, Mic } from "lucide-react";
+import { ArrowLeft, Package, MessageSquare, Mic, ArrowUpDown } from "lucide-react";
 import {
   getProductsByCategory,
   getMentionsByProduct,
@@ -33,10 +34,25 @@ const TOOLTIP_STYLE = {
   boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
 };
 
+type SortKey = "name" | "mentions" | "episodes";
+type SortDir = "asc" | "desc";
+
 export default function CategoryDetail() {
   const { category } = useParams<{ category: string }>();
   const navigate = useNavigate();
   const decodedCategory = decodeURIComponent(category || "");
+  
+  const [sortKey, setSortKey] = useState<SortKey>("mentions");
+  const [sortDir, setSortDir] = useState<SortDir>("desc");
+
+  const handleSort = (key: SortKey) => {
+    if (sortKey === key) {
+      setSortDir(sortDir === "asc" ? "desc" : "asc");
+    } else {
+      setSortKey(key);
+      setSortDir("desc");
+    }
+  };
 
   // Get products in this category (excluding variants and combos)
   const categoryProducts = getProductsByCategory(decodedCategory).filter(
@@ -66,12 +82,29 @@ export default function CategoryDetail() {
   );
   const episodeCoverage = allEpisodes.size;
 
-  // Chart data (top 10)
+  // Chart data (top 10 by mentions)
   const chartData = productData.slice(0, 10).map((item) => ({
     productId: item.product.id,
     name: item.product.name,
     mentions: item.mentionCount,
   }));
+
+  // Sorted product data for table
+  const sortedProductData = [...productData].sort((a, b) => {
+    let comparison = 0;
+    switch (sortKey) {
+      case "name":
+        comparison = a.product.name.localeCompare(b.product.name);
+        break;
+      case "mentions":
+        comparison = a.mentionCount - b.mentionCount;
+        break;
+      case "episodes":
+        comparison = a.episodeCount - b.episodeCount;
+        break;
+    }
+    return sortDir === "desc" ? -comparison : comparison;
+  });
 
 
   if (categoryProducts.length === 0) {
@@ -205,15 +238,45 @@ export default function CategoryDetail() {
         <CardContent>
           <Table>
             <TableHeader>
-              <TableRow>
+              <TableRow className="bg-muted/50">
                 <TableHead className="w-12">#</TableHead>
-                <TableHead>Product</TableHead>
-                <TableHead className="text-right">Mentions</TableHead>
-                <TableHead className="text-right">Episodes</TableHead>
+                <TableHead>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="h-8 -ml-3 font-medium"
+                    onClick={() => handleSort("name")}
+                  >
+                    Product
+                    <ArrowUpDown className="ml-2 h-4 w-4" />
+                  </Button>
+                </TableHead>
+                <TableHead className="text-right">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="h-8 -mr-3 font-medium"
+                    onClick={() => handleSort("mentions")}
+                  >
+                    Mentions
+                    <ArrowUpDown className="ml-2 h-4 w-4" />
+                  </Button>
+                </TableHead>
+                <TableHead className="text-right">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="h-8 -mr-3 font-medium"
+                    onClick={() => handleSort("episodes")}
+                  >
+                    Episodes
+                    <ArrowUpDown className="ml-2 h-4 w-4" />
+                  </Button>
+                </TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {productData.map((item, index) => (
+              {sortedProductData.map((item, index) => (
                 <TableRow key={item.product.id}>
                   <TableCell className="font-medium text-muted-foreground">
                     {index + 1}
