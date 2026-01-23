@@ -3,21 +3,10 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { BarChart, Bar, XAxis, YAxis, Cell, Tooltip, ResponsiveContainer, TooltipProps } from "recharts";
 import { ArrowLeft, Package, MessageSquare, Mic, ArrowUpDown } from "lucide-react";
-import {
-  getProductsByCategory,
-  getMentionsByProduct,
-  episodes,
-} from "@/data/mentions";
+import { getProductsByCategory, getMentionsByProduct, episodes } from "@/data/mentions";
 
 const COLORS = [
   "hsl(var(--chart-1))",
@@ -41,7 +30,7 @@ export default function CategoryDetail() {
   const { category } = useParams<{ category: string }>();
   const navigate = useNavigate();
   const decodedCategory = decodeURIComponent(category || "");
-  
+
   const [sortKey, setSortKey] = useState<SortKey>("mentions");
   const [sortDir, setSortDir] = useState<SortDir>("desc");
 
@@ -55,9 +44,7 @@ export default function CategoryDetail() {
   };
 
   // Get products in this category (excluding variants and combos)
-  const categoryProducts = getProductsByCategory(decodedCategory).filter(
-    (p) => !p.parentId && !p.alsoCredits
-  );
+  const categoryProducts = getProductsByCategory(decodedCategory).filter((p) => !p.parentId && !p.alsoCredits);
 
   // Calculate stats for each product
   const productData = categoryProducts
@@ -75,11 +62,7 @@ export default function CategoryDetail() {
   // Total stats
   const totalMentions = productData.reduce((sum, p) => sum + p.mentionCount, 0);
   const totalProducts = productData.length;
-  const allEpisodes = new Set(
-    productData.flatMap((p) =>
-      getMentionsByProduct(p.product.id).map((m) => m.episodeId)
-    )
-  );
+  const allEpisodes = new Set(productData.flatMap((p) => getMentionsByProduct(p.product.id).map((m) => m.episodeId)));
   const episodeCoverage = allEpisodes.size;
 
   // Chart data (top 10 by mentions)
@@ -106,7 +89,6 @@ export default function CategoryDetail() {
     return sortDir === "desc" ? -comparison : comparison;
   });
 
-
   if (categoryProducts.length === 0) {
     return (
       <div className="space-y-6">
@@ -118,9 +100,7 @@ export default function CategoryDetail() {
         </Button>
         <Card>
           <CardContent className="py-12 text-center">
-            <p className="text-muted-foreground">
-              Category "{decodedCategory}" not found or has no products.
-            </p>
+            <p className="text-muted-foreground">Category "{decodedCategory}" not found or has no products.</p>
           </CardContent>
         </Card>
       </div>
@@ -196,19 +176,10 @@ export default function CategoryDetail() {
           <CardContent>
             <div className="h-[300px] w-full">
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart
-                  data={chartData}
-                  layout="vertical"
-                  margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-                >
+                <BarChart data={chartData} layout="vertical" margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
                   <XAxis type="number" />
-                  <YAxis
-                    dataKey="name"
-                    type="category"
-                    width={120}
-                    tick={{ fontSize: 12 }}
-                  />
-                  <Tooltip contentStyle={TOOLTIP_STYLE} cursor={{ fill: 'hsl(var(--muted))' }} />
+                  <YAxis dataKey="name" type="category" width={120} tick={{ fontSize: 12 }} />
+                  <Tooltip contentStyle={TOOLTIP_STYLE} cursor={{ fill: "hsl(var(--muted))" }} />
                   <Bar
                     dataKey="mentions"
                     radius={[0, 4, 4, 0]}
@@ -232,9 +203,9 @@ export default function CategoryDetail() {
 
       {/* All Products Table */}
       <Card>
-        <CardHeader>
+        {/* <CardHeader>
           <CardTitle>All Products</CardTitle>
-        </CardHeader>
+        </CardHeader> */}
         <CardContent>
           <Table>
             <TableHeader>
@@ -278,9 +249,7 @@ export default function CategoryDetail() {
             <TableBody>
               {sortedProductData.map((item, index) => (
                 <TableRow key={item.product.id}>
-                  <TableCell className="font-medium text-muted-foreground">
-                    {index + 1}
-                  </TableCell>
+                  <TableCell className="font-medium text-muted-foreground">{index + 1}</TableCell>
                   <TableCell>
                     <Link
                       to={`/products/${item.product.id}`}
