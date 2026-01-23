@@ -1,36 +1,40 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Search, ArrowRight } from "lucide-react";
 import { people, getPersonMentionCount, getMentionsByPerson, episodes } from "@/data/mentions";
 
 export default function People() {
   const [search, setSearch] = useState("");
+  const [sortBy, setSortBy] = useState<"mentions" | "name">("mentions");
 
-  const peopleData = people
-    .map((person) => {
-      const mentions = getMentionsByPerson(person.id);
-      const episodeIds = new Set(mentions.map((m) => m.episodeId));
-      return {
-        ...person,
-        mentionCount: mentions.length,
-        episodeCount: episodeIds.size,
-      };
-    })
-    .sort((a, b) => {
-      // Primary: sort by mention count (descending)
-      if (b.mentionCount !== a.mentionCount) {
-        return b.mentionCount - a.mentionCount;
-      }
-      // Secondary: sort by name (A-Z)
-      return a.name.localeCompare(b.name);
-    });
+  const peopleData = people.map((person) => {
+    const mentions = getMentionsByPerson(person.id);
+    const episodeIds = new Set(mentions.map((m) => m.episodeId));
+    return {
+      ...person,
+      mentionCount: mentions.length,
+      episodeCount: episodeIds.size,
+    };
+  });
 
   const filteredPeople = peopleData.filter((p) =>
     p.name.toLowerCase().includes(search.toLowerCase())
   );
+
+  const sortedPeople = [...filteredPeople].sort((a, b) => {
+    if (sortBy === "name") {
+      return a.name.localeCompare(b.name);
+    }
+    // By mentions (default): desc by count, then A-Z by name
+    if (b.mentionCount !== a.mentionCount) {
+      return b.mentionCount - a.mentionCount;
+    }
+    return a.name.localeCompare(b.name);
+  });
 
   const getInitials = (name: string) => {
     return name
@@ -49,18 +53,27 @@ export default function People() {
         </p>
       </div>
 
-      <div className="relative w-full sm:w-72">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-        <Input
-          placeholder="Search people..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="pl-9"
-        />
+      <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+        <div className="relative w-full sm:w-72">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+          <Input
+            placeholder="Search people..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="pl-9"
+          />
+        </div>
+
+        <Tabs value={sortBy} onValueChange={(v) => setSortBy(v as "mentions" | "name")}>
+          <TabsList>
+            <TabsTrigger value="mentions">Most mentions</TabsTrigger>
+            <TabsTrigger value="name">Alphabetical</TabsTrigger>
+          </TabsList>
+        </Tabs>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filteredPeople.map((person) => (
+        {sortedPeople.map((person) => (
           <Link key={person.id} to={`/people/${person.id}`}>
             <Card className="bg-card border-border hover:border-primary/50 transition-colors group h-full">
               <CardContent className="p-6">
