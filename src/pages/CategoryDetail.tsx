@@ -251,22 +251,22 @@ export default function CategoryDetail() {
                     <ArrowUpDown className="ml-2 h-4 w-4" />
                   </Button>
                 </TableHead>
-                <TableHead className="text-right">
+                <TableHead>
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="h-8 -mr-3 font-medium"
+                    className="h-8 -ml-3 font-medium"
                     onClick={() => handleSort("mentions")}
                   >
                     Mentions
                     <ArrowUpDown className="ml-2 h-4 w-4" />
                   </Button>
                 </TableHead>
-                <TableHead className="text-right">
+                <TableHead>
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="h-8 -mr-3 font-medium"
+                    className="h-8 -ml-3 font-medium"
                     onClick={() => handleSort("episodes")}
                   >
                     Episodes
