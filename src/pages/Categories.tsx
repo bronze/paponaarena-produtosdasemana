@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Search, ChevronRight, FolderOpen } from "lucide-react";
 import {
   getCategories,
@@ -20,6 +21,7 @@ interface CategoryData {
 
 export default function Categories() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [sortBy, setSortBy] = useState<"mentions" | "name">("mentions");
 
   // Process category data
   const categoryData: CategoryData[] = getCategories()
@@ -65,6 +67,14 @@ export default function Categories() {
     );
   });
 
+  // Sort categories based on selected option
+  const sortedCategories = [...filteredCategories].sort((a, b) => {
+    if (sortBy === "name") {
+      return a.category.localeCompare(b.category);
+    }
+    return b.mentionCount - a.mentionCount;
+  });
+
   return (
     <div className="space-y-6">
       <div>
@@ -74,14 +84,23 @@ export default function Categories() {
         </p>
       </div>
 
-      <div className="relative w-full sm:w-72">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-        <Input
-          placeholder="Search categories or products..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="pl-9"
-        />
+      <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+        <div className="relative w-full sm:w-72">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+          <Input
+            placeholder="Search categories or products..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="pl-9"
+          />
+        </div>
+
+        <Tabs value={sortBy} onValueChange={(v) => setSortBy(v as "mentions" | "name")}>
+          <TabsList>
+            <TabsTrigger value="mentions">Most mentions</TabsTrigger>
+            <TabsTrigger value="name">Alphabetical</TabsTrigger>
+          </TabsList>
+        </Tabs>
       </div>
 
       {filteredCategories.length === 0 ? (
@@ -90,7 +109,7 @@ export default function Categories() {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {filteredCategories.map((item) => (
+          {sortedCategories.map((item) => (
             <Link
               key={item.category}
               to={`/categories/${encodeURIComponent(item.category)}`}
