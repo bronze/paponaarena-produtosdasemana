@@ -480,7 +480,7 @@ export const products: Product[] = [
   { id: "agua", name: "Água", category: "Lifestyle" },
   { id: "kindle", name: "Kindle", category: "Reading", url: "https://amazon.com/kindle" },
   { id: "caderno", name: "Caderno", category: "Lifestyle" },
-  { id: "ipod-fake", name: "iPod Fake Classic", category: "Lifestyle" },
+  { id: "ipod-fake", name: "iPod Fake Classic", category: "Hardware", url: "https://a.aliexpress.com/_mtFXV0l" },
   { id: "camisa-preta", name: "Camisa Preta Básica", category: "Lifestyle" },
   { id: "copo-stanley", name: "Copo Stanley", category: "Lifestyle" },
   { id: "frigideira-antiaderente", name: "Frigideira antiaderente", category: "Lifestyle" },
