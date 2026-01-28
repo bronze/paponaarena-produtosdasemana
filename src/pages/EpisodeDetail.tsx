@@ -10,7 +10,6 @@ import {
   getProductById,
   getPersonById,
 } from "@/data/mentions";
-import { formatEpisodeDate } from "@/lib/utils";
 
 const COLORS = [
   "hsl(140 20% 40%)",
@@ -83,7 +82,11 @@ export default function EpisodeDetail() {
           <div className="flex items-center gap-4 mt-1">
             <div className="flex items-center gap-1 text-sm text-muted-foreground">
               <Calendar className="w-4 h-4" />
-              {formatEpisodeDate(episode.date, { month: "long", day: "numeric", year: "numeric" })}
+              {new Date(episode.date).toLocaleDateString("en-US", {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              })}
             </div>
             <div className="flex items-center gap-1 text-sm text-muted-foreground">
               <MessageSquare className="w-4 h-4" />
