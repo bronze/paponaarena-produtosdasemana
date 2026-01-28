@@ -142,38 +142,44 @@ export default function EpisodeDetail() {
           </CardHeader>
           <CardContent>
             <div className="space-y-2 max-h-[300px] overflow-auto">
-              {mentions
-                .slice()
-                .sort((a, b) => {
-                  const aName = getPersonById(a.personId)?.name || "";
-                  const bName = getPersonById(b.personId)?.name || "";
+              {Array.from(mentionsByPerson.entries())
+                .sort(([personIdA], [personIdB]) => {
+                  const aName = getPersonById(personIdA)?.name || "";
+                  const bName = getPersonById(personIdB)?.name || "";
                   return aName.localeCompare(bName);
                 })
-                .map((mention) => {
-                  const person = getPersonById(mention.personId);
-                  const product = getProductById(mention.productId);
-                  if (!person || !product) return null;
+                .map(([personId, personMentions]) => {
+                  const person = getPersonById(personId);
+                  if (!person) return null;
 
                   return (
                     <div
-                      key={mention.id}
+                      key={personId}
                       className="flex items-center justify-between p-3 rounded-lg bg-muted/50"
                     >
                       <div className="flex items-center gap-3 flex-wrap">
                         <Link
-                          to={`/people/${mention.personId}`}
+                          to={`/people/${personId}`}
                           className="font-medium text-foreground hover:text-primary transition-colors"
                         >
                           {person.name}
                         </Link>
-                        <Link to={`/products/${mention.productId}`}>
-                          <Badge
-                            variant="secondary"
-                            className="hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer text-xs"
-                          >
-                            {product.name}
-                          </Badge>
-                        </Link>
+                        <div className="flex items-center gap-2 flex-wrap">
+                          {personMentions.map((mention) => {
+                            const product = getProductById(mention.productId);
+                            if (!product) return null;
+                            return (
+                              <Link key={mention.id} to={`/products/${mention.productId}`}>
+                                <Badge
+                                  variant="secondary"
+                                  className="hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer text-xs"
+                                >
+                                  {product.name}
+                                </Badge>
+                              </Link>
+                            );
+                          })}
+                        </div>
                       </div>
                     </div>
                   );
