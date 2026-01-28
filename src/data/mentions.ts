@@ -435,7 +435,7 @@ export const products: Product[] = [
   { id: "polycam", name: "Polycam - Scanner 3D", category: "Productivity" },
   { id: "kong-api", name: "Kong API Gateway", category: "Productivity" },
   { id: "testflight", name: "TestFlight", category: "Productivity" },
-  { id: "cloud-cowork", name: "Cloud Cowork", category: "Productivity" },
+  { id: "cloud-cowork", name: "Claude Cowork", category: "Productivity" },
   { id: "gchat", name: "GChat", category: "Productivity" },
   { id: "jira", name: "Jira", category: "Productivity", url: "https://www.atlassian.com/software/jira" },
   { id: "google-script", name: "Google Script", category: "Productivity" },
