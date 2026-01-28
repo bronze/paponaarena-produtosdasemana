@@ -1,52 +1,138 @@
 
-## Plano: Corrigir "Latest Episode" para Mostrar o Episódio Mais Recente por Data
 
-### Problema
+## Plano: Adicionar Episódio 57 e Menções
 
-O card "Latest Episode" no dashboard usa `episodes[episodes.length - 1]`, que pega o último episódio na ordem do array. Quando episódios antigos são adicionados ao banco de dados, o card mostra incorretamente esses episódios antigos em vez do mais recente (Ep. 103).
+### Resumo
 
-### Solução
-
-Ordenar os episódios por data e pegar o primeiro (mais recente), utilizando a função `compareDatesDesc` já existente no projeto.
+Adicionar o episódio 57 de 2024 (Oct 30) com o tema "Reflexões sobre fazer o básico bem feito" e suas 11 menções ao arquivo `src/data/mentions.ts`.
 
 ---
 
 ### Arquivo a Modificar
 
-`src/components/dashboard/LatestEpisodeCard.tsx`
+`src/data/mentions.ts`
 
 ---
 
-### Alteração
+### 1. Novo Episódio
 
-| Antes | Depois |
-|-------|--------|
-| `episodes[episodes.length - 1]` | Ordenar por data e pegar o primeiro |
+| ID | Título | Data |
+|----|--------|------|
+| 57 | Reflexões sobre fazer o básico bem feito | 2024-10-30 |
+
+---
+
+### 2. Novos Produtos (6)
+
+| ID | Nome | Categoria | Observação |
+|----|------|-----------|------------|
+| google-suite | Google Suite | Productivity | Novo |
+| apple-intelligence | Apple Intelligence | AI Tools | Novo |
+| retool | Retool | Development | Novo |
+| rocket-money | Rocket Money | Finance | Novo |
+| google-lens | Google Lens | AI Tools | Novo |
+| toqan | Toqan | AI Tools | AI do iFood |
+| bike | Bike | Transportation | Novo (genérico) |
+
+**Produtos já existentes (reutilizar):**
+- `linkedin` (Social)
+- `chatgpt` (AI Tools)
+- `netflix` (Entertainment)
+
+---
+
+### 3. Novas Pessoas (1)
+
+| ID | Nome |
+|----|------|
+| bruna-ep57 | Bruna |
+
+Nota: Existe um `bruna` duplicado no arquivo, então usarei um ID único para este episódio.
+
+**Pessoas já existentes (reutilizar):**
+- `aiquis`, `arthur`, `boss`, `mat`, `karina`, `lucas`, `brian`, `pilon`, `nana`
+
+---
+
+### 4. Novas Menções (11)
+
+| Pessoa | Produto |
+|--------|---------|
+| Aíquis | Google Suite |
+| Arthur | Apple Intelligence |
+| Boss | Retool |
+| Mat | Rocket Money |
+| Karina | Bike |
+| Lucas | LinkedIn |
+| Brian | LinkedIn |
+| Pilon | ChatGPT |
+| Pilon | Google Lens |
+| Nana | Netflix |
+| Bruna | Toqan |
 
 ---
 
 ### Seção Técnica
 
-**Mudança no código:**
-
+**Episódio (inserir antes do episódio 58):**
 ```typescript
-// Importar a função de comparação
-import { compareDatesDesc } from "@/lib/utils";
-
-// Na função LatestEpisodeCard, trocar:
-const latestEpisode = episodes[episodes.length - 1];
-
-// Por:
-const latestEpisode = [...episodes].sort((a, b) => compareDatesDesc(a.date, b.date))[0];
+{
+  id: 57,
+  title: "Reflexões sobre fazer o básico bem feito",
+  date: "2024-10-30",
+  description: "Discussão sobre a importância de executar bem o básico.",
+},
 ```
 
-Esta mudança:
-- Cria uma cópia do array para não modificar o original
-- Ordena por data (mais recente primeiro) usando a função existente
-- Pega o primeiro elemento (episódio mais recente)
+**Produtos novos:**
+```typescript
+// Productivity
+{ id: "google-suite", name: "Google Suite", category: "Productivity", url: "https://workspace.google.com" },
+
+// AI Tools
+{ id: "apple-intelligence", name: "Apple Intelligence", category: "AI Tools" },
+{ id: "google-lens", name: "Google Lens", category: "AI Tools", url: "https://lens.google" },
+{ id: "toqan", name: "Toqan", category: "AI Tools", url: "https://toqan.ai" },
+
+// Development
+{ id: "retool", name: "Retool", category: "Development", url: "https://retool.com" },
+
+// Finance
+{ id: "rocket-money", name: "Rocket Money", category: "Finance", url: "https://rocketmoney.com" },
+
+// Transportation
+{ id: "bike", name: "Bike", category: "Transportation" },
+```
+
+**Pessoa nova:**
+```typescript
+{ id: "bruna-ep57", name: "Bruna" },
+```
+
+**Menções:**
+```typescript
+// Episode 57
+{ id: "m57-1", episodeId: 57, personId: "aiquis", productId: "google-suite" },
+{ id: "m57-2", episodeId: 57, personId: "arthur", productId: "apple-intelligence" },
+{ id: "m57-3", episodeId: 57, personId: "boss", productId: "retool" },
+{ id: "m57-4", episodeId: 57, personId: "mat", productId: "rocket-money" },
+{ id: "m57-5", episodeId: 57, personId: "karina", productId: "bike" },
+{ id: "m57-6", episodeId: 57, personId: "lucas", productId: "linkedin" },
+{ id: "m57-7", episodeId: 57, personId: "brian", productId: "linkedin" },
+{ id: "m57-8", episodeId: 57, personId: "pilon", productId: "chatgpt" },
+{ id: "m57-9", episodeId: 57, personId: "pilon", productId: "google-lens" },
+{ id: "m57-10", episodeId: 57, personId: "nana", productId: "netflix" },
+{ id: "m57-11", episodeId: 57, personId: "bruna-ep57", productId: "toqan" },
+```
 
 ---
 
-### Resultado Esperado
+### Resumo de Alterações
 
-O card "Latest Episode" sempre mostrará o episódio com a data mais recente (atualmente Ep. 103 de 2026-01-21), independentemente da ordem em que os episódios são adicionados ao banco de dados.
+| Seção | Adições |
+|-------|---------|
+| Episodes | +1 (57) |
+| Products | +7 novos |
+| People | +1 novo |
+| Mentions | +11 |
+
