@@ -1,157 +1,52 @@
 
+## Plano: Corrigir "Latest Episode" para Mostrar o Episódio Mais Recente por Data
 
-## Plano: Adicionar Episódio 59 e Menções
+### Problema
 
-### Resumo
+O card "Latest Episode" no dashboard usa `episodes[episodes.length - 1]`, que pega o último episódio na ordem do array. Quando episódios antigos são adicionados ao banco de dados, o card mostra incorretamente esses episódios antigos em vez do mais recente (Ep. 103).
 
-Adicionar o episódio 59 de 2024 (Nov 12) com o tema "O que chefões da OpenAI, Anthropic e Perplexity pensam sobre AI como produto" e suas 15 menções ao arquivo `src/data/mentions.ts`.
+### Solução
+
+Ordenar os episódios por data e pegar o primeiro (mais recente), utilizando a função `compareDatesDesc` já existente no projeto.
 
 ---
 
 ### Arquivo a Modificar
 
-`src/data/mentions.ts`
+`src/components/dashboard/LatestEpisodeCard.tsx`
 
 ---
 
-### 1. Novo Episódio
+### Alteração
 
-| ID | Título | Data |
-|----|--------|------|
-| 59 | O que chefões da OpenAI, Anthropic e Perplexity pensam sobre AI como produto | 2024-11-12 |
-
----
-
-### 2. Novos Produtos (9)
-
-| ID | Nome | Categoria |
-|----|------|-----------|
-| airops | AirOps | AI Tools |
-| crew-ai | Crew AI | AI Tools |
-| mapify | Mapify | AI Tools |
-| quickbase | Quickbase | Business |
-| foodtosave | FoodtoSave | Lifestyle |
-| zepp | Zepp | Fitness |
-| e-titulo | E-título | Transportation |
-| swapfiets | Swapfiets | Transportation |
-| land-builder | Land Builder | Entertainment |
-
-**Produtos já existentes (reutilizar):**
-- `prime-video`
-- `perplexity`
-- `tldv`
-- `supabase`
-- `wellhub`
-- `pokemon-tcg`
-
----
-
-### 3. Novas Pessoas (3)
-
-| ID | Nome |
-|----|------|
-| gi | Gi |
-| tiago-santi | Tiago Santi |
-| ana-romeu | Ana Romeu |
-
-**Pessoas já existentes (reutilizar):**
-- `aiquis`, `arthur`, `portinho`, `jessica-luz`, `boss`, `nana`, `marina-fernandes`, `brian`, `pilon`, `andrezao`, `danilera`
-
----
-
-### 4. Novas Menções (15)
-
-| Pessoa | Produto |
-|--------|---------|
-| Aíquis | Prime Video |
-| Aíquis | Crew AI |
-| Arthur | AirOps |
-| Portinho | Mapify |
-| Gi | Perplexity |
-| Jéssica Luz | TL;dv |
-| Boss | Supabase |
-| Tiago Santi | Quickbase |
-| Nana | FoodtoSave |
-| Marina Fernandes | Wellhub |
-| Brian | Zepp |
-| Pilon | E-título |
-| Ana Romeu | Swapfiets |
-| Andrezão | Pokémon TCG |
-| Danilera | Land Builder |
+| Antes | Depois |
+|-------|--------|
+| `episodes[episodes.length - 1]` | Ordenar por data e pegar o primeiro |
 
 ---
 
 ### Seção Técnica
 
-**Episódio (inserir entre 58 e 60):**
+**Mudança no código:**
+
 ```typescript
-{
-  id: 59,
-  title: "O que chefões da OpenAI, Anthropic e Perplexity pensam sobre AI como produto",
-  date: "2024-11-12",
-  description: "Discussão sobre visões de AI como produto por líderes da OpenAI, Anthropic e Perplexity.",
-},
+// Importar a função de comparação
+import { compareDatesDesc } from "@/lib/utils";
+
+// Na função LatestEpisodeCard, trocar:
+const latestEpisode = episodes[episodes.length - 1];
+
+// Por:
+const latestEpisode = [...episodes].sort((a, b) => compareDatesDesc(a.date, b.date))[0];
 ```
 
-**Produtos novos:**
-```typescript
-// AI Tools
-{ id: "airops", name: "AirOps", category: "AI Tools", url: "https://www.airops.com" },
-{ id: "crew-ai", name: "Crew AI", category: "AI Tools", url: "https://www.crewai.com" },
-{ id: "mapify", name: "Mapify", category: "AI Tools" },
-
-// Business
-{ id: "quickbase", name: "Quickbase", category: "Business", url: "https://www.quickbase.com" },
-
-// Lifestyle
-{ id: "foodtosave", name: "FoodtoSave", category: "Lifestyle" },
-
-// Fitness
-{ id: "zepp", name: "Zepp", category: "Fitness" },
-
-// Transportation
-{ id: "e-titulo", name: "E-título", category: "Transportation" },
-{ id: "swapfiets", name: "Swapfiets", category: "Transportation", url: "https://swapfiets.com" },
-
-// Entertainment
-{ id: "land-builder", name: "Land Builder", category: "Entertainment" },
-```
-
-**Pessoas novas:**
-```typescript
-{ id: "gi", name: "Gi" },
-{ id: "tiago-santi", name: "Tiago Santi" },
-{ id: "ana-romeu", name: "Ana Romeu" },
-```
-
-**Menções:**
-```typescript
-// Episode 59
-{ id: "m59-1", episodeId: 59, personId: "aiquis", productId: "prime-video" },
-{ id: "m59-2", episodeId: 59, personId: "aiquis", productId: "crew-ai" },
-{ id: "m59-3", episodeId: 59, personId: "arthur", productId: "airops" },
-{ id: "m59-4", episodeId: 59, personId: "portinho", productId: "mapify" },
-{ id: "m59-5", episodeId: 59, personId: "gi", productId: "perplexity" },
-{ id: "m59-6", episodeId: 59, personId: "jessica-luz", productId: "tldv" },
-{ id: "m59-7", episodeId: 59, personId: "boss", productId: "supabase" },
-{ id: "m59-8", episodeId: 59, personId: "tiago-santi", productId: "quickbase" },
-{ id: "m59-9", episodeId: 59, personId: "nana", productId: "foodtosave" },
-{ id: "m59-10", episodeId: 59, personId: "marina-fernandes", productId: "wellhub" },
-{ id: "m59-11", episodeId: 59, personId: "brian", productId: "zepp" },
-{ id: "m59-12", episodeId: 59, personId: "pilon", productId: "e-titulo" },
-{ id: "m59-13", episodeId: 59, personId: "ana-romeu", productId: "swapfiets" },
-{ id: "m59-14", episodeId: 59, personId: "andrezao", productId: "pokemon-tcg" },
-{ id: "m59-15", episodeId: 59, personId: "danilera", productId: "land-builder" },
-```
+Esta mudança:
+- Cria uma cópia do array para não modificar o original
+- Ordena por data (mais recente primeiro) usando a função existente
+- Pega o primeiro elemento (episódio mais recente)
 
 ---
 
-### Resumo de Alterações
+### Resultado Esperado
 
-| Seção | Adições |
-|-------|---------|
-| Episodes | +1 (59) |
-| Products | +9 novos |
-| People | +3 novos |
-| Mentions | +15 |
-
+O card "Latest Episode" sempre mostrará o episódio com a data mais recente (atualmente Ep. 103 de 2026-01-21), independentemente da ordem em que os episódios são adicionados ao banco de dados.
