@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Calendar, MessageSquare } from "lucide-react";
+import { formatEpisodeDate } from "@/lib/utils";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, TooltipProps } from "recharts";
 import {
   getEpisodeById,
@@ -82,11 +83,7 @@ export default function EpisodeDetail() {
           <div className="flex items-center gap-4 mt-1">
             <div className="flex items-center gap-1 text-sm text-muted-foreground">
               <Calendar className="w-4 h-4" />
-              {new Date(episode.date).toLocaleDateString("en-US", {
-                month: "long",
-                day: "numeric",
-                year: "numeric",
-              })}
+              {formatEpisodeDate(episode.date)}
             </div>
             <div className="flex items-center gap-1 text-sm text-muted-foreground">
               <MessageSquare className="w-4 h-4" />

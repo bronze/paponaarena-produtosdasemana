@@ -1,6 +1,8 @@
 // Product Arena Radar - Static Data
 // Real podcast data from Papo na Arena
 
+import { getYearFromDate } from "@/lib/utils";
+
 export interface Episode {
   id: number;
   title: string;
@@ -1470,13 +1472,13 @@ export function getProductsByCategory(category: string): Product[] {
 }
 
 export function getEpisodeYears(): number[] {
-  const years = episodes.map((e) => new Date(e.date).getFullYear());
+  const years = episodes.map((e) => getYearFromDate(e.date));
   return [...new Set(years)].sort((a, b) => b - a);
 }
 
 export function getEpisodesByYear(year: number | "all"): Episode[] {
   if (year === "all") return episodes;
-  return episodes.filter((e) => new Date(e.date).getFullYear() === year);
+  return episodes.filter((e) => getYearFromDate(e.date) === year);
 }
 
 export function getTopProductsMentionsOverTime(limit: number = 10): Record<string, any>[] {

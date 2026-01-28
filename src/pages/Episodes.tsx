@@ -5,11 +5,12 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Mic, ArrowRight, Calendar } from "lucide-react";
 import { getEpisodeYears, getEpisodesByYear, getMentionsByEpisode } from "@/data/mentions";
+import { formatEpisodeDate, compareDatesDesc } from "@/lib/utils";
 
 export default function Episodes() {
   const years = getEpisodeYears();
   const [selectedYear, setSelectedYear] = useState<number | "all">("all");
-  const filteredEpisodes = getEpisodesByYear(selectedYear).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const filteredEpisodes = getEpisodesByYear(selectedYear).sort((a, b) => compareDatesDesc(a.date, b.date));
 
   return (
     <div className="space-y-6">
@@ -58,11 +59,7 @@ export default function Episodes() {
                       <div className="flex items-center justify-between pt-2">
                         <div className="flex items-center gap-1 text-xs text-muted-foreground">
                           <Calendar className="w-3 h-3" />
-                          {new Date(episode.date).toLocaleDateString("en-US", {
-                            month: "short",
-                            day: "numeric",
-                            year: "numeric",
-                          })}
+                          {formatEpisodeDate(episode.date)}
                         </div>
                         <div className="flex items-center gap-1 text-sm font-medium text-primary">
                           {mentionCount} mentions
