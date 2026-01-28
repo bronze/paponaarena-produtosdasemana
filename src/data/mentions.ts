@@ -35,7 +35,7 @@ export interface Mention {
 // Episodes
 export const episodes: Episode[] = [
   // 2024 Episodes
-{
+  {
     id: 58,
     title: "Como foi o Lenny & Friends Summit? Com Fernanda Faria-Product Director @ ABInBev",
     date: "2024-11-06",
@@ -405,7 +405,7 @@ export const products: Product[] = [
   // Development
   { id: "flutterflow", name: "FlutterFlow", category: "Development", url: "https://flutterflow.io" },
   { id: "oneschema", name: "OneSchema", category: "Development", url: "https://www.oneschema.co" },
-{ id: "rapid-api", name: "Rapid API", category: "Development", url: "https://rapidapi.com" },
+  { id: "rapid-api", name: "Rapid API", category: "Development", url: "https://rapidapi.com" },
 
   // AI Tools (additional)
   { id: "airops", name: "AirOps", category: "AI Tools", url: "https://www.airops.com" },
@@ -427,9 +427,9 @@ export const products: Product[] = [
   { id: "samsung-wearable", name: "Samsung Wearable", category: "Fitness" },
   { id: "training-peaks", name: "Training Peaks", category: "Fitness", url: "https://trainingpeaks.com" },
   { id: "trainiac", name: "Trainiac", category: "Fitness" },
-  { id: "total-pass", name: "Total Pass", category: "Fitness" },
-  { id: "wellhub", name: "Wellhub", category: "Fitness" },
-  { id: "mfit-personal", name: "MFIT Personal", category: "Fitness" },
+  { id: "total-pass", name: "Total Pass", category: "Fitness", url: "https://totalpass.com/" },
+  { id: "wellhub", name: "Wellhub", category: "Fitness", url: "https://wellhub.com/" },
+  { id: "mfit-personal", name: "MFIT Personal", category: "Fitness", url: "https://www.mfitpersonal.com.br/" },
   { id: "runstory", name: "RunStory", category: "Fitness" },
   { id: "bicicleta-equilibrio", name: "Bicicleta de equilíbrio", category: "Fitness" },
   { id: "asics-superblast-2", name: "Asics Superblast 2", category: "Fitness" },
@@ -438,7 +438,7 @@ export const products: Product[] = [
   { id: "fitness-plus", name: "Fitness+", category: "Fitness" },
   { id: "yazio", name: "Yazio", category: "Fitness", url: "https://www.yazio.com/" },
   { id: "streaks", name: "Streaks", category: "Fitness" },
-{ id: "bionic-go", name: "Bionic Go", category: "Fitness" },
+  { id: "bionic-go", name: "Bionic Go", category: "Fitness" },
   { id: "zepp", name: "Zepp", category: "Fitness" },
 
   // Analytics
@@ -472,7 +472,7 @@ export const products: Product[] = [
   { id: "carplay", name: "Carplay", category: "Transportation" },
   { id: "bluelink", name: "Bluelink", category: "Transportation" },
   { id: "carteira-transito", name: "Carteira Digital de Trânsito", category: "Transportation" },
-{ id: "bilhete-unico", name: "Bilhete Único", category: "Transportation" },
+  { id: "bilhete-unico", name: "Bilhete Único", category: "Transportation" },
   { id: "e-titulo", name: "E-título", category: "Transportation" },
   { id: "swapfiets", name: "Swapfiets", category: "Transportation", url: "https://swapfiets.com" },
 
@@ -496,7 +496,12 @@ export const products: Product[] = [
   },
   { id: "sprout", name: "Sprout", category: "Productivity" },
   { id: "microsoft-edge", name: "Microsoft Edge", category: "Productivity", url: "https://www.microsoft.com/edge" },
-  { id: "microsoft-edge-cupons", name: "Microsoft Edge (busca de cupons)", category: "Productivity", parentId: "microsoft-edge" },
+  {
+    id: "microsoft-edge-cupons",
+    name: "Microsoft Edge (busca de cupons)",
+    category: "Productivity",
+    parentId: "microsoft-edge",
+  },
   { id: "loom", name: "Loom", category: "Productivity", url: "https://loom.com" },
   { id: "google-docs", name: "Google Docs", category: "Productivity", url: "https://docs.google.com" },
   { id: "teams", name: "Teams", category: "Productivity", url: "https://teams.microsoft.com" },
@@ -570,7 +575,7 @@ export const products: Product[] = [
   { id: "hipercap-brasil", name: "HiperCap Brasil", category: "Entertainment" },
   { id: "loteria", name: "Loteria", category: "Entertainment" },
   { id: "acquired-podcast", name: "Acquired Podcast", category: "Entertainment" },
-{ id: "clash-pass", name: "Clash Pass", category: "Entertainment" },
+  { id: "clash-pass", name: "Clash Pass", category: "Entertainment" },
   { id: "land-builder", name: "Land Builder", category: "Entertainment" },
 
   // Finance
@@ -591,7 +596,7 @@ export const products: Product[] = [
   { id: "pagol", name: "PaGol", category: "Finance" },
   { id: "calculadora-loft", name: "Calculadora financiamento loft", category: "Finance" },
   { id: "minhas-financas", name: "Minhas Finanças", category: "Finance" },
-{ id: "app-fgc", name: "App do FGC", category: "Finance" },
+  { id: "app-fgc", name: "App do FGC", category: "Finance" },
 
   // Lifestyle
   { id: "foodtosave", name: "FoodtoSave", category: "Lifestyle" },
@@ -925,7 +930,7 @@ export const people: Person[] = [
   { id: "dezao", name: "Dezão" },
   { id: "murilo", name: "Murilo" },
   { id: "maria", name: "Maria" },
-{ id: "bruna", name: "Bruna" },
+  { id: "bruna", name: "Bruna" },
   // Episode 59 contributors
   { id: "gi", name: "Gi" },
   { id: "tiago-santi", name: "Tiago Santi" },
@@ -944,7 +949,7 @@ export const mentions: Mention[] = [
   { id: "m58-7", episodeId: 58, personId: "karina", productId: "99" },
   { id: "m58-8", episodeId: 58, personId: "andrezinho", productId: "duolingo" },
   { id: "m58-9", episodeId: 58, personId: "glauco", productId: "classapp" },
-{ id: "m58-10", episodeId: 58, personId: "lucao", productId: "eventos-whatsapp" },
+  { id: "m58-10", episodeId: 58, personId: "lucao", productId: "eventos-whatsapp" },
 
   // Episode 59
   { id: "m59-1", episodeId: 59, personId: "aiquis", productId: "prime-video" },
