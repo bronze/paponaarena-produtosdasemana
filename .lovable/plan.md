@@ -1,138 +1,79 @@
 
 
-## Plano: Adicionar Episódio 57 e Menções
+## Plano: Redirecionar Variantes para Produto Principal nos Links
 
-### Resumo
+### Problema
 
-Adicionar o episódio 57 de 2024 (Oct 30) com o tema "Reflexões sobre fazer o básico bem feito" e suas 11 menções ao arquivo `src/data/mentions.ts`.
+Quando usuários clicam em produtos variantes (ex: "Instagram (detox)", "ChatGPT o3", "Claude Opus 4"), o link leva para a página da variante (`/products/instagram-detox`), quando deveria levar para o produto principal (`/products/instagram`).
 
----
+### Solução
 
-### Arquivo a Modificar
-
-`src/data/mentions.ts`
-
----
-
-### 1. Novo Episódio
-
-| ID | Título | Data |
-|----|--------|------|
-| 57 | Reflexões sobre fazer o básico bem feito | 2024-10-30 |
+1. Criar uma função helper `getProductLinkId()` que retorna o `parentId` se existir, caso contrário retorna o próprio `id`
+2. Atualizar todos os lugares que criam links para produtos para usar essa função
 
 ---
 
-### 2. Novos Produtos (6)
+### Arquivos a Modificar
 
-| ID | Nome | Categoria | Observação |
-|----|------|-----------|------------|
-| google-suite | Google Suite | Productivity | Novo |
-| apple-intelligence | Apple Intelligence | AI Tools | Novo |
-| retool | Retool | Development | Novo |
-| rocket-money | Rocket Money | Finance | Novo |
-| google-lens | Google Lens | AI Tools | Novo |
-| toqan | Toqan | AI Tools | AI do iFood |
-| bike | Bike | Transportation | Novo (genérico) |
+| Arquivo | Alteração |
+|---------|-----------|
+| `src/data/mentions.ts` | Adicionar nova função helper |
+| `src/pages/EpisodeDetail.tsx` | Usar `getProductLinkId` nos links |
+| `src/pages/PersonDetail.tsx` | Usar `getProductLinkId` nos links |
+| `src/pages/CategoryDetail.tsx` | Usar `getProductLinkId` nos links |
+| `src/components/dashboard/RecentMentions.tsx` | Usar `getProductLinkId` nos links |
 
-**Produtos já existentes (reutilizar):**
-- `linkedin` (Social)
-- `chatgpt` (AI Tools)
-- `netflix` (Entertainment)
-
----
-
-### 3. Novas Pessoas (1)
-
-| ID | Nome |
-|----|------|
-| bruna-ep57 | Bruna |
-
-Nota: Existe um `bruna` duplicado no arquivo, então usarei um ID único para este episódio.
-
-**Pessoas já existentes (reutilizar):**
-- `aiquis`, `arthur`, `boss`, `mat`, `karina`, `lucas`, `brian`, `pilon`, `nana`
-
----
-
-### 4. Novas Menções (11)
-
-| Pessoa | Produto |
-|--------|---------|
-| Aíquis | Google Suite |
-| Arthur | Apple Intelligence |
-| Boss | Retool |
-| Mat | Rocket Money |
-| Karina | Bike |
-| Lucas | LinkedIn |
-| Brian | LinkedIn |
-| Pilon | ChatGPT |
-| Pilon | Google Lens |
-| Nana | Netflix |
-| Bruna | Toqan |
+Nota: `src/pages/Products.tsx` não precisa de alteração porque já filtra variantes com `!p.parentId`.
 
 ---
 
 ### Seção Técnica
 
-**Episódio (inserir antes do episódio 58):**
+**1. Nova função helper em `src/data/mentions.ts`:**
+
 ```typescript
-{
-  id: 57,
-  title: "Reflexões sobre fazer o básico bem feito",
-  date: "2024-10-30",
-  description: "Discussão sobre a importância de executar bem o básico.",
-},
+export function getProductLinkId(productId: string): string {
+  const product = getProductById(productId);
+  return product?.parentId || productId;
+}
 ```
 
-**Produtos novos:**
+**2. Atualização nos componentes:**
+
+Antes:
 ```typescript
-// Productivity
-{ id: "google-suite", name: "Google Suite", category: "Productivity", url: "https://workspace.google.com" },
-
-// AI Tools
-{ id: "apple-intelligence", name: "Apple Intelligence", category: "AI Tools" },
-{ id: "google-lens", name: "Google Lens", category: "AI Tools", url: "https://lens.google" },
-{ id: "toqan", name: "Toqan", category: "AI Tools", url: "https://toqan.ai" },
-
-// Development
-{ id: "retool", name: "Retool", category: "Development", url: "https://retool.com" },
-
-// Finance
-{ id: "rocket-money", name: "Rocket Money", category: "Finance", url: "https://rocketmoney.com" },
-
-// Transportation
-{ id: "bike", name: "Bike", category: "Transportation" },
+<Link to={`/products/${product.id}`}>
 ```
 
-**Pessoa nova:**
+Depois:
 ```typescript
-{ id: "bruna-ep57", name: "Bruna" },
+<Link to={`/products/${getProductLinkId(product.id)}`}>
 ```
 
-**Menções:**
+**Exemplo em EpisodeDetail.tsx:**
 ```typescript
-// Episode 57
-{ id: "m57-1", episodeId: 57, personId: "aiquis", productId: "google-suite" },
-{ id: "m57-2", episodeId: 57, personId: "arthur", productId: "apple-intelligence" },
-{ id: "m57-3", episodeId: 57, personId: "boss", productId: "retool" },
-{ id: "m57-4", episodeId: 57, personId: "mat", productId: "rocket-money" },
-{ id: "m57-5", episodeId: 57, personId: "karina", productId: "bike" },
-{ id: "m57-6", episodeId: 57, personId: "lucas", productId: "linkedin" },
-{ id: "m57-7", episodeId: 57, personId: "brian", productId: "linkedin" },
-{ id: "m57-8", episodeId: 57, personId: "pilon", productId: "chatgpt" },
-{ id: "m57-9", episodeId: 57, personId: "pilon", productId: "google-lens" },
-{ id: "m57-10", episodeId: 57, personId: "nana", productId: "netflix" },
-{ id: "m57-11", episodeId: 57, personId: "bruna-ep57", productId: "toqan" },
+// Importar a nova função
+import { getProductLinkId } from "@/data/mentions";
+
+// Regular product link
+<Link key={mention.id} to={`/products/${getProductLinkId(mention.productId)}`}>
 ```
+
+**Arquivos e linhas específicas:**
+
+| Arquivo | Linhas com links a atualizar |
+|---------|------------------------------|
+| `EpisodeDetail.tsx` | ~182 (combo), ~200 (regular) |
+| `PersonDetail.tsx` | ~222 (combo), ~236 (regular), ~180 (chart click) |
+| `CategoryDetail.tsx` | ~274 |
+| `RecentMentions.tsx` | ~60 (combo), ~78 (regular) |
 
 ---
 
-### Resumo de Alterações
+### Resultado Esperado
 
-| Seção | Adições |
-|-------|---------|
-| Episodes | +1 (57) |
-| Products | +7 novos |
-| People | +1 novo |
-| Mentions | +11 |
+- Clicar em "Instagram (detox)" levará para `/products/instagram`
+- Clicar em "ChatGPT o3" levará para `/products/chatgpt`
+- Clicar em "Claude Opus 4" levará para `/products/claude`
+- Produtos sem `parentId` continuarão funcionando normalmente
 
