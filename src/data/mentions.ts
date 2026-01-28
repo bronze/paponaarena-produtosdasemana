@@ -385,7 +385,7 @@ export const products: Product[] = [
   { id: "power-automate", name: "Power Automate", category: "Automation", url: "https://powerautomate.microsoft.com" },
 
   // Fitness
-  { id: "gentler-streak", name: "Gentler Streak", category: "Fitness" },
+  { id: "gentler-streak", name: "Gentler Streak", category: "Fitness", url: "https://gentler.app/" },
   { id: "munhequeira", name: "Munhequeira", category: "Fitness" },
   { id: "strava", name: "Strava", category: "Fitness", url: "https://strava.com" },
   { id: "hevy", name: "Hevy", category: "Fitness", url: "https://hevyapp.com" },
@@ -403,9 +403,9 @@ export const products: Product[] = [
   { id: "bicicleta-equilibrio", name: "Bicicleta de equilíbrio", category: "Fitness" },
   { id: "asics-superblast-2", name: "Asics Superblast 2", category: "Fitness" },
   { id: "asics-house", name: "Asics House no Parque Bruno Covas", category: "Fitness" },
-  { id: "liti", name: "Liti", category: "Fitness" },
+  { id: "liti", name: "Liti", category: "Fitness", url: "https://liti.com.br/" },
   { id: "fitness-plus", name: "Fitness+", category: "Fitness" },
-  { id: "yazio", name: "Yazio", category: "Fitness" },
+  { id: "yazio", name: "Yazio", category: "Fitness", url: "https://www.yazio.com/" },
   { id: "streaks", name: "Streaks", category: "Fitness" },
 
   // Analytics
@@ -449,7 +449,12 @@ export const products: Product[] = [
 
   // Productivity
   { id: "pipefy", name: "Pipefy", category: "Productivity", url: "https://pipefy.com" },
-  { id: "filebrowser-go", name: "FileBrowser Go", category: "Productivity", url: "https://www.stratospherix.com/filebrowsergo/" },
+  {
+    id: "filebrowser-go",
+    name: "FileBrowser Go",
+    category: "Productivity",
+    url: "https://www.stratospherix.com/filebrowsergo/",
+  },
   { id: "sprout", name: "Sprout", category: "Productivity" },
   { id: "microsoft-edge", name: "Microsoft Edge (busca de cupons)", category: "Productivity" },
   { id: "loom", name: "Loom", category: "Productivity", url: "https://loom.com" },
@@ -491,7 +496,12 @@ export const products: Product[] = [
   { id: "audible", name: "Audible", category: "Education", url: "https://audible.com" },
 
   // Entertainment
-  { id: "balatro", name: "Balatro", category: "Entertainment", url: "https://store.steampowered.com/app/2379780/Balatro/" },
+  {
+    id: "balatro",
+    name: "Balatro",
+    category: "Entertainment",
+    url: "https://store.steampowered.com/app/2379780/Balatro/",
+  },
   { id: "dualsense", name: "DualSense", category: "Entertainment" },
   { id: "plague-evolved", name: "Plague Evolved", category: "Entertainment" },
   { id: "pokemon-tcg", name: "Pokémon TCG", category: "Entertainment" },
