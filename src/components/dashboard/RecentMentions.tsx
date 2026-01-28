@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { mentions, getProductById, getPersonById } from "@/data/mentions";
+import { mentions, getProductById, getPersonById, getProductLinkId } from "@/data/mentions";
 
 export function RecentMentions() {
   // Get the latest episode ID
@@ -57,7 +57,7 @@ export function RecentMentions() {
                                 return (
                                   <span key={creditedId} className="flex items-center gap-1">
                                     {idx > 0 && <span className="text-muted-foreground text-xs">+</span>}
-                                    <Link to={`/products/${creditedProduct.id}`}>
+                                    <Link to={`/products/${getProductLinkId(creditedProduct.id)}`}>
                                       <Badge
                                         variant="secondary"
                                         className="hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer text-xs"
@@ -75,7 +75,7 @@ export function RecentMentions() {
 
                         // Regular product
                         return (
-                          <Link key={mention.id} to={`/products/${mention.productId}`}>
+                          <Link key={mention.id} to={`/products/${getProductLinkId(mention.productId)}`}>
                             <Badge
                               variant="secondary"
                               className="hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer text-xs"

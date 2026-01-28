@@ -1818,3 +1818,8 @@ export function getTopCategoryNames(limit: number = 8): string[] {
     .slice(0, limit)
     .map((c) => c.name);
 }
+
+export function getProductLinkId(productId: string): string {
+  const product = getProductById(productId);
+  return product?.parentId || productId;
+}
