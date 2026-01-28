@@ -456,7 +456,8 @@ export const products: Product[] = [
     url: "https://www.stratospherix.com/filebrowsergo/",
   },
   { id: "sprout", name: "Sprout", category: "Productivity" },
-  { id: "microsoft-edge", name: "Microsoft Edge (busca de cupons)", category: "Productivity" },
+  { id: "microsoft-edge", name: "Microsoft Edge", category: "Productivity", url: "https://www.microsoft.com/edge" },
+  { id: "microsoft-edge-cupons", name: "Microsoft Edge (busca de cupons)", category: "Productivity", parentId: "microsoft-edge" },
   { id: "loom", name: "Loom", category: "Productivity", url: "https://loom.com" },
   { id: "google-docs", name: "Google Docs", category: "Productivity", url: "https://docs.google.com" },
   { id: "teams", name: "Teams", category: "Productivity", url: "https://teams.microsoft.com" },
@@ -885,7 +886,7 @@ export const people: Person[] = [
 export const mentions: Mention[] = [
   // Episode 61
   { id: "m61-1", episodeId: 61, personId: "arthur", productId: "sprout" },
-  { id: "m61-2", episodeId: 61, personId: "aiquis", productId: "microsoft-edge" },
+  { id: "m61-2", episodeId: 61, personId: "aiquis", productId: "microsoft-edge-cupons" },
   { id: "m61-3", episodeId: 61, personId: "danilo-penteado", productId: "pillow-top-emma" },
   { id: "m61-4", episodeId: 61, personId: "caue", productId: "pokemon-tcg" },
   { id: "m61-5", episodeId: 61, personId: "maria", productId: "netflix" },
