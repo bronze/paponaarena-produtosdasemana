@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
   // 2024 Episodes
   {
+    id: 60,
+    title: "Quem cria a visão de Produto?",
+    date: "2024-11-19",
+    description: "Discussão sobre quem é responsável por criar a visão de produto.",
+  },
+  {
     id: 61,
     title: "Como saber e quais os sinais se um produto vai dar bom ou não?",
     date: "2024-11-26",
@@ -384,6 +390,10 @@ export const products: Product[] = [
   { id: "relay-app", name: "Relay.App", category: "Automation", url: "https://relay.app" },
   { id: "power-automate", name: "Power Automate", category: "Automation", url: "https://powerautomate.microsoft.com" },
 
+  // Development
+  { id: "flutterflow", name: "FlutterFlow", category: "Development", url: "https://flutterflow.io" },
+  { id: "oneschema", name: "OneSchema", category: "Development", url: "https://www.oneschema.co" },
+
   // Fitness
   { id: "gentler-streak", name: "Gentler Streak", category: "Fitness", url: "https://gentler.app/" },
   { id: "munhequeira", name: "Munhequeira", category: "Fitness" },
@@ -407,6 +417,7 @@ export const products: Product[] = [
   { id: "fitness-plus", name: "Fitness+", category: "Fitness" },
   { id: "yazio", name: "Yazio", category: "Fitness", url: "https://www.yazio.com/" },
   { id: "streaks", name: "Streaks", category: "Fitness" },
+  { id: "bionic-go", name: "Bionic Go", category: "Fitness" },
 
   // Analytics
   { id: "amplitude", name: "Amplitude", category: "Analytics", url: "https://amplitude.com" },
@@ -430,6 +441,7 @@ export const products: Product[] = [
   { id: "uber-black", name: "Uber Black", category: "Transportation", parentId: "uber" },
   { id: "uber-agendamento", name: "Agendamento de corrida Uber", category: "Transportation", parentId: "uber" },
   { id: "waze", name: "Waze", category: "Transportation", url: "https://waze.com" },
+  { id: "samsung-smart-switch", name: "Samsung Smart Switch", category: "Productivity" },
   { id: "blablacar", name: "Blablacar", category: "Transportation", url: "https://blablacar.com" },
   { id: "turbi", name: "Turbi", category: "Transportation" },
   { id: "patinete-jet", name: "Patinete Jet", category: "Transportation" },
@@ -870,6 +882,7 @@ export const people: Person[] = [
   { id: "diego-espinilo", name: "Diego Espinilo" },
   // 2024 contributors
   { id: "boss", name: "Boss" },
+  { id: "thiago", name: "Thiago" },
   { id: "andrezinho", name: "Andrézinho" },
   { id: "mila", name: "Mila" },
   { id: "beicola", name: "Beiçola" },
@@ -884,6 +897,16 @@ export const people: Person[] = [
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 60
+  { id: "m60-1", episodeId: 60, personId: "arthur", productId: "flutterflow" },
+  { id: "m60-2", episodeId: 60, personId: "aiquis", productId: "samsung-smart-switch" },
+  { id: "m60-3", episodeId: 60, personId: "danilo-penteado", productId: "skoob" },
+  { id: "m60-4", episodeId: 60, personId: "lucao", productId: "buyticket" },
+  { id: "m60-5", episodeId: 60, personId: "lucas", productId: "n8n" },
+  { id: "m60-6", episodeId: 60, personId: "pilon", productId: "kindle" },
+  { id: "m60-7", episodeId: 60, personId: "thiago", productId: "bionic-go" },
+  { id: "m60-8", episodeId: 60, personId: "boss", productId: "oneschema" },
+
   // Episode 61
   { id: "m61-1", episodeId: 61, personId: "arthur", productId: "sprout" },
   { id: "m61-2", episodeId: 61, personId: "aiquis", productId: "microsoft-edge-cupons" },
