@@ -58,7 +58,7 @@ export default function Episodes() {
                       <div className="flex items-center justify-between pt-2">
                         <div className="flex items-center gap-1 text-xs text-muted-foreground">
                           <Calendar className="w-3 h-3" />
-                          {new Date(episode.date).toLocaleDateString("en-US", {
+                          {new Date(episode.date + "T12:00:00").toLocaleDateString("en-US", {
                             month: "short",
                             day: "numeric",
                             year: "numeric",
