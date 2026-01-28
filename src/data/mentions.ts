@@ -256,6 +256,12 @@ export const episodes: Episode[] = [
     date: "2026-01-21",
     description: "Discussão sobre Claude Code e o futuro das ferramentas de IA.",
   },
+  {
+    id: 103,
+    title: "Você tem Product Sense?",
+    date: "2026-01-28",
+    description: "Discussão sobre Product Sense e as ferramentas da semana.",
+  },
 ];
 
 // Products (unique across all episodes)
@@ -336,12 +342,16 @@ export const products: Product[] = [
   { id: "plaud", name: "Plaud", category: "AI Tools", url: "https://www.plaud.ai/" },
   { id: "magie", name: "Magie", category: "AI Tools", url: "https://magie.com.br/" },
   { id: "antigravity", name: "Antigravity", category: "AI Tools", url: "https://antigravity.google/" },
+  { id: "canvas", name: "Canvas", category: "AI Tools" },
+  { id: "chatprd", name: "ChatPRD", category: "AI Tools", url: "https://chatprd.ai" },
+  { id: "isla", name: "Isla", category: "AI Tools" },
 
   // Automation
   { id: "make", name: "Make", category: "Automation", url: "https://make.com" },
   { id: "n8n", name: "N8N", category: "Automation", url: "https://n8n.io" },
   { id: "zapier", name: "Zapier", category: "Automation", url: "https://zapier.com" },
   { id: "relay-app", name: "Relay.App", category: "Automation", url: "https://relay.app" },
+  { id: "power-automate", name: "Power Automate", category: "Automation", url: "https://powerautomate.microsoft.com" },
 
   // Fitness
   { id: "strava", name: "Strava", category: "Fitness", url: "https://strava.com" },
@@ -392,6 +402,7 @@ export const products: Product[] = [
   { id: "carplay", name: "Carplay", category: "Transportation" },
   { id: "bluelink", name: "Bluelink", category: "Transportation" },
   { id: "carteira-transito", name: "Carteira Digital de Trânsito", category: "Transportation" },
+  { id: "bilhete-unico", name: "Bilhete Único", category: "Transportation" },
 
   // Social
   { id: "twitter", name: "Twitter", category: "Social", url: "https://x.com" },
@@ -422,6 +433,10 @@ export const products: Product[] = [
   { id: "polycam", name: "Polycam - Scanner 3D", category: "Productivity" },
   { id: "kong-api", name: "Kong API Gateway", category: "Productivity" },
   { id: "testflight", name: "TestFlight", category: "Productivity" },
+  { id: "cloud-cowork", name: "Cloud Cowork", category: "Productivity" },
+  { id: "gchat", name: "GChat", category: "Productivity" },
+  { id: "jira", name: "Jira", category: "Productivity", url: "https://www.atlassian.com/software/jira" },
+  { id: "google-script", name: "Google Script", category: "Productivity" },
 
   // Education
   { id: "vocabulary", name: "Vocabulary", category: "Education", url: "https://vocabulary.com" },
@@ -475,6 +490,7 @@ export const products: Product[] = [
   { id: "pagol", name: "PaGol", category: "Finance" },
   { id: "calculadora-loft", name: "Calculadora financiamento loft", category: "Finance" },
   { id: "minhas-financas", name: "Minhas Finanças", category: "Finance" },
+  { id: "app-fgc", name: "App do FGC", category: "Finance" },
 
   // Lifestyle
   { id: "agua", name: "Água", category: "Lifestyle" },
@@ -506,6 +522,8 @@ export const products: Product[] = [
   { id: "cereal-snowflake", name: "Cereal Snowflake", category: "Lifestyle" },
   { id: "as-semanas-magicas", name: "As semanas mágicas", category: "Lifestyle" },
   { id: "beerpass", name: "Beerpass", category: "Lifestyle", url: "https://beerpass.com.br" },
+  { id: "duo-gourmet", name: "Duo Gourmet", category: "Lifestyle", url: "https://duogourmet.com.br" },
+  { id: "massageador-pescoco", name: "Massageador de pescoço e ombros", category: "Lifestyle" },
 
   // Wellness
   { id: "opal", name: "Opal", category: "Wellness", url: "https://opal.so" },
@@ -585,6 +603,7 @@ export const products: Product[] = [
   { id: "event-tracker-aiquis", name: "Event Tracker do Aíquis", category: "Business" },
   { id: "be-my-eyes", name: "Be My Eyes", category: "Business" },
   { id: "whatsapp", name: "WhatsApp", category: "Business", url: "https://whatsapp.com" },
+  { id: "buy-tickets", name: "Buy Tickets", category: "Business" },
 
   // Apps
   { id: "tela", name: "Tela.com", category: "Apps" },
@@ -771,6 +790,18 @@ export const people: Person[] = [
   { id: "lucas-furtado", name: "Lucas Furtado" },
   { id: "wilson-jr", name: "Wilson Jr" },
   { id: "thais", name: "Thais" },
+  // Episode 103 contributors
+  { id: "caiman", name: "Caiman" },
+  { id: "iago-maciel", name: "Iago Maciel" },
+  { id: "thiago-valinho", name: "Thiago Valinho" },
+  { id: "vanessa-silva", name: "Vanessa Silva" },
+  { id: "rodrigo-frumento", name: "Rodrigo Frumento" },
+  { id: "senra", name: "Senra" },
+  { id: "cristiano", name: "Cristiano" },
+  { id: "marcos-roman", name: "Marcos Roman" },
+  { id: "paula-paradellas", name: "Paula Paradellas" },
+  { id: "nelson-moura", name: "Nelson de Moura" },
+  { id: "diego-espinilo", name: "Diego Espinilo" },
 ];
 
 // Mentions
@@ -1301,6 +1332,38 @@ export const mentions: Mention[] = [
   { id: "m102-36", episodeId: 102, personId: "tammy-senra", productId: "duolingo" },
   { id: "m102-37", episodeId: 102, personId: "amanda-couto", productId: "ipod-fake" },
   { id: "m102-38", episodeId: 102, personId: "bolivar", productId: "camisa-preta" },
+
+  // Episode 103
+  { id: "m103-1", episodeId: 103, personId: "aiquis", productId: "duo-gourmet" },
+  { id: "m103-2", episodeId: 103, personId: "arthur", productId: "massageador-pescoco" },
+  { id: "m103-3", episodeId: 103, personId: "caiman", productId: "manus-ai" },
+  { id: "m103-4", episodeId: 103, personId: "iago-maciel", productId: "cloud-cowork" },
+  { id: "m103-5", episodeId: 103, personId: "thiago-valinho", productId: "gemini" },
+  { id: "m103-6", episodeId: 103, personId: "thiago-valinho", productId: "gchat" },
+  { id: "m103-7", episodeId: 103, personId: "thiago-valinho", productId: "canvas" },
+  { id: "m103-8", episodeId: 103, personId: "beatriz-morales", productId: "bilhete-unico" },
+  { id: "m103-9", episodeId: 103, personId: "vanessa-silva", productId: "chatgpt" },
+  { id: "m103-10", episodeId: 103, personId: "vanessa-silva", productId: "copilot-365" },
+  { id: "m103-11", episodeId: 103, personId: "amanda-couto", productId: "chatgpt" },
+  { id: "m103-12", episodeId: 103, personId: "amanda-couto", productId: "gemini" },
+  { id: "m103-13", episodeId: 103, personId: "rodrigo-frumento", productId: "chatgpt" },
+  { id: "m103-14", episodeId: 103, personId: "rodrigo-frumento", productId: "jira" },
+  { id: "m103-15", episodeId: 103, personId: "rodrigo-frumento", productId: "chatprd" },
+  { id: "m103-16", episodeId: 103, personId: "senra", productId: "power-automate" },
+  { id: "m103-17", episodeId: 103, personId: "carlos-bronze", productId: "cursor" },
+  { id: "m103-18", episodeId: 103, personId: "carlos-bronze", productId: "lovable" },
+  { id: "m103-19", episodeId: 103, personId: "cristiano", productId: "app-fgc" },
+  { id: "m103-20", episodeId: 103, personId: "marcos-roman", productId: "isla" },
+  { id: "m103-21", episodeId: 103, personId: "marcos-roman", productId: "lovable" },
+  { id: "m103-22", episodeId: 103, personId: "paula-paradellas", productId: "substack" },
+  { id: "m103-23", episodeId: 103, personId: "beatriz-fazolo", productId: "buy-tickets" },
+  { id: "m103-24", episodeId: 103, personId: "nelson-moura", productId: "cursor" },
+  { id: "m103-25", episodeId: 103, personId: "nelson-moura", productId: "antigravity" },
+  { id: "m103-26", episodeId: 103, personId: "diego-espinilo", productId: "antigravity" },
+  { id: "m103-27", episodeId: 103, personId: "amilker", productId: "google-script" },
+  { id: "m103-28", episodeId: 103, personId: "amilker", productId: "notebooklm" },
+  { id: "m103-29", episodeId: 103, personId: "bob", productId: "tidal-hifi" },
+  { id: "m103-30", episodeId: 103, personId: "peixoto", productId: "lovable" },
 ];
 
 // Helper functions
