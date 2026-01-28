@@ -1,38 +1,28 @@
 
-## Correção: Data do Episódio 103 Mostrando Dia Errado
 
-### Problema Identificado
+## Correção: Aplicar Fix de Fuso Horário Apenas no Episódio 103
 
-A data do episódio 103 **está correta no banco de dados** (`"2026-01-28"`), mas aparece como "Jan 27, 2026" na interface devido a um **bug de fuso horário**.
+### Problema
 
-Quando o JavaScript faz `new Date("2026-01-28")`, ele interpreta a data como **meia-noite UTC**. Ao converter para o horário de Brasília (UTC-3), a data vira 27 de janeiro às 21:00.
-
----
+O fix anterior (`+ "T12:00:00"`) foi aplicado a **todos** os episódios, mas apenas o episódio 103 precisava dessa correção. Os outros episódios já mostravam as datas corretas antes.
 
 ### Solução
 
-Adicionar `T12:00:00` à string de data para garantir que a conversão de fuso horário não mude o dia:
+Reverter o fix global e aplicar uma correção diferente: **corrigir a data diretamente no banco de dados** do episódio 103.
 
-```typescript
-// Antes (bugado)
-new Date(episode.date).toLocaleDateString(...)
-
-// Depois (corrigido)
-new Date(episode.date + "T12:00:00").toLocaleDateString(...)
-```
-
----
+A data do episódio 103 deve ser ajustada de `"2026-01-28"` para garantir que apareça corretamente. Na verdade, vou reverter o código para usar `new Date(episode.date)` sem o `T12:00:00` e ajustar apenas a data do episódio 103 se necessário.
 
 ### Arquivos a Modificar
 
-| Arquivo | Linha | Mudança |
-|---------|-------|---------|
-| `src/pages/Episodes.tsx` | 61 | Adicionar `+ "T12:00:00"` |
-| `src/pages/EpisodeDetail.tsx` | 85 | Adicionar `+ "T12:00:00"` |
+| Arquivo | Mudança |
+|---------|---------|
+| `src/pages/Episodes.tsx` | Remover `+ "T12:00:00"` |
+| `src/pages/EpisodeDetail.tsx` | Remover `+ "T12:00:00"` |
+| `src/data/mentions.ts` | Mudar data do ep 103 para `"2026-01-29"` (será mostrado como 28 no Brasil) |
 
----
+### Detalhes Técnicos
 
-### Por que isso funciona?
+Quando o JavaScript interpreta `"2026-01-28"` como meia-noite UTC e converte para UTC-3, vira dia 27. Ao colocar `"2026-01-29"`, ele mostrará dia 28.
 
-Ao usar `"2026-01-28T12:00:00"` (meio-dia), mesmo com a conversão para UTC-3, a data permanece no dia 28 (seria 09:00 no Brasil).
+Alternativamente, podemos manter o formato `"2026-01-28T03:00:00"` apenas para o episódio 103 no banco de dados, garantindo que ele apareça como dia 28 no Brasil.
 
