@@ -35,11 +35,17 @@ export interface Mention {
 // Episodes
 export const episodes: Episode[] = [
   // 2024 Episodes
-  {
+{
     id: 58,
     title: "Como foi o Lenny & Friends Summit? Com Fernanda Faria-Product Director @ ABInBev",
     date: "2024-11-06",
     description: "Discussão sobre o Lenny & Friends Summit com Fernanda Faria.",
+  },
+  {
+    id: 59,
+    title: "O que chefões da OpenAI, Anthropic e Perplexity pensam sobre AI como produto",
+    date: "2024-11-12",
+    description: "Discussão sobre visões de AI como produto por líderes da OpenAI, Anthropic e Perplexity.",
   },
   {
     id: 60,
@@ -399,7 +405,15 @@ export const products: Product[] = [
   // Development
   { id: "flutterflow", name: "FlutterFlow", category: "Development", url: "https://flutterflow.io" },
   { id: "oneschema", name: "OneSchema", category: "Development", url: "https://www.oneschema.co" },
-  { id: "rapid-api", name: "Rapid API", category: "Development", url: "https://rapidapi.com" },
+{ id: "rapid-api", name: "Rapid API", category: "Development", url: "https://rapidapi.com" },
+
+  // AI Tools (additional)
+  { id: "airops", name: "AirOps", category: "AI Tools", url: "https://www.airops.com" },
+  { id: "crew-ai", name: "Crew AI", category: "AI Tools", url: "https://www.crewai.com" },
+  { id: "mapify", name: "Mapify", category: "AI Tools" },
+
+  // Business (additional)
+  { id: "quickbase", name: "Quickbase", category: "Business", url: "https://www.quickbase.com" },
 
   // Fitness
   { id: "gentler-streak", name: "Gentler Streak", category: "Fitness", url: "https://gentler.app/" },
@@ -424,7 +438,8 @@ export const products: Product[] = [
   { id: "fitness-plus", name: "Fitness+", category: "Fitness" },
   { id: "yazio", name: "Yazio", category: "Fitness", url: "https://www.yazio.com/" },
   { id: "streaks", name: "Streaks", category: "Fitness" },
-  { id: "bionic-go", name: "Bionic Go", category: "Fitness" },
+{ id: "bionic-go", name: "Bionic Go", category: "Fitness" },
+  { id: "zepp", name: "Zepp", category: "Fitness" },
 
   // Analytics
   { id: "amplitude", name: "Amplitude", category: "Analytics", url: "https://amplitude.com" },
@@ -457,7 +472,9 @@ export const products: Product[] = [
   { id: "carplay", name: "Carplay", category: "Transportation" },
   { id: "bluelink", name: "Bluelink", category: "Transportation" },
   { id: "carteira-transito", name: "Carteira Digital de Trânsito", category: "Transportation" },
-  { id: "bilhete-unico", name: "Bilhete Único", category: "Transportation" },
+{ id: "bilhete-unico", name: "Bilhete Único", category: "Transportation" },
+  { id: "e-titulo", name: "E-título", category: "Transportation" },
+  { id: "swapfiets", name: "Swapfiets", category: "Transportation", url: "https://swapfiets.com" },
 
   // Social
   { id: "reddit", name: "Reddit", category: "Social", url: "https://reddit.com" },
@@ -553,7 +570,8 @@ export const products: Product[] = [
   { id: "hipercap-brasil", name: "HiperCap Brasil", category: "Entertainment" },
   { id: "loteria", name: "Loteria", category: "Entertainment" },
   { id: "acquired-podcast", name: "Acquired Podcast", category: "Entertainment" },
-  { id: "clash-pass", name: "Clash Pass", category: "Entertainment" },
+{ id: "clash-pass", name: "Clash Pass", category: "Entertainment" },
+  { id: "land-builder", name: "Land Builder", category: "Entertainment" },
 
   // Finance
   { id: "c6-ia", name: "C6 (IA)", category: "Finance", parentId: "c6" },
@@ -573,9 +591,10 @@ export const products: Product[] = [
   { id: "pagol", name: "PaGol", category: "Finance" },
   { id: "calculadora-loft", name: "Calculadora financiamento loft", category: "Finance" },
   { id: "minhas-financas", name: "Minhas Finanças", category: "Finance" },
-  { id: "app-fgc", name: "App do FGC", category: "Finance" },
+{ id: "app-fgc", name: "App do FGC", category: "Finance" },
 
   // Lifestyle
+  { id: "foodtosave", name: "FoodtoSave", category: "Lifestyle" },
   { id: "airfryer-ritalobo", name: "Airfryer Rita Lobo", category: "Hardware" },
   { id: "thefork", name: "TheFork", category: "Lifestyle", url: "https://thefork.com" },
   { id: "lindt", name: "Lindt", category: "Lifestyle", url: "https://www.lindt.com.br/" },
@@ -906,7 +925,11 @@ export const people: Person[] = [
   { id: "dezao", name: "Dezão" },
   { id: "murilo", name: "Murilo" },
   { id: "maria", name: "Maria" },
-  { id: "bruna", name: "Bruna" },
+{ id: "bruna", name: "Bruna" },
+  // Episode 59 contributors
+  { id: "gi", name: "Gi" },
+  { id: "tiago-santi", name: "Tiago Santi" },
+  { id: "ana-romeu", name: "Ana Romeu" },
 ];
 
 // Mentions
@@ -921,7 +944,24 @@ export const mentions: Mention[] = [
   { id: "m58-7", episodeId: 58, personId: "karina", productId: "99" },
   { id: "m58-8", episodeId: 58, personId: "andrezinho", productId: "duolingo" },
   { id: "m58-9", episodeId: 58, personId: "glauco", productId: "classapp" },
-  { id: "m58-10", episodeId: 58, personId: "lucao", productId: "eventos-whatsapp" },
+{ id: "m58-10", episodeId: 58, personId: "lucao", productId: "eventos-whatsapp" },
+
+  // Episode 59
+  { id: "m59-1", episodeId: 59, personId: "aiquis", productId: "prime-video" },
+  { id: "m59-2", episodeId: 59, personId: "aiquis", productId: "crew-ai" },
+  { id: "m59-3", episodeId: 59, personId: "arthur", productId: "airops" },
+  { id: "m59-4", episodeId: 59, personId: "portinho", productId: "mapify" },
+  { id: "m59-5", episodeId: 59, personId: "gi", productId: "perplexity" },
+  { id: "m59-6", episodeId: 59, personId: "jessica-luz", productId: "tldv" },
+  { id: "m59-7", episodeId: 59, personId: "boss", productId: "supabase" },
+  { id: "m59-8", episodeId: 59, personId: "tiago-santi", productId: "quickbase" },
+  { id: "m59-9", episodeId: 59, personId: "nana", productId: "foodtosave" },
+  { id: "m59-10", episodeId: 59, personId: "marina-fernandes", productId: "wellhub" },
+  { id: "m59-11", episodeId: 59, personId: "brian", productId: "zepp" },
+  { id: "m59-12", episodeId: 59, personId: "pilon", productId: "e-titulo" },
+  { id: "m59-13", episodeId: 59, personId: "ana-romeu", productId: "swapfiets" },
+  { id: "m59-14", episodeId: 59, personId: "andrezao", productId: "pokemon-tcg" },
+  { id: "m59-15", episodeId: 59, personId: "danilera", productId: "land-builder" },
 
   // Episode 60
   { id: "m60-1", episodeId: 60, personId: "arthur", productId: "flutterflow" },
