@@ -1,115 +1,130 @@
 
 
-## Plano: Exibir Combos com Links Individuais na Página de Episódio
+## Plano: Atualizar Dashboard com Lógica Consistente
 
-### Situação Atual
+### Problema Atual
 
-Na página de PersonDetail, combos já são renderizados corretamente:
-```
-Claude Code + ChatGPT [combo]
-```
-Com links separados para cada produto e um badge indicando que foi combo.
+O componente **RecentMentions** no dashboard:
+1. Mostra uma lista flat de menções (uma linha por menção)
+2. Não agrupa menções por pessoa (mesma pessoa aparece múltiplas vezes)
+3. Não trata combos com links individuais
 
-Na página de EpisodeDetail, combos aparecem como um link único:
-```
-Uber + Livelo  →  linka para /products/uber-livelo
-```
+### Resultado Desejado
 
-### Problema
-
-O produto combo (`uber-livelo`) tem menos menções comparado aos produtos individuais (`uber`, `livelo`), dificultando a análise comparativa.
-
-### Solução
-
-Aplicar a mesma lógica de PersonDetail na EpisodeDetail:
-- Se o produto tem `alsoCredits`, mostrar links para cada produto creditado
-- Adicionar badge "combo" para indicar visualmente
-- Cada produto creditado conta para seu total de menções (já funciona via `getMentionsByProduct`)
+Aplicar a mesma lógica da página EpisodeDetail:
+- Agrupar menções por pessoa (cada pessoa aparece 1 vez)
+- Mostrar todos os produtos de cada pessoa na mesma linha
+- Tratar combos com links individuais + badge "combo"
 
 ---
 
-### Arquivo a Modificar
+### Arquivos a Modificar
 
-`src/pages/EpisodeDetail.tsx`
+| Arquivo | Mudança |
+|---------|---------|
+| `src/components/dashboard/RecentMentions.tsx` | Agrupar por pessoa + tratamento de combos |
 
 ---
 
 ### Implementação
 
-Refatorar o bloco que renderiza os badges de produtos (linhas 168-181):
+#### Refatorar `RecentMentions.tsx`
 
-**Antes:**
+**Antes (lógica atual):**
 ```tsx
-{personMentions.map((mention) => {
-  const product = getProductById(mention.productId);
-  if (!product) return null;
-  return (
-    <Link key={mention.id} to={`/products/${mention.productId}`}>
-      <Badge variant="secondary" className="...">
-        {product.name}
-      </Badge>
-    </Link>
-  );
-})}
+const recentMentions = mentions
+  .filter((m) => m.episodeId === latestEpisodeId)
+  .slice(0, 8);
+
+// Renderiza uma linha por menção
+{recentMentions.map((mention) => (
+  <div>
+    {person.name} → {product.name}
+  </div>
+))}
 ```
 
-**Depois:**
+**Depois (agrupado por pessoa):**
 ```tsx
-{personMentions.map((mention) => {
-  const product = getProductById(mention.productId);
-  if (!product) return null;
+import { getProductById } from "@/data/mentions";
 
-  // Combo product: show individual links + combo badge
-  if (product.alsoCredits) {
+// Get all mentions from latest episode
+const latestMentions = mentions.filter((m) => m.episodeId === latestEpisodeId);
+
+// Group by person
+const mentionsByPerson = new Map();
+latestMentions.forEach((m) => {
+  const existing = mentionsByPerson.get(m.personId) || [];
+  mentionsByPerson.set(m.personId, [...existing, m]);
+});
+
+// Render grouped by person (show first 8 people)
+{Array.from(mentionsByPerson.entries())
+  .slice(0, 8)
+  .map(([personId, personMentions]) => {
+    const person = getPersonById(personId);
     return (
-      <div key={mention.id} className="flex items-center gap-1">
-        {product.alsoCredits.map((creditedId, idx) => {
-          const creditedProduct = getProductById(creditedId);
-          if (!creditedProduct) return null;
-          return (
-            <span key={creditedId} className="flex items-center gap-1">
-              {idx > 0 && <span className="text-muted-foreground text-xs">+</span>}
-              <Link to={`/products/${creditedProduct.id}`}>
-                <Badge
-                  variant="secondary"
-                  className="hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer text-xs"
-                >
-                  {creditedProduct.name}
-                </Badge>
-              </Link>
-            </span>
-          );
-        })}
-        <Badge variant="outline" className="text-xs">combo</Badge>
+      <div key={personId} className="flex items-center justify-between p-3 rounded-lg bg-muted/50">
+        <div className="flex items-center gap-3 flex-wrap">
+          <Link to={`/people/${personId}`}>{person.name}</Link>
+          <div className="flex items-center gap-2 flex-wrap">
+            {personMentions.map((mention) => {
+              const product = getProductById(mention.productId);
+              
+              // Combo: show individual links + combo badge
+              if (product.alsoCredits) {
+                return (
+                  <div key={mention.id} className="flex items-center gap-1">
+                    {product.alsoCredits.map((creditedId, idx) => (
+                      <span key={creditedId} className="flex items-center gap-1">
+                        {idx > 0 && <span className="text-muted-foreground text-xs">+</span>}
+                        <Link to={`/products/${creditedId}`}>
+                          <Badge variant="secondary" className="text-xs">
+                            {getProductById(creditedId).name}
+                          </Badge>
+                        </Link>
+                      </span>
+                    ))}
+                    <Badge variant="outline" className="text-xs">combo</Badge>
+                  </div>
+                );
+              }
+              
+              // Regular product
+              return (
+                <Link key={mention.id} to={`/products/${mention.productId}`}>
+                  <Badge variant="secondary" className="text-xs">
+                    {product.name}
+                  </Badge>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
       </div>
     );
-  }
-
-  // Regular product
-  return (
-    <Link key={mention.id} to={`/products/${mention.productId}`}>
-      <Badge variant="secondary" className="...">
-        {product.name}
-      </Badge>
-    </Link>
-  );
-})}
+  })}
 ```
 
 ---
 
-### Resultado Visual
+### Resultado Visual (Episódio 103)
 
-| Pessoa | Produtos (Antes) | Produtos (Depois) |
-|--------|------------------|-------------------|
-| Aíquis | `Uber + Livelo` | `Uber` + `Livelo` `combo` |
-| Usuário X | `Claude Code + ChatGPT` | `Claude Code` + `ChatGPT` `combo` |
+| Antes | Depois |
+|-------|--------|
+| Aíquis → Duo Gourmet | Aíquis: `Duo Gourmet` |
+| Arthur → Massageador Pescoço | Arthur: `Massageador Pescoço` |
+| Caiman → Manus AI | Caiman: `Manus AI` |
+| Thiago Valinho → Gemini | Thiago Valinho: `Gemini` `GChat` `Canvas` |
+| Thiago Valinho → GChat | Vanessa Silva: `ChatGPT` `Copilot 365` |
+| Thiago Valinho → Canvas | Amanda Couto: `ChatGPT` `Gemini` |
+| ... (8 linhas de menções) | ... (8 pessoas com seus produtos) |
 
-Cada badge agora linka para o produto individual, facilitando a comparação de menções.
+Cada pessoa aparece apenas 1 vez, com todos os seus produtos como badges.
 
 ---
 
-### Impacto nos Rankings
+### Componente LatestEpisodeCard
 
-A lógica de `getMentionsByProduct` já agrega menções de combos para os produtos individuais. Esta mudança é **apenas visual** - não afeta contagens ou rankings.
+Este componente já está funcionando corretamente - mostra o episódio 103 como o mais recente. Nenhuma alteração necessária.
 
