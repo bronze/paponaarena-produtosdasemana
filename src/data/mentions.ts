@@ -517,7 +517,7 @@ export const products: Product[] = [
   },
   { id: "dualsense", name: "DualSense", category: "Entertainment" },
   { id: "plague-evolved", name: "Plague Evolved", category: "Entertainment" },
-  { id: "pokemon-tcg", name: "Pokémon TCG", category: "Entertainment" },
+  { id: "pokemon-tcg", name: "Pokémon TCG", category: "Entertainment", url: "https://tcgpocket.pokemon.com/en-us/" },
   { id: "netflix", name: "Netflix", category: "Entertainment", url: "https://netflix.com" },
   { id: "youtube", name: "Youtube", category: "Entertainment", url: "https://youtube.com" },
   { id: "disney-plus", name: "Disney+", category: "Entertainment", url: "https://disneyplus.com" },
