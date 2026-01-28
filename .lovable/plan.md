@@ -1,28 +1,84 @@
 
 
-## Correção: Aplicar Fix de Fuso Horário Apenas no Episódio 103
+## Solução: Exibir Datas Sem Depender do Fuso Horário
 
-### Problema
+### O Problema
 
-O fix anterior (`+ "T12:00:00"`) foi aplicado a **todos** os episódios, mas apenas o episódio 103 precisava dessa correção. Os outros episódios já mostravam as datas corretas antes.
+Quando fazemos `new Date("2026-01-28")`:
+- JavaScript interpreta como **00:00:00 UTC**
+- No Brasil (UTC-3), vira **21:00 do dia 27**
+- Na Europa (UTC+1), permanece dia 28
+- Usuários em diferentes fusos veem datas diferentes
 
-### Solução
+### A Solução
 
-Reverter o fix global e aplicar uma correção diferente: **corrigir a data diretamente no banco de dados** do episódio 103.
+Criar uma função utilitária que faz o **parsing manual** da data, extraindo ano, mês e dia diretamente da string, sem conversão de fuso horário:
 
-A data do episódio 103 deve ser ajustada de `"2026-01-28"` para garantir que apareça corretamente. Na verdade, vou reverter o código para usar `new Date(episode.date)` sem o `T12:00:00` e ajustar apenas a data do episódio 103 se necessário.
+```typescript
+// Extrai os componentes da data diretamente
+function formatDateString(dateStr: string, options: Intl.DateTimeFormatOptions) {
+  const [year, month, day] = dateStr.split('-').map(Number);
+  // Cria a data com horário local (não UTC)
+  const date = new Date(year, month - 1, day, 12, 0, 0);
+  return date.toLocaleDateString("en-US", options);
+}
+```
+
+Ao usar `new Date(year, month - 1, day, 12, 0, 0)`:
+- A data é criada no **horário local** do usuário (não UTC)
+- O `12:00` garante margem de segurança
+- Todos os usuários verão a mesma data, não importa o fuso
+
+---
 
 ### Arquivos a Modificar
 
 | Arquivo | Mudança |
 |---------|---------|
-| `src/pages/Episodes.tsx` | Remover `+ "T12:00:00"` |
-| `src/pages/EpisodeDetail.tsx` | Remover `+ "T12:00:00"` |
-| `src/data/mentions.ts` | Mudar data do ep 103 para `"2026-01-29"` (será mostrado como 28 no Brasil) |
+| `src/lib/utils.ts` | Adicionar função `formatEpisodeDate()` |
+| `src/pages/Episodes.tsx` | Usar a nova função |
+| `src/pages/EpisodeDetail.tsx` | Usar a nova função |
+| `src/data/mentions.ts` | Reverter data do ep 103 para `"2026-01-28"` |
 
-### Detalhes Técnicos
+---
 
-Quando o JavaScript interpreta `"2026-01-28"` como meia-noite UTC e converte para UTC-3, vira dia 27. Ao colocar `"2026-01-29"`, ele mostrará dia 28.
+### Detalhes da Implementação
 
-Alternativamente, podemos manter o formato `"2026-01-28T03:00:00"` apenas para o episódio 103 no banco de dados, garantindo que ele apareça como dia 28 no Brasil.
+#### 1. Nova função em `src/lib/utils.ts`
+
+```typescript
+export function formatEpisodeDate(
+  dateStr: string, 
+  options: Intl.DateTimeFormatOptions = { month: "short", day: "numeric", year: "numeric" }
+): string {
+  const [year, month, day] = dateStr.split('-').map(Number);
+  const date = new Date(year, month - 1, day, 12, 0, 0);
+  return date.toLocaleDateString("en-US", options);
+}
+```
+
+#### 2. Uso nos componentes
+
+```tsx
+// Antes
+new Date(episode.date).toLocaleDateString("en-US", {...})
+
+// Depois
+formatEpisodeDate(episode.date, { month: "short", day: "numeric", year: "numeric" })
+```
+
+#### 3. Reverter data do episódio 103
+
+Voltar de `"2026-01-29"` para `"2026-01-28"` (a data correta), já que a nova função vai exibi-la corretamente.
+
+---
+
+### Por que isso funciona?
+
+| Abordagem | Comportamento |
+|-----------|---------------|
+| `new Date("2026-01-28")` | Interpreta como UTC, converte para local |
+| `new Date(2026, 0, 28, 12)` | Cria diretamente no fuso local |
+
+Com a segunda abordagem, não há conversão de fuso - a data é criada "como está" no contexto do usuário.
 
