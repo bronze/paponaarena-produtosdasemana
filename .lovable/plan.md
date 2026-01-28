@@ -1,10 +1,9 @@
 
-
-## Plano: Adicionar Episódio 60 e Menções
+## Plano: Adicionar Episódio 58 e Menções
 
 ### Resumo
 
-Adicionar o episódio 60 de 2024 (Nov 19) e suas 8 menções ao arquivo `src/data/mentions.ts`.
+Adicionar o episódio 58 de 2024 (Nov 6) com o tema "Como foi o Lenny & Friends Summit?" e suas 10 menções ao arquivo `src/data/mentions.ts`.
 
 ---
 
@@ -18,89 +17,105 @@ Adicionar o episódio 60 de 2024 (Nov 19) e suas 8 menções ao arquivo `src/dat
 
 | ID | Título | Data |
 |----|--------|------|
-| 60 | Quem cria a visão de Produto? | 2024-11-19 |
+| 58 | Como foi o Lenny & Friends Summit? Com Fernanda Faria-Product Director @ ABInBev | 2024-11-06 |
 
 ---
 
-### 2. Novos Produtos (4)
+### 2. Novos Produtos (7)
 
-| ID | Nome | Categoria |
-|----|------|-----------|
-| flutterflow | FlutterFlow | Development |
-| samsung-smart-switch | Samsung Smart Switch | Productivity |
-| bionic-go | Bionic Go | Fitness |
-| oneschema | OneSchema | Development |
+| ID | Nome | Categoria | Observação |
+|----|------|-----------|------------|
+| rapid-api | Rapid API | Development | Novo |
+| smiles | Smiles | Travel | Novo |
+| instagram | Instagram | Social | Novo (produto pai) |
+| instagram-detox | Instagram (detox) | Social | Novo (variante de Instagram) |
+| quinto-andar | Quinto Andar | Business | Novo |
+| clash-pass | Clash Pass | Entertainment | Novo |
+| classapp | ClassApp | Education | Novo |
+| eventos-whatsapp | Eventos do WhatsApp | Business | Novo (variante de WhatsApp) |
 
 **Produtos já existentes (reutilizar):**
-- `n8n`
-- `kindle`
+- `pokemon-tcg`
+- `duolingo`
 - `skoob`
 - `buyticket`
+- `kindle`
+- `whatsapp` (produto pai para variante)
 
 ---
 
-### 3. Nova Pessoa (1)
+### 3. Pessoas
 
-| ID | Nome |
-|----|------|
-| thiago | Thiago |
-
-**Pessoas já existentes (reutilizar):**
-- `arthur`, `aiquis`, `danilo-penteado`, `lucao`, `lucas`, `pilon`, `boss`
+**Todas as pessoas já existem no banco de dados:**
+- `arthur`, `aiquis`, `lucas`, `pilon`, `cloves`, `nery`, `karina`, `andrezinho`, `glauco`, `lucao`
 
 ---
 
-### 4. Novas Menções (8)
+### 4. Novas Menções (10)
 
 | Pessoa | Produto |
 |--------|---------|
-| Arthur | FlutterFlow |
-| Aíquis | Samsung Smart Switch |
-| Danilo | Skoob |
-| Lukão | BuyTicket |
-| Lucas | n8n |
-| Pilon | Kindle |
-| Thiago | Bionic Go |
-| Boss | OneSchema |
+| Arthur | Rapid API |
+| Aíquis | Pokémon TCG |
+| Lucas | Smiles |
+| Pilon | Instagram (detox) |
+| Cloves | Quinto Andar |
+| Nery | Clash Pass |
+| Karina | 99 |
+| Andrézinho | Duolingo |
+| Glauco | ClassApp |
+| Lukão | Eventos do WhatsApp |
 
 ---
 
 ### Seção Técnica
 
-**Episódio (inserir antes do episódio 61):**
+**Episódio (inserir antes do episódio 60):**
 ```typescript
 {
-  id: 60,
-  title: "Quem cria a visão de Produto?",
-  date: "2024-11-19",
-  description: "Discussão sobre quem é responsável por criar a visão de produto.",
+  id: 58,
+  title: "Como foi o Lenny & Friends Summit? Com Fernanda Faria-Product Director @ ABInBev",
+  date: "2024-11-06",
+  description: "Discussão sobre o Lenny & Friends Summit com Fernanda Faria.",
 },
 ```
 
-**Produtos:**
+**Produtos novos (inserir nas categorias apropriadas):**
 ```typescript
-{ id: "flutterflow", name: "FlutterFlow", category: "Development", url: "https://flutterflow.io" },
-{ id: "samsung-smart-switch", name: "Samsung Smart Switch", category: "Productivity" },
-{ id: "bionic-go", name: "Bionic Go", category: "Fitness" },
-{ id: "oneschema", name: "OneSchema", category: "Development", url: "https://www.oneschema.co" },
-```
+// Development
+{ id: "rapid-api", name: "Rapid API", category: "Development", url: "https://rapidapi.com" },
 
-**Pessoa:**
-```typescript
-{ id: "thiago", name: "Thiago" },
+// Travel
+{ id: "smiles", name: "Smiles", category: "Travel", url: "https://smiles.com.br" },
+
+// Social (Instagram pai + variante)
+{ id: "instagram", name: "Instagram", category: "Social", url: "https://instagram.com" },
+{ id: "instagram-detox", name: "Instagram (detox)", category: "Social", parentId: "instagram" },
+
+// Business
+{ id: "quinto-andar", name: "Quinto Andar", category: "Business", url: "https://quintoandar.com.br" },
+{ id: "eventos-whatsapp", name: "Eventos do WhatsApp", category: "Business", parentId: "whatsapp" },
+
+// Entertainment
+{ id: "clash-pass", name: "Clash Pass", category: "Entertainment" },
+
+// Education
+{ id: "classapp", name: "ClassApp", category: "Education" },
 ```
 
 **Menções:**
 ```typescript
-// Episode 60
-{ id: "m60-1", episodeId: 60, personId: "arthur", productId: "flutterflow" },
-{ id: "m60-2", episodeId: 60, personId: "aiquis", productId: "samsung-smart-switch" },
-{ id: "m60-3", episodeId: 60, personId: "danilo-penteado", productId: "skoob" },
-{ id: "m60-4", episodeId: 60, personId: "lucao", productId: "buyticket" },
-{ id: "m60-5", episodeId: 60, personId: "lucas", productId: "n8n" },
-{ id: "m60-6", episodeId: 60, personId: "pilon", productId: "kindle" },
-{ id: "m60-7", episodeId: 60, personId: "thiago", productId: "bionic-go" },
-{ id: "m60-8", episodeId: 60, personId: "boss", productId: "oneschema" },
+// Episode 58
+{ id: "m58-1", episodeId: 58, personId: "arthur", productId: "rapid-api" },
+{ id: "m58-2", episodeId: 58, personId: "aiquis", productId: "pokemon-tcg" },
+{ id: "m58-3", episodeId: 58, personId: "lucas", productId: "smiles" },
+{ id: "m58-4", episodeId: 58, personId: "pilon", productId: "instagram-detox" },
+{ id: "m58-5", episodeId: 58, personId: "cloves", productId: "quinto-andar" },
+{ id: "m58-6", episodeId: 58, personId: "nery", productId: "clash-pass" },
+{ id: "m58-7", episodeId: 58, personId: "karina", productId: "99" },
+{ id: "m58-8", episodeId: 58, personId: "andrezinho", productId: "duolingo" },
+{ id: "m58-9", episodeId: 58, personId: "glauco", productId: "classapp" },
+{ id: "m58-10", episodeId: 58, personId: "lucao", productId: "eventos-whatsapp" },
 ```
 
 ---
@@ -109,8 +124,7 @@ Adicionar o episódio 60 de 2024 (Nov 19) e suas 8 menções ao arquivo `src/dat
 
 | Seção | Adições |
 |-------|---------|
-| Episodes | +1 (60) |
-| Products | +4 novos |
-| People | +1 novo |
-| Mentions | +8 |
-
+| Episodes | +1 (58) |
+| Products | +8 novos (incluindo 2 variantes) |
+| People | 0 (todos já existem) |
+| Mentions | +10 |
