@@ -533,9 +533,9 @@ export const products: Product[] = [
 
   // Finance
   { id: "c6-ia", name: "C6 (IA)", category: "Finance", parentId: "c6" },
-  { id: "sos-golpes", name: "SOS Golpes", category: "Finance" },
+  { id: "sos-golpes", name: "SOS Golpes", category: "Finance", url: "https://www.sosgolpe.com.br/" },
   { id: "livelo", name: "Livelo", category: "Finance", url: "https://livelo.com.br" },
-  { id: "c6", name: "C6", category: "Finance", url: "https://c6bank.com.br" },
+  { id: "c6", name: "C6", category: "Finance", url: "https://www.c6bank.com.br/" },
   { id: "picpay", name: "PicPay", category: "Finance", url: "https://picpay.com" },
   { id: "wise", name: "Wise", category: "Finance", url: "https://wise.com" },
   { id: "brasil-bitcoin", name: "Brasil Bitcoin", category: "Finance" },
@@ -554,7 +554,7 @@ export const products: Product[] = [
   // Lifestyle
   { id: "airfryer-ritalobo", name: "Airfryer Rita Lobo", category: "Hardware" },
   { id: "thefork", name: "TheFork", category: "Lifestyle", url: "https://thefork.com" },
-  { id: "lindt", name: "Lindt", category: "Lifestyle" },
+  { id: "lindt", name: "Lindt", category: "Lifestyle", url: "https://www.lindt.com.br/" },
   { id: "ventilador-mondial", name: "Ventilador Mondial Super Turbo VTX 8 Pás", category: "Lifestyle" },
   { id: "pampers-club", name: "Pampers Club", category: "Lifestyle" },
   { id: "pillow-top-emma", name: "Pillow Top Emma", category: "Lifestyle" },
