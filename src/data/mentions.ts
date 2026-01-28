@@ -491,7 +491,7 @@ export const products: Product[] = [
   { id: "audible", name: "Audible", category: "Education", url: "https://audible.com" },
 
   // Entertainment
-  { id: "balatro", name: "Balatro", category: "Entertainment" },
+  { id: "balatro", name: "Balatro", category: "Entertainment", url: "https://store.steampowered.com/app/2379780/Balatro/" },
   { id: "dualsense", name: "DualSense", category: "Entertainment" },
   { id: "plague-evolved", name: "Plague Evolved", category: "Entertainment" },
   { id: "pokemon-tcg", name: "Pokémon TCG", category: "Entertainment" },
@@ -521,7 +521,7 @@ export const products: Product[] = [
   { id: "acquired-podcast", name: "Acquired Podcast", category: "Entertainment" },
 
   // Finance
-  { id: "c6-ia", name: "C6 (IA)", category: "Finance" },
+  { id: "c6-ia", name: "C6 (IA)", category: "Finance", parentId: "c6" },
   { id: "sos-golpes", name: "SOS Golpes", category: "Finance" },
   { id: "livelo", name: "Livelo", category: "Finance", url: "https://livelo.com.br" },
   { id: "c6", name: "C6", category: "Finance", url: "https://c6bank.com.br" },
@@ -541,7 +541,7 @@ export const products: Product[] = [
   { id: "app-fgc", name: "App do FGC", category: "Finance" },
 
   // Lifestyle
-  { id: "airfryer-ritalobo", name: "Airfryer Ritalobo", category: "Lifestyle" },
+  { id: "airfryer-ritalobo", name: "Airfryer Rita Lobo", category: "Hardware" },
   { id: "thefork", name: "TheFork", category: "Lifestyle", url: "https://thefork.com" },
   { id: "lindt", name: "Lindt", category: "Lifestyle" },
   { id: "ventilador-mondial", name: "Ventilador Mondial Super Turbo VTX 8 Pás", category: "Lifestyle" },
