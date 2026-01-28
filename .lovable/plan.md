@@ -1,145 +1,117 @@
 
 
-## Refatoração: Datas de Episódios como Datas Civis (Sem Fuso Horário)
+## Plano: Agrupar Produtos por Pessoa na Página do Episódio
 
 ### Problema Atual
 
-O JavaScript interpreta `new Date("2026-01-28")` como meia-noite UTC. Usuários no Brasil (UTC-3) veem "27 de janeiro" ao invés de "28 de janeiro".
+Quando uma pessoa menciona múltiplos produtos no mesmo episódio, cada produto aparece em uma linha separada:
 
-### Solução
+```
+Amanda Couto → ChatGPT
+Amanda Couto → Gemini
+Rodrigo Frumento → ChatGPT
+Rodrigo Frumento → Jira
+Rodrigo Frumento → ChatPRD
+```
 
-Tratar datas como **strings puras**, nunca como timestamps. Criar uma função utilitária que formata a data por manipulação de string, sem usar `Date()`.
+### Resultado Desejado
+
+Cada pessoa aparece apenas uma vez, com todos os seus produtos na mesma linha:
+
+```
+Amanda Couto → ChatGPT, Gemini
+Rodrigo Frumento → ChatGPT, Jira, ChatPRD
+```
 
 ---
 
-### Arquivos a Modificar
+### Arquivo a Modificar
 
-| Arquivo | Mudança |
-|---------|---------|
-| `src/lib/utils.ts` | Adicionar funções `formatEpisodeDate` e `getYearFromDate` |
-| `src/data/mentions.ts` | Refatorar `getEpisodeYears` e `getEpisodesByYear` para usar string |
-| `src/pages/Episodes.tsx` | Usar `formatEpisodeDate` e ordenar por string |
-| `src/pages/EpisodeDetail.tsx` | Usar `formatEpisodeDate` |
+`src/pages/EpisodeDetail.tsx`
 
 ---
 
 ### Implementação
 
-#### 1. Nova função em `src/lib/utils.ts`
+#### 1. Usar o agrupamento `mentionsByPerson` já existente
 
-```typescript
-/**
- * Formata uma data ISO (YYYY-MM-DD) para formato brasileiro (DD/MM/YYYY)
- * Sem usar Date() para evitar problemas de fuso horário
- */
-export function formatEpisodeDate(dateStr: string): string {
-  const [year, month, day] = dateStr.split("-");
-  return `${day}/${month}/${year}`;
-}
+O código já cria um Map agrupando menções por pessoa (linhas 64-69), mas não o utiliza. Vamos aproveitar essa estrutura.
 
-/**
- * Extrai o ano de uma data ISO (YYYY-MM-DD) como número
- */
-export function getYearFromDate(dateStr: string): number {
-  return parseInt(dateStr.split("-")[0], 10);
-}
+#### 2. Refatorar a renderização (linhas 144-180)
 
-/**
- * Compara duas datas ISO para ordenação (mais recente primeiro)
- */
-export function compareDatesDesc(a: string, b: string): number {
-  return b.localeCompare(a);
-}
-```
-
-#### 2. Atualizar `src/data/mentions.ts`
-
-**Antes (linhas 1472-1480):**
-```typescript
-export function getEpisodeYears(): number[] {
-  const years = episodes.map((e) => new Date(e.date).getFullYear());
-  return [...new Set(years)].sort((a, b) => b - a);
-}
-
-export function getEpisodesByYear(year: number | "all"): Episode[] {
-  if (year === "all") return episodes;
-  return episodes.filter((e) => new Date(e.date).getFullYear() === year);
-}
+**Antes:**
+```tsx
+{mentions
+  .slice()
+  .sort((a, b) => { ... })
+  .map((mention) => {
+    // Uma linha por menção
+    return (
+      <div key={mention.id}>
+        <Link to={`/people/${person.id}`}>{person.name}</Link>
+        <Badge>{product.name}</Badge>
+      </div>
+    );
+  })}
 ```
 
 **Depois:**
-```typescript
-import { getYearFromDate } from "@/lib/utils";
+```tsx
+{Array.from(mentionsByPerson.entries())
+  .sort(([personIdA], [personIdB]) => {
+    const aName = getPersonById(personIdA)?.name || "";
+    const bName = getPersonById(personIdB)?.name || "";
+    return aName.localeCompare(bName);
+  })
+  .map(([personId, personMentions]) => {
+    const person = getPersonById(personId);
+    if (!person) return null;
 
-export function getEpisodeYears(): number[] {
-  const years = episodes.map((e) => getYearFromDate(e.date));
-  return [...new Set(years)].sort((a, b) => b - a);
-}
-
-export function getEpisodesByYear(year: number | "all"): Episode[] {
-  if (year === "all") return episodes;
-  return episodes.filter((e) => getYearFromDate(e.date) === year);
-}
-```
-
-#### 3. Atualizar `src/pages/Episodes.tsx`
-
-**Antes (linha 12):**
-```typescript
-const filteredEpisodes = getEpisodesByYear(selectedYear).sort((a, b) => 
-  new Date(b.date).getTime() - new Date(a.date).getTime()
-);
-```
-
-**Depois:**
-```typescript
-import { formatEpisodeDate, compareDatesDesc } from "@/lib/utils";
-
-const filteredEpisodes = getEpisodesByYear(selectedYear).sort((a, b) => 
-  compareDatesDesc(a.date, b.date)
-);
-```
-
-**Antes (linhas 61-65):**
-```typescript
-{new Date(episode.date).toLocaleDateString("en-US", {
-  month: "short",
-  day: "numeric",
-  year: "numeric",
-})}
-```
-
-**Depois:**
-```typescript
-{formatEpisodeDate(episode.date)}
-```
-
-#### 4. Atualizar `src/pages/EpisodeDetail.tsx`
-
-**Antes (linhas 85-89):**
-```typescript
-{new Date(episode.date).toLocaleDateString("en-US", {
-  month: "long",
-  day: "numeric",
-  year: "numeric",
-})}
-```
-
-**Depois:**
-```typescript
-import { formatEpisodeDate } from "@/lib/utils";
-
-{formatEpisodeDate(episode.date)}
+    return (
+      <div key={personId} className="flex items-center justify-between p-3 rounded-lg bg-muted/50">
+        <div className="flex items-center gap-3 flex-wrap">
+          <Link
+            to={`/people/${personId}`}
+            className="font-medium text-foreground hover:text-primary transition-colors"
+          >
+            {person.name}
+          </Link>
+          <div className="flex items-center gap-2 flex-wrap">
+            {personMentions.map((mention) => {
+              const product = getProductById(mention.productId);
+              if (!product) return null;
+              return (
+                <Link key={mention.id} to={`/products/${mention.productId}`}>
+                  <Badge
+                    variant="secondary"
+                    className="hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer text-xs"
+                  >
+                    {product.name}
+                  </Badge>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    );
+  })}
 ```
 
 ---
 
-### Resultado
+### Resultado Visual
 
-| Entrada | Saída |
-|---------|-------|
-| `"2026-01-28"` | `"28/01/2026"` |
-| `"2025-12-03"` | `"03/12/2025"` |
+| Pessoa | Produtos |
+|--------|----------|
+| Amanda Couto | `ChatGPT` `Gemini` |
+| Amilker | `Google Script` `NotebookLM` |
+| Carlos Bronze | `Cursor` `Lovable` |
+| Marcos Roman | `Isla` `Lovable` |
+| Nelson de Moura | `Cursor` `Antigravity` |
+| Rodrigo Frumento | `ChatGPT` `Jira` `ChatPRD` |
+| Thiago Valinho | `Gemini` `GChat` `Canvas` |
+| Vanessa Silva | `ChatGPT` `Copilot` |
 
-A data será exibida de forma **idêntica** para qualquer usuário, independente do fuso horário.
+Cada pessoa aparece apenas 1 vez, com todos os seus produtos como badges na mesma linha.
 
