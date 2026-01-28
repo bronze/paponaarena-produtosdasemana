@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
   // 2024 Episodes
   {
+    id: 57,
+    title: "Reflexões sobre fazer o básico bem feito",
+    date: "2024-10-30",
+    description: "Discussão sobre a importância de executar bem o básico.",
+  },
+  {
     id: 58,
     title: "Como foi o Lenny & Friends Summit? Com Fernanda Faria-Product Director @ ABInBev",
     date: "2024-11-06",
@@ -397,6 +403,11 @@ export const products: Product[] = [
 
   // Automation
   { id: "make", name: "Make", category: "Automation", url: "https://make.com" },
+
+  // AI Tools (Episode 57)
+  { id: "apple-intelligence", name: "Apple Intelligence", category: "AI Tools" },
+  { id: "google-lens", name: "Google Lens", category: "AI Tools", url: "https://lens.google" },
+  { id: "toqan", name: "Toqan", category: "AI Tools", url: "https://toqan.ai" },
   { id: "n8n", name: "N8N", category: "Automation", url: "https://n8n.io" },
   { id: "zapier", name: "Zapier", category: "Automation", url: "https://zapier.com" },
   { id: "relay-app", name: "Relay.App", category: "Automation", url: "https://relay.app" },
@@ -404,6 +415,7 @@ export const products: Product[] = [
 
   // Development
   { id: "flutterflow", name: "FlutterFlow", category: "Development", url: "https://flutterflow.io" },
+  { id: "retool", name: "Retool", category: "Development", url: "https://retool.com" },
   { id: "oneschema", name: "OneSchema", category: "Development", url: "https://www.oneschema.co" },
   { id: "rapid-api", name: "Rapid API", category: "Development", url: "https://rapidapi.com" },
 
@@ -457,6 +469,7 @@ export const products: Product[] = [
 
   // Transportation
   { id: "instacarro", name: "Instacarro", category: "Transportation", url: "https://instacarro.com" },
+  { id: "bike", name: "Bike", category: "Transportation" },
   { id: "sp-parking", name: "SP+ Parking", category: "Transportation" },
   { id: "99", name: "99", category: "Transportation", url: "https://99app.com" },
   { id: "uber", name: "Uber", category: "Transportation", url: "https://uber.com" },
@@ -488,6 +501,7 @@ export const products: Product[] = [
 
   // Productivity
   { id: "pipefy", name: "Pipefy", category: "Productivity", url: "https://pipefy.com" },
+  { id: "google-suite", name: "Google Suite", category: "Productivity", url: "https://workspace.google.com" },
   {
     id: "filebrowser-go",
     name: "FileBrowser Go",
@@ -580,6 +594,7 @@ export const products: Product[] = [
 
   // Finance
   { id: "c6-ia", name: "C6 (IA)", category: "Finance", parentId: "c6" },
+  { id: "rocket-money", name: "Rocket Money", category: "Finance", url: "https://rocketmoney.com" },
   { id: "sos-golpes", name: "SOS Golpes", category: "Finance", url: "https://www.sosgolpe.com.br/" },
   { id: "livelo", name: "Livelo", category: "Finance", url: "https://livelo.com.br" },
   { id: "c6", name: "C6", category: "Finance", url: "https://www.c6bank.com.br/" },
@@ -920,6 +935,7 @@ export const people: Person[] = [
   { id: "diego-espinilo", name: "Diego Espinilo" },
   // 2024 contributors
   { id: "boss", name: "Boss" },
+  { id: "bruna-ep57", name: "Bruna" },
   { id: "thiago", name: "Thiago" },
   { id: "andrezinho", name: "Andrézinho" },
   { id: "mila", name: "Mila" },
@@ -939,6 +955,19 @@ export const people: Person[] = [
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 57
+  { id: "m57-1", episodeId: 57, personId: "aiquis", productId: "google-suite" },
+  { id: "m57-2", episodeId: 57, personId: "arthur", productId: "apple-intelligence" },
+  { id: "m57-3", episodeId: 57, personId: "boss", productId: "retool" },
+  { id: "m57-4", episodeId: 57, personId: "mat", productId: "rocket-money" },
+  { id: "m57-5", episodeId: 57, personId: "karina", productId: "bike" },
+  { id: "m57-6", episodeId: 57, personId: "lucas", productId: "linkedin" },
+  { id: "m57-7", episodeId: 57, personId: "brian", productId: "linkedin" },
+  { id: "m57-8", episodeId: 57, personId: "pilon", productId: "chatgpt" },
+  { id: "m57-9", episodeId: 57, personId: "pilon", productId: "google-lens" },
+  { id: "m57-10", episodeId: 57, personId: "nana", productId: "netflix" },
+  { id: "m57-11", episodeId: 57, personId: "bruna-ep57", productId: "toqan" },
+
   // Episode 58
   { id: "m58-1", episodeId: 58, personId: "arthur", productId: "rapid-api" },
   { id: "m58-2", episodeId: 58, personId: "aiquis", productId: "pokemon-tcg" },
