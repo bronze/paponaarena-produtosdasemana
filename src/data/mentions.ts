@@ -34,6 +34,31 @@ export interface Mention {
 
 // Episodes
 export const episodes: Episode[] = [
+  // 2024 Episodes
+  {
+    id: 61,
+    title: "Como saber e quais os sinais se um produto vai dar bom ou não?",
+    date: "2024-11-26",
+    description: "Discussão sobre sinais de sucesso e fracasso de produtos.",
+  },
+  {
+    id: 62,
+    title: "Comunicação executiva & Como dar melhores feedbacks de design?",
+    date: "2024-12-03",
+    description: "Dicas sobre comunicação executiva e feedbacks de design.",
+  },
+  {
+    id: 63,
+    title: "Chegou ao fim a camada de GPMs?",
+    date: "2024-12-10",
+    description: "Discussão sobre o futuro da função de GPM.",
+  },
+  {
+    id: 64,
+    title: "Retrospectiva Produteira 2024: Foi um péssimo ano para a área de produto?",
+    date: "2024-12-17",
+    description: "Retrospectiva do ano de 2024 para a área de produto.",
+  },
   // 2025 Episodes
   {
     id: 65,
@@ -268,6 +293,9 @@ export const episodes: Episode[] = [
 
 // Products (unique across all episodes)
 export const products: Product[] = [
+  // Hardware
+  { id: "ray-ban-meta", name: "Ray-Ban Meta", category: "Hardware" },
+
   // AI Tools
   { id: "bolt", name: "Bolt", category: "AI Tools", url: "https://bolt.new" },
   { id: "lovable", name: "Lovable", category: "AI Tools", url: "https://lovable.dev" },
@@ -347,6 +375,7 @@ export const products: Product[] = [
   { id: "canvas", name: "Canvas", category: "AI Tools" },
   { id: "chatprd", name: "ChatPRD", category: "AI Tools", url: "https://chatprd.ai" },
   { id: "isla", name: "Isla", category: "AI Tools" },
+  { id: "zoom-ai-companion", name: "Zoom AI Companion", category: "AI Tools" },
 
   // Automation
   { id: "make", name: "Make", category: "Automation", url: "https://make.com" },
@@ -356,6 +385,8 @@ export const products: Product[] = [
   { id: "power-automate", name: "Power Automate", category: "Automation", url: "https://powerautomate.microsoft.com" },
 
   // Fitness
+  { id: "gentler-streak", name: "Gentler Streak", category: "Fitness" },
+  { id: "munhequeira", name: "Munhequeira", category: "Fitness" },
   { id: "strava", name: "Strava", category: "Fitness", url: "https://strava.com" },
   { id: "hevy", name: "Hevy", category: "Fitness", url: "https://hevyapp.com" },
   { id: "gymrats", name: "GymRats", category: "Fitness", url: "https://gymratsapp.com" },
@@ -391,6 +422,8 @@ export const products: Product[] = [
   { id: "uk-eta", name: "UK ETA", category: "Travel" },
 
   // Transportation
+  { id: "instacarro", name: "Instacarro", category: "Transportation", url: "https://instacarro.com" },
+  { id: "sp-parking", name: "SP+ Parking", category: "Transportation" },
   { id: "99", name: "99", category: "Transportation", url: "https://99app.com" },
   { id: "uber", name: "Uber", category: "Transportation", url: "https://uber.com" },
   { id: "uber-livelo", name: "Uber + Livelo", category: "Transportation", alsoCredits: ["uber", "livelo"] },
@@ -407,12 +440,18 @@ export const products: Product[] = [
   { id: "bilhete-unico", name: "Bilhete Único", category: "Transportation" },
 
   // Social
+  { id: "reddit", name: "Reddit", category: "Social", url: "https://reddit.com" },
+  { id: "pinterest", name: "Pinterest", category: "Social", url: "https://pinterest.com" },
   { id: "twitter", name: "Twitter", category: "Social", url: "https://x.com" },
   { id: "tiktok", name: "TikTok", category: "Social", url: "https://tiktok.com" },
   { id: "linkedin", name: "LinkedIn", category: "Social", url: "https://linkedin.com" },
   { id: "pixelfed", name: "Pixelfed", category: "Social" },
 
   // Productivity
+  { id: "pipefy", name: "Pipefy", category: "Productivity", url: "https://pipefy.com" },
+  { id: "filebrowser-go", name: "FileBrowser Go", category: "Productivity" },
+  { id: "sprout", name: "Sprout", category: "Productivity" },
+  { id: "microsoft-edge", name: "Microsoft Edge (busca de cupons)", category: "Productivity" },
   { id: "loom", name: "Loom", category: "Productivity", url: "https://loom.com" },
   { id: "google-docs", name: "Google Docs", category: "Productivity", url: "https://docs.google.com" },
   { id: "teams", name: "Teams", category: "Productivity", url: "https://teams.microsoft.com" },
@@ -452,6 +491,11 @@ export const products: Product[] = [
   { id: "audible", name: "Audible", category: "Education", url: "https://audible.com" },
 
   // Entertainment
+  { id: "balatro", name: "Balatro", category: "Entertainment" },
+  { id: "dualsense", name: "DualSense", category: "Entertainment" },
+  { id: "plague-evolved", name: "Plague Evolved", category: "Entertainment" },
+  { id: "pokemon-tcg", name: "Pokémon TCG", category: "Entertainment" },
+  { id: "netflix", name: "Netflix", category: "Entertainment", url: "https://netflix.com" },
   { id: "youtube", name: "Youtube", category: "Entertainment", url: "https://youtube.com" },
   { id: "disney-plus", name: "Disney+", category: "Entertainment", url: "https://disneyplus.com" },
   { id: "appletv-plus", name: "AppleTV+", category: "Entertainment", url: "https://tv.apple.com" },
@@ -477,6 +521,8 @@ export const products: Product[] = [
   { id: "acquired-podcast", name: "Acquired Podcast", category: "Entertainment" },
 
   // Finance
+  { id: "c6-ia", name: "C6 (IA)", category: "Finance" },
+  { id: "sos-golpes", name: "SOS Golpes", category: "Finance" },
   { id: "livelo", name: "Livelo", category: "Finance", url: "https://livelo.com.br" },
   { id: "c6", name: "C6", category: "Finance", url: "https://c6bank.com.br" },
   { id: "picpay", name: "PicPay", category: "Finance", url: "https://picpay.com" },
@@ -495,6 +541,12 @@ export const products: Product[] = [
   { id: "app-fgc", name: "App do FGC", category: "Finance" },
 
   // Lifestyle
+  { id: "airfryer-ritalobo", name: "Airfryer Ritalobo", category: "Lifestyle" },
+  { id: "thefork", name: "TheFork", category: "Lifestyle", url: "https://thefork.com" },
+  { id: "lindt", name: "Lindt", category: "Lifestyle" },
+  { id: "ventilador-mondial", name: "Ventilador Mondial Super Turbo VTX 8 Pás", category: "Lifestyle" },
+  { id: "pampers-club", name: "Pampers Club", category: "Lifestyle" },
+  { id: "pillow-top-emma", name: "Pillow Top Emma", category: "Lifestyle" },
   { id: "agua", name: "Água", category: "Lifestyle" },
   { id: "kindle", name: "Kindle", category: "Reading", url: "https://amazon.com/kindle" },
   { id: "caderno", name: "Caderno", category: "Lifestyle" },
@@ -528,6 +580,7 @@ export const products: Product[] = [
   { id: "massageador-pescoco", name: "Massageador de pescoço e ombros", category: "Lifestyle" },
 
   // Wellness
+  { id: "drogasil", name: "Drogasil", category: "Wellness", url: "https://drogasil.com.br" },
   { id: "opal", name: "Opal", category: "Wellness", url: "https://opal.so" },
   { id: "beep-saude", name: "Beep Saúde", category: "Wellness" },
   { id: "dasa", name: "Dasa", category: "Wellness" },
@@ -804,10 +857,71 @@ export const people: Person[] = [
   { id: "paula-paradellas", name: "Paula Paradellas" },
   { id: "nelson-moura", name: "Nelson de Moura" },
   { id: "diego-espinilo", name: "Diego Espinilo" },
+  // 2024 contributors
+  { id: "boss", name: "Boss" },
+  { id: "andrezinho", name: "Andrézinho" },
+  { id: "mila", name: "Mila" },
+  { id: "beicola", name: "Beiçola" },
+  { id: "lavin", name: "Lavin" },
+  { id: "clovis", name: "Clovis" },
+  { id: "alice", name: "Alice" },
+  { id: "dezao", name: "Dezão" },
+  { id: "murilo", name: "Murilo" },
+  { id: "maria", name: "Maria" },
+  { id: "bruna", name: "Bruna" },
 ];
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 61
+  { id: "m61-1", episodeId: 61, personId: "arthur", productId: "sprout" },
+  { id: "m61-2", episodeId: 61, personId: "aiquis", productId: "microsoft-edge" },
+  { id: "m61-3", episodeId: 61, personId: "danilo-penteado", productId: "pillow-top-emma" },
+  { id: "m61-4", episodeId: 61, personId: "caue", productId: "pokemon-tcg" },
+  { id: "m61-5", episodeId: 61, personId: "maria", productId: "netflix" },
+  { id: "m61-6", episodeId: 61, personId: "brian", productId: "reddit" },
+  { id: "m61-7", episodeId: 61, personId: "lucas", productId: "pinterest" },
+  { id: "m61-8", episodeId: 61, personId: "mat", productId: "sp-parking" },
+
+  // Episode 62
+  { id: "m62-1", episodeId: 62, personId: "aiquis", productId: "munhequeira" },
+  { id: "m62-2", episodeId: 62, personId: "arthur", productId: "zoom-ai-companion" },
+  { id: "m62-3", episodeId: 62, personId: "mat", productId: "pampers-club" },
+  { id: "m62-4", episodeId: 62, personId: "nana", productId: "livelo" },
+  { id: "m62-5", episodeId: 62, personId: "glauco", productId: "picpay" },
+  { id: "m62-6", episodeId: 62, personId: "cloves", productId: "chatgpt" },
+
+  // Episode 63
+  { id: "m63-1", episodeId: 63, personId: "aiquis", productId: "ventilador-mondial" },
+  { id: "m63-2", episodeId: 63, personId: "arthur", productId: "gentler-streak" },
+  { id: "m63-3", episodeId: 63, personId: "alana", productId: "duolingo" },
+  { id: "m63-4", episodeId: 63, personId: "dezao", productId: "moises-ai" },
+  { id: "m63-5", episodeId: 63, personId: "lucao", productId: "plague-evolved" },
+  { id: "m63-6", episodeId: 63, personId: "glauco", productId: "total-pass" },
+  { id: "m63-7", episodeId: 63, personId: "jessica", productId: "liti" },
+  { id: "m63-8", episodeId: 63, personId: "nery", productId: "filebrowser-go" },
+  { id: "m63-9", episodeId: 63, personId: "danilera", productId: "c6-ia" },
+  { id: "m63-10", episodeId: 63, personId: "murilo", productId: "sos-golpes" },
+
+  // Episode 64
+  { id: "m64-1", episodeId: 64, personId: "aiquis", productId: "balatro" },
+  { id: "m64-2", episodeId: 64, personId: "arthur", productId: "ray-ban-meta" },
+  { id: "m64-3", episodeId: 64, personId: "nina", productId: "drogasil" },
+  { id: "m64-4", episodeId: 64, personId: "efrem", productId: "napkin" },
+  { id: "m64-5", episodeId: 64, personId: "boss", productId: "n8n" },
+  { id: "m64-6", episodeId: 64, personId: "nana", productId: "mercado-bitcoin" },
+  { id: "m64-7", episodeId: 64, personId: "andrezinho", productId: "duolingo" },
+  { id: "m64-8", episodeId: 64, personId: "lucas", productId: "airfryer-ritalobo" },
+  { id: "m64-9", episodeId: 64, personId: "mila", productId: "pipefy" },
+  { id: "m64-10", episodeId: 64, personId: "nery", productId: "thefork" },
+  { id: "m64-11", episodeId: 64, personId: "karina", productId: "kindle" },
+  { id: "m64-12", episodeId: 64, personId: "pilon", productId: "instacarro" },
+  { id: "m64-13", episodeId: 64, personId: "beicola", productId: "lindt" },
+  { id: "m64-14", episodeId: 64, personId: "bruna", productId: "gymrats" },
+  { id: "m64-15", episodeId: 64, personId: "lavin", productId: "teams" },
+  { id: "m64-16", episodeId: 64, personId: "clovis", productId: "magie" },
+  { id: "m64-17", episodeId: 64, personId: "alice", productId: "dualsense" },
+
   // Episode 65
   { id: "m65-1", episodeId: 65, personId: "aiquis", productId: "beerpass" },
   { id: "m65-2", episodeId: 65, personId: "arthur", productId: "copo-stanley" },
