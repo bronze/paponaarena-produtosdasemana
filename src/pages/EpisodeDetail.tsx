@@ -168,6 +168,34 @@ export default function EpisodeDetail() {
                           {personMentions.map((mention) => {
                             const product = getProductById(mention.productId);
                             if (!product) return null;
+
+                            // Combo product: show individual links + combo badge
+                            if (product.alsoCredits) {
+                              return (
+                                <div key={mention.id} className="flex items-center gap-1">
+                                  {product.alsoCredits.map((creditedId, idx) => {
+                                    const creditedProduct = getProductById(creditedId);
+                                    if (!creditedProduct) return null;
+                                    return (
+                                      <span key={creditedId} className="flex items-center gap-1">
+                                        {idx > 0 && <span className="text-muted-foreground text-xs">+</span>}
+                                        <Link to={`/products/${creditedProduct.id}`}>
+                                          <Badge
+                                            variant="secondary"
+                                            className="hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer text-xs"
+                                          >
+                                            {creditedProduct.name}
+                                          </Badge>
+                                        </Link>
+                                      </span>
+                                    );
+                                  })}
+                                  <Badge variant="outline" className="text-xs">combo</Badge>
+                                </div>
+                              );
+                            }
+
+                            // Regular product
                             return (
                               <Link key={mention.id} to={`/products/${mention.productId}`}>
                                 <Badge
