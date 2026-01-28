@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
   // 2024 Episodes
   {
+    id: 58,
+    title: "Como foi o Lenny & Friends Summit? Com Fernanda Faria-Product Director @ ABInBev",
+    date: "2024-11-06",
+    description: "Discussão sobre o Lenny & Friends Summit com Fernanda Faria.",
+  },
+  {
     id: 60,
     title: "Quem cria a visão de Produto?",
     date: "2024-11-19",
@@ -393,6 +399,7 @@ export const products: Product[] = [
   // Development
   { id: "flutterflow", name: "FlutterFlow", category: "Development", url: "https://flutterflow.io" },
   { id: "oneschema", name: "OneSchema", category: "Development", url: "https://www.oneschema.co" },
+  { id: "rapid-api", name: "Rapid API", category: "Development", url: "https://rapidapi.com" },
 
   // Fitness
   { id: "gentler-streak", name: "Gentler Streak", category: "Fitness", url: "https://gentler.app/" },
@@ -431,6 +438,7 @@ export const products: Product[] = [
   { id: "skyscanner", name: "Skyscanner", category: "Travel", url: "https://skyscanner.com" },
   { id: "time-shifter", name: "Time Shifter", category: "Travel" },
   { id: "uk-eta", name: "UK ETA", category: "Travel" },
+  { id: "smiles", name: "Smiles", category: "Travel", url: "https://smiles.com.br" },
 
   // Transportation
   { id: "instacarro", name: "Instacarro", category: "Transportation", url: "https://instacarro.com" },
@@ -458,6 +466,8 @@ export const products: Product[] = [
   { id: "tiktok", name: "TikTok", category: "Social", url: "https://tiktok.com" },
   { id: "linkedin", name: "LinkedIn", category: "Social", url: "https://linkedin.com" },
   { id: "pixelfed", name: "Pixelfed", category: "Social" },
+  { id: "instagram", name: "Instagram", category: "Social", url: "https://instagram.com" },
+  { id: "instagram-detox", name: "Instagram (detox)", category: "Social", parentId: "instagram" },
 
   // Productivity
   { id: "pipefy", name: "Pipefy", category: "Productivity", url: "https://pipefy.com" },
@@ -507,6 +517,7 @@ export const products: Product[] = [
   { id: "curso-ia-nocode", name: "Curso de IA + NoCode", category: "Education" },
   { id: "focumon", name: "Focumon", category: "Education" },
   { id: "audible", name: "Audible", category: "Education", url: "https://audible.com" },
+  { id: "classapp", name: "ClassApp", category: "Education" },
 
   // Entertainment
   {
@@ -542,6 +553,7 @@ export const products: Product[] = [
   { id: "hipercap-brasil", name: "HiperCap Brasil", category: "Entertainment" },
   { id: "loteria", name: "Loteria", category: "Entertainment" },
   { id: "acquired-podcast", name: "Acquired Podcast", category: "Entertainment" },
+  { id: "clash-pass", name: "Clash Pass", category: "Entertainment" },
 
   // Finance
   { id: "c6-ia", name: "C6 (IA)", category: "Finance", parentId: "c6" },
@@ -681,6 +693,8 @@ export const products: Product[] = [
   { id: "event-tracker-aiquis", name: "Event Tracker do Aíquis", category: "Business" },
   { id: "be-my-eyes", name: "Be My Eyes", category: "Business" },
   { id: "whatsapp", name: "WhatsApp", category: "Business", url: "https://whatsapp.com" },
+  { id: "eventos-whatsapp", name: "Eventos do WhatsApp", category: "Business", parentId: "whatsapp" },
+  { id: "quinto-andar", name: "Quinto Andar", category: "Business", url: "https://quintoandar.com.br" },
   { id: "buy-tickets", name: "Buy Tickets", category: "Business" },
 
   // Apps
@@ -897,6 +911,18 @@ export const people: Person[] = [
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 58
+  { id: "m58-1", episodeId: 58, personId: "arthur", productId: "rapid-api" },
+  { id: "m58-2", episodeId: 58, personId: "aiquis", productId: "pokemon-tcg" },
+  { id: "m58-3", episodeId: 58, personId: "lucas", productId: "smiles" },
+  { id: "m58-4", episodeId: 58, personId: "pilon", productId: "instagram-detox" },
+  { id: "m58-5", episodeId: 58, personId: "cloves", productId: "quinto-andar" },
+  { id: "m58-6", episodeId: 58, personId: "nery", productId: "clash-pass" },
+  { id: "m58-7", episodeId: 58, personId: "karina", productId: "99" },
+  { id: "m58-8", episodeId: 58, personId: "andrezinho", productId: "duolingo" },
+  { id: "m58-9", episodeId: 58, personId: "glauco", productId: "classapp" },
+  { id: "m58-10", episodeId: 58, personId: "lucao", productId: "eventos-whatsapp" },
+
   // Episode 60
   { id: "m60-1", episodeId: 60, personId: "arthur", productId: "flutterflow" },
   { id: "m60-2", episodeId: 60, personId: "aiquis", productId: "samsung-smart-switch" },
