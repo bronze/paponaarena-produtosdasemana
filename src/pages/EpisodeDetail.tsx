@@ -10,6 +10,7 @@ import {
   getMentionsByEpisode,
   getProductById,
   getPersonById,
+  getProductLinkId,
 } from "@/data/mentions";
 
 const COLORS = [
@@ -121,7 +122,7 @@ export default function EpisodeDetail() {
                     cursor="pointer"
                     onClick={(data) => {
                       if (data?.productId) {
-                        navigate(`/products/${data.productId}`);
+                        navigate(`/products/${getProductLinkId(data.productId)}`);
                       }
                     }}
                   >
@@ -179,14 +180,14 @@ export default function EpisodeDetail() {
                                     return (
                                       <span key={creditedId} className="flex items-center gap-1">
                                         {idx > 0 && <span className="text-muted-foreground text-xs">+</span>}
-                                        <Link to={`/products/${creditedProduct.id}`}>
-                                          <Badge
-                                            variant="secondary"
-                                            className="hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer text-xs"
-                                          >
-                                            {creditedProduct.name}
-                                          </Badge>
-                                        </Link>
+                                    <Link to={`/products/${getProductLinkId(creditedProduct.id)}`}>
+                                      <Badge
+                                        variant="secondary"
+                                        className="hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer text-xs"
+                                      >
+                                        {creditedProduct.name}
+                                      </Badge>
+                                    </Link>
                                       </span>
                                     );
                                   })}
@@ -197,7 +198,7 @@ export default function EpisodeDetail() {
 
                             // Regular product
                             return (
-                              <Link key={mention.id} to={`/products/${mention.productId}`}>
+                              <Link key={mention.id} to={`/products/${getProductLinkId(mention.productId)}`}>
                                 <Badge
                                   variant="secondary"
                                   className="hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer text-xs"

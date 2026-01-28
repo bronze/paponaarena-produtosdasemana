@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from "recharts";
-import { getTopProducts } from "@/data/mentions";
+import { getTopProducts, getProductLinkId } from "@/data/mentions";
 
 const COLORS = [
   "hsl(355 75% 65%)",
@@ -54,7 +54,7 @@ export function TopProductsChart() {
                 cursor="pointer"
                 onClick={(data) => {
                   if (data?.id) {
-                    navigate(`/products/${data.id}`);
+                    navigate(`/products/${getProductLinkId(data.id)}`);
                   }
                 }}
               >

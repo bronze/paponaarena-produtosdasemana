@@ -11,6 +11,7 @@ import {
   getPersonTopProducts,
   getProductById,
   getEpisodeById,
+  getProductLinkId,
 } from "@/data/mentions";
 
 const COLORS = [
@@ -177,7 +178,7 @@ export default function PersonDetail() {
                     radius={[0, 4, 4, 0]}
                     cursor="pointer"
                     onClick={(data) => {
-                      if (data?.id) navigate(`/products/${data.id}`);
+                      if (data?.id) navigate(`/products/${getProductLinkId(data.id)}`);
                     }}
                   >
                     {chartData.map((_, index) => (
@@ -218,8 +219,8 @@ export default function PersonDetail() {
                             return (
                               <span key={creditedId} className="flex items-center gap-1">
                                 {idx > 0 && <span className="text-muted-foreground">+</span>}
-                                <Link
-                                  to={`/products/${creditedProduct.id}`}
+                              <Link
+                                  to={`/products/${getProductLinkId(creditedProduct.id)}`}
                                   className="font-medium text-foreground hover:text-primary transition-colors"
                                 >
                                   {creditedProduct.name}
@@ -233,7 +234,7 @@ export default function PersonDetail() {
                         </>
                       ) : (
                         <Link
-                          to={`/products/${product.id}`}
+                          to={`/products/${getProductLinkId(product.id)}`}
                           className="font-medium text-foreground hover:text-primary transition-colors"
                         >
                           {product.name}
