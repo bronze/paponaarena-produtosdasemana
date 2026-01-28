@@ -3,9 +3,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mic, ArrowRight } from "lucide-react";
 import { episodes, getMentionsByEpisode } from "@/data/mentions";
+import { compareDatesDesc } from "@/lib/utils";
 
 export function LatestEpisodeCard() {
-  const latestEpisode = episodes[episodes.length - 1];
+  const latestEpisode = [...episodes].sort((a, b) => compareDatesDesc(a.date, b.date))[0];
   const mentionCount = getMentionsByEpisode(latestEpisode.id).length;
 
   return (
