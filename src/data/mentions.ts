@@ -259,7 +259,7 @@ export const episodes: Episode[] = [
   {
     id: 103,
     title: "Você tem Product Sense?",
-    date: "2026-01-28",
+    date: "2026-01-29",
     description: "Discussão sobre Product Sense e as ferramentas da semana.",
   },
 ];
