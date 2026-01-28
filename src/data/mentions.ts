@@ -449,7 +449,7 @@ export const products: Product[] = [
 
   // Productivity
   { id: "pipefy", name: "Pipefy", category: "Productivity", url: "https://pipefy.com" },
-  { id: "filebrowser-go", name: "FileBrowser Go", category: "Productivity" },
+  { id: "filebrowser-go", name: "FileBrowser Go", category: "Productivity", url: "https://www.stratospherix.com/filebrowsergo/" },
   { id: "sprout", name: "Sprout", category: "Productivity" },
   { id: "microsoft-edge", name: "Microsoft Edge (busca de cupons)", category: "Productivity" },
   { id: "loom", name: "Loom", category: "Productivity", url: "https://loom.com" },
