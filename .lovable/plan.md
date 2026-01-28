@@ -1,9 +1,10 @@
 
-## Plano: Adicionar Episódio 58 e Menções
+
+## Plano: Adicionar Episódio 59 e Menções
 
 ### Resumo
 
-Adicionar o episódio 58 de 2024 (Nov 6) com o tema "Como foi o Lenny & Friends Summit?" e suas 10 menções ao arquivo `src/data/mentions.ts`.
+Adicionar o episódio 59 de 2024 (Nov 12) com o tema "O que chefões da OpenAI, Anthropic e Perplexity pensam sobre AI como produto" e suas 15 menções ao arquivo `src/data/mentions.ts`.
 
 ---
 
@@ -17,105 +18,130 @@ Adicionar o episódio 58 de 2024 (Nov 6) com o tema "Como foi o Lenny & Friends 
 
 | ID | Título | Data |
 |----|--------|------|
-| 58 | Como foi o Lenny & Friends Summit? Com Fernanda Faria-Product Director @ ABInBev | 2024-11-06 |
+| 59 | O que chefões da OpenAI, Anthropic e Perplexity pensam sobre AI como produto | 2024-11-12 |
 
 ---
 
-### 2. Novos Produtos (7)
+### 2. Novos Produtos (9)
 
-| ID | Nome | Categoria | Observação |
-|----|------|-----------|------------|
-| rapid-api | Rapid API | Development | Novo |
-| smiles | Smiles | Travel | Novo |
-| instagram | Instagram | Social | Novo (produto pai) |
-| instagram-detox | Instagram (detox) | Social | Novo (variante de Instagram) |
-| quinto-andar | Quinto Andar | Business | Novo |
-| clash-pass | Clash Pass | Entertainment | Novo |
-| classapp | ClassApp | Education | Novo |
-| eventos-whatsapp | Eventos do WhatsApp | Business | Novo (variante de WhatsApp) |
+| ID | Nome | Categoria |
+|----|------|-----------|
+| airops | AirOps | AI Tools |
+| crew-ai | Crew AI | AI Tools |
+| mapify | Mapify | AI Tools |
+| quickbase | Quickbase | Business |
+| foodtosave | FoodtoSave | Lifestyle |
+| zepp | Zepp | Fitness |
+| e-titulo | E-título | Transportation |
+| swapfiets | Swapfiets | Transportation |
+| land-builder | Land Builder | Entertainment |
 
 **Produtos já existentes (reutilizar):**
+- `prime-video`
+- `perplexity`
+- `tldv`
+- `supabase`
+- `wellhub`
 - `pokemon-tcg`
-- `duolingo`
-- `skoob`
-- `buyticket`
-- `kindle`
-- `whatsapp` (produto pai para variante)
 
 ---
 
-### 3. Pessoas
+### 3. Novas Pessoas (3)
 
-**Todas as pessoas já existem no banco de dados:**
-- `arthur`, `aiquis`, `lucas`, `pilon`, `cloves`, `nery`, `karina`, `andrezinho`, `glauco`, `lucao`
+| ID | Nome |
+|----|------|
+| gi | Gi |
+| tiago-santi | Tiago Santi |
+| ana-romeu | Ana Romeu |
+
+**Pessoas já existentes (reutilizar):**
+- `aiquis`, `arthur`, `portinho`, `jessica-luz`, `boss`, `nana`, `marina-fernandes`, `brian`, `pilon`, `andrezao`, `danilera`
 
 ---
 
-### 4. Novas Menções (10)
+### 4. Novas Menções (15)
 
 | Pessoa | Produto |
 |--------|---------|
-| Arthur | Rapid API |
-| Aíquis | Pokémon TCG |
-| Lucas | Smiles |
-| Pilon | Instagram (detox) |
-| Cloves | Quinto Andar |
-| Nery | Clash Pass |
-| Karina | 99 |
-| Andrézinho | Duolingo |
-| Glauco | ClassApp |
-| Lukão | Eventos do WhatsApp |
+| Aíquis | Prime Video |
+| Aíquis | Crew AI |
+| Arthur | AirOps |
+| Portinho | Mapify |
+| Gi | Perplexity |
+| Jéssica Luz | TL;dv |
+| Boss | Supabase |
+| Tiago Santi | Quickbase |
+| Nana | FoodtoSave |
+| Marina Fernandes | Wellhub |
+| Brian | Zepp |
+| Pilon | E-título |
+| Ana Romeu | Swapfiets |
+| Andrezão | Pokémon TCG |
+| Danilera | Land Builder |
 
 ---
 
 ### Seção Técnica
 
-**Episódio (inserir antes do episódio 60):**
+**Episódio (inserir entre 58 e 60):**
 ```typescript
 {
-  id: 58,
-  title: "Como foi o Lenny & Friends Summit? Com Fernanda Faria-Product Director @ ABInBev",
-  date: "2024-11-06",
-  description: "Discussão sobre o Lenny & Friends Summit com Fernanda Faria.",
+  id: 59,
+  title: "O que chefões da OpenAI, Anthropic e Perplexity pensam sobre AI como produto",
+  date: "2024-11-12",
+  description: "Discussão sobre visões de AI como produto por líderes da OpenAI, Anthropic e Perplexity.",
 },
 ```
 
-**Produtos novos (inserir nas categorias apropriadas):**
+**Produtos novos:**
 ```typescript
-// Development
-{ id: "rapid-api", name: "Rapid API", category: "Development", url: "https://rapidapi.com" },
-
-// Travel
-{ id: "smiles", name: "Smiles", category: "Travel", url: "https://smiles.com.br" },
-
-// Social (Instagram pai + variante)
-{ id: "instagram", name: "Instagram", category: "Social", url: "https://instagram.com" },
-{ id: "instagram-detox", name: "Instagram (detox)", category: "Social", parentId: "instagram" },
+// AI Tools
+{ id: "airops", name: "AirOps", category: "AI Tools", url: "https://www.airops.com" },
+{ id: "crew-ai", name: "Crew AI", category: "AI Tools", url: "https://www.crewai.com" },
+{ id: "mapify", name: "Mapify", category: "AI Tools" },
 
 // Business
-{ id: "quinto-andar", name: "Quinto Andar", category: "Business", url: "https://quintoandar.com.br" },
-{ id: "eventos-whatsapp", name: "Eventos do WhatsApp", category: "Business", parentId: "whatsapp" },
+{ id: "quickbase", name: "Quickbase", category: "Business", url: "https://www.quickbase.com" },
+
+// Lifestyle
+{ id: "foodtosave", name: "FoodtoSave", category: "Lifestyle" },
+
+// Fitness
+{ id: "zepp", name: "Zepp", category: "Fitness" },
+
+// Transportation
+{ id: "e-titulo", name: "E-título", category: "Transportation" },
+{ id: "swapfiets", name: "Swapfiets", category: "Transportation", url: "https://swapfiets.com" },
 
 // Entertainment
-{ id: "clash-pass", name: "Clash Pass", category: "Entertainment" },
+{ id: "land-builder", name: "Land Builder", category: "Entertainment" },
+```
 
-// Education
-{ id: "classapp", name: "ClassApp", category: "Education" },
+**Pessoas novas:**
+```typescript
+{ id: "gi", name: "Gi" },
+{ id: "tiago-santi", name: "Tiago Santi" },
+{ id: "ana-romeu", name: "Ana Romeu" },
 ```
 
 **Menções:**
 ```typescript
-// Episode 58
-{ id: "m58-1", episodeId: 58, personId: "arthur", productId: "rapid-api" },
-{ id: "m58-2", episodeId: 58, personId: "aiquis", productId: "pokemon-tcg" },
-{ id: "m58-3", episodeId: 58, personId: "lucas", productId: "smiles" },
-{ id: "m58-4", episodeId: 58, personId: "pilon", productId: "instagram-detox" },
-{ id: "m58-5", episodeId: 58, personId: "cloves", productId: "quinto-andar" },
-{ id: "m58-6", episodeId: 58, personId: "nery", productId: "clash-pass" },
-{ id: "m58-7", episodeId: 58, personId: "karina", productId: "99" },
-{ id: "m58-8", episodeId: 58, personId: "andrezinho", productId: "duolingo" },
-{ id: "m58-9", episodeId: 58, personId: "glauco", productId: "classapp" },
-{ id: "m58-10", episodeId: 58, personId: "lucao", productId: "eventos-whatsapp" },
+// Episode 59
+{ id: "m59-1", episodeId: 59, personId: "aiquis", productId: "prime-video" },
+{ id: "m59-2", episodeId: 59, personId: "aiquis", productId: "crew-ai" },
+{ id: "m59-3", episodeId: 59, personId: "arthur", productId: "airops" },
+{ id: "m59-4", episodeId: 59, personId: "portinho", productId: "mapify" },
+{ id: "m59-5", episodeId: 59, personId: "gi", productId: "perplexity" },
+{ id: "m59-6", episodeId: 59, personId: "jessica-luz", productId: "tldv" },
+{ id: "m59-7", episodeId: 59, personId: "boss", productId: "supabase" },
+{ id: "m59-8", episodeId: 59, personId: "tiago-santi", productId: "quickbase" },
+{ id: "m59-9", episodeId: 59, personId: "nana", productId: "foodtosave" },
+{ id: "m59-10", episodeId: 59, personId: "marina-fernandes", productId: "wellhub" },
+{ id: "m59-11", episodeId: 59, personId: "brian", productId: "zepp" },
+{ id: "m59-12", episodeId: 59, personId: "pilon", productId: "e-titulo" },
+{ id: "m59-13", episodeId: 59, personId: "ana-romeu", productId: "swapfiets" },
+{ id: "m59-14", episodeId: 59, personId: "andrezao", productId: "pokemon-tcg" },
+{ id: "m59-15", episodeId: 59, personId: "danilera", productId: "land-builder" },
 ```
 
 ---
@@ -124,7 +150,8 @@ Adicionar o episódio 58 de 2024 (Nov 6) com o tema "Como foi o Lenny & Friends 
 
 | Seção | Adições |
 |-------|---------|
-| Episodes | +1 (58) |
-| Products | +8 novos (incluindo 2 variantes) |
-| People | 0 (todos já existem) |
-| Mentions | +10 |
+| Episodes | +1 (59) |
+| Products | +9 novos |
+| People | +3 novos |
+| Mentions | +15 |
+
