@@ -1,28 +1,24 @@
 
 
-## Plano: Corrigir IDs Duplicados no Array de Pessoas
+## Plano: Unificar Pessoas Duplicadas (Thiago e Bruna)
 
 ### Problema Identificado
 
-O array `people` em `src/data/mentions.ts` contém **IDs duplicados**, o que causa comportamento estranho na busca:
+O array `people` contém pessoas cadastradas duas vezes com IDs diferentes mas mesmo nome:
 
-| ID | Linha | Nome |
-|----|-------|------|
-| `bruna` | 1004 | Bruna |
-| `bruna` | 1037 | Bruna (duplicata!) |
-| `leandro` | 939 | Leandro |
-| `leandro` | 1047 | Leandro (duplicata!) |
+| ID Original | ID Duplicado | Nome | Ação |
+|-------------|--------------|------|------|
+| `thiago` (linha 1027) | `thiago-ep102` (linha 886) | "Thiago" | Manter `thiago`, remover `thiago-ep102` |
+| `bruna` (linha 1004) | `bruna-ep57` (linha 1026) | "Bruna" | Manter `bruna`, remover `bruna-ep57` |
 
-Quando o React usa `key={person.id}` para renderizar a lista, IDs duplicados causam problemas de reconciliação - elementos "fantasma" aparecem ou não são removidos corretamente.
+Isso causa confusão na busca - duas entradas aparecem para a mesma pessoa.
 
 ---
 
 ### Solução
 
-Remover as entradas duplicadas do array `people`, mantendo apenas uma instância de cada pessoa:
-
-1. **Remover** `{ id: "bruna", name: "Bruna" }` da linha 1037 (manter a da linha 1004)
-2. **Remover** `{ id: "leandro", name: "Leandro" }` da linha 1047 (manter a da linha 939)
+1. **Atualizar menções** que usam os IDs antigos para usar os IDs corretos
+2. **Remover entradas duplicadas** do array `people`
 
 ---
 
@@ -32,40 +28,55 @@ Remover as entradas duplicadas do array `people`, mantendo apenas uma instância
 
 ---
 
-### Seção Técnica
+### Passo 1: Atualizar Menções
 
-**Remover linha 1037:**
+**Thiago (1 menção a atualizar):**
+
 ```typescript
-// ANTES (linha 1036-1038)
-  { id: "maria", name: "Maria" },
-  { id: "bruna", name: "Bruna" },  // ← REMOVER esta duplicata
-  // Episode 59 contributors
+// ANTES (linha 1756)
+{ id: "m102-16", episodeId: 102, personId: "thiago-ep102", productId: "antigravity" },
 
 // DEPOIS
-  { id: "maria", name: "Maria" },
-  // Episode 59 contributors
+{ id: "m102-16", episodeId: 102, personId: "thiago", productId: "antigravity" },
 ```
 
-**Remover linha 1047:**
+**Bruna (1 menção a atualizar):**
+
 ```typescript
-// ANTES (linha 1045-1048)
-  { id: "amanda", name: "Amanda" },
-  { id: "larissa", name: "Larissa" },
-  { id: "leandro", name: "Leandro" },  // ← REMOVER esta duplicata
-  // Episode 53 contributors
+// ANTES (linha 1163)
+{ id: "m57-11", episodeId: 57, personId: "bruna-ep57", productId: "toqan" },
 
 // DEPOIS
-  { id: "amanda", name: "Amanda" },
-  { id: "larissa", name: "Larissa" },
-  // Episode 53 contributors
+{ id: "m57-11", episodeId: 57, personId: "bruna", productId: "toqan" },
+```
+
+---
+
+### Passo 2: Remover Pessoas Duplicadas
+
+```typescript
+// Remover linha 886
+{ id: "thiago-ep102", name: "Thiago" },
+
+// Remover linha 1026
+{ id: "bruna-ep57", name: "Bruna" },
 ```
 
 ---
 
 ### Resultado Esperado
 
-Após a correção, a busca funcionará corretamente:
-- Buscar "thiago" mostrará apenas Thiago
-- Buscar "zeca" não mostrará nenhum resultado
-- Bruna e Leandro não aparecerão como "fantasmas"
+Após a correção:
+- Buscar "Thiago" mostrará apenas 1 pessoa (com todas as menções agregadas)
+- Buscar "Bruna" mostrará apenas 1 pessoa (com todas as menções agregadas)
+- Os links para páginas de detalhes funcionarão corretamente
+
+---
+
+### Resumo de Alterações
+
+| Ação | Quantidade |
+|------|------------|
+| Menções atualizadas | 2 |
+| Pessoas removidas | 2 |
 
