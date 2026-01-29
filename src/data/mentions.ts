@@ -356,9 +356,9 @@ export const products: Product[] = [
   { id: "alexa", name: "Alexa", category: "Hardware" },
 
   // Entertainment
-  { id: "monument-valley", name: "Monument Valley", category: "Entertainment" },
-  { id: "sports-alerts", name: "Sports Alerts", category: "Entertainment" },
-  { id: "rock-in-rio", name: "Rock in Rio", category: "Entertainment" },
+  { id: "monument-valley", name: "Monument Valley", category: "Entertainment", url: "https://monumentvalleygame.com" },
+  { id: "sports-alerts", name: "Sports Alerts", category: "Entertainment", url: "https://www.lunosoftware.com/" },
+  { id: "rock-in-rio", name: "Rock in Rio", category: "Entertainment", url: "https://rockinrio.com/" },
 
   // Travel
   { id: "tripadvisor", name: "TripAdvisor", category: "Travel", url: "https://tripadvisor.com" },
