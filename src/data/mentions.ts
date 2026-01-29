@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
   // 2024 Episodes
   {
+    id: 53,
+    title: "Highlights do Product Leader Summit 2024",
+    date: "2024-10-02",
+    description: "Destaques e aprendizados do Product Leader Summit 2024.",
+  },
+  {
     id: 55,
     title: "Gestão de Plataformas e APIs para PMs não técnicos - um papo com Sheila Chang",
     date: "2024-10-15",
@@ -468,6 +474,7 @@ export const products: Product[] = [
   { id: "streaks", name: "Streaks", category: "Fitness" },
   { id: "bionic-go", name: "Bionic Go", category: "Fitness" },
   { id: "zepp", name: "Zepp", category: "Fitness" },
+  { id: "garmin-connect", name: "Garmin Connect", category: "Fitness", url: "https://connect.garmin.com" },
 
   // Analytics
   { id: "amplitude", name: "Amplitude", category: "Analytics", url: "https://amplitude.com" },
@@ -482,6 +489,7 @@ export const products: Product[] = [
   { id: "time-shifter", name: "Time Shifter", category: "Travel" },
   { id: "uk-eta", name: "UK ETA", category: "Travel" },
   { id: "smiles", name: "Smiles", category: "Travel", url: "https://smiles.com.br" },
+  { id: "seats-aero", name: "Seats.aero", category: "Travel", url: "https://seats.aero" },
 
   // Transportation
   { id: "instacarro", name: "Instacarro", category: "Transportation", url: "https://instacarro.com" },
@@ -505,6 +513,7 @@ export const products: Product[] = [
   { id: "bilhete-unico", name: "Bilhete Único", category: "Transportation" },
   { id: "e-titulo", name: "E-título", category: "Transportation" },
   { id: "swapfiets", name: "Swapfiets", category: "Transportation", url: "https://swapfiets.com" },
+  { id: "tesla", name: "Tesla", category: "Transportation", url: "https://tesla.com" },
 
   // Social
   { id: "reddit", name: "Reddit", category: "Social", url: "https://reddit.com" },
@@ -561,6 +570,7 @@ export const products: Product[] = [
   { id: "gchat", name: "GChat", category: "Productivity" },
   { id: "jira", name: "Jira", category: "Productivity", url: "https://www.atlassian.com/software/jira" },
   { id: "google-script", name: "Google Script", category: "Productivity" },
+  { id: "room-planner", name: "Room planner", category: "Productivity" },
 
   // Education
   { id: "vocabulary", name: "Vocabulary", category: "Education", url: "https://vocabulary.com" },
@@ -614,6 +624,8 @@ export const products: Product[] = [
   { id: "acquired-podcast", name: "Acquired Podcast", category: "Entertainment" },
   { id: "clash-pass", name: "Clash Pass", category: "Entertainment" },
   { id: "land-builder", name: "Land Builder", category: "Entertainment" },
+  { id: "cifra-club", name: "Cifra Club", category: "Entertainment", url: "https://cifraclub.com.br" },
+  { id: "quebra-cabeca", name: "Quebra-cabeça", category: "Entertainment" },
 
   // Finance
   { id: "c6-ia", name: "C6 (IA)", category: "Finance", parentId: "c6" },
@@ -635,6 +647,7 @@ export const products: Product[] = [
   { id: "calculadora-loft", name: "Calculadora financiamento loft", category: "Finance" },
   { id: "minhas-financas", name: "Minhas Finanças", category: "Finance" },
   { id: "app-fgc", name: "App do FGC", category: "Finance" },
+  { id: "banana-mercado", name: "Banana Mercado", category: "Finance" },
 
   // Lifestyle
   { id: "foodtosave", name: "FoodtoSave", category: "Lifestyle" },
@@ -985,10 +998,29 @@ export const people: Person[] = [
   { id: "amanda", name: "Amanda" },
   { id: "larissa", name: "Larissa" },
   { id: "leandro", name: "Leandro" },
+  // Episode 53 contributors
+  { id: "matias", name: "Matias" },
+  { id: "dudu-magalhaes", name: "Dudu Magalhães" },
 ];
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 53
+  { id: "m53-1", episodeId: 53, personId: "aiquis", productId: "duo-gourmet" },
+  { id: "m53-2", episodeId: 53, personId: "arthur", productId: "whoop" },
+  { id: "m53-3", episodeId: 53, personId: "andrezao", productId: "duo-gourmet" },
+  { id: "m53-4", episodeId: 53, personId: "matias", productId: "seats-aero" },
+  { id: "m53-5", episodeId: 53, personId: "brian", productId: "moises-ai" },
+  { id: "m53-6", episodeId: 53, personId: "maria", productId: "banana-mercado" },
+  { id: "m53-7", episodeId: 53, personId: "lucas", productId: "cifra-club" },
+  { id: "m53-8", episodeId: 53, personId: "dudu-magalhaes", productId: "tesla" },
+  { id: "m53-9", episodeId: 53, personId: "glauco", productId: "classapp" },
+  { id: "m53-10", episodeId: 53, personId: "mat", productId: "sprout" },
+  { id: "m53-11", episodeId: 53, personId: "nana", productId: "garmin-connect" },
+  { id: "m53-12", episodeId: 53, personId: "lucas", productId: "room-planner" },
+  { id: "m53-13", episodeId: 53, personId: "cloves", productId: "whatsapp" },
+  { id: "m53-14", episodeId: 53, personId: "karina", productId: "quebra-cabeca" },
+
   // Episode 55
   { id: "m55-1", episodeId: 55, personId: "arthur", productId: "strava" },
   { id: "m55-2", episodeId: 55, personId: "aiquis", productId: "chatgpt" },
