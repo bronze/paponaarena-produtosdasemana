@@ -1,10 +1,10 @@
 
 
-## Plano: Adicionar Episódio 52 e Menções
+## Plano: Adicionar Episódio 51 e Menções
 
 ### Resumo
 
-Adicionar o episódio 52 de setembro/2024 com o tema "Panorama do Mercado de Produto do Brasil" e suas 12 menções ao arquivo `src/data/mentions.ts`.
+Adicionar o episódio 51 de setembro/2024 com o tema "Velocidade vs. Qualidade e as táticas de growth que [não] funcionam" e suas 9 menções ao arquivo `src/data/mentions.ts`.
 
 ---
 
@@ -18,116 +18,105 @@ Adicionar o episódio 52 de setembro/2024 com o tema "Panorama do Mercado de Pro
 
 | ID | Título | Data |
 |----|--------|------|
-| 52 | Panorama do Mercado de Produto do Brasil | 2024-09-25 |
+| 51 | Velocidade vs. Qualidade e as táticas de growth que [não] funcionam | 2024-09-18 |
 
 ---
 
-### 2. Novos Produtos (6)
+### 2. Novos Produtos (7)
 
 | ID | Nome | Categoria | URL |
 |----|------|-----------|-----|
-| sleeper-fantasy-football | Sleeper Fantasy Football | Entertainment | https://sleeper.com/ |
-| luma | Luma | Business | https://luma.com/ |
-| miro | Miro | Productivity | https://miro.com |
-| github | Github | Development | https://github.com |
-| apple-passwords | Passwords da Apple | Productivity | - |
-| cadeira-balanco-bebe | Cadeira de balanço pra bebê | Hardware | - |
+| kabum-smart-700 | Kabum! Smart 700 | Hardware | - |
+| monument-valley | Monument Valley | Entertainment | - |
+| sports-alerts | Sports Alerts | Entertainment | - |
+| tripadvisor | TripAdvisor | Travel | https://tripadvisor.com |
+| inalador | Inalador | Hardware | - |
+| rock-in-rio | Rock in Rio | Entertainment | - |
+| alexa | Alexa | Hardware | - |
 
 **Produtos já existentes (reutilizar):**
-- `pagaleve` (Finance)
-- `substack` (Tech)
-- `perplexity` (AI Tools)
-- `polycam` (Productivity - renomear para "Polycam" apenas)
-- `wellhub` (Fitness)
-- `seats-aero` (Travel)
+- `notebooklm` (AI Tools)
+- `filebrowser-go` (Productivity)
 
 ---
 
-### 3. Nova Pessoa (1)
+### 3. Pessoas Já Existentes (reutilizar)
 
 | ID | Nome |
 |----|------|
+| arthur | Arthur |
+| aiquis | Aíquis |
+| karina | Karina |
+| alexandre-pereira | Alexandre Pereira |
+| andrezinho | Andrézinho |
 | fabinho | Fabinho |
+| lucao | Lucão |
+| nery | Nery |
+| danilera | Danilera |
 
-**Pessoas já existentes (reutilizar):**
-- `aiquis`, `arthur`, `nina`, `karina`, `brian`, `nana`, `mat`, `lucas`, `glauco`, `nery`, `danilera`
+**Nota:** "Lukão" se refere ao participante `lucao` (Lucão) já existente.
 
 ---
 
-### 4. Novas Menções (12)
+### 4. Novas Menções (9)
 
 | Pessoa | Produto |
 |--------|---------|
-| Aíquis | Sleeper Fantasy Football |
-| Arthur | Luma |
-| Nina | Pagaleve |
-| Karina | Miro |
-| Brian | Substack |
-| Nana | Perplexity |
-| Mat | Polycam |
-| Fabinho | Github |
-| Lucas | Wellhub |
-| Glauco | Passwords da Apple |
-| Nery | Seats.aero |
-| Danilera | Cadeira de balanço pra bebê |
+| Arthur | NotebookLM |
+| Aíquis | Kabum! Smart 700 |
+| Karina | Monument Valley |
+| Alexandre Pereira | Sports Alerts |
+| Andrézinho | TripAdvisor |
+| Fabinho | Inalador |
+| Lucão | Rock in Rio |
+| Nery | FileBrowser Go |
+| Danilera | Alexa |
 
 ---
 
 ### Seção Técnica
 
-**Episódio (inserir antes do episódio 53):**
+**Episódio (inserir antes do episódio 52):**
 
 ```typescript
 {
-  id: 52,
-  title: "Panorama do Mercado de Produto do Brasil",
-  date: "2024-09-25",
-  description: "Análise do panorama atual do mercado de produto no Brasil.",
+  id: 51,
+  title: "Velocidade vs. Qualidade e as táticas de growth que [não] funcionam",
+  date: "2024-09-18",
+  description: "Discussão sobre o equilíbrio entre velocidade e qualidade e táticas de growth.",
 },
 ```
 
 **Produtos novos:**
 
 ```typescript
-// Entertainment
-{ id: "sleeper-fantasy-football", name: "Sleeper Fantasy Football", category: "Entertainment", url: "https://sleeper.com/" },
-
-// Business
-{ id: "luma", name: "Luma", category: "Business", url: "https://luma.com/" },
-
-// Productivity
-{ id: "miro", name: "Miro", category: "Productivity", url: "https://miro.com" },
-{ id: "apple-passwords", name: "Passwords da Apple", category: "Productivity" },
-
-// Development
-{ id: "github", name: "Github", category: "Development", url: "https://github.com" },
-
 // Hardware
-{ id: "cadeira-balanco-bebe", name: "Cadeira de balanço pra bebê", category: "Hardware" },
-```
+{ id: "kabum-smart-700", name: "Kabum! Smart 700", category: "Hardware" },
+{ id: "inalador", name: "Inalador", category: "Hardware" },
+{ id: "alexa", name: "Alexa", category: "Hardware" },
 
-**Pessoa nova:**
+// Entertainment
+{ id: "monument-valley", name: "Monument Valley", category: "Entertainment" },
+{ id: "sports-alerts", name: "Sports Alerts", category: "Entertainment" },
+{ id: "rock-in-rio", name: "Rock in Rio", category: "Entertainment" },
 
-```typescript
-{ id: "fabinho", name: "Fabinho" },
+// Travel
+{ id: "tripadvisor", name: "TripAdvisor", category: "Travel", url: "https://tripadvisor.com" },
 ```
 
 **Menções:**
 
 ```typescript
-// Episode 52
-{ id: "m52-1", episodeId: 52, personId: "aiquis", productId: "sleeper-fantasy-football" },
-{ id: "m52-2", episodeId: 52, personId: "arthur", productId: "luma" },
-{ id: "m52-3", episodeId: 52, personId: "nina", productId: "pagaleve" },
-{ id: "m52-4", episodeId: 52, personId: "karina", productId: "miro" },
-{ id: "m52-5", episodeId: 52, personId: "brian", productId: "substack" },
-{ id: "m52-6", episodeId: 52, personId: "nana", productId: "perplexity" },
-{ id: "m52-7", episodeId: 52, personId: "mat", productId: "polycam" },
-{ id: "m52-8", episodeId: 52, personId: "fabinho", productId: "github" },
-{ id: "m52-9", episodeId: 52, personId: "lucas", productId: "wellhub" },
-{ id: "m52-10", episodeId: 52, personId: "glauco", productId: "apple-passwords" },
-{ id: "m52-11", episodeId: 52, personId: "nery", productId: "seats-aero" },
-{ id: "m52-12", episodeId: 52, personId: "danilera", productId: "cadeira-balanco-bebe" },
+// Episode 51
+{ id: "m51-1", episodeId: 51, personId: "arthur", productId: "notebooklm" },
+{ id: "m51-2", episodeId: 51, personId: "aiquis", productId: "kabum-smart-700" },
+{ id: "m51-3", episodeId: 51, personId: "karina", productId: "monument-valley" },
+{ id: "m51-4", episodeId: 51, personId: "alexandre-pereira", productId: "sports-alerts" },
+{ id: "m51-5", episodeId: 51, personId: "andrezinho", productId: "tripadvisor" },
+{ id: "m51-6", episodeId: 51, personId: "fabinho", productId: "inalador" },
+{ id: "m51-7", episodeId: 51, personId: "lucao", productId: "rock-in-rio" },
+{ id: "m51-8", episodeId: 51, personId: "nery", productId: "filebrowser-go" },
+{ id: "m51-9", episodeId: 51, personId: "danilera", productId: "alexa" },
 ```
 
 ---
@@ -136,8 +125,8 @@ Adicionar o episódio 52 de setembro/2024 com o tema "Panorama do Mercado de Pro
 
 | Seção | Adições |
 |-------|---------|
-| Episodes | +1 (52) |
-| Products | +6 novos |
-| People | +1 novo |
-| Mentions | +12 |
+| Episodes | +1 (51) |
+| Products | +7 novos |
+| People | 0 (todos já existem) |
+| Mentions | +9 |
 
