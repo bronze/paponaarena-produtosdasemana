@@ -525,7 +525,7 @@ export const products: Product[] = [
     category: "Productivity",
     url: "https://www.stratospherix.com/filebrowsergo/",
   },
-  { id: "sprout", name: "Sprout", category: "Productivity" },
+  { id: "sprout", name: "Sprout", category: "Lifestyle", url: "https://sprout-apps.com/" },
   { id: "microsoft-edge", name: "Microsoft Edge", category: "Productivity", url: "https://www.microsoft.com/edge" },
   {
     id: "microsoft-edge-cupons",
