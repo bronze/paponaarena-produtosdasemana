@@ -1034,7 +1034,6 @@ export const people: Person[] = [
   { id: "dezao", name: "Dezão" },
   { id: "murilo", name: "Murilo" },
   { id: "maria", name: "Maria" },
-  { id: "bruna", name: "Bruna" },
   // Episode 59 contributors
   { id: "gi", name: "Gi" },
   { id: "tiago-santi", name: "Tiago Santi" },
@@ -1044,7 +1043,6 @@ export const people: Person[] = [
   { id: "alex", name: "Alex" },
   { id: "amanda", name: "Amanda" },
   { id: "larissa", name: "Larissa" },
-  { id: "leandro", name: "Leandro" },
   // Episode 53 contributors
   { id: "matias", name: "Matias" },
   { id: "dudu-magalhaes", name: "Dudu Magalhães" },
