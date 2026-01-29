@@ -361,7 +361,7 @@ export const products: Product[] = [
   { id: "inalador", name: "Inalador", category: "Hardware" },
   { id: "alexa", name: "Alexa", category: "Hardware" },
   { id: "apple-watch", name: "Apple Watch", category: "Hardware" },
-  { id: "broadlink", name: "Broadlink", category: "Hardware" },
+  { id: "broadlink", name: "Broadlink", category: "Automation" },
 
   // Entertainment
   { id: "monument-valley", name: "Monument Valley", category: "Entertainment", url: "https://monumentvalleygame.com" },
