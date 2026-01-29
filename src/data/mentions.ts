@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
 // 2024 Episodes
   {
+    id: 41,
+    title: "A conferência do Figma e as comunidades de design e produto",
+    date: "2024-07-02",
+    description: "Discussão sobre a conferência do Figma e o ecossistema das comunidades de design e produto.",
+  },
+  {
     id: 43,
     title: "O novo modelo da Meta, Vendas do Ray-Ban bombando e os desafios da Netflix com conteúdos ao vivo",
     date: "2024-07-24",
@@ -524,6 +530,7 @@ export const products: Product[] = [
   { id: "gentler-streak", name: "Gentler Streak", category: "Fitness", url: "https://gentler.app/" },
   { id: "munhequeira", name: "Munhequeira", category: "Fitness" },
   { id: "strava", name: "Strava", category: "Fitness", url: "https://strava.com" },
+  { id: "samsung-health", name: "Samsung Health", category: "Fitness" },
   { id: "app-maratona-chicago", name: "App da Maratona de Chicago", category: "Fitness" },
   { id: "hevy", name: "Hevy", category: "Fitness", url: "https://hevyapp.com" },
   { id: "gymrats", name: "GymRats", category: "Fitness", url: "https://gymratsapp.com" },
@@ -630,6 +637,8 @@ export const products: Product[] = [
   { id: "microsoft-teams", name: "Microsoft Teams", category: "Productivity", url: "https://teams.microsoft.com" },
   { id: "notion", name: "Notion", category: "Productivity", url: "https://notion.so" },
   { id: "obsidian", name: "Obsidian", category: "Productivity", url: "https://obsidian.md" },
+  { id: "zoom", name: "Zoom", category: "Productivity", url: "https://zoom.us" },
+  { id: "gov-br", name: "gov.br", category: "Productivity", url: "https://www.gov.br" },
   { id: "omnivore", name: "Omnivore", category: "Productivity" },
   { id: "app-condominio", name: "App do Condomínio", category: "Productivity" },
   { id: "canva", name: "Canva", category: "Productivity", url: "https://canva.com" },
@@ -1146,6 +1155,17 @@ export const people: Person[] = [
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 41
+  { id: "m41-1", episodeId: 41, personId: "arthur", productId: "zoom" },
+  { id: "m41-2", episodeId: 41, personId: "aiquis", productId: "shopee" },
+  { id: "m41-3", episodeId: 41, personId: "lucao", productId: "disney-plus" },
+  { id: "m41-4", episodeId: 41, personId: "glauco", productId: "spotify" },
+  { id: "m41-5", episodeId: 41, personId: "cloves", productId: "spotify" },
+  { id: "m41-6", episodeId: 41, personId: "pilon", productId: "gov-br" },
+  { id: "m41-7", episodeId: 41, personId: "nana", productId: "capcut" },
+  { id: "m41-8", episodeId: 41, personId: "danilera", productId: "audible" },
+  { id: "m41-9", episodeId: 41, personId: "caue", productId: "samsung-health", context: "Projeto Fitness" },
+
   // Episode 43
   { id: "m43-1", episodeId: 43, personId: "arthur", productId: "amazon" },
   { id: "m43-2", episodeId: 43, personId: "arthur", productId: "stockx" },
