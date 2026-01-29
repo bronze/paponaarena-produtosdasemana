@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
   // 2024 Episodes
   {
+    id: 52,
+    title: "Panorama do Mercado de Produto do Brasil",
+    date: "2024-09-25",
+    description: "Análise do panorama atual do mercado de produto no Brasil.",
+  },
+  {
     id: 53,
     title: "Highlights do Product Leader Summit 2024",
     date: "2024-10-02",
@@ -338,6 +344,7 @@ export const products: Product[] = [
   // Hardware
   { id: "ray-ban-meta", name: "Ray-Ban Meta", category: "Hardware" },
   { id: "standing-desk-pichau", name: "Standing Desk (Pichau)", category: "Hardware" },
+  { id: "cadeira-balanco-bebe", name: "Cadeira de balanço pra bebê", category: "Hardware" },
 
   // AI Tools
   { id: "bolt", name: "Bolt", category: "AI Tools", url: "https://bolt.new" },
@@ -439,6 +446,7 @@ export const products: Product[] = [
   { id: "rapid-api", name: "Rapid API", category: "Development", url: "https://rapidapi.com" },
   { id: "hostinger", name: "Hostinger", category: "Development", url: "https://hostinger.com" },
   { id: "hostinger-construtor", name: "Hostinger (Construtor de sites)", category: "Development", parentId: "hostinger" },
+  { id: "github", name: "Github", category: "Development", url: "https://github.com" },
 
   // AI Tools (additional)
   { id: "airops", name: "AirOps", category: "AI Tools", url: "https://www.airops.com" },
@@ -447,6 +455,7 @@ export const products: Product[] = [
 
   // Business (additional)
   { id: "quickbase", name: "Quickbase", category: "Business", url: "https://www.quickbase.com" },
+  { id: "luma", name: "Luma", category: "Business", url: "https://luma.com/" },
 
   // Fitness
   { id: "gentler-streak", name: "Gentler Streak", category: "Fitness", url: "https://gentler.app/" },
@@ -563,7 +572,9 @@ export const products: Product[] = [
   { id: "post-it", name: "Post It", category: "Productivity" },
   { id: "insight-timer", name: "Insight Timer", category: "Productivity" },
   { id: "timeline-sheets", name: "Timeline no Google Sheets", category: "Productivity" },
-  { id: "polycam", name: "Polycam - Scanner 3D", category: "Productivity" },
+  { id: "polycam", name: "Polycam", category: "Productivity", url: "https://poly.cam/" },
+  { id: "miro", name: "Miro", category: "Productivity", url: "https://miro.com" },
+  { id: "apple-passwords", name: "Passwords da Apple", category: "Productivity" },
   { id: "kong-api", name: "Kong API Gateway", category: "Productivity" },
   { id: "testflight", name: "TestFlight", category: "Productivity" },
   { id: "cloud-cowork", name: "Claude Cowork", category: "AI Tools" },
@@ -586,6 +597,7 @@ export const products: Product[] = [
   { id: "classapp", name: "ClassApp", category: "Education" },
 
   // Entertainment
+  { id: "sleeper-fantasy-football", name: "Sleeper Fantasy Football", category: "Entertainment", url: "https://sleeper.com/" },
   {
     id: "balatro",
     name: "Balatro",
@@ -1001,10 +1013,26 @@ export const people: Person[] = [
   // Episode 53 contributors
   { id: "matias", name: "Matias" },
   { id: "dudu-magalhaes", name: "Dudu Magalhães" },
+  // Episode 52 contributors
+  { id: "fabinho", name: "Fabinho" },
 ];
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 52
+  { id: "m52-1", episodeId: 52, personId: "aiquis", productId: "sleeper-fantasy-football" },
+  { id: "m52-2", episodeId: 52, personId: "arthur", productId: "luma" },
+  { id: "m52-3", episodeId: 52, personId: "nina", productId: "pagaleve" },
+  { id: "m52-4", episodeId: 52, personId: "karina", productId: "miro" },
+  { id: "m52-5", episodeId: 52, personId: "brian", productId: "substack" },
+  { id: "m52-6", episodeId: 52, personId: "nana", productId: "perplexity" },
+  { id: "m52-7", episodeId: 52, personId: "mat", productId: "polycam" },
+  { id: "m52-8", episodeId: 52, personId: "fabinho", productId: "github" },
+  { id: "m52-9", episodeId: 52, personId: "lucas", productId: "wellhub" },
+  { id: "m52-10", episodeId: 52, personId: "glauco", productId: "apple-passwords" },
+  { id: "m52-11", episodeId: 52, personId: "nery", productId: "seats-aero" },
+  { id: "m52-12", episodeId: 52, personId: "danilera", productId: "cadeira-balanco-bebe" },
+
   // Episode 53
   { id: "m53-1", episodeId: 53, personId: "aiquis", productId: "duo-gourmet" },
   { id: "m53-2", episodeId: 53, personId: "arthur", productId: "whoop" },
