@@ -1,9 +1,9 @@
 
 
-## Plano: Adicionar Episódio 48 (Design Engineer - Essa moda vai pegar?)
+## Plano: Adicionar Episódio 47 (Nossas técnicas de produtividade)
 
 ### Visão Geral
-Adicionar o episódio 48 com 14 menções de produtos.
+Adicionar o episódio 47 com 14 menções de produtos.
 
 ---
 
@@ -12,43 +12,47 @@ Adicionar o episódio 48 com 14 menções de produtos.
 **1 Episódio:**
 | ID | Título | Data |
 |----|--------|------|
-| 48 | Design Engineer - Essa moda vai pegar? | 2024-08-28 |
+| 47 | Nossas técnicas de produtividade (sem ligação com AI) | 2024-08-21 |
 
-**1 Nova Pessoa:**
+**3 Novas Pessoas:**
 | ID | Nome |
 |----|------|
-| `luquita` | Luquita |
+| `andressa-carbone` | Andressa Carbone |
+| `pedro-moreno` | Pedro Moreno |
+| `dani` | Dani |
 
-**9 Novos Produtos:**
+**11 Novos Produtos:**
 | ID | Nome | Categoria | URL |
 |----|------|-----------|-----|
-| `clarotv-plus` | ClaroTV+ | Entertainment | - |
-| `baby-tracker` | Baby Tracker | Lifestyle | - |
-| `apple-weather` | Apple Weather | Productivity | - |
-| `my-baby` | My Baby | Lifestyle | - |
-| `reserva-ink` | Reserva.Ink | Entertainment | https://reservaink.com.br/ |
-| `revolut` | Revolut | Finance | https://www.revolut.com/ |
-| `meu-dinheiro-web` | Meu Dinheiro Web | Finance | https://www.meudinheiroweb.com.br/ |
-| `musixmatch` | Musixmatch | Entertainment | https://www.musixmatch.com/ |
-| `bandcamp` | Bandcamp | Entertainment | https://bandcamp.com/ |
+| `joker-card` | Joker Card | Entertainment | https://apps.apple.com/br/app/joker-card/id6480343238 |
+| `ring` | Ring | Hardware | https://ring.com |
+| `shopee` | Shopee | Retail | https://shopee.com.br |
+| `cabana-burger` | Cabana Burger | Delivery | https://cabanaburger.com.br/ |
+| `child-growth` | Child Growth | Lifestyle | - |
+| `microsoft-teams` | Microsoft Teams | Productivity | https://teams.microsoft.com |
+| `khan-academy` | Khan Academy | Education | https://khanacademy.org |
+| `cafu` | Cafu | Delivery | https://www.cafu.com/ |
+| `desrotulando` | Desrotulando | Lifestyle | https://desrotulando.com |
+| `wechat` | WeChat | Social | https://www.wechat.com |
+| `powerbeats-pro` | PowerBeats Pro | Hardware | - |
 
 **14 Novas Menções:**
 | Pessoa | Produto |
 |--------|---------|
-| Aíquis | ClaroTV+ |
-| Arthur | Alexa |
-| Mateus | Baby Tracker |
-| Luquita | Liti |
-| Nana | Apple Weather |
-| Marcos Lavin | My Baby |
-| Michelli Chagas | Trainiac |
-| Andrezão | Mercado Livre |
-| Karina | Mercado Livre |
-| Cauê | Reserva.Ink |
-| Alana | Revolut |
-| Pri Chagas | Meu Dinheiro Web |
-| Lucas | Musixmatch |
-| Cloves | Bandcamp |
+| Aíquis | Joker Card |
+| Arthur | Ring |
+| Karina | Shopee |
+| Maria | Cabana Burger |
+| Andressa Carbone | Mercado Livre |
+| Marcos Lavin | Child Growth |
+| Pedro Moreno | Microsoft Teams |
+| Alana | Khan Academy |
+| Thiago Oliveira | Cafu |
+| Pri Chagas | TL;DV |
+| Dani | Desrotulando |
+| Glauco | WeChat |
+| Marina Fernandes | PowerBeats Pro |
+| Carol Cardoso | WhatsApp |
 
 ---
 
@@ -59,65 +63,85 @@ Adicionar o episódio 48 com 14 menções de produtos.
 
 ### Detalhes Técnicos
 
-**Passo 1 - Adicionar episódio** (inserir antes do episódio 49, ~linha 38):
+**Passo 1 - Adicionar episódio** (inserir antes do episódio 48, ~linha 38):
 ```typescript
   {
-    id: 48,
-    title: "Design Engineer - Essa moda vai pegar?",
-    date: "2024-08-28",
-    description: "Discussão sobre a tendência de Design Engineers e as ferramentas da semana.",
+    id: 47,
+    title: "Nossas técnicas de produtividade (sem ligação com AI)",
+    date: "2024-08-21",
+    description: "Discussão sobre técnicas de produtividade sem o uso de inteligência artificial.",
   },
 ```
 
-**Passo 2 - Adicionar produtos** (seções apropriadas):
+**Passo 2 - Adicionar produtos** (nas seções apropriadas):
 
-Na seção Entertainment (~linha 373):
+Entertainment (~linha 646):
 ```typescript
-  { id: "clarotv-plus", name: "ClaroTV+", category: "Entertainment" },
-  { id: "reserva-ink", name: "Reserva.Ink", category: "Entertainment", url: "https://reservaink.com.br/" },
-  { id: "musixmatch", name: "Musixmatch", category: "Entertainment", url: "https://www.musixmatch.com/" },
-  { id: "bandcamp", name: "Bandcamp", category: "Entertainment", url: "https://bandcamp.com/" },
+  { id: "joker-card", name: "Joker Card", category: "Entertainment", url: "https://apps.apple.com/br/app/joker-card/id6480343238" },
 ```
 
-Na seção Lifestyle:
+Hardware (~linha 760):
 ```typescript
-  { id: "baby-tracker", name: "Baby Tracker", category: "Lifestyle" },
-  { id: "my-baby", name: "My Baby", category: "Lifestyle" },
+  { id: "ring", name: "Ring", category: "Hardware", url: "https://ring.com" },
+  { id: "powerbeats-pro", name: "PowerBeats Pro", category: "Hardware" },
 ```
 
-Na seção Productivity:
+Retail (~linha 785):
 ```typescript
-  { id: "apple-weather", name: "Apple Weather", category: "Productivity" },
+  { id: "shopee", name: "Shopee", category: "Retail", url: "https://shopee.com.br" },
 ```
 
-Na seção Finance:
+Delivery (~linha 775):
 ```typescript
-  { id: "revolut", name: "Revolut", category: "Finance", url: "https://www.revolut.com/" },
-  { id: "meu-dinheiro-web", name: "Meu Dinheiro Web", category: "Finance", url: "https://www.meudinheiroweb.com.br/" },
+  { id: "cabana-burger", name: "Cabana Burger", category: "Delivery", url: "https://cabanaburger.com.br/" },
+  { id: "cafu", name: "Cafu", category: "Delivery", url: "https://www.cafu.com/" },
 ```
 
-**Passo 3 - Adicionar pessoa** (~linha 1055):
+Lifestyle (~linha 750):
 ```typescript
-  { id: "luquita", name: "Luquita" },
+  { id: "child-growth", name: "Child Growth", category: "Lifestyle" },
+  { id: "desrotulando", name: "Desrotulando", category: "Lifestyle", url: "https://desrotulando.com" },
 ```
 
-**Passo 4 - Adicionar menções** (inserir antes do Episode 49, ~linha 1060):
+Productivity (~linha 600):
 ```typescript
-  // Episode 48
-  { id: "m48-1", episodeId: 48, personId: "aiquis", productId: "clarotv-plus" },
-  { id: "m48-2", episodeId: 48, personId: "arthur", productId: "alexa" },
-  { id: "m48-3", episodeId: 48, personId: "mateus", productId: "baby-tracker" },
-  { id: "m48-4", episodeId: 48, personId: "luquita", productId: "liti" },
-  { id: "m48-5", episodeId: 48, personId: "nana", productId: "apple-weather" },
-  { id: "m48-6", episodeId: 48, personId: "marcos-lavin", productId: "my-baby" },
-  { id: "m48-7", episodeId: 48, personId: "michelli-chagas", productId: "trainiac" },
-  { id: "m48-8", episodeId: 48, personId: "andrezao", productId: "mercado-livre" },
-  { id: "m48-9", episodeId: 48, personId: "karina", productId: "mercado-livre" },
-  { id: "m48-10", episodeId: 48, personId: "caue", productId: "reserva-ink" },
-  { id: "m48-11", episodeId: 48, personId: "alana", productId: "revolut" },
-  { id: "m48-12", episodeId: 48, personId: "pri-chagas", productId: "meu-dinheiro-web" },
-  { id: "m48-13", episodeId: 48, personId: "lucas", productId: "musixmatch" },
-  { id: "m48-14", episodeId: 48, personId: "cloves", productId: "bandcamp" },
+  { id: "microsoft-teams", name: "Microsoft Teams", category: "Productivity", url: "https://teams.microsoft.com" },
+```
+
+Education (~linha 640):
+```typescript
+  { id: "khan-academy", name: "Khan Academy", category: "Education", url: "https://khanacademy.org" },
+```
+
+Social (~linha 574):
+```typescript
+  { id: "wechat", name: "WeChat", category: "Social", url: "https://www.wechat.com" },
+```
+
+**Passo 3 - Adicionar pessoas** (~linha 1072):
+```typescript
+  { id: "andressa-carbone", name: "Andressa Carbone" },
+  { id: "pedro-moreno", name: "Pedro Moreno" },
+  { id: "dani", name: "Dani" },
+```
+
+**Passo 4 - Adicionar menções** (inserir antes do Episode 48, ~linha 1077):
+```typescript
+  // Episode 47
+  { id: "m47-1", episodeId: 47, personId: "aiquis", productId: "joker-card" },
+  { id: "m47-2", episodeId: 47, personId: "arthur", productId: "ring" },
+  { id: "m47-3", episodeId: 47, personId: "karina", productId: "shopee" },
+  { id: "m47-4", episodeId: 47, personId: "maria", productId: "cabana-burger" },
+  { id: "m47-5", episodeId: 47, personId: "andressa-carbone", productId: "mercado-livre" },
+  { id: "m47-6", episodeId: 47, personId: "marcos-lavin", productId: "child-growth" },
+  { id: "m47-7", episodeId: 47, personId: "pedro-moreno", productId: "microsoft-teams" },
+  { id: "m47-8", episodeId: 47, personId: "alana", productId: "khan-academy" },
+  { id: "m47-9", episodeId: 47, personId: "thiago-oliveira", productId: "cafu" },
+  { id: "m47-10", episodeId: 47, personId: "pri-chagas", productId: "tldv" },
+  { id: "m47-11", episodeId: 47, personId: "dani", productId: "desrotulando" },
+  { id: "m47-12", episodeId: 47, personId: "glauco", productId: "wechat" },
+  { id: "m47-13", episodeId: 47, personId: "marina-fernandes", productId: "powerbeats-pro" },
+  { id: "m47-14", episodeId: 47, personId: "carol-cardoso", productId: "whatsapp" },
 ```
 
 ---
@@ -127,7 +151,7 @@ Na seção Finance:
 | Item | Quantidade |
 |------|------------|
 | Episódio | 1 |
-| Pessoa nova | 1 |
-| Produtos novos | 9 |
+| Pessoas novas | 3 |
+| Produtos novos | 11 |
 | Menções | 14 |
 
