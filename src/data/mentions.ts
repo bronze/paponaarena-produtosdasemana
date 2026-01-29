@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
 // 2024 Episodes
   {
+    id: 43,
+    title: "O novo modelo da Meta, Vendas do Ray-Ban bombando e os desafios da Netflix com conteúdos ao vivo",
+    date: "2024-07-24",
+    description: "Discussão sobre o novo modelo de IA da Meta, o sucesso de vendas do Ray-Ban e os desafios da Netflix com transmissões ao vivo.",
+  },
+  {
     id: 45,
     title: "Claude no Brasil, saídas da Open AI e a Nvidia pega no flagra pirateando",
     date: "2024-08-07",
@@ -587,6 +593,7 @@ export const products: Product[] = [
   { id: "reddit", name: "Reddit", category: "Social", url: "https://reddit.com" },
   { id: "pinterest", name: "Pinterest", category: "Social", url: "https://pinterest.com" },
   { id: "twitter", name: "Twitter", category: "Social", url: "https://x.com" },
+  { id: "telegram", name: "Telegram", category: "Social", url: "https://telegram.org" },
   { id: "tiktok", name: "TikTok", category: "Social", url: "https://tiktok.com" },
   { id: "linkedin", name: "LinkedIn", category: "Social", url: "https://linkedin.com" },
   { id: "threads", name: "Threads", category: "Social", url: "https://www.threads.com/" },
@@ -713,6 +720,9 @@ export const products: Product[] = [
   { id: "land-builder", name: "Land Builder", category: "Entertainment" },
   { id: "cifra-club", name: "Cifra Club", category: "Entertainment", url: "https://cifraclub.com.br" },
   { id: "quebra-cabeca", name: "Quebra-cabeça", category: "Entertainment" },
+  { id: "azul-jogo", name: "Azul", category: "Entertainment" },
+  { id: "crunchyroll", name: "Crunchyroll", category: "Entertainment", url: "https://crunchyroll.com" },
+  { id: "squad-busters", name: "Squad Busters", category: "Entertainment" },
   { id: "mosaico-youtube-cazetv", name: "Mosaico do Youtube na CazéTV", category: "Entertainment", alsoCredits: ["youtube", "cazetv"] },
   { id: "globo-esporte", name: "Globo Esporte", category: "Entertainment", url: "https://ge.globo.com" },
   { id: "app-olimpiadas", name: "App das Olimpíadas", category: "Entertainment" },
@@ -727,6 +737,11 @@ export const products: Product[] = [
   { id: "picpay", name: "PicPay", category: "Finance", url: "https://picpay.com" },
   { id: "wise", name: "Wise", category: "Finance", url: "https://wise.com" },
   { id: "nomad", name: "Nomad", category: "Finance", url: "https://www.nomadglobal.com/" },
+  { id: "amazon", name: "Amazon", category: "Retail", url: "https://amazon.com.br" },
+  { id: "stockx", name: "StockX", category: "Retail", url: "https://stockx.com/" },
+  { id: "daki", name: "Daki", category: "Delivery", url: "https://daki.com.br" },
+  { id: "snowflake", name: "Snowflake", category: "Development", url: "https://snowflake.com" },
+  { id: "net-claro-wifi", name: "Net-Claro Wi-Fi", category: "Utilities" },
   { id: "brasil-bitcoin", name: "Brasil Bitcoin", category: "Finance" },
   { id: "binance", name: "Binance", category: "Finance", url: "https://binance.com" },
   { id: "irpf25", name: "IRPF25", category: "Finance" },
@@ -1086,6 +1101,8 @@ export const people: Person[] = [
   { id: "diego-espinilo", name: "Diego Espinilo" },
   // 2024 contributors
   { id: "boss", name: "Boss" },
+  { id: "victor", name: "Victor" },
+  { id: "caco", name: "Caco" },
   
   { id: "thiago", name: "Thiago" },
   { id: "andrezinho", name: "Andrézinho" },
@@ -1129,6 +1146,21 @@ export const people: Person[] = [
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 43
+  { id: "m43-1", episodeId: 43, personId: "arthur", productId: "amazon" },
+  { id: "m43-2", episodeId: 43, personId: "arthur", productId: "stockx" },
+  { id: "m43-3", episodeId: 43, personId: "aiquis", productId: "twitter" },
+  { id: "m43-4", episodeId: 43, personId: "aiquis", productId: "telegram" },
+  { id: "m43-5", episodeId: 43, personId: "karina", productId: "bblend" },
+  { id: "m43-6", episodeId: 43, personId: "andrezao", productId: "azul-jogo" },
+  { id: "m43-7", episodeId: 43, personId: "andrezinho", productId: "crunchyroll" },
+  { id: "m43-8", episodeId: 43, personId: "lucas", productId: "snowflake" },
+  { id: "m43-9", episodeId: 43, personId: "glauco", productId: "vivino" },
+  { id: "m43-10", episodeId: 43, personId: "nana", productId: "strava" },
+  { id: "m43-11", episodeId: 43, personId: "victor", productId: "squad-busters" },
+  { id: "m43-12", episodeId: 43, personId: "caco", productId: "daki" },
+  { id: "m43-13", episodeId: 43, personId: "pilon", productId: "net-claro-wifi" },
+
   // Episode 45
   { id: "m45-1", episodeId: 45, personId: "arthur", productId: "mosaico-youtube-cazetv" },
   { id: "m45-2", episodeId: 45, personId: "arthur", productId: "globo-esporte", context: "Push Notification" },
