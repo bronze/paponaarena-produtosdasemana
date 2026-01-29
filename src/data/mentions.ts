@@ -36,7 +36,7 @@ export interface Mention {
 export const episodes: Episode[] = [
 // 2024 Episodes
   {
-    id: 41,
+    id: 42,
     title: "A conferência do Figma e as comunidades de design e produto",
     date: "2024-07-02",
     description: "Discussão sobre a conferência do Figma e o ecossistema das comunidades de design e produto.",
@@ -1155,16 +1155,16 @@ export const people: Person[] = [
 
 // Mentions
 export const mentions: Mention[] = [
-  // Episode 41
-  { id: "m41-1", episodeId: 41, personId: "arthur", productId: "zoom" },
-  { id: "m41-2", episodeId: 41, personId: "aiquis", productId: "shopee" },
-  { id: "m41-3", episodeId: 41, personId: "lucao", productId: "disney-plus" },
-  { id: "m41-4", episodeId: 41, personId: "glauco", productId: "spotify" },
-  { id: "m41-5", episodeId: 41, personId: "cloves", productId: "spotify" },
-  { id: "m41-6", episodeId: 41, personId: "pilon", productId: "gov-br" },
-  { id: "m41-7", episodeId: 41, personId: "nana", productId: "capcut" },
-  { id: "m41-8", episodeId: 41, personId: "danilera", productId: "audible" },
-  { id: "m41-9", episodeId: 41, personId: "caue", productId: "samsung-health", context: "Projeto Fitness" },
+  // Episode 42
+  { id: "m42-1", episodeId: 42, personId: "arthur", productId: "zoom" },
+  { id: "m42-2", episodeId: 42, personId: "aiquis", productId: "shopee" },
+  { id: "m42-3", episodeId: 42, personId: "lucao", productId: "disney-plus" },
+  { id: "m42-4", episodeId: 42, personId: "glauco", productId: "spotify" },
+  { id: "m42-5", episodeId: 42, personId: "cloves", productId: "spotify" },
+  { id: "m42-6", episodeId: 42, personId: "pilon", productId: "gov-br" },
+  { id: "m42-7", episodeId: 42, personId: "nana", productId: "capcut" },
+  { id: "m42-8", episodeId: 42, personId: "danilera", productId: "audible" },
+  { id: "m42-9", episodeId: 42, personId: "caue", productId: "samsung-health", context: "Projeto Fitness" },
 
   // Episode 43
   { id: "m43-1", episodeId: 43, personId: "arthur", productId: "amazon" },
