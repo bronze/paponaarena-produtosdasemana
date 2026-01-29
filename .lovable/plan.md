@@ -1,9 +1,9 @@
 
 
-## Plano: Adicionar Episódio 43 (O novo modelo da Meta)
+## Plano: Adicionar Episódio 41 (Conferência do Figma)
 
 ### Visão Geral
-Adicionar o episódio 43 com 13 menções de produtos.
+Adicionar o episódio 41 com 9 menções de produtos. Este é o episódio mais antigo do dataset até agora.
 
 ---
 
@@ -12,23 +12,24 @@ Adicionar o episódio 43 com 13 menções de produtos.
 **Produtos existentes:**
 | ID | Nome |
 |----|------|
-| `twitter` | Twitter |
-| `strava` | Strava |
-| `vivino` | Vivino |
-| `bblend` | BBlend |
+| `shopee` | Shopee |
+| `disney-plus` | Disney+ |
+| `spotify` | Spotify |
+| `capcut` | CapCut |
+| `audible` | Audible |
 
 **Pessoas existentes:**
 | ID | Nome |
 |----|------|
 | `arthur` | Arthur |
 | `aiquis` | Aíquis |
-| `karina` | Karina |
-| `andrezao` | Andrezão |
-| `andrezinho` | Andrézinho |
-| `lucas` | Lucas |
+| `lucao` | Lucão |
 | `glauco` | Glauco |
-| `nana` | Nana |
+| `cloves` | Cloves |
 | `pilon` | Pilon |
+| `nana` | Nana |
+| `danilera` | Danilera |
+| `caue` | Cauê |
 
 ---
 
@@ -37,47 +38,27 @@ Adicionar o episódio 43 com 13 menções de produtos.
 **1 Episódio:**
 | ID | Título | Data |
 |----|--------|------|
-| 43 | O novo modelo da Meta, Vendas do Ray-Ban bombando e os desafios da Netflix com conteúdos ao vivo | 2024-07-24 |
+| 41 | A conferência do Figma e as comunidades de design e produto | 2024-07-02 |
 
-**3 Novas Pessoas:**
-| ID | Nome |
-|----|------|
-| `victor` | Victor |
-| `caco` | Caco |
-
-Nota: Victor Nery já existe como `victor-nery`, mas este parece ser outro Victor. Criando novo ID.
-
-**9 Novos Produtos:**
+**2 Novos Produtos:**
 | ID | Nome | Categoria | URL | Observação |
 |----|------|-----------|-----|------------|
-| `amazon` | Amazon | Retail | https://amazon.com.br | - |
-| `stockx` | StockX | Retail | https://stockx.com/ | Marketplace de sneakers |
-| `telegram` | Telegram | Social | https://telegram.org | - |
-| `azul-jogo` | Azul | Entertainment | - | Jogo de tabuleiro |
-| `crunchyroll` | Crunchyroll | Entertainment | https://crunchyroll.com | Streaming de anime |
-| `snowflake` | Snowflake | Development | https://snowflake.com | Plataforma de dados (diferente de Cereal Snowflake) |
-| `squad-busters` | Squad Busters | Entertainment | - | Jogo mobile |
-| `daki` | Daki | Delivery | https://daki.com.br | - |
-| `net-claro-wifi` | Net-Claro Wi-Fi | Utilities | - | Serviço de internet |
+| `zoom` | Zoom | Productivity | https://zoom.us | Videoconferência |
+| `gov-br` | gov.br | Productivity | https://www.gov.br | Portal do governo brasileiro |
+| `samsung-health` | Samsung Health | Fitness | - | App de saúde Samsung |
 
-**Nota sobre B.blend:** O usuário escreveu "B.blend" mas já existe produto `bblend` (BBlend). Vou usar o existente.
-
-**13 Menções:**
-| Pessoa | Produto |
-|--------|---------|
-| Arthur | Amazon |
-| Arthur | StockX |
-| Aíquis | Twitter |
-| Aíquis | Telegram |
-| Karina | BBlend |
-| Andrezão | Azul (jogo) |
-| Andrézinho | Crunchyroll |
-| Lucas | Snowflake |
-| Glauco | Vivino |
-| Nana | Strava |
-| Victor | Squad Busters |
-| Caco | Daki |
-| Pilon | Net-Claro Wi-Fi |
+**9 Menções:**
+| Pessoa | Produto | Contexto |
+|--------|---------|----------|
+| Arthur | Zoom | - |
+| Aíquis | Shopee | - |
+| Lucão | Disney+ | - |
+| Glauco | Spotify | - |
+| Cloves | Spotify | - |
+| Pilon | gov.br | - |
+| Nana | CapCut | - |
+| Danilera | Audible | - |
+| Cauê | Samsung Health | "Projeto Fitness" |
 
 ---
 
@@ -88,74 +69,41 @@ Nota: Victor Nery já existe como `victor-nery`, mas este parece ser outro Victo
 
 ### Detalhes Técnicos
 
-**Passo 1 - Adicionar episódio** (inserir antes do episódio 45):
+**Passo 1 - Adicionar episódio** (inserir antes do episódio 43):
 ```typescript
   {
-    id: 43,
-    title: "O novo modelo da Meta, Vendas do Ray-Ban bombando e os desafios da Netflix com conteúdos ao vivo",
-    date: "2024-07-24",
-    description: "Discussão sobre o novo modelo de IA da Meta, o sucesso de vendas do Ray-Ban e os desafios da Netflix com transmissões ao vivo.",
+    id: 41,
+    title: "A conferência do Figma e as comunidades de design e produto",
+    date: "2024-07-02",
+    description: "Discussão sobre a conferência do Figma e o ecossistema das comunidades de design e produto.",
   },
 ```
 
 **Passo 2 - Adicionar produtos novos:**
 
-Social (após twitter):
+Productivity (junto com Notion, Obsidian, etc):
 ```typescript
-  { id: "telegram", name: "Telegram", category: "Social", url: "https://telegram.org" },
+  { id: "zoom", name: "Zoom", category: "Productivity", url: "https://zoom.us" },
+  { id: "gov-br", name: "gov.br", category: "Productivity", url: "https://www.gov.br" },
 ```
 
-Entertainment:
+Fitness (junto com outros apps fitness):
 ```typescript
-  { id: "azul-jogo", name: "Azul", category: "Entertainment" },
-  { id: "crunchyroll", name: "Crunchyroll", category: "Entertainment", url: "https://crunchyroll.com" },
-  { id: "squad-busters", name: "Squad Busters", category: "Entertainment" },
+  { id: "samsung-health", name: "Samsung Health", category: "Fitness" },
 ```
 
-Retail:
+**Passo 3 - Adicionar menções** (inserir antes do Episode 43):
 ```typescript
-  { id: "amazon", name: "Amazon", category: "Retail", url: "https://amazon.com.br" },
-  { id: "stockx", name: "StockX", category: "Retail", url: "https://stockx.com/" },
-```
-
-Delivery:
-```typescript
-  { id: "daki", name: "Daki", category: "Delivery", url: "https://daki.com.br" },
-```
-
-Development:
-```typescript
-  { id: "snowflake", name: "Snowflake", category: "Development", url: "https://snowflake.com" },
-```
-
-Utilities (nova categoria):
-```typescript
-  // Utilities
-  { id: "net-claro-wifi", name: "Net-Claro Wi-Fi", category: "Utilities" },
-```
-
-**Passo 3 - Adicionar pessoas:**
-```typescript
-  { id: "victor", name: "Victor" },
-  { id: "caco", name: "Caco" },
-```
-
-**Passo 4 - Adicionar menções** (inserir antes do Episode 45):
-```typescript
-  // Episode 43
-  { id: "m43-1", episodeId: 43, personId: "arthur", productId: "amazon" },
-  { id: "m43-2", episodeId: 43, personId: "arthur", productId: "stockx" },
-  { id: "m43-3", episodeId: 43, personId: "aiquis", productId: "twitter" },
-  { id: "m43-4", episodeId: 43, personId: "aiquis", productId: "telegram" },
-  { id: "m43-5", episodeId: 43, personId: "karina", productId: "bblend" },
-  { id: "m43-6", episodeId: 43, personId: "andrezao", productId: "azul-jogo" },
-  { id: "m43-7", episodeId: 43, personId: "andrezinho", productId: "crunchyroll" },
-  { id: "m43-8", episodeId: 43, personId: "lucas", productId: "snowflake" },
-  { id: "m43-9", episodeId: 43, personId: "glauco", productId: "vivino" },
-  { id: "m43-10", episodeId: 43, personId: "nana", productId: "strava" },
-  { id: "m43-11", episodeId: 43, personId: "victor", productId: "squad-busters" },
-  { id: "m43-12", episodeId: 43, personId: "caco", productId: "daki" },
-  { id: "m43-13", episodeId: 43, personId: "pilon", productId: "net-claro-wifi" },
+  // Episode 41
+  { id: "m41-1", episodeId: 41, personId: "arthur", productId: "zoom" },
+  { id: "m41-2", episodeId: 41, personId: "aiquis", productId: "shopee" },
+  { id: "m41-3", episodeId: 41, personId: "lucao", productId: "disney-plus" },
+  { id: "m41-4", episodeId: 41, personId: "glauco", productId: "spotify" },
+  { id: "m41-5", episodeId: 41, personId: "cloves", productId: "spotify" },
+  { id: "m41-6", episodeId: 41, personId: "pilon", productId: "gov-br" },
+  { id: "m41-7", episodeId: 41, personId: "nana", productId: "capcut" },
+  { id: "m41-8", episodeId: 41, personId: "danilera", productId: "audible" },
+  { id: "m41-9", episodeId: 41, personId: "caue", productId: "samsung-health", context: "Projeto Fitness" },
 ```
 
 ---
@@ -165,13 +113,12 @@ Utilities (nova categoria):
 | Item | Quantidade |
 |------|------------|
 | Episódio | 1 |
-| Pessoas novas | 2 |
-| Produtos novos | 9 |
-| Menções | 13 |
+| Pessoas novas | 0 |
+| Produtos novos | 3 |
+| Menções | 9 |
 
 ### Notas
-- BBlend já existe no sistema, reutilizando o produto existente
-- "Azul" é um jogo de tabuleiro, diferente da companhia aérea Azul
-- Snowflake (plataforma de dados) é diferente de "Cereal Snowflake" já existente
-- Arthur e Aíquis mencionam 2 produtos cada
+- Todas as pessoas já existem no sistema
+- Glauco e Cloves mencionaram o mesmo produto (Spotify) neste episódio
+- Cauê mencionou Samsung Health com o contexto "Projeto Fitness"
 
