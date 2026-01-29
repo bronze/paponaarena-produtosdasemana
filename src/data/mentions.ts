@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
 // 2024 Episodes
   {
+    id: 47,
+    title: "Nossas técnicas de produtividade (sem ligação com AI)",
+    date: "2024-08-21",
+    description: "Discussão sobre técnicas de produtividade sem o uso de inteligência artificial.",
+  },
+  {
     id: 48,
     title: "Design Engineer - Essa moda vai pegar?",
     date: "2024-08-28",
@@ -571,6 +577,7 @@ export const products: Product[] = [
   { id: "tiktok", name: "TikTok", category: "Social", url: "https://tiktok.com" },
   { id: "linkedin", name: "LinkedIn", category: "Social", url: "https://linkedin.com" },
   { id: "threads", name: "Threads", category: "Social", url: "https://www.threads.com/" },
+  { id: "wechat", name: "WeChat", category: "Social", url: "https://www.wechat.com" },
   { id: "pixelfed", name: "Pixelfed", category: "Social" },
   { id: "instagram", name: "Instagram", category: "Social", url: "https://instagram.com" },
   { id: "instagram-detox", name: "Instagram (detox)", category: "Social", parentId: "instagram" },
@@ -587,6 +594,8 @@ export const products: Product[] = [
   { id: "sprout", name: "Sprout", category: "Lifestyle", url: "https://sprout-apps.com/" },
   { id: "baby-tracker", name: "Baby Tracker", category: "Lifestyle" },
   { id: "my-baby", name: "My Baby", category: "Lifestyle" },
+  { id: "child-growth", name: "Child Growth", category: "Lifestyle" },
+  { id: "desrotulando", name: "Desrotulando", category: "Lifestyle", url: "https://desrotulando.com" },
   { id: "apple-weather", name: "Apple Weather", category: "Productivity" },
   { id: "microsoft-edge", name: "Microsoft Edge", category: "Productivity", url: "https://www.microsoft.com/edge" },
   {
@@ -598,6 +607,7 @@ export const products: Product[] = [
   { id: "loom", name: "Loom", category: "Productivity", url: "https://loom.com" },
   { id: "google-docs", name: "Google Docs", category: "Productivity", url: "https://docs.google.com" },
   { id: "teams", name: "Teams", category: "Productivity", url: "https://teams.microsoft.com" },
+  { id: "microsoft-teams", name: "Microsoft Teams", category: "Productivity", url: "https://teams.microsoft.com" },
   { id: "notion", name: "Notion", category: "Productivity", url: "https://notion.so" },
   { id: "obsidian", name: "Obsidian", category: "Productivity", url: "https://obsidian.md" },
   { id: "omnivore", name: "Omnivore", category: "Productivity" },
@@ -641,8 +651,10 @@ export const products: Product[] = [
   { id: "focumon", name: "Focumon", category: "Education" },
   { id: "audible", name: "Audible", category: "Education", url: "https://audible.com" },
   { id: "classapp", name: "ClassApp", category: "Education" },
+  { id: "khan-academy", name: "Khan Academy", category: "Education", url: "https://khanacademy.org" },
 
   // Entertainment
+  { id: "joker-card", name: "Joker Card", category: "Entertainment", url: "https://apps.apple.com/br/app/joker-card/id6480343238" },
   { id: "sleeper-fantasy-football", name: "Sleeper Fantasy Football", category: "Entertainment", url: "https://sleeper.com/" },
   {
     id: "balatro",
@@ -712,6 +724,8 @@ export const products: Product[] = [
 
   // Lifestyle
   { id: "foodtosave", name: "FoodtoSave", category: "Lifestyle" },
+  { id: "ring", name: "Ring", category: "Hardware", url: "https://ring.com" },
+  { id: "powerbeats-pro", name: "PowerBeats Pro", category: "Hardware" },
   { id: "airfryer-ritalobo", name: "Airfryer Rita Lobo", category: "Hardware" },
   { id: "thefork", name: "TheFork", category: "Lifestyle", url: "https://thefork.com" },
   { id: "lindt", name: "Lindt", category: "Lifestyle", url: "https://www.lindt.com.br/" },
@@ -766,6 +780,8 @@ export const products: Product[] = [
   { id: "pedidos-ya", name: "Pedidos Ya", category: "Delivery" },
   { id: "rappi", name: "Rappi", category: "Delivery", url: "https://rappi.com" },
   { id: "aiqfome", name: "Aiqfome", category: "Delivery", url: "https://www.aiqfome.com/" },
+  { id: "cabana-burger", name: "Cabana Burger", category: "Delivery", url: "https://cabanaburger.com.br/" },
+  { id: "cafu", name: "Cafu", category: "Delivery", url: "https://www.cafu.com/" },
 
   // Tech/Dev
   { id: "supabase", name: "Supabase", category: "Tech", url: "https://supabase.com" },
@@ -820,6 +836,7 @@ export const products: Product[] = [
 
   // Retail
   { id: "sams-club", name: "Sam's Club", category: "Retail", url: "https://samsclub.com.br" },
+  { id: "shopee", name: "Shopee", category: "Retail", url: "https://shopee.com.br" },
   { id: "nike", name: "Nike", category: "Retail", url: "https://nike.com" },
   { id: "pexels", name: "Pexels", category: "Business", url: "https://pexels.com" },
   { id: "vivino", name: "Vivino", category: "Business", url: "https://vivino.com" },
@@ -1070,10 +1087,30 @@ export const people: Person[] = [
   { id: "eru", name: "Eru" },
   // Episode 48 contributors
   { id: "luquita", name: "Luquita" },
+  // Episode 47 contributors
+  { id: "andressa-carbone", name: "Andressa Carbone" },
+  { id: "pedro-moreno", name: "Pedro Moreno" },
+  { id: "dani", name: "Dani" },
 ];
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 47
+  { id: "m47-1", episodeId: 47, personId: "aiquis", productId: "joker-card" },
+  { id: "m47-2", episodeId: 47, personId: "arthur", productId: "ring" },
+  { id: "m47-3", episodeId: 47, personId: "karina", productId: "shopee" },
+  { id: "m47-4", episodeId: 47, personId: "maria", productId: "cabana-burger" },
+  { id: "m47-5", episodeId: 47, personId: "andressa-carbone", productId: "mercado-livre" },
+  { id: "m47-6", episodeId: 47, personId: "marcos-lavin", productId: "child-growth" },
+  { id: "m47-7", episodeId: 47, personId: "pedro-moreno", productId: "microsoft-teams" },
+  { id: "m47-8", episodeId: 47, personId: "alana", productId: "khan-academy" },
+  { id: "m47-9", episodeId: 47, personId: "thiago-oliveira", productId: "cafu" },
+  { id: "m47-10", episodeId: 47, personId: "pri-chagas", productId: "tldv" },
+  { id: "m47-11", episodeId: 47, personId: "dani", productId: "desrotulando" },
+  { id: "m47-12", episodeId: 47, personId: "glauco", productId: "wechat" },
+  { id: "m47-13", episodeId: 47, personId: "marina-fernandes", productId: "powerbeats-pro" },
+  { id: "m47-14", episodeId: 47, personId: "carol-cardoso", productId: "whatsapp" },
+
   // Episode 48
   { id: "m48-1", episodeId: 48, personId: "aiquis", productId: "clarotv-plus" },
   { id: "m48-2", episodeId: 48, personId: "arthur", productId: "alexa" },
