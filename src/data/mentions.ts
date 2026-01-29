@@ -1408,7 +1408,7 @@ export const mentions: Mention[] = [
   { id: "m69-1", episodeId: 69, personId: "aiquis", productId: "lovable" },
   { id: "m69-2", episodeId: 69, personId: "aiquis", productId: "claude" },
   { id: "m69-3", episodeId: 69, personId: "arthur", productId: "chatgpt-o3" },
-  { id: "m69-4", episodeId: 69, personId: "marina-fernandes", productId: "porto-seguro" },
+  { id: "m69-4", episodeId: 69, personId: "marina-fernandes", productId: "porto-seguro", context: "Chatbot" },
   { id: "m69-5", episodeId: 69, personId: "camila-meneghetti", productId: "deepseek" },
   { id: "m69-6", episodeId: 69, personId: "bia-saito", productId: "duolingo" },
   { id: "m69-7", episodeId: 69, personId: "bob", productId: "deepseek" },
