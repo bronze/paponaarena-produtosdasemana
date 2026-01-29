@@ -1,82 +1,133 @@
 
 
-## Plano: Unificar Pessoas Duplicadas (Thiago e Bruna)
+## Plano: Adicionar Episódio 48 (Design Engineer - Essa moda vai pegar?)
 
-### Problema Identificado
-
-O array `people` contém pessoas cadastradas duas vezes com IDs diferentes mas mesmo nome:
-
-| ID Original | ID Duplicado | Nome | Ação |
-|-------------|--------------|------|------|
-| `thiago` (linha 1027) | `thiago-ep102` (linha 886) | "Thiago" | Manter `thiago`, remover `thiago-ep102` |
-| `bruna` (linha 1004) | `bruna-ep57` (linha 1026) | "Bruna" | Manter `bruna`, remover `bruna-ep57` |
-
-Isso causa confusão na busca - duas entradas aparecem para a mesma pessoa.
+### Visão Geral
+Adicionar o episódio 48 com 14 menções de produtos.
 
 ---
 
-### Solução
+### Novos Dados a Adicionar
 
-1. **Atualizar menções** que usam os IDs antigos para usar os IDs corretos
-2. **Remover entradas duplicadas** do array `people`
+**1 Episódio:**
+| ID | Título | Data |
+|----|--------|------|
+| 48 | Design Engineer - Essa moda vai pegar? | 2024-08-28 |
+
+**1 Nova Pessoa:**
+| ID | Nome |
+|----|------|
+| `luquita` | Luquita |
+
+**9 Novos Produtos:**
+| ID | Nome | Categoria | URL |
+|----|------|-----------|-----|
+| `clarotv-plus` | ClaroTV+ | Entertainment | - |
+| `baby-tracker` | Baby Tracker | Lifestyle | - |
+| `apple-weather` | Apple Weather | Productivity | - |
+| `my-baby` | My Baby | Lifestyle | - |
+| `reserva-ink` | Reserva.Ink | Entertainment | https://reservaink.com.br/ |
+| `revolut` | Revolut | Finance | https://www.revolut.com/ |
+| `meu-dinheiro-web` | Meu Dinheiro Web | Finance | https://www.meudinheiroweb.com.br/ |
+| `musixmatch` | Musixmatch | Entertainment | https://www.musixmatch.com/ |
+| `bandcamp` | Bandcamp | Entertainment | https://bandcamp.com/ |
+
+**14 Novas Menções:**
+| Pessoa | Produto |
+|--------|---------|
+| Aíquis | ClaroTV+ |
+| Arthur | Alexa |
+| Mateus | Baby Tracker |
+| Luquita | Liti |
+| Nana | Apple Weather |
+| Marcos Lavin | My Baby |
+| Michelli Chagas | Trainiac |
+| Andrezão | Mercado Livre |
+| Karina | Mercado Livre |
+| Cauê | Reserva.Ink |
+| Alana | Revolut |
+| Pri Chagas | Meu Dinheiro Web |
+| Lucas | Musixmatch |
+| Cloves | Bandcamp |
 
 ---
 
 ### Arquivo a Modificar
-
 `src/data/mentions.ts`
 
 ---
 
-### Passo 1: Atualizar Menções
+### Detalhes Técnicos
 
-**Thiago (1 menção a atualizar):**
-
+**Passo 1 - Adicionar episódio** (inserir antes do episódio 49, ~linha 38):
 ```typescript
-// ANTES (linha 1756)
-{ id: "m102-16", episodeId: 102, personId: "thiago-ep102", productId: "antigravity" },
-
-// DEPOIS
-{ id: "m102-16", episodeId: 102, personId: "thiago", productId: "antigravity" },
+  {
+    id: 48,
+    title: "Design Engineer - Essa moda vai pegar?",
+    date: "2024-08-28",
+    description: "Discussão sobre a tendência de Design Engineers e as ferramentas da semana.",
+  },
 ```
 
-**Bruna (1 menção a atualizar):**
+**Passo 2 - Adicionar produtos** (seções apropriadas):
 
+Na seção Entertainment (~linha 373):
 ```typescript
-// ANTES (linha 1163)
-{ id: "m57-11", episodeId: 57, personId: "bruna-ep57", productId: "toqan" },
-
-// DEPOIS
-{ id: "m57-11", episodeId: 57, personId: "bruna", productId: "toqan" },
+  { id: "clarotv-plus", name: "ClaroTV+", category: "Entertainment" },
+  { id: "reserva-ink", name: "Reserva.Ink", category: "Entertainment", url: "https://reservaink.com.br/" },
+  { id: "musixmatch", name: "Musixmatch", category: "Entertainment", url: "https://www.musixmatch.com/" },
+  { id: "bandcamp", name: "Bandcamp", category: "Entertainment", url: "https://bandcamp.com/" },
 ```
 
----
-
-### Passo 2: Remover Pessoas Duplicadas
-
+Na seção Lifestyle:
 ```typescript
-// Remover linha 886
-{ id: "thiago-ep102", name: "Thiago" },
-
-// Remover linha 1026
-{ id: "bruna-ep57", name: "Bruna" },
+  { id: "baby-tracker", name: "Baby Tracker", category: "Lifestyle" },
+  { id: "my-baby", name: "My Baby", category: "Lifestyle" },
 ```
 
----
+Na seção Productivity:
+```typescript
+  { id: "apple-weather", name: "Apple Weather", category: "Productivity" },
+```
 
-### Resultado Esperado
+Na seção Finance:
+```typescript
+  { id: "revolut", name: "Revolut", category: "Finance", url: "https://www.revolut.com/" },
+  { id: "meu-dinheiro-web", name: "Meu Dinheiro Web", category: "Finance", url: "https://www.meudinheiroweb.com.br/" },
+```
 
-Após a correção:
-- Buscar "Thiago" mostrará apenas 1 pessoa (com todas as menções agregadas)
-- Buscar "Bruna" mostrará apenas 1 pessoa (com todas as menções agregadas)
-- Os links para páginas de detalhes funcionarão corretamente
+**Passo 3 - Adicionar pessoa** (~linha 1055):
+```typescript
+  { id: "luquita", name: "Luquita" },
+```
+
+**Passo 4 - Adicionar menções** (inserir antes do Episode 49, ~linha 1060):
+```typescript
+  // Episode 48
+  { id: "m48-1", episodeId: 48, personId: "aiquis", productId: "clarotv-plus" },
+  { id: "m48-2", episodeId: 48, personId: "arthur", productId: "alexa" },
+  { id: "m48-3", episodeId: 48, personId: "mateus", productId: "baby-tracker" },
+  { id: "m48-4", episodeId: 48, personId: "luquita", productId: "liti" },
+  { id: "m48-5", episodeId: 48, personId: "nana", productId: "apple-weather" },
+  { id: "m48-6", episodeId: 48, personId: "marcos-lavin", productId: "my-baby" },
+  { id: "m48-7", episodeId: 48, personId: "michelli-chagas", productId: "trainiac" },
+  { id: "m48-8", episodeId: 48, personId: "andrezao", productId: "mercado-livre" },
+  { id: "m48-9", episodeId: 48, personId: "karina", productId: "mercado-livre" },
+  { id: "m48-10", episodeId: 48, personId: "caue", productId: "reserva-ink" },
+  { id: "m48-11", episodeId: 48, personId: "alana", productId: "revolut" },
+  { id: "m48-12", episodeId: 48, personId: "pri-chagas", productId: "meu-dinheiro-web" },
+  { id: "m48-13", episodeId: 48, personId: "lucas", productId: "musixmatch" },
+  { id: "m48-14", episodeId: 48, personId: "cloves", productId: "bandcamp" },
+```
 
 ---
 
 ### Resumo de Alterações
 
-| Ação | Quantidade |
+| Item | Quantidade |
 |------|------------|
-| Menções atualizadas | 2 |
-| Pessoas removidas | 2 |
+| Episódio | 1 |
+| Pessoa nova | 1 |
+| Produtos novos | 9 |
+| Menções | 14 |
 
