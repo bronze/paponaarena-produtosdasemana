@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
 // 2024 Episodes
   {
+    id: 48,
+    title: "Design Engineer - Essa moda vai pegar?",
+    date: "2024-08-28",
+    description: "Discussão sobre a tendência de Design Engineers e as ferramentas da semana.",
+  },
+  {
     id: 49,
     title: "Redesign problemático, roadmap público e queda das ações: O caso da Sonos",
     date: "2024-09-04",
@@ -365,6 +371,10 @@ export const products: Product[] = [
 
   // Entertainment
   { id: "monument-valley", name: "Monument Valley", category: "Entertainment", url: "https://monumentvalleygame.com" },
+  { id: "clarotv-plus", name: "ClaroTV+", category: "Entertainment" },
+  { id: "reserva-ink", name: "Reserva.Ink", category: "Entertainment", url: "https://reservaink.com.br/" },
+  { id: "musixmatch", name: "Musixmatch", category: "Entertainment", url: "https://www.musixmatch.com/" },
+  { id: "bandcamp", name: "Bandcamp", category: "Entertainment", url: "https://bandcamp.com/" },
   { id: "sports-alerts", name: "Sports Alerts", category: "Entertainment", url: "https://www.lunosoftware.com/" },
   { id: "rock-in-rio", name: "Rock in Rio", category: "Entertainment", url: "https://rockinrio.com/" },
   { id: "max-hbo", name: "MAX", category: "Entertainment", url: "https://www.hbomax.com/" },
@@ -497,7 +507,6 @@ export const products: Product[] = [
   { id: "samsung-watch-ultra", name: "Samsung Watch Ultra", category: "Fitness", parentId: "samsung-wearable" },
   { id: "samsung-wearable", name: "Samsung Wearable", category: "Fitness" },
   { id: "training-peaks", name: "Training Peaks", category: "Fitness", url: "https://trainingpeaks.com" },
-  { id: "trainiac", name: "Trainiac", category: "Fitness" },
   { id: "total-pass", name: "Total Pass", category: "Fitness", url: "https://totalpass.com/" },
   { id: "wellhub", name: "Wellhub", category: "Fitness", url: "https://wellhub.com/" },
   { id: "mfit-personal", name: "MFIT Personal", category: "Fitness", url: "https://www.mfitpersonal.com.br/" },
@@ -506,6 +515,7 @@ export const products: Product[] = [
   { id: "asics-superblast-2", name: "Asics Superblast 2", category: "Fitness" },
   { id: "asics-house", name: "Asics House no Parque Bruno Covas", category: "Fitness" },
   { id: "liti", name: "Liti", category: "Fitness", url: "https://liti.com.br/" },
+  { id: "trainiac", name: "Trainiac", category: "Fitness", url: "https://www.trainiacfit.com/" },
   { id: "fitness-plus", name: "Fitness+", category: "Fitness" },
   { id: "yazio", name: "Yazio", category: "Fitness", url: "https://www.yazio.com/" },
   { id: "adidas-running", name: "Adidas Running", category: "Fitness" },
@@ -575,6 +585,9 @@ export const products: Product[] = [
     url: "https://www.stratospherix.com/filebrowsergo/",
   },
   { id: "sprout", name: "Sprout", category: "Lifestyle", url: "https://sprout-apps.com/" },
+  { id: "baby-tracker", name: "Baby Tracker", category: "Lifestyle" },
+  { id: "my-baby", name: "My Baby", category: "Lifestyle" },
+  { id: "apple-weather", name: "Apple Weather", category: "Productivity" },
   { id: "microsoft-edge", name: "Microsoft Edge", category: "Productivity", url: "https://www.microsoft.com/edge" },
   {
     id: "microsoft-edge-cupons",
@@ -687,6 +700,8 @@ export const products: Product[] = [
   { id: "coinmarket-cap", name: "Coinmarket Cap", category: "Finance" },
   { id: "mercado-bitcoin", name: "Mercado Bitcoin", category: "Finance" },
   { id: "gorila", name: "Gorila", category: "Finance" },
+  { id: "revolut", name: "Revolut", category: "Finance", url: "https://www.revolut.com/" },
+  { id: "meu-dinheiro-web", name: "Meu Dinheiro Web", category: "Finance", url: "https://www.meudinheiroweb.com.br/" },
   { id: "pagaleve", name: "Pagaleve", category: "Finance" },
   { id: "pagol", name: "PaGol", category: "Finance" },
   { id: "calculadora-loft", name: "Calculadora financiamento loft", category: "Finance" },
@@ -1053,10 +1068,28 @@ export const people: Person[] = [
   { id: "alice-portugal", name: "Alice Portugal" },
   { id: "alexandre-magno", name: "Alexandre Magno" },
   { id: "eru", name: "Eru" },
+  // Episode 48 contributors
+  { id: "luquita", name: "Luquita" },
 ];
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 48
+  { id: "m48-1", episodeId: 48, personId: "aiquis", productId: "clarotv-plus" },
+  { id: "m48-2", episodeId: 48, personId: "arthur", productId: "alexa" },
+  { id: "m48-3", episodeId: 48, personId: "mateus", productId: "baby-tracker" },
+  { id: "m48-4", episodeId: 48, personId: "luquita", productId: "liti" },
+  { id: "m48-5", episodeId: 48, personId: "nana", productId: "apple-weather" },
+  { id: "m48-6", episodeId: 48, personId: "marcos-lavin", productId: "my-baby" },
+  { id: "m48-7", episodeId: 48, personId: "michelli-chagas", productId: "trainiac" },
+  { id: "m48-8", episodeId: 48, personId: "andrezao", productId: "mercado-livre" },
+  { id: "m48-9", episodeId: 48, personId: "karina", productId: "mercado-livre" },
+  { id: "m48-10", episodeId: 48, personId: "caue", productId: "reserva-ink", context: "https://www.mananopano.com/" },
+  { id: "m48-11", episodeId: 48, personId: "alana", productId: "revolut" },
+  { id: "m48-12", episodeId: 48, personId: "pri-chagas", productId: "meu-dinheiro-web" },
+  { id: "m48-13", episodeId: 48, personId: "lucas", productId: "musixmatch" },
+  { id: "m48-14", episodeId: 48, personId: "cloves", productId: "bandcamp" },
+
   // Episode 49
   { id: "m49-1", episodeId: 49, personId: "arthur", productId: "twitter" },
   { id: "m49-2", episodeId: 49, personId: "aiquis", productId: "threads" },
