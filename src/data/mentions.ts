@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
 // 2024 Episodes
   {
+    id: 49,
+    title: "Redesign problemático, roadmap público e queda das ações: O caso da Sonos",
+    date: "2024-09-04",
+    description: "Análise do caso Sonos: redesign, roadmap público e impacto nas ações.",
+  },
+  {
     id: 51,
     title: "Velocidade vs. Qualidade e as táticas de growth que [não] funcionam",
     date: "2024-09-18",
@@ -354,11 +360,16 @@ export const products: Product[] = [
   { id: "kabum-smart-700", name: "Kabum! Smart 700", category: "Hardware" },
   { id: "inalador", name: "Inalador", category: "Hardware" },
   { id: "alexa", name: "Alexa", category: "Hardware" },
+  { id: "apple-watch", name: "Apple Watch", category: "Hardware" },
+  { id: "broadlink", name: "Broadlink", category: "Hardware" },
 
   // Entertainment
   { id: "monument-valley", name: "Monument Valley", category: "Entertainment", url: "https://monumentvalleygame.com" },
   { id: "sports-alerts", name: "Sports Alerts", category: "Entertainment", url: "https://www.lunosoftware.com/" },
   { id: "rock-in-rio", name: "Rock in Rio", category: "Entertainment", url: "https://rockinrio.com/" },
+  { id: "max-hbo", name: "MAX", category: "Entertainment", url: "https://www.hbomax.com/" },
+  { id: "deezer", name: "Deezer", category: "Entertainment", url: "https://www.deezer.com/" },
+  { id: "stickerly", name: "Sticker.ly", category: "Entertainment", url: "https://sticker.ly/" },
 
   // Travel
   { id: "tripadvisor", name: "TripAdvisor", category: "Travel", url: "https://tripadvisor.com" },
@@ -497,6 +508,8 @@ export const products: Product[] = [
   { id: "liti", name: "Liti", category: "Fitness", url: "https://liti.com.br/" },
   { id: "fitness-plus", name: "Fitness+", category: "Fitness" },
   { id: "yazio", name: "Yazio", category: "Fitness", url: "https://www.yazio.com/" },
+  { id: "adidas-running", name: "Adidas Running", category: "Fitness" },
+  { id: "bioritmo", name: "Bioritmo", category: "Fitness", url: "https://www.bioritmo.com.br/" },
   { id: "streaks", name: "Streaks", category: "Fitness" },
   { id: "bionic-go", name: "Bionic Go", category: "Fitness" },
   { id: "zepp", name: "Zepp", category: "Fitness" },
@@ -547,6 +560,7 @@ export const products: Product[] = [
   { id: "twitter", name: "Twitter", category: "Social", url: "https://x.com" },
   { id: "tiktok", name: "TikTok", category: "Social", url: "https://tiktok.com" },
   { id: "linkedin", name: "LinkedIn", category: "Social", url: "https://linkedin.com" },
+  { id: "threads", name: "Threads", category: "Social", url: "https://www.threads.com/" },
   { id: "pixelfed", name: "Pixelfed", category: "Social" },
   { id: "instagram", name: "Instagram", category: "Social", url: "https://instagram.com" },
   { id: "instagram-detox", name: "Instagram (detox)", category: "Social", parentId: "instagram" },
@@ -599,6 +613,8 @@ export const products: Product[] = [
   { id: "jira", name: "Jira", category: "Productivity", url: "https://www.atlassian.com/software/jira" },
   { id: "google-script", name: "Google Script", category: "Productivity" },
   { id: "room-planner", name: "Room planner", category: "Productivity" },
+  { id: "sketchbook", name: "Sketchbook", category: "Productivity", url: "https://www.sketchbook.com/" },
+  { id: "nordvpn", name: "NordVPN", category: "Productivity", url: "https://nordvpn.com/" },
 
   // Education
   { id: "vocabulary", name: "Vocabulary", category: "Education", url: "https://vocabulary.com" },
@@ -677,6 +693,7 @@ export const products: Product[] = [
   { id: "minhas-financas", name: "Minhas Finanças", category: "Finance" },
   { id: "app-fgc", name: "App do FGC", category: "Finance" },
   { id: "banana-mercado", name: "Banana Mercado", category: "Finance" },
+  { id: "offramp", name: "Offramp", category: "Finance", url: "https://www.offramp.xyz/" },
 
   // Lifestyle
   { id: "foodtosave", name: "FoodtoSave", category: "Lifestyle" },
@@ -733,6 +750,7 @@ export const products: Product[] = [
   { id: "picnic", name: "PicNic", category: "Delivery" },
   { id: "pedidos-ya", name: "Pedidos Ya", category: "Delivery" },
   { id: "rappi", name: "Rappi", category: "Delivery", url: "https://rappi.com" },
+  { id: "aiqfome", name: "Aiqfome", category: "Delivery", url: "https://www.aiqfome.com/" },
 
   // Tech/Dev
   { id: "supabase", name: "Supabase", category: "Tech", url: "https://supabase.com" },
@@ -1032,10 +1050,37 @@ export const people: Person[] = [
   { id: "dudu-magalhaes", name: "Dudu Magalhães" },
   // Episode 52 contributors
   { id: "fabinho", name: "Fabinho" },
+  // Episode 49 contributors
+  { id: "gabriel", name: "Gabriel" },
+  { id: "alice-portugal", name: "Alice Portugal" },
+  { id: "alexandre-magno", name: "Alexandre Magno" },
+  { id: "eru", name: "Eru" },
 ];
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 49
+  { id: "m49-1", episodeId: 49, personId: "arthur", productId: "twitter" },
+  { id: "m49-2", episodeId: 49, personId: "aiquis", productId: "threads" },
+  { id: "m49-3", episodeId: 49, personId: "agata-cristina", productId: "max-hbo" },
+  { id: "m49-4", episodeId: 49, personId: "gabriel", productId: "aiqfome" },
+  { id: "m49-5", episodeId: 49, personId: "alice-portugal", productId: "apple-watch" },
+  { id: "m49-6", episodeId: 49, personId: "pri-chagas", productId: "adidas-running" },
+  { id: "m49-7", episodeId: 49, personId: "bob", productId: "deezer" },
+  { id: "m49-8", episodeId: 49, personId: "caue", productId: "sketchbook" },
+  { id: "m49-9", episodeId: 49, personId: "karina", productId: "linkedin" },
+  { id: "m49-10", episodeId: 49, personId: "glauco", productId: "bioritmo" },
+  { id: "m49-11", episodeId: 49, personId: "alexandre-magno", productId: "broadlink" },
+  { id: "m49-12", episodeId: 49, personId: "nana", productId: "livelo" },
+  { id: "m49-13", episodeId: 49, personId: "pilon", productId: "pinterest" },
+  { id: "m49-14", episodeId: 49, personId: "portinho", productId: "ifood" },
+  { id: "m49-15", episodeId: 49, personId: "mateus", productId: "nordvpn" },
+  { id: "m49-16", episodeId: 49, personId: "thiago", productId: "nordvpn" },
+  { id: "m49-17", episodeId: 49, personId: "danilera", productId: "stickerly" },
+  { id: "m49-18", episodeId: 49, personId: "nery", productId: "offramp" },
+  { id: "m49-19", episodeId: 49, personId: "eru", productId: "liti" },
+  { id: "m49-20", episodeId: 49, personId: "fabio", productId: "liti" },
+
   // Episode 51
   { id: "m51-1", episodeId: 51, personId: "arthur", productId: "notebooklm" },
   { id: "m51-2", episodeId: 51, personId: "aiquis", productId: "kabum-smart-700" },
