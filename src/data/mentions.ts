@@ -883,7 +883,7 @@ export const people: Person[] = [
   { id: "junior-magalhaes", name: "Junior Magalhães" },
   { id: "amanda-couto", name: "Amanda Couto" },
   { id: "mateus-carvalho", name: "Mateus Carvalho" },
-  { id: "thiago-ep102", name: "Thiago" },
+  
   { id: "raiana-santos", name: "Raiana Santos" },
   { id: "marcella-paiva", name: "Marcella Paiva" },
   { id: "huxley", name: "Huxley" },
@@ -1023,7 +1023,7 @@ export const people: Person[] = [
   { id: "diego-espinilo", name: "Diego Espinilo" },
   // 2024 contributors
   { id: "boss", name: "Boss" },
-  { id: "bruna-ep57", name: "Bruna" },
+  
   { id: "thiago", name: "Thiago" },
   { id: "andrezinho", name: "Andrézinho" },
   { id: "mila", name: "Mila" },
@@ -1160,7 +1160,7 @@ export const mentions: Mention[] = [
   { id: "m57-8", episodeId: 57, personId: "pilon", productId: "chatgpt" },
   { id: "m57-9", episodeId: 57, personId: "pilon", productId: "google-lens" },
   { id: "m57-10", episodeId: 57, personId: "nana", productId: "netflix" },
-  { id: "m57-11", episodeId: 57, personId: "bruna-ep57", productId: "toqan" },
+  { id: "m57-11", episodeId: 57, personId: "bruna", productId: "toqan" },
 
   // Episode 58
   { id: "m58-1", episodeId: 58, personId: "arthur", productId: "rapid-api" },
@@ -1753,7 +1753,7 @@ export const mentions: Mention[] = [
   { id: "m102-13", episodeId: 102, personId: "junior-magalhaes", productId: "google-ai-studio" },
   { id: "m102-14", episodeId: 102, personId: "amanda-couto", productId: "google-ai-studio" },
   { id: "m102-15", episodeId: 102, personId: "mateus-carvalho", productId: "antigravity" },
-  { id: "m102-16", episodeId: 102, personId: "thiago-ep102", productId: "antigravity" },
+  { id: "m102-16", episodeId: 102, personId: "thiago", productId: "antigravity" },
   { id: "m102-17", episodeId: 102, personId: "raiana-santos", productId: "youtube" },
   { id: "m102-18", episodeId: 102, personId: "marcella-paiva", productId: "youtube" },
   { id: "m102-19", episodeId: 102, personId: "daniel-gonzalez", productId: "replit" },
