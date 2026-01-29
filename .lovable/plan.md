@@ -1,32 +1,34 @@
 
-## Plano: Adicionar Episódio 45 (Claude no Brasil, saídas da Open AI e a Nvidia pega no flagra pirateando)
+
+## Plano: Adicionar Episódio 43 (O novo modelo da Meta)
 
 ### Visão Geral
-Adicionar o episódio 45 com 13 menções de produtos. Este episódio tem algumas particularidades interessantes:
-- Menções combo (Arthur + Aíquis mencionaram o mesmo produto "Mosaico do Youtube na CazéTV")
-- Variantes com contexto (Globo Esporte com diferentes contextos)
+Adicionar o episódio 43 com 13 menções de produtos.
 
 ---
 
-### Análise de Produtos
+### Análise de Dados
 
 **Produtos existentes:**
 | ID | Nome |
 |----|------|
-| `youtube` | Youtube |
-| `cazetv` | CazéTV |
-| `wise` | Wise |
-| `nordvpn` | NordVPN |
-| `liti` | Liti |
+| `twitter` | Twitter |
+| `strava` | Strava |
+| `vivino` | Vivino |
+| `bblend` | BBlend |
 
 **Pessoas existentes:**
 | ID | Nome |
 |----|------|
-| `nana` | Nana |
+| `arthur` | Arthur |
+| `aiquis` | Aíquis |
+| `karina` | Karina |
 | `andrezao` | Andrezão |
-| `mateus` | Mateus |
-| `marina` | Marina |
-| `bruno` | Bruno |
+| `andrezinho` | Andrézinho |
+| `lucas` | Lucas |
+| `glauco` | Glauco |
+| `nana` | Nana |
+| `pilon` | Pilon |
 
 ---
 
@@ -35,35 +37,47 @@ Adicionar o episódio 45 com 13 menções de produtos. Este episódio tem alguma
 **1 Episódio:**
 | ID | Título | Data |
 |----|--------|------|
-| 45 | Claude no Brasil, saídas da Open AI e a Nvidia pega no flagra pirateando | 2024-08-07 |
+| 43 | O novo modelo da Meta, Vendas do Ray-Ban bombando e os desafios da Netflix com conteúdos ao vivo | 2024-07-24 |
 
-**7 Novos Produtos:**
+**3 Novas Pessoas:**
+| ID | Nome |
+|----|------|
+| `victor` | Victor |
+| `caco` | Caco |
+
+Nota: Victor Nery já existe como `victor-nery`, mas este parece ser outro Victor. Criando novo ID.
+
+**9 Novos Produtos:**
 | ID | Nome | Categoria | URL | Observação |
 |----|------|-----------|-----|------------|
-| `mosaico-youtube-cazetv` | Mosaico do Youtube na CazéTV | Entertainment | - | Combo: alsoCredits: ["youtube", "cazetv"] |
-| `globo-esporte` | Globo Esporte | Entertainment | https://ge.globo.com | - |
-| `app-olimpiadas` | App das Olimpíadas | Entertainment | - | - |
-| `nomad` | Nomad | Finance | https://www.nomadglobal.com/ | Conta digital para brasileiros |
-| `potion-explosion` | Potion Explosion | Entertainment | - | Jogo de tabuleiro |
-| `bradesco-saude` | Bradesco Saúde | Health | https://www.bradescoseguros.com.br/ | Plano de saúde (diferente de Bradesco Seguros) |
-| `selina` | Selina | Travel | https://www.selinahotels.com/ | - |
+| `amazon` | Amazon | Retail | https://amazon.com.br | - |
+| `stockx` | StockX | Retail | https://stockx.com/ | Marketplace de sneakers |
+| `telegram` | Telegram | Social | https://telegram.org | - |
+| `azul-jogo` | Azul | Entertainment | - | Jogo de tabuleiro |
+| `crunchyroll` | Crunchyroll | Entertainment | https://crunchyroll.com | Streaming de anime |
+| `snowflake` | Snowflake | Development | https://snowflake.com | Plataforma de dados (diferente de Cereal Snowflake) |
+| `squad-busters` | Squad Busters | Entertainment | - | Jogo mobile |
+| `daki` | Daki | Delivery | https://daki.com.br | - |
+| `net-claro-wifi` | Net-Claro Wi-Fi | Utilities | - | Serviço de internet |
+
+**Nota sobre B.blend:** O usuário escreveu "B.blend" mas já existe produto `bblend` (BBlend). Vou usar o existente.
 
 **13 Menções:**
-| Pessoa | Produto | Observação |
-|--------|---------|------------|
-| Arthur | Mosaico do Youtube na CazéTV | combo youtube+cazetv |
-| Arthur | Globo Esporte | context: "Push Notification" |
-| Aíquis | Mosaico do Youtube na CazéTV | combo youtube+cazetv |
-| Aíquis | App das Olimpíadas | - |
-| Nana | CazéTV | produto existente |
-| Danilera | Globo Esporte | context: "Olimpíadas" |
-| Bruno | Youtube | produto existente |
-| Marina | Wise | produto existente |
-| Marina | Nomad | - |
-| Andrezão | Potion Explosion | - |
-| Glauco | Bradesco Saúde | - |
-| Lucas | Selina | - |
-| Mateus | NordVPN | produto existente |
+| Pessoa | Produto |
+|--------|---------|
+| Arthur | Amazon |
+| Arthur | StockX |
+| Aíquis | Twitter |
+| Aíquis | Telegram |
+| Karina | BBlend |
+| Andrezão | Azul (jogo) |
+| Andrézinho | Crunchyroll |
+| Lucas | Snowflake |
+| Glauco | Vivino |
+| Nana | Strava |
+| Victor | Squad Busters |
+| Caco | Daki |
+| Pilon | Net-Claro Wi-Fi |
 
 ---
 
@@ -74,58 +88,74 @@ Adicionar o episódio 45 com 13 menções de produtos. Este episódio tem alguma
 
 ### Detalhes Técnicos
 
-**Passo 1 - Adicionar episódio** (inserir antes do episódio 46, ~linha 38):
+**Passo 1 - Adicionar episódio** (inserir antes do episódio 45):
 ```typescript
   {
-    id: 45,
-    title: "Claude no Brasil, saídas da Open AI e a Nvidia pega no flagra pirateando",
-    date: "2024-08-07",
-    description: "Discussão sobre Claude chegando ao Brasil, movimentações na OpenAI e controvérsia envolvendo Nvidia.",
+    id: 43,
+    title: "O novo modelo da Meta, Vendas do Ray-Ban bombando e os desafios da Netflix com conteúdos ao vivo",
+    date: "2024-07-24",
+    description: "Discussão sobre o novo modelo de IA da Meta, o sucesso de vendas do Ray-Ban e os desafios da Netflix com transmissões ao vivo.",
   },
 ```
 
-**Passo 2 - Adicionar categoria Health** (se não existir, após Insurance):
+**Passo 2 - Adicionar produtos novos:**
+
+Social (após twitter):
 ```typescript
-  // Health
-  { id: "bradesco-saude", name: "Bradesco Saúde", category: "Health", url: "https://www.bradescoseguros.com.br/" },
+  { id: "telegram", name: "Telegram", category: "Social", url: "https://telegram.org" },
 ```
 
-**Passo 3 - Adicionar produtos** (nas seções apropriadas):
-
-Entertainment (~linha 699, após cazetv):
+Entertainment:
 ```typescript
-  { id: "mosaico-youtube-cazetv", name: "Mosaico do Youtube na CazéTV", category: "Entertainment", alsoCredits: ["youtube", "cazetv"] },
-  { id: "globo-esporte", name: "Globo Esporte", category: "Entertainment", url: "https://ge.globo.com" },
-  { id: "app-olimpiadas", name: "App das Olimpíadas", category: "Entertainment" },
-  { id: "potion-explosion", name: "Potion Explosion", category: "Entertainment" },
+  { id: "azul-jogo", name: "Azul", category: "Entertainment" },
+  { id: "crunchyroll", name: "Crunchyroll", category: "Entertainment", url: "https://crunchyroll.com" },
+  { id: "squad-busters", name: "Squad Busters", category: "Entertainment" },
 ```
 
-Finance (~linha 720):
+Retail:
 ```typescript
-  { id: "nomad", name: "Nomad", category: "Finance", url: "https://www.nomadglobal.com/" },
+  { id: "amazon", name: "Amazon", category: "Retail", url: "https://amazon.com.br" },
+  { id: "stockx", name: "StockX", category: "Retail", url: "https://stockx.com/" },
 ```
 
-Travel (~linha 810):
+Delivery:
 ```typescript
-  { id: "selina", name: "Selina", category: "Travel", url: "https://www.selinahotels.com/" },
+  { id: "daki", name: "Daki", category: "Delivery", url: "https://daki.com.br" },
 ```
 
-**Passo 4 - Adicionar menções** (inserir antes do Episode 46, ~linha 1115):
+Development:
 ```typescript
-  // Episode 45
-  { id: "m45-1", episodeId: 45, personId: "arthur", productId: "mosaico-youtube-cazetv" },
-  { id: "m45-2", episodeId: 45, personId: "arthur", productId: "globo-esporte", context: "Push Notification" },
-  { id: "m45-3", episodeId: 45, personId: "aiquis", productId: "mosaico-youtube-cazetv" },
-  { id: "m45-4", episodeId: 45, personId: "aiquis", productId: "app-olimpiadas" },
-  { id: "m45-5", episodeId: 45, personId: "nana", productId: "cazetv" },
-  { id: "m45-6", episodeId: 45, personId: "danilera", productId: "globo-esporte", context: "Olimpíadas" },
-  { id: "m45-7", episodeId: 45, personId: "bruno", productId: "youtube" },
-  { id: "m45-8", episodeId: 45, personId: "marina", productId: "wise" },
-  { id: "m45-9", episodeId: 45, personId: "marina", productId: "nomad" },
-  { id: "m45-10", episodeId: 45, personId: "andrezao", productId: "potion-explosion" },
-  { id: "m45-11", episodeId: 45, personId: "glauco", productId: "bradesco-saude" },
-  { id: "m45-12", episodeId: 45, personId: "lucas", productId: "selina" },
-  { id: "m45-13", episodeId: 45, personId: "mateus", productId: "nordvpn" },
+  { id: "snowflake", name: "Snowflake", category: "Development", url: "https://snowflake.com" },
+```
+
+Utilities (nova categoria):
+```typescript
+  // Utilities
+  { id: "net-claro-wifi", name: "Net-Claro Wi-Fi", category: "Utilities" },
+```
+
+**Passo 3 - Adicionar pessoas:**
+```typescript
+  { id: "victor", name: "Victor" },
+  { id: "caco", name: "Caco" },
+```
+
+**Passo 4 - Adicionar menções** (inserir antes do Episode 45):
+```typescript
+  // Episode 43
+  { id: "m43-1", episodeId: 43, personId: "arthur", productId: "amazon" },
+  { id: "m43-2", episodeId: 43, personId: "arthur", productId: "stockx" },
+  { id: "m43-3", episodeId: 43, personId: "aiquis", productId: "twitter" },
+  { id: "m43-4", episodeId: 43, personId: "aiquis", productId: "telegram" },
+  { id: "m43-5", episodeId: 43, personId: "karina", productId: "bblend" },
+  { id: "m43-6", episodeId: 43, personId: "andrezao", productId: "azul-jogo" },
+  { id: "m43-7", episodeId: 43, personId: "andrezinho", productId: "crunchyroll" },
+  { id: "m43-8", episodeId: 43, personId: "lucas", productId: "snowflake" },
+  { id: "m43-9", episodeId: 43, personId: "glauco", productId: "vivino" },
+  { id: "m43-10", episodeId: 43, personId: "nana", productId: "strava" },
+  { id: "m43-11", episodeId: 43, personId: "victor", productId: "squad-busters" },
+  { id: "m43-12", episodeId: 43, personId: "caco", productId: "daki" },
+  { id: "m43-13", episodeId: 43, personId: "pilon", productId: "net-claro-wifi" },
 ```
 
 ---
@@ -135,12 +165,13 @@ Travel (~linha 810):
 | Item | Quantidade |
 |------|------------|
 | Episódio | 1 |
-| Pessoas novas | 0 |
-| Produtos novos | 7 |
+| Pessoas novas | 2 |
+| Produtos novos | 9 |
 | Menções | 13 |
 
 ### Notas
-- O produto "Mosaico do Youtube na CazéTV" usa `alsoCredits` para creditar tanto Youtube quanto CazéTV
-- Globo Esporte tem duas menções com contextos diferentes: "Push Notification" (Arthur) e "Olimpíadas" (Danilera)
-- Marina menciona 2 produtos (Wise e Nomad)
-- Bradesco Saúde é diferente de Bradesco Seguros (já existente) - um é plano de saúde, outro é seguradora
+- BBlend já existe no sistema, reutilizando o produto existente
+- "Azul" é um jogo de tabuleiro, diferente da companhia aérea Azul
+- Snowflake (plataforma de dados) é diferente de "Cereal Snowflake" já existente
+- Arthur e Aíquis mencionam 2 produtos cada
+
