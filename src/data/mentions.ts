@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
 // 2024 Episodes
   {
+    id: 45,
+    title: "Claude no Brasil, saídas da Open AI e a Nvidia pega no flagra pirateando",
+    date: "2024-08-07",
+    description: "Discussão sobre Claude chegando ao Brasil, movimentações na OpenAI e controvérsia envolvendo Nvidia.",
+  },
+  {
     id: 46,
     title: "O presente e o futuro dos produtos de AI e Existe um mundo além das squads?",
     date: "2024-08-14",
@@ -707,6 +713,10 @@ export const products: Product[] = [
   { id: "land-builder", name: "Land Builder", category: "Entertainment" },
   { id: "cifra-club", name: "Cifra Club", category: "Entertainment", url: "https://cifraclub.com.br" },
   { id: "quebra-cabeca", name: "Quebra-cabeça", category: "Entertainment" },
+  { id: "mosaico-youtube-cazetv", name: "Mosaico do Youtube na CazéTV", category: "Entertainment", alsoCredits: ["youtube", "cazetv"] },
+  { id: "globo-esporte", name: "Globo Esporte", category: "Entertainment", url: "https://ge.globo.com" },
+  { id: "app-olimpiadas", name: "App das Olimpíadas", category: "Entertainment" },
+  { id: "potion-explosion", name: "Potion Explosion", category: "Entertainment" },
 
   // Finance
   { id: "c6-ia", name: "C6 (IA)", category: "Finance", parentId: "c6" },
@@ -716,6 +726,7 @@ export const products: Product[] = [
   { id: "c6", name: "C6", category: "Finance", url: "https://www.c6bank.com.br/" },
   { id: "picpay", name: "PicPay", category: "Finance", url: "https://picpay.com" },
   { id: "wise", name: "Wise", category: "Finance", url: "https://wise.com" },
+  { id: "nomad", name: "Nomad", category: "Finance", url: "https://www.nomadglobal.com/" },
   { id: "brasil-bitcoin", name: "Brasil Bitcoin", category: "Finance" },
   { id: "binance", name: "Binance", category: "Finance", url: "https://binance.com" },
   { id: "irpf25", name: "IRPF25", category: "Finance" },
@@ -819,6 +830,12 @@ export const products: Product[] = [
   { id: "allianz-seguros", name: "Allianz Seguros", category: "Insurance" },
   { id: "bradesco-seguros", name: "Bradesco Seguros", category: "Insurance" },
   { id: "porto-seguro", name: "Porto Seguro", category: "Insurance", url: "https://www.portoseguro.com.br/" },
+
+  // Health
+  { id: "bradesco-saude", name: "Bradesco Saúde", category: "Health", url: "https://www.bradescoseguros.com.br/" },
+
+  // Travel
+  { id: "selina", name: "Selina", category: "Travel", url: "https://www.selinahotels.com/" },
 
   // Business
   { id: "home-planner", name: "Home Planner", category: "Business" },
@@ -1112,6 +1129,21 @@ export const people: Person[] = [
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 45
+  { id: "m45-1", episodeId: 45, personId: "arthur", productId: "mosaico-youtube-cazetv" },
+  { id: "m45-2", episodeId: 45, personId: "arthur", productId: "globo-esporte", context: "Push Notification" },
+  { id: "m45-3", episodeId: 45, personId: "aiquis", productId: "mosaico-youtube-cazetv" },
+  { id: "m45-4", episodeId: 45, personId: "aiquis", productId: "app-olimpiadas" },
+  { id: "m45-5", episodeId: 45, personId: "nana", productId: "cazetv" },
+  { id: "m45-6", episodeId: 45, personId: "danilera", productId: "globo-esporte", context: "Olimpíadas" },
+  { id: "m45-7", episodeId: 45, personId: "bruno", productId: "youtube" },
+  { id: "m45-8", episodeId: 45, personId: "marina", productId: "wise" },
+  { id: "m45-9", episodeId: 45, personId: "marina", productId: "nomad" },
+  { id: "m45-10", episodeId: 45, personId: "andrezao", productId: "potion-explosion" },
+  { id: "m45-11", episodeId: 45, personId: "glauco", productId: "bradesco-saude" },
+  { id: "m45-12", episodeId: 45, personId: "lucas", productId: "selina" },
+  { id: "m45-13", episodeId: 45, personId: "mateus", productId: "nordvpn" },
+
   // Episode 46
   { id: "m46-1", episodeId: 46, personId: "arthur", productId: "liti" },
   { id: "m46-2", episodeId: 46, personId: "aiquis", productId: "wine" },
