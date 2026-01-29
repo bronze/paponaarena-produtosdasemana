@@ -36,6 +36,18 @@ export interface Mention {
 export const episodes: Episode[] = [
   // 2024 Episodes
   {
+    id: 55,
+    title: "Gestão de Plataformas e APIs para PMs não técnicos - um papo com Sheila Chang",
+    date: "2024-10-15",
+    description: "Entrevista com Sheila Chang sobre gestão de plataformas e APIs.",
+  },
+  {
+    id: 56,
+    title: "Carreira internacional, Mulheres na Liderança e Maternidade - Gisele Góes (Chime)",
+    date: "2024-10-22",
+    description: "Entrevista com Gisele Góes sobre carreira internacional e liderança feminina.",
+  },
+  {
     id: 57,
     title: "Reflexões sobre fazer o básico bem feito",
     date: "2024-10-30",
@@ -319,6 +331,7 @@ export const episodes: Episode[] = [
 export const products: Product[] = [
   // Hardware
   { id: "ray-ban-meta", name: "Ray-Ban Meta", category: "Hardware" },
+  { id: "standing-desk-pichau", name: "Standing Desk (Pichau)", category: "Hardware" },
 
   // AI Tools
   { id: "bolt", name: "Bolt", category: "AI Tools", url: "https://bolt.new" },
@@ -418,6 +431,8 @@ export const products: Product[] = [
   { id: "retool", name: "Retool", category: "Development", url: "https://retool.com" },
   { id: "oneschema", name: "OneSchema", category: "Development", url: "https://www.oneschema.co" },
   { id: "rapid-api", name: "Rapid API", category: "Development", url: "https://rapidapi.com" },
+  { id: "hostinger", name: "Hostinger", category: "Development", url: "https://hostinger.com" },
+  { id: "hostinger-construtor", name: "Hostinger (Construtor de sites)", category: "Development", parentId: "hostinger" },
 
   // AI Tools (additional)
   { id: "airops", name: "AirOps", category: "AI Tools", url: "https://www.airops.com" },
@@ -431,6 +446,7 @@ export const products: Product[] = [
   { id: "gentler-streak", name: "Gentler Streak", category: "Fitness", url: "https://gentler.app/" },
   { id: "munhequeira", name: "Munhequeira", category: "Fitness" },
   { id: "strava", name: "Strava", category: "Fitness", url: "https://strava.com" },
+  { id: "app-maratona-chicago", name: "App da Maratona de Chicago", category: "Fitness" },
   { id: "hevy", name: "Hevy", category: "Fitness", url: "https://hevyapp.com" },
   { id: "gymrats", name: "GymRats", category: "Fitness", url: "https://gymratsapp.com" },
   { id: "bike-spinning", name: "Bike de Spinning", category: "Fitness" },
@@ -476,6 +492,7 @@ export const products: Product[] = [
   { id: "uber-livelo", name: "Uber + Livelo", category: "Transportation", alsoCredits: ["uber", "livelo"] },
   { id: "uber-black", name: "Uber Black", category: "Transportation", parentId: "uber" },
   { id: "uber-agendamento", name: "Agendamento de corrida Uber", category: "Transportation", parentId: "uber" },
+  { id: "uber-taxi", name: "Uber Taxi", category: "Transportation", parentId: "uber" },
   { id: "waze", name: "Waze", category: "Transportation", url: "https://waze.com" },
   { id: "samsung-smart-switch", name: "Samsung Smart Switch", category: "Productivity" },
   { id: "blablacar", name: "Blablacar", category: "Transportation", url: "https://blablacar.com" },
@@ -521,6 +538,8 @@ export const products: Product[] = [
   { id: "teams", name: "Teams", category: "Productivity", url: "https://teams.microsoft.com" },
   { id: "notion", name: "Notion", category: "Productivity", url: "https://notion.so" },
   { id: "obsidian", name: "Obsidian", category: "Productivity", url: "https://obsidian.md" },
+  { id: "omnivore", name: "Omnivore", category: "Productivity" },
+  { id: "app-condominio", name: "App do Condomínio", category: "Productivity" },
   { id: "canva", name: "Canva", category: "Productivity", url: "https://canva.com" },
   { id: "figma", name: "Figma", category: "Productivity", url: "https://figma.com" },
   { id: "figma-make", name: "Figma Make", category: "Productivity", parentId: "figma" },
@@ -546,6 +565,7 @@ export const products: Product[] = [
   // Education
   { id: "vocabulary", name: "Vocabulary", category: "Education", url: "https://vocabulary.com" },
   { id: "duolingo", name: "Duolingo", category: "Education", url: "https://duolingo.com" },
+  { id: "praktika", name: "Praktika", category: "Education" },
   { id: "12min", name: "12min", category: "Education" },
   { id: "headway", name: "Headway", category: "Education" },
   { id: "brilliant", name: "Brilliant", category: "Education", url: "https://brilliant.org" },
@@ -563,6 +583,9 @@ export const products: Product[] = [
     url: "https://store.steampowered.com/app/2379780/Balatro/",
   },
   { id: "dualsense", name: "DualSense", category: "Entertainment" },
+  { id: "township", name: "Township", category: "Entertainment" },
+  { id: "age-of-empires-mobile", name: "Age of Empires Mobile", category: "Entertainment" },
+  { id: "scrabble", name: "Scrabble", category: "Entertainment" },
   { id: "plague-evolved", name: "Plague Evolved", category: "Entertainment" },
   { id: "pokemon-tcg", name: "Pokémon TCG", category: "Entertainment", url: "https://tcgpocket.pokemon.com/en-us/" },
   { id: "netflix", name: "Netflix", category: "Entertainment", url: "https://netflix.com" },
@@ -667,6 +690,7 @@ export const products: Product[] = [
   { id: "shopper", name: "Shopper", category: "Delivery" },
   { id: "picnic", name: "PicNic", category: "Delivery" },
   { id: "pedidos-ya", name: "Pedidos Ya", category: "Delivery" },
+  { id: "rappi", name: "Rappi", category: "Delivery", url: "https://rappi.com" },
 
   // Tech/Dev
   { id: "supabase", name: "Supabase", category: "Tech", url: "https://supabase.com" },
@@ -718,6 +742,10 @@ export const products: Product[] = [
   { id: "parafuzo", name: "Parafuzo", category: "Business" },
   { id: "poke", name: "Poke.com", category: "Business" },
   { id: "kiwi", name: "Kiwi", category: "Business" },
+
+  // Retail
+  { id: "sams-club", name: "Sam's Club", category: "Retail", url: "https://samsclub.com.br" },
+  { id: "nike", name: "Nike", category: "Retail", url: "https://nike.com" },
   { id: "pexels", name: "Pexels", category: "Business", url: "https://pexels.com" },
   { id: "vivino", name: "Vivino", category: "Business", url: "https://vivino.com" },
   { id: "u-haul", name: "U-haul", category: "Business" },
@@ -951,10 +979,45 @@ export const people: Person[] = [
   { id: "gi", name: "Gi" },
   { id: "tiago-santi", name: "Tiago Santi" },
   { id: "ana-romeu", name: "Ana Romeu" },
+  // Episode 55-56 contributors
+  { id: "sheila-chang", name: "Sheila Chang" },
+  { id: "alex", name: "Alex" },
+  { id: "amanda", name: "Amanda" },
+  { id: "larissa", name: "Larissa" },
+  { id: "leandro", name: "Leandro" },
 ];
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 55
+  { id: "m55-1", episodeId: 55, personId: "arthur", productId: "strava" },
+  { id: "m55-2", episodeId: 55, personId: "aiquis", productId: "chatgpt" },
+  { id: "m55-3", episodeId: 55, personId: "sheila-chang", productId: "hostinger-construtor" },
+  { id: "m55-4", episodeId: 55, personId: "caue", productId: "splitwise" },
+  { id: "m55-5", episodeId: 55, personId: "larissa", productId: "airbnb" },
+  { id: "m55-6", episodeId: 55, personId: "karina", productId: "app-condominio" },
+  { id: "m55-7", episodeId: 55, personId: "maria", productId: "scrabble" },
+  { id: "m55-8", episodeId: 55, personId: "mat", productId: "app-maratona-chicago" },
+  { id: "m55-9", episodeId: 55, personId: "lucas", productId: "rappi" },
+  { id: "m55-10", episodeId: 55, personId: "danilera", productId: "sams-club" },
+  { id: "m55-11", episodeId: 55, personId: "glauco", productId: "nike" },
+
+  // Episode 56
+  { id: "m56-1", episodeId: 56, personId: "aiquis", productId: "uber-taxi" },
+  { id: "m56-2", episodeId: 56, personId: "arthur", productId: "standing-desk-pichau" },
+  { id: "m56-3", episodeId: 56, personId: "nana", productId: "township" },
+  { id: "m56-4", episodeId: 56, personId: "amanda", productId: "praktika" },
+  { id: "m56-5", episodeId: 56, personId: "alex", productId: "ze-delivery" },
+  { id: "m56-6", episodeId: 56, personId: "glauco", productId: "chatgpt" },
+  { id: "m56-7", episodeId: 56, personId: "portinho", productId: "claude" },
+  { id: "m56-8", episodeId: 56, personId: "leandro", productId: "omnivore" },
+  { id: "m56-9", episodeId: 56, personId: "beicola", productId: "whatsapp" },
+  { id: "m56-10", episodeId: 56, personId: "danilera", productId: "age-of-empires-mobile" },
+  { id: "m56-11", episodeId: 56, personId: "mat", productId: "trela" },
+  { id: "m56-12", episodeId: 56, personId: "karina", productId: "training-peaks" },
+  { id: "m56-13", episodeId: 56, personId: "brian", productId: "picpay" },
+  { id: "m56-14", episodeId: 56, personId: "caue", productId: "sams-club" },
+
   // Episode 57
   { id: "m57-1", episodeId: 57, personId: "aiquis", productId: "google-suite" },
   { id: "m57-2", episodeId: 57, personId: "arthur", productId: "apple-intelligence" },
