@@ -1,9 +1,8 @@
 
-
-## Plano: Adicionar Episódio 47 (Nossas técnicas de produtividade)
+## Plano: Adicionar Episódio 46 (O presente e o futuro dos produtos de AI)
 
 ### Visão Geral
-Adicionar o episódio 47 com 14 menções de produtos.
+Adicionar o episódio 46 com 12 menções de produtos.
 
 ---
 
@@ -12,47 +11,44 @@ Adicionar o episódio 47 com 14 menções de produtos.
 **1 Episódio:**
 | ID | Título | Data |
 |----|--------|------|
-| 47 | Nossas técnicas de produtividade (sem ligação com AI) | 2024-08-21 |
+| 46 | O presente e o futuro dos produtos de AI e Existe um mundo além das squads? | 2024-08-14 |
 
-**3 Novas Pessoas:**
-| ID | Nome |
-|----|------|
-| `andressa-carbone` | Andressa Carbone |
-| `pedro-moreno` | Pedro Moreno |
-| `dani` | Dani |
+**2 Novas Pessoas:**
+| ID | Nome | Observação |
+|----|------|------------|
+| `lucas-ep46` | Lucas (outro) | Distinguir do Lucas já existente |
+| `neuri` | Neuri | Nova pessoa |
 
-**11 Novos Produtos:**
-| ID | Nome | Categoria | URL |
-|----|------|-----------|-----|
-| `joker-card` | Joker Card | Entertainment | https://apps.apple.com/br/app/joker-card/id6480343238 |
-| `ring` | Ring | Hardware | https://ring.com |
-| `shopee` | Shopee | Retail | https://shopee.com.br |
-| `cabana-burger` | Cabana Burger | Delivery | https://cabanaburger.com.br/ |
-| `child-growth` | Child Growth | Lifestyle | - |
-| `microsoft-teams` | Microsoft Teams | Productivity | https://teams.microsoft.com |
-| `khan-academy` | Khan Academy | Education | https://khanacademy.org |
-| `cafu` | Cafu | Delivery | https://www.cafu.com/ |
-| `desrotulando` | Desrotulando | Lifestyle | https://desrotulando.com |
-| `wechat` | WeChat | Social | https://www.wechat.com |
-| `powerbeats-pro` | PowerBeats Pro | Hardware | - |
+**9 Novos Produtos:**
+| ID | Nome | Categoria | URL | Observação |
+|----|------|-----------|-----|------------|
+| `wine` | Wine | Retail | https://www.wine.com.br/ | Clube de vinhos |
+| `figma-slides` | Figma Slides | Productivity | - | Variante do Figma (parentId: figma) |
+| `nespresso` | Nespresso | Hardware | https://www.nespresso.com/br/ | Máquinas de café |
+| `nok-nox` | Nok Nox | Entertainment | https://noknox.com | - |
+| `youtube-premium` | Youtube Premium | Entertainment | - | Variante do Youtube (parentId: youtube) |
+| `abastece-ai` | Abastece Aí | Finance | - | App de combustível |
+| `kling-ai` | KlingAI | AI Tools | https://klingai.com | Ferramenta de AI para vídeos |
+| `ingresso-com` | Ingresso.com | Entertainment | https://www.ingresso.com/ | - |
+| `porto-seguro` | Porto Seguro | Insurance | https://www.portoseguro.com.br/ | Renomear produto existente |
 
-**14 Novas Menções:**
+**Nota sobre Porto Seguro:** O produto existente é `porto-seguro` com nome "Porto Seguro Chatbot". Precisamos renomear para "Porto Seguro" para ficar genérico, pois a menção do ep 46 é sobre a empresa em geral.
+
+**12 Novas Menções:**
 | Pessoa | Produto |
 |--------|---------|
-| Aíquis | Joker Card |
-| Arthur | Ring |
-| Karina | Shopee |
-| Maria | Cabana Burger |
-| Andressa Carbone | Mercado Livre |
-| Marcos Lavin | Child Growth |
-| Pedro Moreno | Microsoft Teams |
-| Alana | Khan Academy |
-| Thiago Oliveira | Cafu |
-| Pri Chagas | TL;DV |
-| Dani | Desrotulando |
-| Glauco | WeChat |
-| Marina Fernandes | PowerBeats Pro |
-| Carol Cardoso | WhatsApp |
+| Arthur | Liti |
+| Aíquis | Wine |
+| Cloves | Figma Slides |
+| Danilera | Porto Seguro |
+| Glauco | Nespresso |
+| Karina | Nok Nox |
+| Brian | Youtube Premium |
+| Lucas | Abastece Aí |
+| Lucas (outro) | KlingAI |
+| Cauê | Ingresso.com |
+| Pilon | Strava |
+| Neuri | Strava |
 
 ---
 
@@ -63,85 +59,80 @@ Adicionar o episódio 47 com 14 menções de produtos.
 
 ### Detalhes Técnicos
 
-**Passo 1 - Adicionar episódio** (inserir antes do episódio 48, ~linha 38):
+**Passo 1 - Adicionar episódio** (inserir antes do episódio 47, ~linha 38):
 ```typescript
   {
-    id: 47,
-    title: "Nossas técnicas de produtividade (sem ligação com AI)",
-    date: "2024-08-21",
-    description: "Discussão sobre técnicas de produtividade sem o uso de inteligência artificial.",
+    id: 46,
+    title: "O presente e o futuro dos produtos de AI e Existe um mundo além das squads?",
+    date: "2024-08-14",
+    description: "Discussão sobre o presente e futuro dos produtos de inteligência artificial e reflexões sobre estruturas organizacionais.",
   },
 ```
 
-**Passo 2 - Adicionar produtos** (nas seções apropriadas):
-
-Entertainment (~linha 646):
+**Passo 2 - Renomear produto existente** (~linha 808):
 ```typescript
-  { id: "joker-card", name: "Joker Card", category: "Entertainment", url: "https://apps.apple.com/br/app/joker-card/id6480343238" },
+// ANTES
+{ id: "porto-seguro", name: "Porto Seguro Chatbot", category: "Insurance" },
+
+// DEPOIS
+{ id: "porto-seguro", name: "Porto Seguro", category: "Insurance", url: "https://www.portoseguro.com.br/" },
 ```
 
-Hardware (~linha 760):
+**Passo 3 - Adicionar produtos novos** (nas seções apropriadas):
+
+Productivity (~linha 617, após figma-make):
 ```typescript
-  { id: "ring", name: "Ring", category: "Hardware", url: "https://ring.com" },
-  { id: "powerbeats-pro", name: "PowerBeats Pro", category: "Hardware" },
+  { id: "figma-slides", name: "Figma Slides", category: "Productivity", parentId: "figma" },
 ```
 
-Retail (~linha 785):
+Entertainment (~linha 672, após youtube):
 ```typescript
-  { id: "shopee", name: "Shopee", category: "Retail", url: "https://shopee.com.br" },
+  { id: "youtube-premium", name: "Youtube Premium", category: "Entertainment", parentId: "youtube" },
+  { id: "nok-nox", name: "Nok Nox", category: "Entertainment", url: "https://noknox.com" },
+  { id: "ingresso-com", name: "Ingresso.com", category: "Entertainment", url: "https://www.ingresso.com/" },
 ```
 
-Delivery (~linha 775):
+AI Tools (~linha 400):
 ```typescript
-  { id: "cabana-burger", name: "Cabana Burger", category: "Delivery", url: "https://cabanaburger.com.br/" },
-  { id: "cafu", name: "Cafu", category: "Delivery", url: "https://www.cafu.com/" },
+  { id: "kling-ai", name: "KlingAI", category: "AI Tools", url: "https://klingai.com" },
 ```
 
-Lifestyle (~linha 750):
+Hardware (~linha 780):
 ```typescript
-  { id: "child-growth", name: "Child Growth", category: "Lifestyle" },
-  { id: "desrotulando", name: "Desrotulando", category: "Lifestyle", url: "https://desrotulando.com" },
+  { id: "nespresso", name: "Nespresso", category: "Hardware", url: "https://www.nespresso.com/br/" },
 ```
 
-Productivity (~linha 600):
+Retail (~linha 790):
 ```typescript
-  { id: "microsoft-teams", name: "Microsoft Teams", category: "Productivity", url: "https://teams.microsoft.com" },
+  { id: "wine", name: "Wine", category: "Retail", url: "https://www.wine.com.br/" },
 ```
 
-Education (~linha 640):
+Finance (~linha 545):
 ```typescript
-  { id: "khan-academy", name: "Khan Academy", category: "Education", url: "https://khanacademy.org" },
+  { id: "abastece-ai", name: "Abastece Aí", category: "Finance" },
 ```
 
-Social (~linha 574):
+**Passo 4 - Adicionar pessoas** (~linha 1055):
 ```typescript
-  { id: "wechat", name: "WeChat", category: "Social", url: "https://www.wechat.com" },
+  { id: "lucas-ep46", name: "Lucas (outro)" },
+  { id: "neuri", name: "Neuri" },
 ```
 
-**Passo 3 - Adicionar pessoas** (~linha 1072):
+**Passo 5 - Adicionar menções** (inserir antes do Episode 47):
 ```typescript
-  { id: "andressa-carbone", name: "Andressa Carbone" },
-  { id: "pedro-moreno", name: "Pedro Moreno" },
-  { id: "dani", name: "Dani" },
-```
-
-**Passo 4 - Adicionar menções** (inserir antes do Episode 48, ~linha 1077):
-```typescript
-  // Episode 47
-  { id: "m47-1", episodeId: 47, personId: "aiquis", productId: "joker-card" },
-  { id: "m47-2", episodeId: 47, personId: "arthur", productId: "ring" },
-  { id: "m47-3", episodeId: 47, personId: "karina", productId: "shopee" },
-  { id: "m47-4", episodeId: 47, personId: "maria", productId: "cabana-burger" },
-  { id: "m47-5", episodeId: 47, personId: "andressa-carbone", productId: "mercado-livre" },
-  { id: "m47-6", episodeId: 47, personId: "marcos-lavin", productId: "child-growth" },
-  { id: "m47-7", episodeId: 47, personId: "pedro-moreno", productId: "microsoft-teams" },
-  { id: "m47-8", episodeId: 47, personId: "alana", productId: "khan-academy" },
-  { id: "m47-9", episodeId: 47, personId: "thiago-oliveira", productId: "cafu" },
-  { id: "m47-10", episodeId: 47, personId: "pri-chagas", productId: "tldv" },
-  { id: "m47-11", episodeId: 47, personId: "dani", productId: "desrotulando" },
-  { id: "m47-12", episodeId: 47, personId: "glauco", productId: "wechat" },
-  { id: "m47-13", episodeId: 47, personId: "marina-fernandes", productId: "powerbeats-pro" },
-  { id: "m47-14", episodeId: 47, personId: "carol-cardoso", productId: "whatsapp" },
+  // Episode 46
+  { id: "m46-1", episodeId: 46, personId: "arthur", productId: "liti" },
+  { id: "m46-2", episodeId: 46, personId: "aiquis", productId: "wine" },
+  { id: "m46-3", episodeId: 46, personId: "cloves", productId: "figma-slides" },
+  { id: "m46-4", episodeId: 46, personId: "danilera", productId: "porto-seguro" },
+  { id: "m46-5", episodeId: 46, personId: "glauco", productId: "nespresso" },
+  { id: "m46-6", episodeId: 46, personId: "karina", productId: "nok-nox" },
+  { id: "m46-7", episodeId: 46, personId: "brian", productId: "youtube-premium" },
+  { id: "m46-8", episodeId: 46, personId: "lucas", productId: "abastece-ai" },
+  { id: "m46-9", episodeId: 46, personId: "lucas-ep46", productId: "kling-ai" },
+  { id: "m46-10", episodeId: 46, personId: "caue", productId: "ingresso-com" },
+  { id: "m46-11", episodeId: 46, personId: "pilon", productId: "strava" },
+  { id: "m46-12", episodeId: 46, personId: "neuri", productId: "strava" },
 ```
 
 ---
@@ -151,7 +142,7 @@ Social (~linha 574):
 | Item | Quantidade |
 |------|------------|
 | Episódio | 1 |
-| Pessoas novas | 3 |
-| Produtos novos | 11 |
-| Menções | 14 |
-
+| Pessoas novas | 2 |
+| Produtos novos | 8 |
+| Produto renomeado | 1 |
+| Menções | 12 |
