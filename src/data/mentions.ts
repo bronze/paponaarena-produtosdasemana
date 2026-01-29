@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
 // 2024 Episodes
   {
+    id: 46,
+    title: "O presente e o futuro dos produtos de AI e Existe um mundo além das squads?",
+    date: "2024-08-14",
+    description: "Discussão sobre o presente e futuro dos produtos de inteligência artificial e reflexões sobre estruturas organizacionais.",
+  },
+  {
     id: 47,
     title: "Nossas técnicas de produtividade (sem ligação com AI)",
     date: "2024-08-21",
@@ -469,6 +475,7 @@ export const products: Product[] = [
   { id: "canvas", name: "Canvas", category: "AI Tools" },
   { id: "chatprd", name: "ChatPRD", category: "AI Tools", url: "https://chatprd.ai" },
   { id: "isla", name: "Isla", category: "AI Tools" },
+  { id: "kling-ai", name: "KlingAI", category: "AI Tools", url: "https://klingai.com" },
   { id: "zoom-ai-companion", name: "Zoom AI Companion", category: "AI Tools" },
 
   // Automation
@@ -615,6 +622,7 @@ export const products: Product[] = [
   { id: "canva", name: "Canva", category: "Productivity", url: "https://canva.com" },
   { id: "figma", name: "Figma", category: "Productivity", url: "https://figma.com" },
   { id: "figma-make", name: "Figma Make", category: "Productivity", parentId: "figma" },
+  { id: "figma-slides", name: "Figma Slides", category: "Productivity", parentId: "figma" },
   { id: "clickup", name: "ClickUp", category: "Productivity", url: "https://clickup.com" },
   { id: "google-slides", name: "Google Slides", category: "Productivity" },
   { id: "google-maps", name: "Google Maps", category: "Productivity", url: "https://maps.google.com" },
@@ -670,6 +678,9 @@ export const products: Product[] = [
   { id: "pokemon-tcg", name: "Pokémon TCG", category: "Entertainment", url: "https://tcgpocket.pokemon.com/en-us/" },
   { id: "netflix", name: "Netflix", category: "Entertainment", url: "https://netflix.com" },
   { id: "youtube", name: "Youtube", category: "Entertainment", url: "https://youtube.com" },
+  { id: "youtube-premium", name: "Youtube Premium", category: "Entertainment", parentId: "youtube" },
+  { id: "nok-nox", name: "Nok Nox", category: "Entertainment", url: "https://noknox.com" },
+  { id: "ingresso-com", name: "Ingresso.com", category: "Entertainment", url: "https://www.ingresso.com/" },
   { id: "disney-plus", name: "Disney+", category: "Entertainment", url: "https://disneyplus.com" },
   { id: "appletv-plus", name: "AppleTV+", category: "Entertainment", url: "https://tv.apple.com" },
   { id: "max", name: "Max", category: "Entertainment", url: "https://max.com" },
@@ -721,11 +732,13 @@ export const products: Product[] = [
   { id: "app-fgc", name: "App do FGC", category: "Finance" },
   { id: "banana-mercado", name: "Banana Mercado", category: "Finance" },
   { id: "offramp", name: "Offramp", category: "Finance", url: "https://www.offramp.xyz/" },
+  { id: "abastece-ai", name: "Abastece Aí", category: "Finance" },
 
   // Lifestyle
   { id: "foodtosave", name: "FoodtoSave", category: "Lifestyle" },
   { id: "ring", name: "Ring", category: "Hardware", url: "https://ring.com" },
   { id: "powerbeats-pro", name: "PowerBeats Pro", category: "Hardware" },
+  { id: "nespresso", name: "Nespresso", category: "Hardware", url: "https://www.nespresso.com/br/" },
   { id: "airfryer-ritalobo", name: "Airfryer Rita Lobo", category: "Hardware" },
   { id: "thefork", name: "TheFork", category: "Lifestyle", url: "https://thefork.com" },
   { id: "lindt", name: "Lindt", category: "Lifestyle", url: "https://www.lindt.com.br/" },
@@ -805,7 +818,7 @@ export const products: Product[] = [
   // Insurance
   { id: "allianz-seguros", name: "Allianz Seguros", category: "Insurance" },
   { id: "bradesco-seguros", name: "Bradesco Seguros", category: "Insurance" },
-  { id: "porto-seguro", name: "Porto Seguro Chatbot", category: "Insurance" },
+  { id: "porto-seguro", name: "Porto Seguro", category: "Insurance", url: "https://www.portoseguro.com.br/" },
 
   // Business
   { id: "home-planner", name: "Home Planner", category: "Business" },
@@ -837,6 +850,7 @@ export const products: Product[] = [
   // Retail
   { id: "sams-club", name: "Sam's Club", category: "Retail", url: "https://samsclub.com.br" },
   { id: "shopee", name: "Shopee", category: "Retail", url: "https://shopee.com.br" },
+  { id: "wine", name: "Wine", category: "Retail", url: "https://www.wine.com.br/" },
   { id: "nike", name: "Nike", category: "Retail", url: "https://nike.com" },
   { id: "pexels", name: "Pexels", category: "Business", url: "https://pexels.com" },
   { id: "vivino", name: "Vivino", category: "Business", url: "https://vivino.com" },
@@ -1091,10 +1105,27 @@ export const people: Person[] = [
   { id: "andressa-carbone", name: "Andressa Carbone" },
   { id: "pedro-moreno", name: "Pedro Moreno" },
   { id: "dani", name: "Dani" },
+  // Episode 46 contributors
+  { id: "lucas-ep46", name: "Lucas (outro)" },
+  { id: "neuri", name: "Neuri" },
 ];
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 46
+  { id: "m46-1", episodeId: 46, personId: "arthur", productId: "liti" },
+  { id: "m46-2", episodeId: 46, personId: "aiquis", productId: "wine" },
+  { id: "m46-3", episodeId: 46, personId: "cloves", productId: "figma-slides" },
+  { id: "m46-4", episodeId: 46, personId: "danilera", productId: "porto-seguro" },
+  { id: "m46-5", episodeId: 46, personId: "glauco", productId: "nespresso" },
+  { id: "m46-6", episodeId: 46, personId: "karina", productId: "nok-nox" },
+  { id: "m46-7", episodeId: 46, personId: "brian", productId: "youtube-premium" },
+  { id: "m46-8", episodeId: 46, personId: "lucas", productId: "abastece-ai" },
+  { id: "m46-9", episodeId: 46, personId: "lucas-ep46", productId: "kling-ai" },
+  { id: "m46-10", episodeId: 46, personId: "caue", productId: "ingresso-com" },
+  { id: "m46-11", episodeId: 46, personId: "pilon", productId: "strava" },
+  { id: "m46-12", episodeId: 46, personId: "neuri", productId: "strava" },
+
   // Episode 47
   { id: "m47-1", episodeId: 47, personId: "aiquis", productId: "joker-card" },
   { id: "m47-2", episodeId: 47, personId: "arthur", productId: "ring" },
