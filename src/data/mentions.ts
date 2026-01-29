@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
 // 2024 Episodes
   {
+    id: 41,
+    title: "Estratégias de A.I.: integrações, modelos e custos",
+    date: "2024-06-26",
+    description: "Discussão sobre estratégias de inteligência artificial: integrações, modelos e custos.",
+  },
+  {
     id: 42,
     title: "A conferência do Figma e as comunidades de design e produto",
     date: "2024-07-02",
@@ -556,6 +562,26 @@ export const products: Product[] = [
   { id: "bionic-go", name: "Bionic Go", category: "Fitness" },
   { id: "zepp", name: "Zepp", category: "Fitness" },
   { id: "garmin-connect", name: "Garmin Connect", category: "Fitness", url: "https://connect.garmin.com" },
+
+  // Lifestyle
+  { id: "gravidez-plus", name: "Gravidez+", category: "Lifestyle" },
+
+  // Retail
+  { id: "zoom-loja", name: "Zoom", category: "Retail", url: "https://www.zoom.com.br/" },
+  { id: "buscape", name: "Buscapé", category: "Retail", url: "https://www.buscape.com.br/" },
+  { id: "buscape-zoom", name: "Buscapé + Zoom", category: "Retail", alsoCredits: ["buscape", "zoom-loja"] },
+
+  // AI Tools (Episode 41)
+  { id: "invisibility-ai", name: "Invisibility AI", category: "AI Tools", url: "https://github.com/InvisibilityInc/Invisibility" },
+
+  // Delivery (Episode 41)
+  { id: "ifood-lista-mercado", name: "iFood (mostrar a lista do mercado)", category: "Delivery", parentId: "ifood" },
+
+  // Development (Episode 41)
+  { id: "rstudio", name: "R-Studio", category: "Development" },
+
+  // Finance (Episode 41)
+  { id: "bipa", name: "Bipa", category: "Finance", url: "https://bipa.app/" },
 
   // Analytics
   { id: "amplitude", name: "Amplitude", category: "Analytics", url: "https://amplitude.com" },
@@ -1151,10 +1177,26 @@ export const people: Person[] = [
   // Episode 46 contributors
   { id: "lucas-ep46", name: "Lucas (outro)" },
   { id: "neuri", name: "Neuri" },
+  // Episode 41 contributors
+  { id: "miriam", name: "Miriam" },
+  { id: "eduardo", name: "Eduardo" },
 ];
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 41
+  { id: "m41-1", episodeId: 41, personId: "arthur", productId: "gravidez-plus" },
+  { id: "m41-2", episodeId: 41, personId: "arthur", productId: "ray-ban-meta" },
+  { id: "m41-3", episodeId: 41, personId: "aiquis", productId: "buscape-zoom" },
+  { id: "m41-4", episodeId: 41, personId: "cloves", productId: "invisibility-ai" },
+  { id: "m41-5", episodeId: 41, personId: "nana", productId: "canva" },
+  { id: "m41-6", episodeId: 41, personId: "miriam", productId: "ifood-lista-mercado" },
+  { id: "m41-7", episodeId: 41, personId: "karina", productId: "garmin-connect" },
+  { id: "m41-8", episodeId: 41, personId: "eduardo", productId: "rstudio" },
+  { id: "m41-9", episodeId: 41, personId: "bob", productId: "spotify" },
+  { id: "m41-10", episodeId: 41, personId: "glauco", productId: "max" },
+  { id: "m41-11", episodeId: 41, personId: "lucas", productId: "bipa" },
+
   // Episode 42
   { id: "m42-1", episodeId: 42, personId: "arthur", productId: "zoom" },
   { id: "m42-2", episodeId: 42, personId: "aiquis", productId: "shopee" },
