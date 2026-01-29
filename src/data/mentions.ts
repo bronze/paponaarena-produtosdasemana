@@ -34,7 +34,13 @@ export interface Mention {
 
 // Episodes
 export const episodes: Episode[] = [
-  // 2024 Episodes
+// 2024 Episodes
+  {
+    id: 51,
+    title: "Velocidade vs. Qualidade e as táticas de growth que [não] funcionam",
+    date: "2024-09-18",
+    description: "Discussão sobre o equilíbrio entre velocidade e qualidade e táticas de growth.",
+  },
   {
     id: 52,
     title: "Panorama do Mercado de Produto do Brasil",
@@ -341,10 +347,21 @@ export const episodes: Episode[] = [
 
 // Products (unique across all episodes)
 export const products: Product[] = [
-  // Hardware
+// Hardware
   { id: "ray-ban-meta", name: "Ray-Ban Meta", category: "Hardware" },
   { id: "standing-desk-pichau", name: "Standing Desk (Pichau)", category: "Hardware" },
   { id: "cadeira-balanco-bebe", name: "Cadeira de balanço pra bebê", category: "Hardware" },
+  { id: "kabum-smart-700", name: "Kabum! Smart 700", category: "Hardware" },
+  { id: "inalador", name: "Inalador", category: "Hardware" },
+  { id: "alexa", name: "Alexa", category: "Hardware" },
+
+  // Entertainment
+  { id: "monument-valley", name: "Monument Valley", category: "Entertainment" },
+  { id: "sports-alerts", name: "Sports Alerts", category: "Entertainment" },
+  { id: "rock-in-rio", name: "Rock in Rio", category: "Entertainment" },
+
+  // Travel
+  { id: "tripadvisor", name: "TripAdvisor", category: "Travel", url: "https://tripadvisor.com" },
 
   // AI Tools
   { id: "bolt", name: "Bolt", category: "AI Tools", url: "https://bolt.new" },
@@ -1019,6 +1036,17 @@ export const people: Person[] = [
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 51
+  { id: "m51-1", episodeId: 51, personId: "arthur", productId: "notebooklm" },
+  { id: "m51-2", episodeId: 51, personId: "aiquis", productId: "kabum-smart-700" },
+  { id: "m51-3", episodeId: 51, personId: "karina", productId: "monument-valley" },
+  { id: "m51-4", episodeId: 51, personId: "alexandre-pereira", productId: "sports-alerts" },
+  { id: "m51-5", episodeId: 51, personId: "andrezinho", productId: "tripadvisor" },
+  { id: "m51-6", episodeId: 51, personId: "fabinho", productId: "inalador" },
+  { id: "m51-7", episodeId: 51, personId: "lucao", productId: "rock-in-rio" },
+  { id: "m51-8", episodeId: 51, personId: "nery", productId: "filebrowser-go" },
+  { id: "m51-9", episodeId: 51, personId: "danilera", productId: "alexa" },
+
   // Episode 52
   { id: "m52-1", episodeId: 52, personId: "aiquis", productId: "sleeper-fantasy-football" },
   { id: "m52-2", episodeId: 52, personId: "arthur", productId: "luma" },
