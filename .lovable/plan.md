@@ -1,8 +1,9 @@
 
-## Plano: Adicionar Episódio 36 (Os lançamentos da OpenAI e do Google)
+
+## Plano: Adicionar Episódio 35 (Cultura, silos, aquisições e politicagem)
 
 ### Visão Geral
-Adicionar o episódio 36 com 9 menções de produtos. Este será o episódio mais antigo do dataset.
+Adicionar o episódio 35 com 5 menções de produtos. Este será o episódio mais antigo do dataset.
 
 ---
 
@@ -11,21 +12,28 @@ Adicionar o episódio 36 com 9 menções de produtos. Este será o episódio mai
 **Produtos existentes:**
 | ID | Nome | Categoria |
 |----|------|-----------|
-| `kindle` | Kindle | Reading |
-| `magie` | Magie | AI Tools |
-| `google-maps` | Google Maps | Productivity |
-| `zoom-loja` | Zoom | Retail |
+| `whatsapp` | WhatsApp | Business |
+| `livelo` | Livelo | Finance |
+| `gov-br` | gov.br | Productivity |
+
+**Produtos a criar:**
+| ID | Nome | Categoria | Observação |
+|----|------|-----------|------------|
+| `slack` | Slack | Productivity | Ferramenta de comunicação |
+| `zona-azul` | Zona Azul | Productivity | App de estacionamento |
 
 **Pessoas existentes:**
 | ID | Nome |
 |----|------|
 | `arthur` | Arthur |
 | `aiquis` | Aíquis |
-| `pilon` | Pilon |
-| `cloves` | Cloves |
-| `danilera` | Danilera |
-| `nana` | Nana |
-| `amanda` | Amanda |
+| `paulo` | Paulo |
+| `glauco` | Glauco |
+
+**Pessoa a criar:**
+| ID | Nome |
+|----|------|
+| `cesar` | César |
 
 ---
 
@@ -34,38 +42,27 @@ Adicionar o episódio 36 com 9 menções de produtos. Este será o episódio mai
 **1 Episódio:**
 | ID | Título | Data |
 |----|--------|------|
-| 36 | Os lançamentos da OpenAI e do Google | 2024-05-14 |
+| 35 | Cultura, silos, aquisições e politicagem | 2024-05-07 |
 
-**2 Novas Pessoas:**
+**1 Nova Pessoa:**
 | ID | Nome |
 |----|------|
-| `luiz` | Luiz |
-| `montoy` | Montoy |
+| `cesar` | César |
 
-**5 Novos Produtos:**
-| ID | Nome | Categoria | URL | Observação |
-|----|------|-----------|-----|------------|
-| `kindle-app` | Kindle App | Reading | - | Variante do Kindle (parentId: kindle) |
-| `nintendo-switch` | Nintendo Switch | Entertainment | - | Console/portátil original |
-| `blinkist` | Blinkist | Reading | https://www.blinkist.com | App de resumos de livros |
-| `surfview` | Surfview | Lifestyle | https://surfview.com.br/ | App/serviço de surf |
-| `tunnelbear` | TunnelBear | Productivity | https://www.tunnelbear.com | VPN |
-| `atlas-ti` | Atlas.ti | Productivity | https://atlasti.com/ | Software de análise qualitativa |
+**2 Novos Produtos:**
+| ID | Nome | Categoria | URL |
+|----|------|-----------|-----|
+| `slack` | Slack | Productivity | https://slack.com |
+| `zona-azul` | Zona Azul | Productivity | - |
 
-**Nota sobre Atlas.ti:** Já existe um produto `atlas` (Apps) no sistema, mas é diferente. O Atlas.ti é um software de análise de dados qualitativos, então será criado como um produto separado com ID `atlas-ti`.
-
-**9 Menções:**
+**5 Menções:**
 | Pessoa | Produto |
 |--------|---------|
-| Arthur | Kindle App |
-| Aíquis | Nintendo Switch |
-| Pilon | Magie |
-| Cloves | Blinkist |
-| Danilera | Surfview |
-| Nana | Google Maps |
-| Amanda | Zoom (loja) |
-| Luiz | TunnelBear |
-| Montoy | Atlas.ti |
+| Arthur | WhatsApp |
+| Aíquis | Livelo |
+| César | Slack |
+| Paulo | gov.br |
+| Glauco | Zona Azul |
 
 ---
 
@@ -76,62 +73,37 @@ Adicionar o episódio 36 com 9 menções de produtos. Este será o episódio mai
 
 ### Detalhes Técnicos
 
-**Passo 1 - Adicionar episódio** (inserir antes do episódio 37, início da lista):
+**Passo 1 - Adicionar episódio** (inserir antes do episódio 36):
 ```typescript
   {
-    id: 36,
-    title: "Os lançamentos da OpenAI e do Google",
-    date: "2024-05-14",
-    description: "Discussão sobre os lançamentos recentes da OpenAI e do Google.",
+    id: 35,
+    title: "Cultura, silos, aquisições e politicagem",
+    date: "2024-05-07",
+    description: "Discussão sobre cultura organizacional, silos, aquisições e politicagem no mundo de produto.",
   },
 ```
 
 **Passo 2 - Adicionar produtos novos:**
 
-Reading (variante do Kindle):
-```typescript
-  { id: "kindle-app", name: "Kindle App", category: "Reading", parentId: "kindle" },
-```
-
-Entertainment:
-```typescript
-  { id: "nintendo-switch", name: "Nintendo Switch", category: "Entertainment" },
-```
-
-Reading:
-```typescript
-  { id: "blinkist", name: "Blinkist", category: "Reading", url: "https://www.blinkist.com" },
-```
-
-Lifestyle:
-```typescript
-  { id: "surfview", name: "Surfview", category: "Lifestyle", url: "https://surfview.com.br/" },
-```
-
 Productivity:
 ```typescript
-  { id: "tunnelbear", name: "TunnelBear", category: "Productivity", url: "https://www.tunnelbear.com" },
-  { id: "atlas-ti", name: "Atlas.ti", category: "Productivity", url: "https://atlasti.com/" },
+  { id: "slack", name: "Slack", category: "Productivity", url: "https://slack.com" },
+  { id: "zona-azul", name: "Zona Azul", category: "Productivity" },
 ```
 
-**Passo 3 - Adicionar pessoas:**
+**Passo 3 - Adicionar pessoa:**
 ```typescript
-  { id: "luiz", name: "Luiz" },
-  { id: "montoy", name: "Montoy" },
+  { id: "cesar", name: "César" },
 ```
 
-**Passo 4 - Adicionar menções** (inserir antes do Episode 37):
+**Passo 4 - Adicionar menções** (inserir antes do Episode 36):
 ```typescript
-  // Episode 36
-  { id: "m36-1", episodeId: 36, personId: "arthur", productId: "kindle-app" },
-  { id: "m36-2", episodeId: 36, personId: "aiquis", productId: "nintendo-switch" },
-  { id: "m36-3", episodeId: 36, personId: "pilon", productId: "magie" },
-  { id: "m36-4", episodeId: 36, personId: "cloves", productId: "blinkist" },
-  { id: "m36-5", episodeId: 36, personId: "danilera", productId: "surfview" },
-  { id: "m36-6", episodeId: 36, personId: "nana", productId: "google-maps" },
-  { id: "m36-7", episodeId: 36, personId: "amanda", productId: "zoom-loja" },
-  { id: "m36-8", episodeId: 36, personId: "luiz", productId: "tunnelbear" },
-  { id: "m36-9", episodeId: 36, personId: "montoy", productId: "atlas-ti" },
+  // Episode 35
+  { id: "m35-1", episodeId: 35, personId: "arthur", productId: "whatsapp" },
+  { id: "m35-2", episodeId: 35, personId: "aiquis", productId: "livelo" },
+  { id: "m35-3", episodeId: 35, personId: "cesar", productId: "slack" },
+  { id: "m35-4", episodeId: 35, personId: "paulo", productId: "gov-br" },
+  { id: "m35-5", episodeId: 35, personId: "glauco", productId: "zona-azul" },
 ```
 
 ---
@@ -141,14 +113,13 @@ Productivity:
 | Item | Quantidade |
 |------|------------|
 | Episódio | 1 |
-| Pessoas novas | 2 |
-| Produtos novos | 6 |
-| Menções | 9 |
+| Pessoas novas | 1 |
+| Produtos novos | 2 |
+| Menções | 5 |
 
 ### Notas
-- Kindle App é variante do Kindle (parentId: kindle) - menções serão agregadas
-- Nintendo Switch é diferente de Nintendo Switch 2 que já existe (ep. 84)
-- Amanda mencionou o Zoom comparador de preços (zoom.com.br), não a ferramenta de videoconferência
-- Atlas.ti é diferente do Atlas existente (um é software de pesquisa qualitativa, outro é app)
-- TunnelBear é um serviço de VPN, categorizado como Productivity
-- Magie e Google Maps já existem e serão reutilizados
+- WhatsApp, Livelo e gov.br já existem e serão reutilizados
+- Slack é uma ferramenta de comunicação empresarial da Salesforce
+- Zona Azul é o app de estacionamento rotativo digital
+- César é um novo participante do podcast
+
