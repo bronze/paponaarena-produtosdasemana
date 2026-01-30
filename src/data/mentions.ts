@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
   // 2024 Episodes
   {
+    id: 29,
+    title: "Cagan ON FIRE!",
+    date: "2024-03-12",
+    description: "Discussão sobre as ideias de Marty Cagan e sua aplicação no mundo de produto.",
+  },
+  {
     id: 30,
     title: "A.I. e Futebol dá jogo? Como se tornar um PM mais técnico",
     date: "2024-04-05",
@@ -485,6 +491,12 @@ export const products: Product[] = [
   { id: "skyview", name: "SkyView", category: "Entertainment" },
   { id: "twitch", name: "Twitch", category: "Entertainment", url: "https://twitch.tv" },
   { id: "yoosee", name: "Yoosee", category: "Hardware" },
+  { id: "polytopia", name: "Polytopia", category: "Entertainment", url: "https://polytopia.io/" },
+  { id: "formula-1", name: "Fórmula 1", category: "Entertainment" },
+  { id: "drive-pay-as-you-drive", name: "Drive", category: "Insurance" },
+  { id: "awto", name: "Awto", category: "Transportation", url: "https://site.awto.com.br/" },
+  { id: "camera", name: "Camera", category: "Productivity" },
+  { id: "ianygo", name: "iAnyGo", category: "Productivity", url: "https://www.ianygo.net/" },
 
   // Travel
   { id: "tripadvisor", name: "TripAdvisor", category: "Travel", url: "https://tripadvisor.com" },
@@ -1336,6 +1348,8 @@ export const people: Person[] = [
   { id: "anonimo", name: "Anônimo" },
   // Episode 31 contributors
   { id: "renato", name: "Renato" },
+  // Episode 29 contributor
+  { id: "renato-bassi", name: "Renato Bassi" },
   // Episode 32 contributors
   { id: "sala", name: "Sala" },
   { id: "marmerola", name: "Marmerola" },
@@ -1346,6 +1360,18 @@ export const people: Person[] = [
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 29
+  { id: "m29-1", episodeId: 29, personId: "arthur", productId: "chatgpt" },
+  { id: "m29-2", episodeId: 29, personId: "aiquis", productId: "instagram" },
+  { id: "m29-3", episodeId: 29, personId: "luiz", productId: "drive-pay-as-you-drive" },
+  { id: "m29-4", episodeId: 29, personId: "pilon", productId: "polytopia" },
+  { id: "m29-5", episodeId: 29, personId: "renato-bassi", productId: "awto" },
+  { id: "m29-6", episodeId: 29, personId: "fabinho", productId: "camera" },
+  { id: "m29-7", episodeId: 29, personId: "andrezinho", productId: "youtube" },
+  { id: "m29-8", episodeId: 29, personId: "henrique", productId: "tiktok" },
+  { id: "m29-9", episodeId: 29, personId: "luquita", productId: "formula-1" },
+  { id: "m29-10", episodeId: 29, personId: "anonimo", productId: "ianygo" },
+
   // Episode 30
   { id: "m30-1", episodeId: 30, personId: "aiquis", productId: "twitch" },
   { id: "m30-2", episodeId: 30, personId: "arthur", productId: "pocket" },
