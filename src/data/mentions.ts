@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
   // 2024 Episodes
   {
+    id: 35,
+    title: "Cultura, silos, aquisições e politicagem",
+    date: "2024-05-07",
+    description: "Discussão sobre cultura organizacional, silos, aquisições e politicagem no mundo de produto.",
+  },
+  {
     id: 36,
     title: "Os lançamentos da OpenAI e do Google",
     date: "2024-05-14",
@@ -744,6 +750,8 @@ export const products: Product[] = [
   { id: "nordvpn", name: "NordVPN", category: "Productivity", url: "https://nordvpn.com/" },
   { id: "tunnelbear", name: "TunnelBear", category: "Productivity", url: "https://www.tunnelbear.com" },
   { id: "atlas-ti", name: "Atlas.ti", category: "Productivity", url: "https://atlasti.com/" },
+  { id: "slack", name: "Slack", category: "Productivity", url: "https://slack.com" },
+  { id: "zona-azul", name: "Zona Azul", category: "Productivity" },
   { id: "swiftkey", name: "SwiftKey", category: "Productivity" },
 
   // Education
@@ -1263,10 +1271,19 @@ export const people: Person[] = [
   // Episode 36 contributors
   { id: "luiz", name: "Luiz" },
   { id: "montoy", name: "Montoy" },
+  // Episode 35 contributors
+  { id: "cesar", name: "César" },
 ];
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 35
+  { id: "m35-1", episodeId: 35, personId: "arthur", productId: "whatsapp" },
+  { id: "m35-2", episodeId: 35, personId: "aiquis", productId: "livelo" },
+  { id: "m35-3", episodeId: 35, personId: "cesar", productId: "slack" },
+  { id: "m35-4", episodeId: 35, personId: "paulo", productId: "gov-br" },
+  { id: "m35-5", episodeId: 35, personId: "glauco", productId: "zona-azul" },
+
   // Episode 36
   { id: "m36-1", episodeId: 36, personId: "arthur", productId: "kindle-app" },
   { id: "m36-2", episodeId: 36, personId: "aiquis", productId: "nintendo-switch" },
