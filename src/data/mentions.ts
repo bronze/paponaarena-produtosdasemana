@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
   // 2024 Episodes
   {
+    id: 28,
+    title: "A métrica de sucesso para Product Leaders e já imaginou a internet sem ads?",
+    date: "2024-03-07",
+    description: "Discussão sobre métricas de sucesso para líderes de produto e uma reflexão sobre uma internet sem anúncios.",
+  },
+  {
     id: 29,
     title: "Cagan ON FIRE!",
     date: "2024-03-12",
@@ -497,6 +503,13 @@ export const products: Product[] = [
   { id: "awto", name: "Awto", category: "Transportation", url: "https://site.awto.com.br/" },
   { id: "camera", name: "Camera", category: "Productivity" },
   { id: "ianygo", name: "iAnyGo", category: "Productivity", url: "https://www.ianygo.net/" },
+  // Episode 28 products
+  { id: "corsair-hs80-wireless", name: "Corsair HS80 Wireless", category: "Hardware" },
+  { id: "daylio", name: "Daylio", category: "Health", url: "https://daylio.net/" },
+  { id: "swingvision", name: "SwingVision", category: "Fitness", url: "https://swing.vision/" },
+  { id: "expo-go", name: "ExpoGo", category: "Development", url: "https://expo.dev/go" },
+  { id: "feedly", name: "Feedly", category: "Productivity", url: "https://feedly.com/" },
+  { id: "wolfram", name: "Wolfram", category: "AI Tools", url: "https://www.wolframalpha.com/" },
 
   // Travel
   { id: "tripadvisor", name: "TripAdvisor", category: "Travel", url: "https://tripadvisor.com" },
@@ -1350,6 +1363,8 @@ export const people: Person[] = [
   { id: "renato", name: "Renato" },
   // Episode 29 contributor
   { id: "renato-bassi", name: "Renato Bassi" },
+  // Episode 28 contributor
+  { id: "lucas-matos", name: "Lucas Matos" },
   // Episode 32 contributors
   { id: "sala", name: "Sala" },
   { id: "marmerola", name: "Marmerola" },
@@ -1360,6 +1375,14 @@ export const people: Person[] = [
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 28
+  { id: "m28-1", episodeId: 28, personId: "aiquis", productId: "corsair-hs80-wireless" },
+  { id: "m28-2", episodeId: 28, personId: "arthur", productId: "daylio" },
+  { id: "m28-3", episodeId: 28, personId: "lucas-matos", productId: "swingvision" },
+  { id: "m28-4", episodeId: 28, personId: "eduardo-augusto", productId: "expo-go" },
+  { id: "m28-5", episodeId: 28, personId: "alice", productId: "feedly" },
+  { id: "m28-6", episodeId: 28, personId: "glauco", productId: "wolfram" },
+
   // Episode 29
   { id: "m29-1", episodeId: 29, personId: "arthur", productId: "chatgpt" },
   { id: "m29-2", episodeId: 29, personId: "aiquis", productId: "instagram" },
