@@ -1,49 +1,40 @@
 
 
-## Plano: Adicionar Episódio 29 (Cagan ON FIRE!)
+## Plano: Adicionar Episódio 28 (A métrica de sucesso para Product Leaders e já imaginou a internet sem ads?)
 
 ### Visão Geral
-Adicionar o episódio 29 com 10 menções de produtos. Este será o novo episódio mais antigo do dataset (antes do episódio 30).
+Adicionar o episódio 28 com 6 menções de produtos. Este será o novo episódio mais antigo do dataset (antes do episódio 29).
 
 ---
 
 ### Análise de Dados
 
 **Produtos existentes:**
-| ID | Nome | Categoria |
-|----|------|-----------|
-| `chatgpt` | ChatGPT | AI Tools |
-| `instagram` | Instagram | Social |
-| `youtube` | Youtube | Entertainment |
-| `tiktok` | TikTok | Social |
+Nenhum dos produtos listados existe no sistema.
 
 **Produtos a criar:**
 | ID | Nome | Categoria | URL | Observação |
 |----|------|-----------|-----|------------|
-| `drive-pay-as-you-drive` | Drive | Insurance | - | App pay as you drive (seguro por km) |
-| `polytopia` | Polytopia | Entertainment | https://polytopia.io/ | Jogo de estratégia |
-| `awto` | Awto | Transportation | https://site.awto.com.br/ | Plataforma de carros |
-| `camera` | Camera | Productivity | - | App de câmera |
-| `formula-1` | Fórmula 1 | Entertainment | - | App oficial da F1 |
-| `ianygo` | iAnyGo | Productivity | https://www.ianygo.net/ | App para alterar localização GPS |
+| `corsair-hs80-wireless` | Corsair HS80 Wireless | Hardware | - | Headset gamer wireless |
+| `daylio` | Daylio | Health | https://daylio.net/ | App de diário de humor e bem-estar |
+| `swingvision` | SwingVision | Fitness | https://swing.vision/ | App de análise de tênis/esportes de raquete |
+| `expo-go` | ExpoGo | Development | https://expo.dev/go | App para desenvolvimento React Native |
+| `feedly` | Feedly | Productivity | https://feedly.com/ | Agregador de notícias/RSS |
+| `wolfram` | Wolfram | AI Tools | https://www.wolframalpha.com/ | Motor de conhecimento computacional |
 
 **Pessoas existentes:**
 | ID | Nome |
 |----|------|
-| `arthur` | Arthur |
 | `aiquis` | Aíquis |
-| `luiz` | Luiz |
-| `pilon` | Pilon |
-| `fabinho` | Fabinho |
-| `andrezinho` | Andrézinho |
-| `henrique` | Henrique |
-| `luquita` | Luquita |
-| `anonimo` | Anônimo |
+| `arthur` | Arthur |
+| `eduardo-augusto` | Eduardo Augusto |
+| `alice` | Alice |
+| `glauco` | Glauco |
 
 **Pessoas a criar:**
 | ID | Nome | Observação |
 |----|------|------------|
-| `renato-bassi` | Renato Bassi | Diferente de "renato" existente |
+| `lucas-matos` | Lucas Matos | Diferente de "lucas" existente |
 
 ---
 
@@ -52,36 +43,32 @@ Adicionar o episódio 29 com 10 menções de produtos. Este será o novo episód
 **1 Episódio:**
 | ID | Título | Data |
 |----|--------|------|
-| 29 | Cagan ON FIRE! | 2024-03-12 |
+| 28 | A métrica de sucesso para Product Leaders e já imaginou a internet sem ads? | 2024-03-07 |
 
 **1 Nova Pessoa:**
 | ID | Nome |
 |----|------|
-| `renato-bassi` | Renato Bassi |
+| `lucas-matos` | Lucas Matos |
 
 **6 Novos Produtos:**
 | ID | Nome | Categoria | URL |
 |----|------|-----------|-----|
-| `drive-pay-as-you-drive` | Drive | Insurance | - |
-| `polytopia` | Polytopia | Entertainment | https://polytopia.io/ |
-| `awto` | Awto | Transportation | https://site.awto.com.br/ |
-| `camera` | Camera | Productivity | - |
-| `formula-1` | Fórmula 1 | Entertainment | - |
-| `ianygo` | iAnyGo | Productivity | https://www.ianygo.net/ |
+| `corsair-hs80-wireless` | Corsair HS80 Wireless | Hardware | - |
+| `daylio` | Daylio | Health | https://daylio.net/ |
+| `swingvision` | SwingVision | Fitness | https://swing.vision/ |
+| `expo-go` | ExpoGo | Development | https://expo.dev/go |
+| `feedly` | Feedly | Productivity | https://feedly.com/ |
+| `wolfram` | Wolfram | AI Tools | https://www.wolframalpha.com/ |
 
-**10 Menções:**
+**6 Menções:**
 | Pessoa | Produto |
 |--------|---------|
-| Arthur | ChatGPT |
-| Aíquis | Instagram |
-| Luiz | Drive |
-| Pilon | Polytopia |
-| Renato Bassi | Awto |
-| Fabinho | Camera |
-| Andrezinho | Youtube |
-| Henrique | TikTok |
-| Luquita | Fórmula 1 |
-| Anônimo | iAnyGo |
+| Aíquis | Corsair HS80 Wireless |
+| Arthur | Daylio |
+| Lucas Matos | SwingVision |
+| Eduardo Augusto | ExpoGo |
+| Alice | Feedly |
+| Glauco | Wolfram |
 
 ---
 
@@ -92,59 +79,63 @@ Adicionar o episódio 29 com 10 menções de produtos. Este será o novo episód
 
 ### Detalhes Técnicos
 
-**Passo 1 - Adicionar episódio** (inserir antes do episódio 30, início da lista):
+**Passo 1 - Adicionar episódio** (inserir antes do episódio 29, início da lista):
 ```typescript
   {
-    id: 29,
-    title: "Cagan ON FIRE!",
-    date: "2024-03-12",
-    description: "Discussão sobre as ideias de Marty Cagan e sua aplicação no mundo de produto.",
+    id: 28,
+    title: "A métrica de sucesso para Product Leaders e já imaginou a internet sem ads?",
+    date: "2024-03-07",
+    description: "Discussão sobre métricas de sucesso para líderes de produto e uma reflexão sobre uma internet sem anúncios.",
   },
 ```
 
 **Passo 2 - Adicionar produtos novos:**
 
-Insurance:
+Hardware:
 ```typescript
-  { id: "drive-pay-as-you-drive", name: "Drive", category: "Insurance" },
+  { id: "corsair-hs80-wireless", name: "Corsair HS80 Wireless", category: "Hardware" },
 ```
 
-Entertainment:
+Health:
 ```typescript
-  { id: "polytopia", name: "Polytopia", category: "Entertainment", url: "https://polytopia.io/" },
-  { id: "formula-1", name: "Fórmula 1", category: "Entertainment" },
+  { id: "daylio", name: "Daylio", category: "Health", url: "https://daylio.net/" },
 ```
 
-Transportation:
+Fitness:
 ```typescript
-  { id: "awto", name: "Awto", category: "Transportation", url: "https://site.awto.com.br/" },
+  { id: "swingvision", name: "SwingVision", category: "Fitness", url: "https://swing.vision/" },
+```
+
+Development:
+```typescript
+  { id: "expo-go", name: "ExpoGo", category: "Development", url: "https://expo.dev/go" },
 ```
 
 Productivity:
 ```typescript
-  { id: "camera", name: "Camera", category: "Productivity" },
-  { id: "ianygo", name: "iAnyGo", category: "Productivity", url: "https://www.ianygo.net/" },
+  { id: "feedly", name: "Feedly", category: "Productivity", url: "https://feedly.com/" },
+```
+
+AI Tools:
+```typescript
+  { id: "wolfram", name: "Wolfram", category: "AI Tools", url: "https://www.wolframalpha.com/" },
 ```
 
 **Passo 3 - Adicionar pessoa:**
 ```typescript
-  // Episode 29 contributor
-  { id: "renato-bassi", name: "Renato Bassi" },
+  // Episode 28 contributor
+  { id: "lucas-matos", name: "Lucas Matos" },
 ```
 
-**Passo 4 - Adicionar menções** (inserir antes do Episode 30):
+**Passo 4 - Adicionar menções** (inserir antes do Episode 29):
 ```typescript
-  // Episode 29
-  { id: "m29-1", episodeId: 29, personId: "arthur", productId: "chatgpt" },
-  { id: "m29-2", episodeId: 29, personId: "aiquis", productId: "instagram" },
-  { id: "m29-3", episodeId: 29, personId: "luiz", productId: "drive-pay-as-you-drive" },
-  { id: "m29-4", episodeId: 29, personId: "pilon", productId: "polytopia" },
-  { id: "m29-5", episodeId: 29, personId: "renato-bassi", productId: "awto" },
-  { id: "m29-6", episodeId: 29, personId: "fabinho", productId: "camera" },
-  { id: "m29-7", episodeId: 29, personId: "andrezinho", productId: "youtube" },
-  { id: "m29-8", episodeId: 29, personId: "henrique", productId: "tiktok" },
-  { id: "m29-9", episodeId: 29, personId: "luquita", productId: "formula-1" },
-  { id: "m29-10", episodeId: 29, personId: "anonimo", productId: "ianygo" },
+  // Episode 28
+  { id: "m28-1", episodeId: 28, personId: "aiquis", productId: "corsair-hs80-wireless" },
+  { id: "m28-2", episodeId: 28, personId: "arthur", productId: "daylio" },
+  { id: "m28-3", episodeId: 28, personId: "lucas-matos", productId: "swingvision" },
+  { id: "m28-4", episodeId: 28, personId: "eduardo-augusto", productId: "expo-go" },
+  { id: "m28-5", episodeId: 28, personId: "alice", productId: "feedly" },
+  { id: "m28-6", episodeId: 28, personId: "glauco", productId: "wolfram" },
 ```
 
 ---
@@ -156,14 +147,16 @@ Productivity:
 | Episódio | 1 |
 | Pessoas novas | 1 |
 | Produtos novos | 6 |
-| Menções | 10 |
+| Menções | 6 |
 
 ### Notas
-- ChatGPT, Instagram, Youtube e TikTok já existem e serão reutilizados
-- "Drive" é um app de seguro "pay as you drive" (paga por km rodado), não Google Drive
-- "Renato Bassi" é diferente do "Renato" existente (ep. 31), então será criado com ID separado
-- Polytopia é um jogo de estratégia turn-based
-- Awto é uma plataforma de carros compartilhados brasileira
-- iAnyGo é um app para alterar localização GPS (usado para jogos como Pokémon GO)
-- "Camera" refere-se ao app de câmera nativo ou genérico
+- Corsair HS80 Wireless é um headset gamer wireless premium
+- Daylio é um app de micro-diário para rastrear humor e hábitos
+- SwingVision usa IA para analisar jogadas de tênis e padel
+- ExpoGo é o app companion para desenvolvimento com Expo/React Native
+- Feedly é um agregador de feeds RSS popular entre profissionais de produto
+- Wolfram Alpha é um motor de conhecimento computacional, classificado como AI Tools
+- "Lucas Matos" será criado com ID `lucas-matos` para distinguir do "lucas" genérico existente
+- "Alice" reutiliza o ID `alice` existente (ep 64)
+- "Eduardo Augusto" reutiliza o ID `eduardo-augusto` existente (ep 34)
 
