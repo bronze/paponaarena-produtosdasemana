@@ -630,7 +630,7 @@ export const products: Product[] = [
   { id: "maya", name: "Maya", category: "Lifestyle" },
   { id: "webdiet", name: "WebDiet", category: "Lifestyle" },
   { id: "drink-water", name: "Drink Water", category: "Lifestyle" },
-  { id: "contracoes", name: "Contrações", category: "Lifestyle" },
+  { id: "contracoes", name: "Contrações", category: "Health" },
 
   // Retail
   { id: "zoom-loja", name: "Zoom", category: "Retail", url: "https://www.zoom.com.br/" },
