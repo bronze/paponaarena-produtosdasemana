@@ -1,9 +1,8 @@
 
-
-## Plano: Converter Menção do Aíquis para Combo de Sites Imobiliários
+## Plano: Adicionar Episódio 25 (Apple Vision Pro: será que chegou a "the next big thing?")
 
 ### Visão Geral
-Substituir o produto genérico "Sites de aluguel de apartamento" por um combo que credita os 4 sites imobiliários específicos mencionados.
+Adicionar o episódio 25 com 8 menções de produtos. Este será o novo episódio mais antigo do dataset (antes do episódio 27).
 
 ---
 
@@ -12,20 +11,34 @@ Substituir o produto genérico "Sites de aluguel de apartamento" por um combo qu
 **Produtos existentes:**
 | ID | Nome | Categoria |
 |----|------|-----------|
-| `quinto-andar` | Quinto Andar | Business |
+| `fitness-plus` | Fitness+ | Fitness |
+| `samsung-smart-switch` | Samsung Smart Switch | Productivity |
+| `garmin-connect` | Garmin Connect | Fitness |
+| `elementor` | Elementor | Tech |
+| `canva` | Canva | Productivity |
 
 **Produtos a criar:**
-| ID | Nome | Categoria | URL |
-|----|------|-----------|-----|
-| `zap-imoveis` | Zap Imóveis | Business | https://www.zapimoveis.com.br/ |
-| `viva-real` | Viva Real | Business | https://www.vivareal.com.br/ |
-| `net-imoveis` | Net Imóveis | Business | https://www.netimoveis.com/ |
-| `combo-sites-imoveis` | Zap Imóveis + Quinto Andar + Viva Real + Net Imóveis | Business | - (combo) |
+| ID | Nome | Categoria | URL | Observação |
+|----|------|-----------|-----|------------|
+| `starlink` | Starlink | Utilities | https://www.starlink.com/ | Internet via satélite |
+| `refood` | Refood | Delivery | - | Serviço de reaproveitamento de comida |
+| `blocos-carnaval-rua` | Blocos de Carnaval de Rua | Entertainment | - | Eventos de carnaval de rua |
 
-**Produto a remover:**
-| ID | Nome | Observação |
-|----|------|------------|
-| `sites-aluguel-apartamento` | Sites de aluguel de apartamento | Só tinha 1 menção, será substituído |
+**Pessoas existentes:**
+| ID | Nome |
+|----|------|
+| `arthur` | Arthur |
+| `aiquis` | Aíquis |
+| `fabio-beico` | Fábio Beiço |
+| `boss` | Boss |
+| `henrique` | Henrique |
+| `lucas` | Lucas |
+
+**Pessoas a criar:**
+| ID | Nome |
+|----|------|
+| `lara-parodi` | Lara Parodi |
+| `reis` | Reis |
 
 ---
 
@@ -36,49 +49,66 @@ Substituir o produto genérico "Sites de aluguel de apartamento" por um combo qu
 
 ### Detalhes Técnicos
 
-**Passo 1 - Adicionar novos produtos** (na seção Business, próximo ao quinto-andar linha 1111):
+**Passo 1 - Adicionar episódio** (inserir antes do episódio 27, início da lista):
 ```typescript
-  { id: "zap-imoveis", name: "Zap Imóveis", category: "Business", url: "https://www.zapimoveis.com.br/" },
-  { id: "viva-real", name: "Viva Real", category: "Business", url: "https://www.vivareal.com.br/" },
-  { id: "net-imoveis", name: "Net Imóveis", category: "Business", url: "https://www.netimoveis.com/" },
-  { 
-    id: "combo-sites-imoveis", 
-    name: "Zap Imóveis + Quinto Andar + Viva Real + Net Imóveis", 
-    category: "Business", 
-    alsoCredits: ["zap-imoveis", "quinto-andar", "viva-real", "net-imoveis"] 
+  {
+    id: 25,
+    title: "Apple Vision Pro: será que chegou a \"the next big thing?\"",
+    date: "2024-02-07",
+    description: "Discussão sobre o lançamento do Apple Vision Pro e se ele representa a próxima grande revolução tecnológica.",
   },
 ```
 
-**Passo 2 - Remover produto genérico** (linha 1104):
+**Passo 2 - Adicionar produtos novos:**
+
+Utilities:
 ```typescript
-// REMOVER esta linha:
-{ id: "sites-aluguel-apartamento", name: "Sites de aluguel de apartamento", category: "Business" },
+  { id: "starlink", name: "Starlink", category: "Utilities", url: "https://www.starlink.com/" },
 ```
 
-**Passo 3 - Atualizar menção do episódio 27** (linha 1389):
+Delivery:
 ```typescript
-// DE:
-{ id: "m27-2", episodeId: 27, personId: "aiquis", productId: "sites-aluguel-apartamento" },
-
-// PARA:
-{ id: "m27-2", episodeId: 27, personId: "aiquis", productId: "combo-sites-imoveis" },
+  { id: "refood", name: "Refood", category: "Delivery" },
 ```
 
----
+Entertainment:
+```typescript
+  { id: "blocos-carnaval-rua", name: "Blocos de Carnaval de Rua", category: "Entertainment" },
+```
 
-### Resultado na UI
-Na página do episódio 27, a menção do Aíquis aparecerá com:
-- 4 badges clicáveis: **Zap Imóveis** + **Quinto Andar** + **Viva Real** + **Net Imóveis**
-- Badge de **combo** indicando que foi uma menção combinada
-- Cada produto receberá +1 menção em suas estatísticas individuais
+**Passo 3 - Adicionar pessoas:**
+```typescript
+  { id: "lara-parodi", name: "Lara Parodi" },
+  { id: "reis", name: "Reis" },
+```
+
+**Passo 4 - Adicionar menções** (inserir antes do Episode 27):
+```typescript
+  // Episode 25
+  { id: "m25-1", episodeId: 25, personId: "arthur", productId: "fitness-plus" },
+  { id: "m25-2", episodeId: 25, personId: "aiquis", productId: "samsung-smart-switch" },
+  { id: "m25-3", episodeId: 25, personId: "lara-parodi", productId: "garmin-connect" },
+  { id: "m25-4", episodeId: 25, personId: "reis", productId: "blocos-carnaval-rua" },
+  { id: "m25-5", episodeId: 25, personId: "fabio-beico", productId: "starlink" },
+  { id: "m25-6", episodeId: 25, personId: "boss", productId: "elementor" },
+  { id: "m25-7", episodeId: 25, personId: "henrique", productId: "canva" },
+  { id: "m25-8", episodeId: 25, personId: "lucas", productId: "refood" },
+```
 
 ---
 
 ### Resumo de Alterações
 
-| Item | Ação |
-|------|------|
-| Produtos novos | 4 (3 sites + 1 combo) |
-| Produtos removidos | 1 (genérico) |
-| Menções atualizadas | 1 |
+| Item | Quantidade |
+|------|------------|
+| Episódio | 1 |
+| Pessoas novas | 2 |
+| Produtos novos | 3 |
+| Menções | 8 |
 
+### Notas
+- Fitness+, Samsung Smart Switch, Garmin Connect, Elementor e Canva já existem e serão reutilizados
+- Starlink é o serviço de internet via satélite da SpaceX, categorizado como Utilities
+- Refood é um serviço relacionado a comida/reaproveitamento, categorizado como Delivery
+- "Blocos de Carnaval de Rua" é um evento/experiência, categorizado como Entertainment
+- Lara Parodi e Reis são novos participantes
