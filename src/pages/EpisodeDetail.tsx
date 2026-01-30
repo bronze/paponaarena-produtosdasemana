@@ -11,6 +11,7 @@ import {
   getProductById,
   getPersonById,
   getProductLinkId,
+  YOUTUBE_PLAYLIST_SUFFIX,
 } from "@/data/mentions";
 
 const COLORS = [
@@ -92,7 +93,7 @@ export default function EpisodeDetail() {
             </div>
             {episode.youtubeLink && (
               <a
-                href={episode.youtubeLink}
+                href={`${episode.youtubeLink}${YOUTUBE_PLAYLIST_SUFFIX}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-md border border-red-500/30 text-red-600 hover:bg-red-500/10 transition-colors"

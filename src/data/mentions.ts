@@ -3,6 +3,9 @@
 
 import { getYearFromDate } from "@/lib/utils";
 
+// YouTube playlist suffix - edit this to change the playlist
+export const YOUTUBE_PLAYLIST_SUFFIX = "&list=PLDz-F0OTctcY5ElkySqbW6Y_l2ASCZRQs";
+
 export interface Episode {
   id: number;
   title: string;
