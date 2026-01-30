@@ -509,7 +509,7 @@ export const products: Product[] = [
   { id: "swingvision", name: "SwingVision", category: "Fitness", url: "https://swing.vision/" },
   { id: "expo-go", name: "ExpoGo", category: "Development", url: "https://expo.dev/go" },
   { id: "feedly", name: "Feedly", category: "Productivity", url: "https://feedly.com/" },
-  { id: "wolfram", name: "Wolfram", category: "AI Tools", url: "https://www.wolframalpha.com/" },
+  { id: "wolfram", name: "Wolfram", category: "Productivity", url: "https://www.wolframalpha.com/" },
 
   // Travel
   { id: "tripadvisor", name: "TripAdvisor", category: "Travel", url: "https://tripadvisor.com" },
