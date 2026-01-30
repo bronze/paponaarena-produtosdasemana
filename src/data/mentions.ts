@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
   // 2024 Episodes
   {
+    id: 22,
+    title: "Como a galera tá usando o ChatGPT no dia a dia?",
+    date: "2024-01-19",
+    description: "Discussão sobre os usos práticos do ChatGPT no cotidiano das pessoas.",
+  },
+  {
     id: 23,
     title: "PMs precisam postar na Linkedisney pra ter sucesso?",
     date: "2024-01-24",
@@ -518,6 +524,7 @@ export const products: Product[] = [
   { id: "deezer", name: "Deezer", category: "Entertainment", url: "https://www.deezer.com/" },
   { id: "stickerly", name: "Sticker.ly", category: "Entertainment", url: "https://sticker.ly/" },
   { id: "gamepass", name: "GamePass", category: "Entertainment" },
+  { id: "star-plus", name: "Star+", category: "Entertainment" },
   { id: "delta-emulador", name: "Delta", category: "Entertainment" },
   { id: "chromecast", name: "Chromecast", category: "Hardware" },
   { id: "skyview", name: "SkyView", category: "Entertainment" },
@@ -702,6 +709,7 @@ export const products: Product[] = [
   { id: "garmin-connect", name: "Garmin Connect", category: "Fitness", url: "https://connect.garmin.com" },
   { id: "tecnofitbox", name: "TecnofitBox", category: "Fitness" },
   { id: "classpass", name: "ClassPass", category: "Fitness", url: "https://classpass.com" },
+  { id: "oceanic-plus", name: "Oceanic Plus", category: "Fitness" },
 
   // Lifestyle
   { id: "gravidez-plus", name: "Gravidez+", category: "Lifestyle" },
@@ -1434,6 +1442,13 @@ export const people: Person[] = [
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 22
+  { id: "m22-1", episodeId: 22, personId: "arthur", productId: "training-peaks" },
+  { id: "m22-2", episodeId: 22, personId: "aiquis", productId: "star-plus" },
+  { id: "m22-3", episodeId: 22, personId: "anonimo", productId: "notion" },
+  { id: "m22-4", episodeId: 22, personId: "anonimo", productId: "wise" },
+  { id: "m22-5", episodeId: 22, personId: "anonimo", productId: "oceanic-plus" },
+
   // Episode 23
   { id: "m23-1", episodeId: 23, personId: "aiquis", productId: "loom" },
   { id: "m23-2", episodeId: 23, personId: "arthur", productId: "rise-sleep" },
