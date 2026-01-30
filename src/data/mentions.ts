@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
 // 2024 Episodes
   {
+    id: 38,
+    title: "E quando \"falta tempo\" para consumir conteúdo? Um giro de notícias no mundo de A.I.",
+    date: "2024-05-28",
+    description: "Discussão sobre consumo de conteúdo e um giro de notícias no mundo de inteligência artificial.",
+  },
+  {
     id: 39,
     title: "Opiniões fortes, convicção e hype na construção de produtos",
     date: "2024-06-04",
@@ -569,6 +575,7 @@ export const products: Product[] = [
   { id: "bionic-go", name: "Bionic Go", category: "Fitness" },
   { id: "zepp", name: "Zepp", category: "Fitness" },
   { id: "garmin-connect", name: "Garmin Connect", category: "Fitness", url: "https://connect.garmin.com" },
+  { id: "tecnofitbox", name: "TecnofitBox", category: "Fitness" },
 
   // Lifestyle
   { id: "gravidez-plus", name: "Gravidez+", category: "Lifestyle" },
@@ -706,6 +713,7 @@ export const products: Product[] = [
   { id: "room-planner", name: "Room planner", category: "Productivity" },
   { id: "sketchbook", name: "Sketchbook", category: "Productivity", url: "https://www.sketchbook.com/" },
   { id: "nordvpn", name: "NordVPN", category: "Productivity", url: "https://nordvpn.com/" },
+  { id: "swiftkey", name: "SwiftKey", category: "Productivity" },
 
   // Education
   { id: "vocabulary", name: "Vocabulary", category: "Education", url: "https://vocabulary.com" },
@@ -742,6 +750,7 @@ export const products: Product[] = [
   { id: "youtube-premium", name: "Youtube Premium", category: "Entertainment", parentId: "youtube" },
   { id: "youtube-download-inteligente", name: "Download inteligente do Youtube Premium", category: "Entertainment", parentId: "youtube-premium" },
   { id: "nok-nox", name: "Nok Nox", category: "Entertainment", url: "https://noknox.com" },
+  { id: "moxtopper", name: "MoxTopper", category: "Entertainment" },
   { id: "ingresso-com", name: "Ingresso.com", category: "Entertainment", url: "https://www.ingresso.com/" },
   { id: "disney-plus", name: "Disney+", category: "Entertainment", url: "https://disneyplus.com" },
   { id: "appletv-plus", name: "AppleTV+", category: "Entertainment", url: "https://tv.apple.com" },
@@ -1192,6 +1201,7 @@ export const people: Person[] = [
   // Episode 46 contributors
   { id: "lucas-ep46", name: "Lucas (outro)" },
   { id: "neuri", name: "Neuri" },
+  { id: "nat", name: "Nat" },
   // Episode 41 contributors
   { id: "miriam", name: "Miriam" },
   { id: "eduardo", name: "Eduardo" },
@@ -1199,6 +1209,16 @@ export const people: Person[] = [
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 38
+  { id: "m38-1", episodeId: 38, personId: "arthur", productId: "magie" },
+  { id: "m38-2", episodeId: 38, personId: "aiquis", productId: "duolingo" },
+  { id: "m38-3", episodeId: 38, personId: "miriam", productId: "quinto-andar" },
+  { id: "m38-4", episodeId: 38, personId: "karina", productId: "splitwise" },
+  { id: "m38-5", episodeId: 38, personId: "caue", productId: "moxtopper" },
+  { id: "m38-6", episodeId: 38, personId: "neuri", productId: "chatgpt" },
+  { id: "m38-7", episodeId: 38, personId: "nat", productId: "tecnofitbox" },
+  { id: "m38-8", episodeId: 38, personId: "lucas", productId: "swiftkey" },
+
   // Episode 39
   { id: "m39-1", episodeId: 39, personId: "aiquis", productId: "stoop-inbox" },
   { id: "m39-2", episodeId: 39, personId: "arthur", productId: "sauna-portatil-lifepro" },
