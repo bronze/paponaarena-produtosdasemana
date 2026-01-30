@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
   // 2024 Episodes
   {
+    id: 36,
+    title: "Os lançamentos da OpenAI e do Google",
+    date: "2024-05-14",
+    description: "Discussão sobre os lançamentos recentes da OpenAI e do Google.",
+  },
+  {
     id: 37,
     title: "Aprendendo sobre pensamento crítico e analítico",
     date: "2024-05-21",
@@ -685,6 +691,7 @@ export const products: Product[] = [
   { id: "pocket", name: "Pocket", category: "Productivity", url: "https://getpocket.com" },
   { id: "capacities", name: "Capacities", category: "Productivity", url: "https://capacities.io" },
   { id: "sprout", name: "Sprout", category: "Lifestyle", url: "https://sprout-apps.com/" },
+  { id: "surfview", name: "Surfview", category: "Lifestyle", url: "https://surfview.com.br/" },
   { id: "baby-tracker", name: "Baby Tracker", category: "Lifestyle" },
   { id: "my-baby", name: "My Baby", category: "Lifestyle" },
   { id: "child-growth", name: "Child Growth", category: "Lifestyle" },
@@ -735,6 +742,8 @@ export const products: Product[] = [
   { id: "room-planner", name: "Room planner", category: "Productivity" },
   { id: "sketchbook", name: "Sketchbook", category: "Productivity", url: "https://www.sketchbook.com/" },
   { id: "nordvpn", name: "NordVPN", category: "Productivity", url: "https://nordvpn.com/" },
+  { id: "tunnelbear", name: "TunnelBear", category: "Productivity", url: "https://www.tunnelbear.com" },
+  { id: "atlas-ti", name: "Atlas.ti", category: "Productivity", url: "https://atlasti.com/" },
   { id: "swiftkey", name: "SwiftKey", category: "Productivity" },
 
   // Education
@@ -874,6 +883,8 @@ export const products: Product[] = [
   { id: "pillow-top-emma", name: "Pillow Top Emma", category: "Lifestyle" },
   { id: "agua", name: "Água", category: "Lifestyle" },
   { id: "kindle", name: "Kindle", category: "Reading", url: "https://amazon.com/kindle" },
+  { id: "kindle-app", name: "Kindle App", category: "Reading", parentId: "kindle" },
+  { id: "blinkist", name: "Blinkist", category: "Reading", url: "https://www.blinkist.com" },
   { id: "caderno", name: "Caderno", category: "Lifestyle" },
   { id: "ipod-fake", name: "iPod Fake Classic", category: "Hardware", url: "https://a.aliexpress.com/_mtFXV0l" },
   { id: "camisa-preta", name: "Camisa Preta Básica", category: "Lifestyle" },
@@ -898,6 +909,7 @@ export const products: Product[] = [
   { id: "smart-things-samsung", name: "Smart Things Samsung", category: "Lifestyle" },
   { id: "xbox-series-s", name: "Xbox Series S", category: "Lifestyle" },
   { id: "nintendo-switch-2", name: "Nintendo Switch 2", category: "Lifestyle" },
+  { id: "nintendo-switch", name: "Nintendo Switch", category: "Entertainment" },
   { id: "cereal-snowflake", name: "Cereal Snowflake", category: "Lifestyle" },
   { id: "as-semanas-magicas", name: "As semanas mágicas", category: "Lifestyle" },
   { id: "beerpass", name: "Beerpass", category: "Lifestyle", url: "https://beerpass.com.br" },
@@ -1248,10 +1260,24 @@ export const people: Person[] = [
   // Episode 41 contributors
   { id: "miriam", name: "Miriam" },
   { id: "eduardo", name: "Eduardo" },
+  // Episode 36 contributors
+  { id: "luiz", name: "Luiz" },
+  { id: "montoy", name: "Montoy" },
 ];
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 36
+  { id: "m36-1", episodeId: 36, personId: "arthur", productId: "kindle-app" },
+  { id: "m36-2", episodeId: 36, personId: "aiquis", productId: "nintendo-switch" },
+  { id: "m36-3", episodeId: 36, personId: "pilon", productId: "magie" },
+  { id: "m36-4", episodeId: 36, personId: "cloves", productId: "blinkist" },
+  { id: "m36-5", episodeId: 36, personId: "danilera", productId: "surfview" },
+  { id: "m36-6", episodeId: 36, personId: "nana", productId: "google-maps" },
+  { id: "m36-7", episodeId: 36, personId: "amanda", productId: "zoom-loja" },
+  { id: "m36-8", episodeId: 36, personId: "luiz", productId: "tunnelbear" },
+  { id: "m36-9", episodeId: 36, personId: "montoy", productId: "atlas-ti" },
+
   // Episode 37
   { id: "m37-1", episodeId: 37, personId: "aiquis", productId: "google-sheets" },
   { id: "m37-2", episodeId: 37, personId: "arthur", productId: "google-slides" },
