@@ -34,10 +34,10 @@ export interface Mention {
 
 // Episodes
 export const episodes: Episode[] = [
-// 2024 Episodes
+  // 2024 Episodes
   {
     id: 38,
-    title: "E quando \"falta tempo\" para consumir conteúdo? Um giro de notícias no mundo de A.I.",
+    title: 'E quando "falta tempo" para consumir conteúdo? Um giro de notícias no mundo de A.I.',
     date: "2024-05-28",
     description: "Discussão sobre consumo de conteúdo e um giro de notícias no mundo de inteligência artificial.",
   },
@@ -63,7 +63,8 @@ export const episodes: Episode[] = [
     id: 43,
     title: "O novo modelo da Meta, Vendas do Ray-Ban bombando e os desafios da Netflix com conteúdos ao vivo",
     date: "2024-07-24",
-    description: "Discussão sobre o novo modelo de IA da Meta, o sucesso de vendas do Ray-Ban e os desafios da Netflix com transmissões ao vivo.",
+    description:
+      "Discussão sobre o novo modelo de IA da Meta, o sucesso de vendas do Ray-Ban e os desafios da Netflix com transmissões ao vivo.",
   },
   {
     id: 45,
@@ -75,7 +76,8 @@ export const episodes: Episode[] = [
     id: 46,
     title: "O presente e o futuro dos produtos de AI e Existe um mundo além das squads?",
     date: "2024-08-14",
-    description: "Discussão sobre o presente e futuro dos produtos de inteligência artificial e reflexões sobre estruturas organizacionais.",
+    description:
+      "Discussão sobre o presente e futuro dos produtos de inteligência artificial e reflexões sobre estruturas organizacionais.",
   },
   {
     id: 47,
@@ -407,7 +409,7 @@ export const episodes: Episode[] = [
 
 // Products (unique across all episodes)
 export const products: Product[] = [
-// Hardware
+  // Hardware
   { id: "ray-ban-meta", name: "Ray-Ban Meta", category: "Hardware" },
   { id: "standing-desk-pichau", name: "Standing Desk (Pichau)", category: "Hardware" },
   { id: "cadeira-balanco-bebe", name: "Cadeira de balanço pra bebê", category: "Hardware" },
@@ -533,7 +535,12 @@ export const products: Product[] = [
   { id: "oneschema", name: "OneSchema", category: "Development", url: "https://www.oneschema.co" },
   { id: "rapid-api", name: "Rapid API", category: "Development", url: "https://rapidapi.com" },
   { id: "hostinger", name: "Hostinger", category: "Development", url: "https://hostinger.com" },
-  { id: "hostinger-construtor", name: "Hostinger (Construtor de sites)", category: "Development", parentId: "hostinger" },
+  {
+    id: "hostinger-construtor",
+    name: "Hostinger (Construtor de sites)",
+    category: "Development",
+    parentId: "hostinger",
+  },
   { id: "github", name: "Github", category: "Development", url: "https://github.com" },
 
   // AI Tools (additional)
@@ -587,7 +594,12 @@ export const products: Product[] = [
   { id: "buscape-zoom", name: "Buscapé + Zoom", category: "Retail", alsoCredits: ["buscape", "zoom-loja"] },
 
   // AI Tools (Episode 41)
-  { id: "invisibility-ai", name: "Invisibility AI", category: "AI Tools", url: "https://github.com/InvisibilityInc/Invisibility" },
+  {
+    id: "invisibility-ai",
+    name: "Invisibility AI",
+    category: "AI Tools",
+    url: "https://github.com/InvisibilityInc/Invisibility",
+  },
 
   // Delivery (Episode 41)
   { id: "ifood-lista-mercado", name: "iFood (mostrar a lista do mercado)", category: "Delivery", parentId: "ifood" },
@@ -660,7 +672,7 @@ export const products: Product[] = [
     category: "Productivity",
     url: "https://www.stratospherix.com/filebrowsergo/",
   },
-  { id: "stoop-inbox", name: "Stoop Inbox", category: "Productivity" },
+  { id: "stoop-inbox", name: "Stoop Inbox", category: "Productivity", url: "https://stoopinbox.com/" },
   { id: "pocket", name: "Pocket", category: "Productivity", url: "https://getpocket.com" },
   { id: "capacities", name: "Capacities", category: "Productivity", url: "https://capacities.io" },
   { id: "sprout", name: "Sprout", category: "Lifestyle", url: "https://sprout-apps.com/" },
@@ -730,8 +742,18 @@ export const products: Product[] = [
   { id: "khan-academy", name: "Khan Academy", category: "Education", url: "https://khanacademy.org" },
 
   // Entertainment
-  { id: "joker-card", name: "Joker Card", category: "Entertainment", url: "https://apps.apple.com/br/app/joker-card/id6480343238" },
-  { id: "sleeper-fantasy-football", name: "Sleeper Fantasy Football", category: "Entertainment", url: "https://sleeper.com/" },
+  {
+    id: "joker-card",
+    name: "Joker Card",
+    category: "Entertainment",
+    url: "https://apps.apple.com/br/app/joker-card/id6480343238",
+  },
+  {
+    id: "sleeper-fantasy-football",
+    name: "Sleeper Fantasy Football",
+    category: "Entertainment",
+    url: "https://sleeper.com/",
+  },
   {
     id: "balatro",
     name: "Balatro",
@@ -748,7 +770,12 @@ export const products: Product[] = [
   { id: "netflix-skip-intro", name: "Netflix Skip Intro", category: "Entertainment", parentId: "netflix" },
   { id: "youtube", name: "Youtube", category: "Entertainment", url: "https://youtube.com" },
   { id: "youtube-premium", name: "Youtube Premium", category: "Entertainment", parentId: "youtube" },
-  { id: "youtube-download-inteligente", name: "Download inteligente do Youtube Premium", category: "Entertainment", parentId: "youtube-premium" },
+  {
+    id: "youtube-download-inteligente",
+    name: "Download inteligente do Youtube Premium",
+    category: "Entertainment",
+    parentId: "youtube-premium",
+  },
   { id: "nok-nox", name: "Nok Nox", category: "Entertainment", url: "https://noknox.com" },
   { id: "moxtopper", name: "MoxTopper", category: "Entertainment" },
   { id: "ingresso-com", name: "Ingresso.com", category: "Entertainment", url: "https://www.ingresso.com/" },
@@ -781,7 +808,12 @@ export const products: Product[] = [
   { id: "azul-jogo", name: "Azul", category: "Entertainment" },
   { id: "crunchyroll", name: "Crunchyroll", category: "Entertainment", url: "https://crunchyroll.com" },
   { id: "squad-busters", name: "Squad Busters", category: "Entertainment" },
-  { id: "mosaico-youtube-cazetv", name: "Mosaico do Youtube na CazéTV", category: "Entertainment", alsoCredits: ["youtube", "cazetv"] },
+  {
+    id: "mosaico-youtube-cazetv",
+    name: "Mosaico do Youtube na CazéTV",
+    category: "Entertainment",
+    alsoCredits: ["youtube", "cazetv"],
+  },
   { id: "globo-esporte", name: "Globo Esporte", category: "Entertainment", url: "https://ge.globo.com" },
   { id: "app-olimpiadas", name: "App das Olimpíadas", category: "Entertainment" },
   { id: "potion-explosion", name: "Potion Explosion", category: "Entertainment" },
@@ -1020,7 +1052,7 @@ export const people: Person[] = [
   { id: "junior-magalhaes", name: "Junior Magalhães" },
   { id: "amanda-couto", name: "Amanda Couto" },
   { id: "mateus-carvalho", name: "Mateus Carvalho" },
-  
+
   { id: "raiana-santos", name: "Raiana Santos" },
   { id: "marcella-paiva", name: "Marcella Paiva" },
   { id: "huxley", name: "Huxley" },
@@ -1162,7 +1194,7 @@ export const people: Person[] = [
   { id: "boss", name: "Boss" },
   { id: "victor", name: "Victor" },
   { id: "caco", name: "Caco" },
-  
+
   { id: "thiago", name: "Thiago" },
   { id: "andrezinho", name: "Andrézinho" },
   { id: "mila", name: "Mila" },
