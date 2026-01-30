@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
   // 2024 Episodes
   {
+    id: 27,
+    title: "Ideia boa é ideia na rua; um podcast feito por AI",
+    date: "2024-02-28",
+    description: "Discussão sobre a importância de colocar ideias em prática e a criação de podcasts com inteligência artificial.",
+  },
+  {
     id: 28,
     title: "A métrica de sucesso para Product Leaders e já imaginou a internet sem ads?",
     date: "2024-03-07",
@@ -753,6 +759,7 @@ export const products: Product[] = [
   { id: "instagram", name: "Instagram", category: "Social", url: "https://instagram.com" },
   { id: "instagram-detox", name: "Instagram (detox)", category: "Social", parentId: "instagram" },
   { id: "tinder", name: "Tinder", category: "Social" },
+  { id: "sumone", name: "SumOne", category: "Social" },
 
   // Productivity
   { id: "pipefy", name: "Pipefy", category: "Productivity", url: "https://pipefy.com" },
@@ -1095,6 +1102,7 @@ export const products: Product[] = [
   { id: "ultragas", name: "Ultragás", category: "Business" },
   { id: "calculadora-ios18", name: "Calculadora do iOS 18", category: "Business" },
   { id: "speechify", name: "Speechify", category: "Business" },
+  { id: "sites-aluguel-apartamento", name: "Sites de aluguel de apartamento", category: "Business" },
   { id: "raizs", name: "Raizs", category: "Business" },
   { id: "icasei", name: "Assessoria Vip / iCasei", category: "Business" },
   { id: "event-tracker-aiquis", name: "Event Tracker do Aíquis", category: "Business" },
@@ -1371,10 +1379,24 @@ export const people: Person[] = [
   // Episode 33 contributors
   { id: "teles", name: "Teles" },
   { id: "edu", name: "Edu" },
+  // Episode 27 contributor
+  { id: "rodrigo-tavares", name: "Rodrigo Tavares" },
 ];
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 27
+  { id: "m27-1", episodeId: 27, personId: "arthur", productId: "sumone" },
+  { id: "m27-2", episodeId: 27, personId: "aiquis", productId: "sites-aluguel-apartamento" },
+  { id: "m27-3", episodeId: 27, personId: "boss", productId: "speechify" },
+  { id: "m27-4", episodeId: 27, personId: "glauco", productId: "youtube-premium" },
+  { id: "m27-5", episodeId: 27, personId: "andrezao", productId: "cifra-club" },
+  { id: "m27-6", episodeId: 27, personId: "lucas", productId: "99" },
+  { id: "m27-7", episodeId: 27, personId: "rodrigo-tavares", productId: "turbi" },
+  { id: "m27-8", episodeId: 27, personId: "paulo", productId: "abastece-ai" },
+  { id: "m27-9", episodeId: 27, personId: "pilon", productId: "alexa" },
+  { id: "m27-10", episodeId: 27, personId: "nana", productId: "gymrats" },
+
   // Episode 28
   { id: "m28-1", episodeId: 28, personId: "aiquis", productId: "corsair-hs80-wireless" },
   { id: "m28-2", episodeId: 28, personId: "arthur", productId: "daylio" },
