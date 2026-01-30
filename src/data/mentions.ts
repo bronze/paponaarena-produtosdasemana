@@ -777,7 +777,7 @@ export const products: Product[] = [
     parentId: "youtube-premium",
   },
   { id: "nok-nox", name: "Nok Nox", category: "Entertainment", url: "https://noknox.com" },
-  { id: "moxtopper", name: "MoxTopper", category: "Entertainment" },
+  { id: "moxtopper", name: "MoxTopper", category: "Entertainment", url: "https://moxtopper.com/" },
   { id: "ingresso-com", name: "Ingresso.com", category: "Entertainment", url: "https://www.ingresso.com/" },
   { id: "disney-plus", name: "Disney+", category: "Entertainment", url: "https://disneyplus.com" },
   { id: "appletv-plus", name: "AppleTV+", category: "Entertainment", url: "https://tv.apple.com" },
