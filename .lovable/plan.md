@@ -1,58 +1,47 @@
 
 
-## Plano: Adicionar Episódio 37 (Aprendendo sobre pensamento crítico e analítico)
+## Plano: Reestruturar Hierarquia dos Produtos Google
 
 ### Visão Geral
-Adicionar o episódio 37 com 6 menções de produtos. Este será o episódio mais antigo do dataset.
+Transformar Google Docs no produto principal e converter Google Sheets, Google Slides e Timeline no Google Sheets em variantes (produtos filhos).
 
 ---
 
-### Análise de Dados
+### Estado Atual
 
-**Produtos existentes:**
-| ID | Nome |
-|----|------|
-| `google-slides` | Google Slides |
+| ID | Nome | parentId |
+|----|------|----------|
+| `google-docs` | Google Docs | - |
+| `google-slides` | Google Slides | - |
+| `google-sheets` | Google Sheets | - |
+| `timeline-sheets` | Timeline no Google Sheets | - |
 
-**Pessoas existentes:**
-| ID | Nome |
-|----|------|
-| `aiquis` | Aíquis |
-| `arthur` | Arthur |
-| `pilon` | Pilon |
-| `natascha` | Natascha |
-| `danilera` | Danilera |
-| `beicola` | Beiçola |
+### Estado Desejado
 
-**Nota:** Natasha no episódio 37 provavelmente é a mesma pessoa que `natascha` já cadastrada.
+| ID | Nome | parentId |
+|----|------|----------|
+| `google-docs` | Google Docs | - |
+| `google-slides` | Google Slides | `google-docs` |
+| `google-sheets` | Google Sheets | `google-docs` |
+| `timeline-sheets` | Timeline no Google Sheets | `google-docs` |
 
 ---
 
-### Novos Dados a Adicionar
+### Impacto nas Menções
 
-**1 Episódio:**
-| ID | Título | Data |
-|----|--------|------|
-| 37 | Aprendendo sobre pensamento crítico e analítico | 2024-05-21 |
+As menções existentes continuarão funcionando corretamente. O sistema já suporta a agregação de variantes ao produto pai, então:
 
-**5 Novos Produtos:**
-| ID | Nome | Categoria | URL | Observação |
-|----|------|-----------|-----|------------|
-| `google-sheets` | Google Sheets | Productivity | - | Planilhas do Google |
-| `drink-water` | Drink Water | Lifestyle | - | App de lembrete de hidratação |
-| `lady-driver` | Lady Driver | Transportation | https://www.ladydriver.com.br/ | Transporte por app para mulheres |
-| `brawl-stars` | Brawl Stars | Entertainment | - | Jogo mobile |
-| `classpass` | ClassPass | Fitness | https://classpass.com | App de fitness |
+| Episódio | Pessoa | Produto Mencionado | Agregado a |
+|----------|--------|-------------------|------------|
+| 37 | Aíquis | Google Sheets | Google Docs |
+| 37 | Arthur | Google Slides | Google Docs |
+| 75 | Aíquis | Google Slides | Google Docs |
+| 82 | Bruno Perrone | Google Docs | Google Docs |
+| 85 | Thais Nakahira | Timeline no Google Sheets | Google Docs |
+| 88 | Efrem | Google Docs | Google Docs |
+| 102 | Cassi Vilvert | Google Docs | Google Docs |
 
-**6 Menções:**
-| Pessoa | Produto |
-|--------|---------|
-| Aíquis | Google Sheets |
-| Arthur | Google Slides |
-| Pilon | Drink Water |
-| Natasha | Lady Driver |
-| Danilera | Brawl Stars |
-| Beiçola | ClassPass |
+**Total após agregação:** Google Docs terá 7 menções agregadas (3 diretas + 4 via variantes).
 
 ---
 
@@ -63,52 +52,31 @@ Adicionar o episódio 37 com 6 menções de produtos. Este será o episódio mai
 
 ### Detalhes Técnicos
 
-**Passo 1 - Adicionar episódio** (inserir antes do episódio 38, início da lista):
+**Alteração 1 - Adicionar parentId ao Google Slides** (linha 715):
 ```typescript
-  {
-    id: 37,
-    title: "Aprendendo sobre pensamento crítico e analítico",
-    date: "2024-05-21",
-    description: "Discussão sobre pensamento crítico e analítico no contexto de produto.",
-  },
+// De:
+{ id: "google-slides", name: "Google Slides", category: "Productivity" },
+
+// Para:
+{ id: "google-slides", name: "Google Slides", category: "Productivity", parentId: "google-docs" },
 ```
 
-**Passo 2 - Adicionar produtos novos:**
-
-Productivity:
+**Alteração 2 - Adicionar parentId ao Google Sheets** (linha 716):
 ```typescript
-  { id: "google-sheets", name: "Google Sheets", category: "Productivity" },
+// De:
+{ id: "google-sheets", name: "Google Sheets", category: "Productivity" },
+
+// Para:
+{ id: "google-sheets", name: "Google Sheets", category: "Productivity", parentId: "google-docs" },
 ```
 
-Lifestyle:
+**Alteração 3 - Adicionar parentId ao Timeline no Google Sheets** (linha 725):
 ```typescript
-  { id: "drink-water", name: "Drink Water", category: "Lifestyle" },
-```
+// De:
+{ id: "timeline-sheets", name: "Timeline no Google Sheets", category: "Productivity" },
 
-Transportation:
-```typescript
-  { id: "lady-driver", name: "Lady Driver", category: "Transportation", url: "https://www.ladydriver.com.br/" },
-```
-
-Entertainment:
-```typescript
-  { id: "brawl-stars", name: "Brawl Stars", category: "Entertainment" },
-```
-
-Fitness:
-```typescript
-  { id: "classpass", name: "ClassPass", category: "Fitness", url: "https://classpass.com" },
-```
-
-**Passo 3 - Adicionar menções** (inserir antes do Episode 38):
-```typescript
-  // Episode 37
-  { id: "m37-1", episodeId: 37, personId: "aiquis", productId: "google-sheets" },
-  { id: "m37-2", episodeId: 37, personId: "arthur", productId: "google-slides" },
-  { id: "m37-3", episodeId: 37, personId: "pilon", productId: "drink-water" },
-  { id: "m37-4", episodeId: 37, personId: "natascha", productId: "lady-driver" },
-  { id: "m37-5", episodeId: 37, personId: "danilera", productId: "brawl-stars" },
-  { id: "m37-6", episodeId: 37, personId: "beicola", productId: "classpass" },
+// Para:
+{ id: "timeline-sheets", name: "Timeline no Google Sheets", category: "Productivity", parentId: "google-docs" },
 ```
 
 ---
@@ -117,17 +85,12 @@ Fitness:
 
 | Item | Quantidade |
 |------|------------|
-| Episódio | 1 |
-| Pessoas novas | 0 |
-| Produtos novos | 5 |
-| Menções | 6 |
+| Produtos modificados | 3 |
+| Menções alteradas | 0 |
 
-### Notas
-- Todas as pessoas já existem no sistema
-- "Natasha" mapeada para `natascha` existente
-- Google Slides já existe, será reutilizado
-- Google Sheets é novo e será adicionado
-- Lady Driver é um app de transporte focado em mulheres
-- Brawl Stars é um jogo mobile da Supercell
-- ClassPass é um app de fitness para aulas em academias
+### Comportamento Esperado
+- Na lista de produtos, apenas "Google Docs" aparecerá (variantes são ocultadas)
+- Na página de detalhes do Google Docs, as variantes serão exibidas como "Includes variants"
+- Todas as 7 menções serão contabilizadas no total do Google Docs
+- Os nomes específicos das variantes serão preservados nas visualizações de menções
 
