@@ -1,9 +1,9 @@
 
 
-## Plano: Adicionar Episódio 31 (Ninguém liga para o seu processo)
+## Plano: Adicionar Episódio 30 (A.I. e Futebol dá jogo? Como se tornar um PM mais técnico)
 
 ### Visão Geral
-Adicionar o episódio 31 com 7 menções de produtos. Este será o novo episódio mais antigo do dataset (antes do episódio 32).
+Adicionar o episódio 30 com 8 menções de produtos. Este será o novo episódio mais antigo do dataset (antes do episódio 31).
 
 ---
 
@@ -12,17 +12,18 @@ Adicionar o episódio 31 com 7 menções de produtos. Este será o novo episódi
 **Produtos existentes:**
 | ID | Nome | Categoria |
 |----|------|-----------|
-| `suno-ai` | Suno AI | AI Tools |
-| `waze` | Waze | Transportation |
-| `gymrats` | GymRats | Fitness |
-| `duolingo` | Duolingo | Education |
-| `rappi` | Rappi | Delivery |
-| `foodtosave` | FoodtoSave | Lifestyle |
+| `pocket` | Pocket | Productivity |
+| `splitwise` | Splitwise | Business |
+| `quinto-andar` | Quinto Andar | Business |
+| `mfit-personal` | MFIT Personal | Fitness |
 
 **Produtos a criar:**
 | ID | Nome | Categoria | URL | Observação |
 |----|------|-----------|-----|------------|
-| `airalo` | Airalo | Travel | https://www.airalo.com/ | eSIM para viajantes internacionais |
+| `twitch` | Twitch | Entertainment | https://twitch.tv | Plataforma de streaming de jogos |
+| `b4waste` | B4waste | Lifestyle | https://b4waste.com.br/ | App anti-desperdício de comida |
+| `zillow` | Zillow | Business | https://zillow.com | Mercado imobiliário EUA |
+| `yoosee` | Yoosee | Hardware | - | App para câmeras IP |
 
 **Pessoas existentes:**
 | ID | Nome |
@@ -30,14 +31,14 @@ Adicionar o episódio 31 com 7 menções de produtos. Este será o novo episódi
 | `aiquis` | Aíquis |
 | `arthur` | Arthur |
 | `nana` | Nana |
+| `mateus` | Mateus |
 | `pilon` | Pilon |
-| `luquita` | Luquita |
-| `andrezinho` | Andrézinho |
+| `glauco` | Glauco |
+| `fabio-beico` | Fábio Beiço |
+| `dezao` | Dezão |
 
 **Pessoas a criar:**
-| ID | Nome | Observação |
-|----|------|------------|
-| `renato` | Renato | Novo participante |
+Nenhuma — todas já existem no sistema.
 
 ---
 
@@ -46,28 +47,27 @@ Adicionar o episódio 31 com 7 menções de produtos. Este será o novo episódi
 **1 Episódio:**
 | ID | Título | Data |
 |----|--------|------|
-| 31 | Ninguém liga para o seu processo | 2024-04-09 |
+| 30 | A.I. e Futebol dá jogo? Como se tornar um PM mais técnico | 2024-04-05 |
 
-**1 Nova Pessoa:**
-| ID | Nome |
-|----|------|
-| `renato` | Renato |
-
-**1 Novo Produto:**
+**4 Novos Produtos:**
 | ID | Nome | Categoria | URL |
 |----|------|-----------|-----|
-| `airalo` | Airalo | Travel | https://www.airalo.com/ |
+| `twitch` | Twitch | Entertainment | https://twitch.tv |
+| `b4waste` | B4waste | Lifestyle | https://b4waste.com.br/ |
+| `zillow` | Zillow | Business | https://zillow.com |
+| `yoosee` | Yoosee | Hardware | - |
 
-**7 Menções:**
+**8 Menções:**
 | Pessoa | Produto |
 |--------|---------|
-| Aíquis | Suno AI |
-| Arthur | Waze |
-| Renato | FoodtoSave |
-| Nana | GymRats |
-| Pilon | Duolingo |
-| Luquita | Rappi |
-| Andrezinho | Airalo |
+| Aíquis | Twitch |
+| Arthur | Pocket |
+| Dezão | B4waste |
+| Nana | Splitwise |
+| Mateus | Zillow |
+| Pilon | Quinto Andar |
+| Glauco | MFIT Personal |
+| Fábio Beiço | Yoosee |
 
 ---
 
@@ -78,39 +78,49 @@ Adicionar o episódio 31 com 7 menções de produtos. Este será o novo episódi
 
 ### Detalhes Técnicos
 
-**Passo 1 - Adicionar episódio** (inserir antes do episódio 32, início da lista):
+**Passo 1 - Adicionar episódio** (inserir antes do episódio 31, início da lista):
 ```typescript
   {
-    id: 31,
-    title: "Ninguém liga para o seu processo",
-    date: "2024-04-09",
-    description: "Discussão sobre processos e como eles impactam (ou não) a percepção do usuário final.",
+    id: 30,
+    title: "A.I. e Futebol dá jogo? Como se tornar um PM mais técnico",
+    date: "2024-04-05",
+    description: "Discussão sobre inteligência artificial no futebol e como se tornar um product manager mais técnico.",
   },
 ```
 
-**Passo 2 - Adicionar produto novo:**
+**Passo 2 - Adicionar produtos novos:**
 
-Travel:
+Entertainment:
 ```typescript
-  { id: "airalo", name: "Airalo", category: "Travel", url: "https://www.airalo.com/" },
+  { id: "twitch", name: "Twitch", category: "Entertainment", url: "https://twitch.tv" },
 ```
 
-**Passo 3 - Adicionar pessoa:**
+Lifestyle:
 ```typescript
-  // Episode 31 contributor
-  { id: "renato", name: "Renato" },
+  { id: "b4waste", name: "B4waste", category: "Lifestyle", url: "https://b4waste.com.br/" },
 ```
 
-**Passo 4 - Adicionar menções** (inserir antes do Episode 32):
+Business:
 ```typescript
-  // Episode 31
-  { id: "m31-1", episodeId: 31, personId: "aiquis", productId: "suno-ai" },
-  { id: "m31-2", episodeId: 31, personId: "arthur", productId: "waze" },
-  { id: "m31-3", episodeId: 31, personId: "renato", productId: "foodtosave" },
-  { id: "m31-4", episodeId: 31, personId: "nana", productId: "gymrats" },
-  { id: "m31-5", episodeId: 31, personId: "pilon", productId: "duolingo" },
-  { id: "m31-6", episodeId: 31, personId: "luquita", productId: "rappi" },
-  { id: "m31-7", episodeId: 31, personId: "andrezinho", productId: "airalo" },
+  { id: "zillow", name: "Zillow", category: "Business", url: "https://zillow.com" },
+```
+
+Hardware:
+```typescript
+  { id: "yoosee", name: "Yoosee", category: "Hardware" },
+```
+
+**Passo 3 - Adicionar menções** (inserir antes do Episode 31):
+```typescript
+  // Episode 30
+  { id: "m30-1", episodeId: 30, personId: "aiquis", productId: "twitch" },
+  { id: "m30-2", episodeId: 30, personId: "arthur", productId: "pocket" },
+  { id: "m30-3", episodeId: 30, personId: "dezao", productId: "b4waste" },
+  { id: "m30-4", episodeId: 30, personId: "nana", productId: "splitwise" },
+  { id: "m30-5", episodeId: 30, personId: "mateus", productId: "zillow" },
+  { id: "m30-6", episodeId: 30, personId: "pilon", productId: "quinto-andar" },
+  { id: "m30-7", episodeId: 30, personId: "glauco", productId: "mfit-personal" },
+  { id: "m30-8", episodeId: 30, personId: "fabio-beico", productId: "yoosee" },
 ```
 
 ---
@@ -120,13 +130,15 @@ Travel:
 | Item | Quantidade |
 |------|------------|
 | Episódio | 1 |
-| Pessoas novas | 1 |
-| Produtos novos | 1 |
-| Menções | 7 |
+| Pessoas novas | 0 |
+| Produtos novos | 4 |
+| Menções | 8 |
 
 ### Notas
-- Suno AI, Waze, GymRats, Duolingo, Rappi e FoodtoSave já existem e serão reutilizados
-- Airalo é um serviço de eSIM para viajantes internacionais
-- "Andrezinho" corresponde ao ID `andrezinho` já existente (diferente de `andrezao`/Andrezão)
-- Este será o episódio mais antigo do dataset (abril de 2024)
+- Pocket, Splitwise, Quinto Andar e MFIT Personal já existem e serão reutilizados
+- Todas as 8 pessoas já existem no sistema
+- Twitch é a plataforma de streaming de jogos da Amazon
+- B4waste é um app brasileiro anti-desperdício similar ao FoodtoSave
+- Zillow é o maior marketplace imobiliário dos EUA
+- Yoosee é um app para controle de câmeras IP de segurança
 
