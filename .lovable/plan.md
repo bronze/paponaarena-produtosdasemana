@@ -1,8 +1,9 @@
 
-## Plano: Adicionar Episódio 25 (Apple Vision Pro: será que chegou a "the next big thing?")
+
+## Plano: Adicionar Episódio 24 (PMs e Zona de conforto, Palworld e esportes na Netflix)
 
 ### Visão Geral
-Adicionar o episódio 25 com 8 menções de produtos. Este será o novo episódio mais antigo do dataset (antes do episódio 27).
+Adicionar o episódio 24 com 8 menções de produtos. Este será o novo episódio mais antigo do dataset (antes do episódio 25).
 
 ---
 
@@ -11,34 +12,35 @@ Adicionar o episódio 25 com 8 menções de produtos. Este será o novo episódi
 **Produtos existentes:**
 | ID | Nome | Categoria |
 |----|------|-----------|
-| `fitness-plus` | Fitness+ | Fitness |
-| `samsung-smart-switch` | Samsung Smart Switch | Productivity |
-| `garmin-connect` | Garmin Connect | Fitness |
-| `elementor` | Elementor | Tech |
-| `canva` | Canva | Productivity |
+| `c6` | C6 | Finance |
+| `foodtosave` | FoodtoSave | Lifestyle |
+| `vivino` | Vivino | Business |
+| `tag-sem-parar` | Tag Sem Parar | Lifestyle |
 
 **Produtos a criar:**
 | ID | Nome | Categoria | URL | Observação |
 |----|------|-----------|-----|------------|
-| `starlink` | Starlink | Utilities | https://www.starlink.com/ | Internet via satélite |
-| `refood` | Refood | Delivery | - | Serviço de reaproveitamento de comida |
-| `blocos-carnaval-rua` | Blocos de Carnaval de Rua | Entertainment | - | Eventos de carnaval de rua |
+| `arc-browser` | Arc | Productivity | https://arc.net/ | Browser principal |
+| `arc-windows` | Arc for Windows | Productivity | https://arc.net/ | Variante do Arc, parentId: arc-browser |
+| `tv-time` | TV Time | Entertainment | - | App de tracking de séries |
+| `diario-oficial-uniao` | App do Diário Oficial da União | Productivity | - | App governamental |
+| `bumble` | Bumble | Social | https://bumble.com/ | App de relacionamento |
 
 **Pessoas existentes:**
 | ID | Nome |
 |----|------|
-| `arthur` | Arthur |
 | `aiquis` | Aíquis |
-| `fabio-beico` | Fábio Beiço |
-| `boss` | Boss |
-| `henrique` | Henrique |
-| `lucas` | Lucas |
+| `arthur` | Arthur |
+| `danilera` | Danilera |
+| `agata-cristina` | Ágata Cristina |
+| `reis` | Reis |
+| `pilon` | Pilon |
+| `anonimo` | Anônimo |
 
 **Pessoas a criar:**
 | ID | Nome |
 |----|------|
-| `lara-parodi` | Lara Parodi |
-| `reis` | Reis |
+| `eduardo-ep24` | Eduardo |
 
 ---
 
@@ -49,50 +51,52 @@ Adicionar o episódio 25 com 8 menções de produtos. Este será o novo episódi
 
 ### Detalhes Técnicos
 
-**Passo 1 - Adicionar episódio** (inserir antes do episódio 27, início da lista):
+**Passo 1 - Adicionar episódio** (inserir antes do episódio 25, início da lista):
 ```typescript
   {
-    id: 25,
-    title: "Apple Vision Pro: será que chegou a \"the next big thing?\"",
-    date: "2024-02-07",
-    description: "Discussão sobre o lançamento do Apple Vision Pro e se ele representa a próxima grande revolução tecnológica.",
+    id: 24,
+    title: "PMs e Zona de conforto, Palworld e esportes na Netflix",
+    date: "2024-01-31",
+    description: "Discussão sobre Product Managers e zona de conforto, o fenômeno Palworld e a entrada da Netflix no esporte.",
   },
 ```
 
 **Passo 2 - Adicionar produtos novos:**
 
-Utilities:
+Productivity (browser Arc e variante):
 ```typescript
-  { id: "starlink", name: "Starlink", category: "Utilities", url: "https://www.starlink.com/" },
-```
-
-Delivery:
-```typescript
-  { id: "refood", name: "Refood", category: "Delivery" },
+  { id: "arc-browser", name: "Arc", category: "Productivity", url: "https://arc.net/" },
+  { id: "arc-windows", name: "Arc for Windows", category: "Productivity", url: "https://arc.net/", parentId: "arc-browser" },
+  { id: "diario-oficial-uniao", name: "App do Diário Oficial da União", category: "Productivity" },
 ```
 
 Entertainment:
 ```typescript
-  { id: "blocos-carnaval-rua", name: "Blocos de Carnaval de Rua", category: "Entertainment" },
+  { id: "tv-time", name: "TV Time", category: "Entertainment" },
 ```
 
-**Passo 3 - Adicionar pessoas:**
+Social:
 ```typescript
-  { id: "lara-parodi", name: "Lara Parodi" },
-  { id: "reis", name: "Reis" },
+  { id: "bumble", name: "Bumble", category: "Social", url: "https://bumble.com/" },
 ```
 
-**Passo 4 - Adicionar menções** (inserir antes do Episode 27):
+**Passo 3 - Adicionar pessoa:**
 ```typescript
-  // Episode 25
-  { id: "m25-1", episodeId: 25, personId: "arthur", productId: "fitness-plus" },
-  { id: "m25-2", episodeId: 25, personId: "aiquis", productId: "samsung-smart-switch" },
-  { id: "m25-3", episodeId: 25, personId: "lara-parodi", productId: "garmin-connect" },
-  { id: "m25-4", episodeId: 25, personId: "reis", productId: "blocos-carnaval-rua" },
-  { id: "m25-5", episodeId: 25, personId: "fabio-beico", productId: "starlink" },
-  { id: "m25-6", episodeId: 25, personId: "boss", productId: "elementor" },
-  { id: "m25-7", episodeId: 25, personId: "henrique", productId: "canva" },
-  { id: "m25-8", episodeId: 25, personId: "lucas", productId: "refood" },
+  // Episode 24 contributors
+  { id: "eduardo-ep24", name: "Eduardo" },
+```
+
+**Passo 4 - Adicionar menções** (inserir antes do Episode 25):
+```typescript
+  // Episode 24
+  { id: "m24-1", episodeId: 24, personId: "aiquis", productId: "arc-windows" },
+  { id: "m24-2", episodeId: 24, personId: "arthur", productId: "tv-time" },
+  { id: "m24-3", episodeId: 24, personId: "danilera", productId: "c6" },
+  { id: "m24-4", episodeId: 24, personId: "agata-cristina", productId: "foodtosave" },
+  { id: "m24-5", episodeId: 24, personId: "reis", productId: "vivino" },
+  { id: "m24-6", episodeId: 24, personId: "eduardo-ep24", productId: "diario-oficial-uniao" },
+  { id: "m24-7", episodeId: 24, personId: "pilon", productId: "tag-sem-parar" },
+  { id: "m24-8", episodeId: 24, personId: "anonimo", productId: "bumble" },
 ```
 
 ---
@@ -102,13 +106,14 @@ Entertainment:
 | Item | Quantidade |
 |------|------------|
 | Episódio | 1 |
-| Pessoas novas | 2 |
-| Produtos novos | 3 |
+| Pessoas novas | 1 |
+| Produtos novos | 5 (Arc, Arc for Windows, TV Time, App Diário Oficial, Bumble) |
 | Menções | 8 |
 
 ### Notas
-- Fitness+, Samsung Smart Switch, Garmin Connect, Elementor e Canva já existem e serão reutilizados
-- Starlink é o serviço de internet via satélite da SpaceX, categorizado como Utilities
-- Refood é um serviço relacionado a comida/reaproveitamento, categorizado como Delivery
-- "Blocos de Carnaval de Rua" é um evento/experiência, categorizado como Entertainment
-- Lara Parodi e Reis são novos participantes
+- Arc for Windows é uma variante do Arc browser, usando `parentId` para agregar estatísticas ao produto pai
+- O Eduardo do ep 24 é diferente do Eduardo do ep 41, por isso usa ID `eduardo-ep24`
+- C6, FoodtoSave, Vivino e Tag Sem Parar já existem e serão reutilizados
+- Bumble é um app de relacionamento, categorizado como Social (junto com Tinder)
+- O App do Diário Oficial da União é um app governamental, categorizado como Productivity
+
