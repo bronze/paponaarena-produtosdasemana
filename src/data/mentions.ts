@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
   // 2024 Episodes
   {
+    id: 31,
+    title: "Ninguém liga para o seu processo",
+    date: "2024-04-09",
+    description: "Discussão sobre processos e como eles impactam (ou não) a percepção do usuário final.",
+  },
+  {
     id: 32,
     title: "O flop do AI Pin e a relação do Poker com Produto",
     date: "2024-04-17",
@@ -1008,6 +1014,7 @@ export const products: Product[] = [
 
   // Travel
   { id: "selina", name: "Selina", category: "Travel", url: "https://www.selinahotels.com/" },
+  { id: "airalo", name: "Airalo", category: "Travel", url: "https://www.airalo.com/" },
 
   // Business
   { id: "home-planner", name: "Home Planner", category: "Business" },
@@ -1316,6 +1323,8 @@ export const people: Person[] = [
   { id: "danilo-ep34", name: "Danilo" },
   { id: "sagradinho", name: "Sagradinho" },
   { id: "anonimo", name: "Anônimo" },
+  // Episode 31 contributors
+  { id: "renato", name: "Renato" },
   // Episode 32 contributors
   { id: "sala", name: "Sala" },
   { id: "marmerola", name: "Marmerola" },
@@ -1326,6 +1335,15 @@ export const people: Person[] = [
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 31
+  { id: "m31-1", episodeId: 31, personId: "aiquis", productId: "suno-ai" },
+  { id: "m31-2", episodeId: 31, personId: "arthur", productId: "waze" },
+  { id: "m31-3", episodeId: 31, personId: "renato", productId: "foodtosave" },
+  { id: "m31-4", episodeId: 31, personId: "nana", productId: "gymrats" },
+  { id: "m31-5", episodeId: 31, personId: "pilon", productId: "duolingo" },
+  { id: "m31-6", episodeId: 31, personId: "luquita", productId: "rappi" },
+  { id: "m31-7", episodeId: 31, personId: "andrezinho", productId: "airalo" },
+
   // Episode 32
   { id: "m32-1", episodeId: 32, personId: "aiquis", productId: "google-docs" },
   { id: "m32-2", episodeId: 32, personId: "arthur", productId: "canva" },
