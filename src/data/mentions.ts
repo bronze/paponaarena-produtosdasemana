@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
   // 2024 Episodes
   {
+    id: 37,
+    title: "Aprendendo sobre pensamento crítico e analítico",
+    date: "2024-05-21",
+    description: "Discussão sobre pensamento crítico e analítico no contexto de produto.",
+  },
+  {
     id: 38,
     title: 'E quando "falta tempo" para consumir conteúdo? Um giro de notícias no mundo de A.I.',
     date: "2024-05-28",
@@ -583,10 +589,12 @@ export const products: Product[] = [
   { id: "zepp", name: "Zepp", category: "Fitness" },
   { id: "garmin-connect", name: "Garmin Connect", category: "Fitness", url: "https://connect.garmin.com" },
   { id: "tecnofitbox", name: "TecnofitBox", category: "Fitness" },
+  { id: "classpass", name: "ClassPass", category: "Fitness", url: "https://classpass.com" },
 
   // Lifestyle
   { id: "gravidez-plus", name: "Gravidez+", category: "Lifestyle" },
   { id: "webdiet", name: "WebDiet", category: "Lifestyle" },
+  { id: "drink-water", name: "Drink Water", category: "Lifestyle" },
 
   // Retail
   { id: "zoom-loja", name: "Zoom", category: "Retail", url: "https://www.zoom.com.br/" },
@@ -649,6 +657,7 @@ export const products: Product[] = [
   { id: "e-titulo", name: "E-título", category: "Transportation" },
   { id: "swapfiets", name: "Swapfiets", category: "Transportation", url: "https://swapfiets.com" },
   { id: "tesla", name: "Tesla", category: "Transportation", url: "https://tesla.com" },
+  { id: "lady-driver", name: "Lady Driver", category: "Transportation", url: "https://www.ladydriver.com.br/" },
 
   // Social
   { id: "reddit", name: "Reddit", category: "Social", url: "https://reddit.com" },
@@ -704,6 +713,7 @@ export const products: Product[] = [
   { id: "figma-slides", name: "Figma Slides", category: "Productivity", parentId: "figma" },
   { id: "clickup", name: "ClickUp", category: "Productivity", url: "https://clickup.com" },
   { id: "google-slides", name: "Google Slides", category: "Productivity" },
+  { id: "google-sheets", name: "Google Sheets", category: "Productivity" },
   { id: "google-maps", name: "Google Maps", category: "Productivity", url: "https://maps.google.com" },
   { id: "raindrop", name: "Raindrop", category: "Productivity", url: "https://raindrop.io" },
   { id: "onesec", name: "OneSec", category: "Productivity" },
@@ -766,6 +776,7 @@ export const products: Product[] = [
   { id: "scrabble", name: "Scrabble", category: "Entertainment" },
   { id: "plague-evolved", name: "Plague Evolved", category: "Entertainment" },
   { id: "pokemon-tcg", name: "Pokémon TCG", category: "Entertainment", url: "https://tcgpocket.pokemon.com/en-us/" },
+  { id: "brawl-stars", name: "Brawl Stars", category: "Entertainment" },
   { id: "netflix", name: "Netflix", category: "Entertainment", url: "https://netflix.com" },
   { id: "netflix-skip-intro", name: "Netflix Skip Intro", category: "Entertainment", parentId: "netflix" },
   { id: "youtube", name: "Youtube", category: "Entertainment", url: "https://youtube.com" },
@@ -1241,6 +1252,14 @@ export const people: Person[] = [
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 37
+  { id: "m37-1", episodeId: 37, personId: "aiquis", productId: "google-sheets" },
+  { id: "m37-2", episodeId: 37, personId: "arthur", productId: "google-slides" },
+  { id: "m37-3", episodeId: 37, personId: "pilon", productId: "drink-water" },
+  { id: "m37-4", episodeId: 37, personId: "natascha", productId: "lady-driver" },
+  { id: "m37-5", episodeId: 37, personId: "danilera", productId: "brawl-stars" },
+  { id: "m37-6", episodeId: 37, personId: "beicola", productId: "classpass" },
+
   // Episode 38
   { id: "m38-1", episodeId: 38, personId: "arthur", productId: "magie" },
   { id: "m38-2", episodeId: 38, personId: "aiquis", productId: "duolingo" },
