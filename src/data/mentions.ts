@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
   // 2024 Episodes
   {
+    id: 21,
+    title: "As previsões que ninguém pediu sobre A.I. e Produto em 2024",
+    date: "2024-01-19",
+    description: "Discussão sobre previsões para inteligência artificial e produto em 2024.",
+  },
+  {
     id: 22,
     title: "Como a galera tá usando o ChatGPT no dia a dia?",
     date: "2024-01-19",
@@ -1442,6 +1448,10 @@ export const people: Person[] = [
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 21
+  { id: "m21-1", episodeId: 21, personId: "arthur", productId: "audible" },
+  { id: "m21-2", episodeId: 21, personId: "aiquis", productId: "splitwise" },
+
   // Episode 22
   { id: "m22-1", episodeId: 22, personId: "arthur", productId: "training-peaks" },
   { id: "m22-2", episodeId: 22, personId: "aiquis", productId: "star-plus" },
