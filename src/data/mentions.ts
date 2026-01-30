@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
 // 2024 Episodes
   {
+    id: 39,
+    title: "Opiniões fortes, convicção e hype na construção de produtos",
+    date: "2024-06-04",
+    description: "Discussão sobre opiniões fortes, convicção e hype no processo de construção de produtos.",
+  },
+  {
     id: 41,
     title: "Estratégias de A.I.: integrações, modelos e custos",
     date: "2024-06-26",
@@ -403,6 +409,7 @@ export const products: Product[] = [
   { id: "inalador", name: "Inalador", category: "Hardware" },
   { id: "alexa", name: "Alexa", category: "Hardware" },
   { id: "apple-watch", name: "Apple Watch", category: "Hardware" },
+  { id: "sauna-portatil-lifepro", name: "Sauna Portátil Lifepro", category: "Hardware" },
   { id: "broadlink", name: "Broadlink", category: "Automation" },
 
   // Entertainment
@@ -565,6 +572,7 @@ export const products: Product[] = [
 
   // Lifestyle
   { id: "gravidez-plus", name: "Gravidez+", category: "Lifestyle" },
+  { id: "webdiet", name: "WebDiet", category: "Lifestyle" },
 
   // Retail
   { id: "zoom-loja", name: "Zoom", category: "Retail", url: "https://www.zoom.com.br/" },
@@ -582,6 +590,7 @@ export const products: Product[] = [
 
   // Finance (Episode 41)
   { id: "bipa", name: "Bipa", category: "Finance", url: "https://bipa.app/" },
+  { id: "mobills", name: "Mobills", category: "Finance", url: "https://mobills.com.br" },
 
   // Analytics
   { id: "amplitude", name: "Amplitude", category: "Analytics", url: "https://amplitude.com" },
@@ -644,6 +653,9 @@ export const products: Product[] = [
     category: "Productivity",
     url: "https://www.stratospherix.com/filebrowsergo/",
   },
+  { id: "stoop-inbox", name: "Stoop Inbox", category: "Productivity" },
+  { id: "pocket", name: "Pocket", category: "Productivity", url: "https://getpocket.com" },
+  { id: "capacities", name: "Capacities", category: "Productivity", url: "https://capacities.io" },
   { id: "sprout", name: "Sprout", category: "Lifestyle", url: "https://sprout-apps.com/" },
   { id: "baby-tracker", name: "Baby Tracker", category: "Lifestyle" },
   { id: "my-baby", name: "My Baby", category: "Lifestyle" },
@@ -725,8 +737,10 @@ export const products: Product[] = [
   { id: "plague-evolved", name: "Plague Evolved", category: "Entertainment" },
   { id: "pokemon-tcg", name: "Pokémon TCG", category: "Entertainment", url: "https://tcgpocket.pokemon.com/en-us/" },
   { id: "netflix", name: "Netflix", category: "Entertainment", url: "https://netflix.com" },
+  { id: "netflix-skip-intro", name: "Netflix Skip Intro", category: "Entertainment", parentId: "netflix" },
   { id: "youtube", name: "Youtube", category: "Entertainment", url: "https://youtube.com" },
   { id: "youtube-premium", name: "Youtube Premium", category: "Entertainment", parentId: "youtube" },
+  { id: "youtube-download-inteligente", name: "Download inteligente do Youtube Premium", category: "Entertainment", parentId: "youtube-premium" },
   { id: "nok-nox", name: "Nok Nox", category: "Entertainment", url: "https://noknox.com" },
   { id: "ingresso-com", name: "Ingresso.com", category: "Entertainment", url: "https://www.ingresso.com/" },
   { id: "disney-plus", name: "Disney+", category: "Entertainment", url: "https://disneyplus.com" },
@@ -843,6 +857,7 @@ export const products: Product[] = [
   { id: "opal", name: "Opal", category: "Wellness", url: "https://opal.so" },
   { id: "beep-saude", name: "Beep Saúde", category: "Wellness" },
   { id: "dasa", name: "Dasa", category: "Wellness" },
+  { id: "nav-dasa", name: "Nav Dasa", category: "Wellness", parentId: "dasa" },
   { id: "fleury", name: "Fleury", category: "Wellness" },
   { id: "dia", name: "Dia", category: "Wellness" },
 
@@ -1184,6 +1199,21 @@ export const people: Person[] = [
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 39
+  { id: "m39-1", episodeId: 39, personId: "aiquis", productId: "stoop-inbox" },
+  { id: "m39-2", episodeId: 39, personId: "arthur", productId: "sauna-portatil-lifepro" },
+  { id: "m39-3", episodeId: 39, personId: "danilera", productId: "mobills" },
+  { id: "m39-4", episodeId: 39, personId: "lucao", productId: "nav-dasa" },
+  { id: "m39-5", episodeId: 39, personId: "neuri", productId: "webdiet" },
+  { id: "m39-6", episodeId: 39, personId: "miriam", productId: "netflix-skip-intro" },
+  { id: "m39-7", episodeId: 39, personId: "karina", productId: "waze" },
+  { id: "m39-8", episodeId: 39, personId: "caue", productId: "youtube-download-inteligente" },
+  { id: "m39-9", episodeId: 39, personId: "glauco", productId: "nespresso" },
+  { id: "m39-10", episodeId: 39, personId: "welington-souza", productId: "pocket" },
+  { id: "m39-11", episodeId: 39, personId: "boss", productId: "capacities" },
+  { id: "m39-12", episodeId: 39, personId: "luquita", productId: "power-automate" },
+  { id: "m39-13", episodeId: 39, personId: "andrezinho", productId: "spotify" },
+
   // Episode 41
   { id: "m41-1", episodeId: 41, personId: "arthur", productId: "gravidez-plus" },
   { id: "m41-2", episodeId: 41, personId: "arthur", productId: "ray-ban-meta" },
