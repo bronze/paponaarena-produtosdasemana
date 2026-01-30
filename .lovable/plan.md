@@ -1,9 +1,9 @@
 
 
-## Plano: Adicionar Episódio 22 (Como a galera tá usando o ChatGPT no dia a dia?)
+## Plano: Adicionar Episódio 21 (As previsões que ninguém pediu sobre A.I. e Produto em 2024)
 
 ### Visão Geral
-Adicionar o episódio 22 com 5 menções de produtos. Este será o novo episódio mais antigo do dataset (antes do episódio 23).
+Adicionar o episódio 21 com 2 menções de produtos. Este será o novo episódio mais antigo do dataset (antes do episódio 22).
 
 ---
 
@@ -12,22 +12,16 @@ Adicionar o episódio 22 com 5 menções de produtos. Este será o novo episódi
 **Produtos existentes:**
 | ID | Nome | Categoria |
 |----|------|-----------|
-| `training-peaks` | Training Peaks | Fitness |
-| `notion` | Notion | Productivity |
-| `wise` | Wise | Finance |
+| `audible` | Audible | Education |
+| `splitwise` | Splitwise | Business |
 
-**Produtos a criar:**
-| ID | Nome | Categoria | URL | Observação |
-|----|------|-----------|-----|------------|
-| `star-plus` | Star+ | Entertainment | - | Streaming (incorporado ao Disney+ em 2024) |
-| `oceanic-plus` | Oceanic Plus | Fitness | - | App de mergulho para Apple Watch Ultra |
+**Produtos a criar:** Nenhum
 
 **Pessoas existentes:**
 | ID | Nome |
 |----|------|
 | `arthur` | Arthur |
 | `aiquis` | Aíquis |
-| `anonimo` | Anônimo |
 
 **Pessoas a criar:** Nenhuma
 
@@ -40,36 +34,21 @@ Adicionar o episódio 22 com 5 menções de produtos. Este será o novo episódi
 
 ### Detalhes Técnicos
 
-**Passo 1 - Adicionar episódio** (inserir antes do episódio 23, início da lista):
+**Passo 1 - Adicionar episódio** (inserir antes do episódio 22, início da lista):
 ```typescript
   {
-    id: 22,
-    title: "Como a galera tá usando o ChatGPT no dia a dia?",
+    id: 21,
+    title: "As previsões que ninguém pediu sobre A.I. e Produto em 2024",
     date: "2024-01-19",
-    description: "Discussão sobre os usos práticos do ChatGPT no cotidiano das pessoas.",
+    description: "Discussão sobre previsões para inteligência artificial e produto em 2024.",
   },
 ```
 
-**Passo 2 - Adicionar produtos novos:**
-
-Entertainment:
+**Passo 2 - Adicionar menções** (inserir antes do Episode 22):
 ```typescript
-  { id: "star-plus", name: "Star+", category: "Entertainment" },
-```
-
-Fitness:
-```typescript
-  { id: "oceanic-plus", name: "Oceanic Plus", category: "Fitness" },
-```
-
-**Passo 3 - Adicionar menções** (inserir antes do Episode 23):
-```typescript
-  // Episode 22
-  { id: "m22-1", episodeId: 22, personId: "arthur", productId: "training-peaks" },
-  { id: "m22-2", episodeId: 22, personId: "aiquis", productId: "star-plus" },
-  { id: "m22-3", episodeId: 22, personId: "anonimo", productId: "notion" },
-  { id: "m22-4", episodeId: 22, personId: "anonimo", productId: "wise" },
-  { id: "m22-5", episodeId: 22, personId: "anonimo", productId: "oceanic-plus" },
+  // Episode 21
+  { id: "m21-1", episodeId: 21, personId: "arthur", productId: "audible" },
+  { id: "m21-2", episodeId: 21, personId: "aiquis", productId: "splitwise" },
 ```
 
 ---
@@ -80,13 +59,11 @@ Fitness:
 |------|------------|
 | Episódio | 1 |
 | Pessoas novas | 0 |
-| Produtos novos | 2 (Star+, Oceanic Plus) |
-| Menções | 5 |
+| Produtos novos | 0 |
+| Menções | 2 |
 
 ### Notas
-- Training Peaks, Notion e Wise já existem e serão reutilizados
-- Star+ era o serviço de streaming de esportes e conteúdo adulto da Disney (incorporado ao Disney+ em 2024)
-- Oceanic Plus é o app de mergulho para Apple Watch Ultra (categoria Fitness, junto com outros apps esportivos)
-- Há 3 menções do participante "Anônimo" neste episódio (Notion, Wise e Oceanic Plus)
-- A URL do Training Peaks no dataset já existe como `https://trainingpeaks.com`, mas o usuário forneceu `https://www.trainingpeaks.com/` - vou manter a existente
+- Audible e Splitwise já existem no dataset e serão reutilizados
+- Arthur e Aíquis são participantes existentes
+- O episódio 21 tem a mesma data do episódio 22 (2024-01-19), o que indica que podem ter sido gravados/publicados no mesmo dia
 
