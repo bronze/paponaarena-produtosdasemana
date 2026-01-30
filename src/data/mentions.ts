@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
   // 2024 Episodes
   {
+    id: 32,
+    title: "O flop do AI Pin e a relação do Poker com Produto",
+    date: "2024-04-17",
+    description: "Discussão sobre o fracasso do AI Pin da Humane e a relação entre estratégias de poker e produto.",
+  },
+  {
     id: 33,
     title: "O direito de se desconectar e quando microgerenciamento não é ruim",
     date: "2024-04-24",
@@ -464,6 +470,7 @@ export const products: Product[] = [
   { id: "gamepass", name: "GamePass", category: "Entertainment" },
   { id: "delta-emulador", name: "Delta", category: "Entertainment" },
   { id: "chromecast", name: "Chromecast", category: "Hardware" },
+  { id: "skyview", name: "SkyView", category: "Entertainment" },
 
   // Travel
   { id: "tripadvisor", name: "TripAdvisor", category: "Travel", url: "https://tripadvisor.com" },
@@ -623,6 +630,7 @@ export const products: Product[] = [
   { id: "maya", name: "Maya", category: "Lifestyle" },
   { id: "webdiet", name: "WebDiet", category: "Lifestyle" },
   { id: "drink-water", name: "Drink Water", category: "Lifestyle" },
+  { id: "contracoes", name: "Contrações", category: "Lifestyle" },
 
   // Retail
   { id: "zoom-loja", name: "Zoom", category: "Retail", url: "https://www.zoom.com.br/" },
@@ -749,6 +757,8 @@ export const products: Product[] = [
   { id: "google-sheets", name: "Google Sheets", category: "Productivity", parentId: "google-docs" },
   { id: "google-maps", name: "Google Maps", category: "Productivity", url: "https://maps.google.com" },
   { id: "raindrop", name: "Raindrop", category: "Productivity", url: "https://raindrop.io" },
+  { id: "todoist", name: "Todoist", category: "Productivity", url: "https://todoist.com" },
+  { id: "1password", name: "1Password", category: "Productivity", url: "https://1password.com" },
   { id: "onesec", name: "OneSec", category: "Productivity" },
   { id: "shortcuts-ios", name: "Shortcuts do iOS", category: "Productivity" },
   { id: "apple-shortcut", name: "Shortcut da Apple", category: "Productivity", parentId: "shortcuts-ios" },
@@ -994,6 +1004,7 @@ export const products: Product[] = [
 
   // Health
   { id: "bradesco-saude", name: "Bradesco Saúde", category: "Health", url: "https://www.bradescoseguros.com.br/" },
+  { id: "steto", name: "Steto", category: "Health", url: "https://stetoapp.com/" },
 
   // Travel
   { id: "selina", name: "Selina", category: "Travel", url: "https://www.selinahotels.com/" },
@@ -1004,6 +1015,7 @@ export const products: Product[] = [
   { id: "afya-receita-pro", name: "Afya Receita Pro", category: "Business" },
   { id: "maze", name: "maze.co", category: "Business", url: "https://maze.co" },
   { id: "trela", name: "Trela", category: "Business" },
+  { id: "zenchef", name: "Zenchef", category: "Business", url: "https://zenchef.com" },
   { id: "splitwise", name: "Splitwise", category: "Business", url: "https://splitwise.com" },
   { id: "tricount", name: "Tricount", category: "Business" },
   { id: "boosteroid", name: "Boosteroid", category: "Business" },
@@ -1304,6 +1316,9 @@ export const people: Person[] = [
   { id: "danilo-ep34", name: "Danilo" },
   { id: "sagradinho", name: "Sagradinho" },
   { id: "anonimo", name: "Anônimo" },
+  // Episode 32 contributors
+  { id: "sala", name: "Sala" },
+  { id: "marmerola", name: "Marmerola" },
   // Episode 33 contributors
   { id: "teles", name: "Teles" },
   { id: "edu", name: "Edu" },
@@ -1311,6 +1326,23 @@ export const people: Person[] = [
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 32
+  { id: "m32-1", episodeId: 32, personId: "aiquis", productId: "google-docs" },
+  { id: "m32-2", episodeId: 32, personId: "arthur", productId: "canva" },
+  { id: "m32-3", episodeId: 32, personId: "boss", productId: "contracoes" },
+  { id: "m32-4", episodeId: 32, personId: "nana", productId: "google-maps" },
+  { id: "m32-5", episodeId: 32, personId: "pri-chagas", productId: "todoist" },
+  { id: "m32-6", episodeId: 32, personId: "wilson-moraes", productId: "total-pass" },
+  { id: "m32-7", episodeId: 32, personId: "miriam", productId: "strava" },
+  { id: "m32-8", episodeId: 32, personId: "paulo", productId: "splitwise" },
+  { id: "m32-9", episodeId: 32, personId: "andrezao", productId: "skyview" },
+  { id: "m32-10", episodeId: 32, personId: "lucas-mattos", productId: "steto" },
+  { id: "m32-11", episodeId: 32, personId: "pilon", productId: "mercado-livre" },
+  { id: "m32-12", episodeId: 32, personId: "sala", productId: "1password" },
+  { id: "m32-13", episodeId: 32, personId: "miriam", productId: "steto" },
+  { id: "m32-14", episodeId: 32, personId: "marmerola", productId: "trela" },
+  { id: "m32-15", episodeId: 32, personId: "ana-romeu", productId: "zenchef" },
+
   // Episode 33
   { id: "m33-1", episodeId: 33, personId: "arthur", productId: "nike-alphafly" },
   { id: "m33-2", episodeId: 33, personId: "aiquis", productId: "max" },
