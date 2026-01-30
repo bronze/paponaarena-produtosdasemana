@@ -1,65 +1,46 @@
 
 
-## Plano: Adicionar links do YouTube e Spotify aos episódios
+## Plano: Adicionar sufixo de playlist do YouTube como variavel configuravel
 
-### Problema
-Voce adicionou `youtubeLink` e `spotifyLink` aos dados dos episódios, mas a interface TypeScript `Episode` nao inclui essas propriedades, causando erros de compilacao.
-
-### Solucao
-1. Atualizar a interface `Episode` para incluir os novos campos
-2. Exibir os links na pagina de detalhe do episodio
-3. Exibir os links nos cards da lista de episodios
+### Objetivo
+Adicionar um sufixo aos links do YouTube para abrir os videos dentro de uma playlist especifica, mantendo o sufixo como uma variavel editavel.
 
 ---
 
 ### Arquivos a Modificar
 
-**1. `src/data/mentions.ts`** - Atualizar interface Episode
+**1. `src/data/mentions.ts`** - Adicionar constante de configuracao
 
-Adicionar as novas propriedades opcionais:
+Adicionar uma constante no inicio do arquivo para o sufixo da playlist:
 ```typescript
-export interface Episode {
-  id: number;
-  title: string;
-  date: string;
-  description: string;
-  youtubeLink?: string;
-  spotifyLink?: string;
-}
+// YouTube playlist suffix - edit this to change the playlist
+export const YOUTUBE_PLAYLIST_SUFFIX = "&list=PLDz-F0OTctcY5ElkySqbW6Y_l2ASCZRQs";
 ```
 
-**2. `src/pages/EpisodeDetail.tsx`** - Adicionar botoes de link
+**2. `src/pages/EpisodeDetail.tsx`** - Usar a constante no link
 
-Adicionar botoes ao lado das informacoes do episodio (data e mencoes):
-- Botao YouTube (vermelho) com icone
-- Botao Spotify (verde) com icone
-- Ambos abrem em nova aba
+Importar a constante e concatenar ao link:
+```typescript
+import { YOUTUBE_PLAYLIST_SUFFIX } from "@/data/mentions";
 
-**3. `src/pages/Episodes.tsx`** - Adicionar icones nos cards
+// No link do YouTube:
+href={`${episode.youtubeLink}${YOUTUBE_PLAYLIST_SUFFIX}`}
+```
 
-Adicionar pequenos icones clicaveis no card de cada episodio:
-- Icone YouTube
-- Icone Spotify
-- Posicionados no canto do card ou junto a data
+**3. `src/pages/Episodes.tsx`** - Usar a constante nos cards
 
----
+Mesma alteracao para os icones nos cards de episodios:
+```typescript
+import { YOUTUBE_PLAYLIST_SUFFIX } from "@/data/mentions";
 
-### Design Visual
-
-**Pagina de Detalhe (EpisodeDetail):**
-- Botoes ao lado da data e contagem de mencoes
-- Estilo: `variant="outline"` com cores tematicas
-- Icones: YouTube e Spotify do Lucide (ou icones SVG customizados)
-
-**Cards na Lista (Episodes):**
-- Icones pequenos e discretos
-- Ao clicar, abre o link (com `e.stopPropagation()` para nao navegar para o detalhe)
-- Posicao: proximo a data do episodio
+// No link do YouTube:
+href={`${episode.youtubeLink}${YOUTUBE_PLAYLIST_SUFFIX}`}
+```
 
 ---
 
-### Notas Tecnicas
-- Usar `target="_blank"` e `rel="noopener noreferrer"` nos links externos
-- Links sao opcionais (`?`), entao verificar existencia antes de renderizar
-- Lucide nao tem icones oficiais do YouTube/Spotify, usaremos icones alternativos como `Youtube` e `Music` ou icones SVG inline
+### Beneficios
+- Sufixo centralizado em um unico lugar
+- Facil de editar ou remover futuramente
+- Nao modifica os dados originais dos episodios
 
