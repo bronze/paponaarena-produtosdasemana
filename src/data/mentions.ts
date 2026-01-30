@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
   // 2024 Episodes
   {
+    id: 33,
+    title: "O direito de se desconectar e quando microgerenciamento não é ruim",
+    date: "2024-04-24",
+    description: "Discussão sobre o direito de se desconectar do trabalho e quando o microgerenciamento pode ser benéfico.",
+  },
+  {
     id: 34,
     title: "Comunicação em poucas palavras e como desenvolver PMs sem bullsh**agem",
     date: "2024-05-01",
@@ -456,6 +462,8 @@ export const products: Product[] = [
   { id: "deezer", name: "Deezer", category: "Entertainment", url: "https://www.deezer.com/" },
   { id: "stickerly", name: "Sticker.ly", category: "Entertainment", url: "https://sticker.ly/" },
   { id: "gamepass", name: "GamePass", category: "Entertainment" },
+  { id: "delta-emulador", name: "Delta", category: "Entertainment" },
+  { id: "chromecast", name: "Chromecast", category: "Hardware" },
 
   // Travel
   { id: "tripadvisor", name: "TripAdvisor", category: "Travel", url: "https://tripadvisor.com" },
@@ -612,6 +620,7 @@ export const products: Product[] = [
 
   // Lifestyle
   { id: "gravidez-plus", name: "Gravidez+", category: "Lifestyle" },
+  { id: "maya", name: "Maya", category: "Lifestyle" },
   { id: "webdiet", name: "WebDiet", category: "Lifestyle" },
   { id: "drink-water", name: "Drink Water", category: "Lifestyle" },
 
@@ -654,6 +663,7 @@ export const products: Product[] = [
   { id: "seats-aero", name: "Seats.aero", category: "Travel", url: "https://seats.aero" },
   { id: "omio", name: "Omio", category: "Travel", url: "https://www.omio.com.br/" },
   { id: "united-airlines", name: "United Airlines", category: "Travel" },
+  { id: "msc-for-me", name: "MSC for Me", category: "Travel" },
 
   // Transportation
   { id: "instacarro", name: "Instacarro", category: "Transportation", url: "https://instacarro.com" },
@@ -764,6 +774,7 @@ export const products: Product[] = [
   { id: "zona-azul", name: "Zona Azul", category: "Productivity" },
   { id: "overleaf", name: "Overleaf", category: "Productivity", url: "https://www.overleaf.com/" },
   { id: "excel", name: "Excel", category: "Productivity" },
+  { id: "asana", name: "Asana", category: "Productivity", url: "https://asana.com" },
   { id: "swiftkey", name: "SwiftKey", category: "Productivity" },
 
   // Education
@@ -779,6 +790,7 @@ export const products: Product[] = [
   { id: "audible", name: "Audible", category: "Education", url: "https://audible.com" },
   { id: "classapp", name: "ClassApp", category: "Education" },
   { id: "khan-academy", name: "Khan Academy", category: "Education", url: "https://khanacademy.org" },
+  { id: "google-scholar", name: "Google Scholar", category: "Education", url: "https://scholar.google.com" },
 
   // Entertainment
   {
@@ -1018,6 +1030,7 @@ export const products: Product[] = [
   { id: "shopee", name: "Shopee", category: "Retail", url: "https://shopee.com.br" },
   { id: "wine", name: "Wine", category: "Retail", url: "https://www.wine.com.br/" },
   { id: "nike", name: "Nike", category: "Retail", url: "https://nike.com" },
+  { id: "nike-alphafly", name: "Nike Alphafly", category: "Fitness", parentId: "nike" },
   { id: "pexels", name: "Pexels", category: "Business", url: "https://pexels.com" },
   { id: "vivino", name: "Vivino", category: "Business", url: "https://vivino.com" },
   { id: "u-haul", name: "U-haul", category: "Business" },
@@ -1291,10 +1304,29 @@ export const people: Person[] = [
   { id: "danilo-ep34", name: "Danilo" },
   { id: "sagradinho", name: "Sagradinho" },
   { id: "anonimo", name: "Anônimo" },
+  // Episode 33 contributors
+  { id: "teles", name: "Teles" },
+  { id: "edu", name: "Edu" },
 ];
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 33
+  { id: "m33-1", episodeId: 33, personId: "arthur", productId: "nike-alphafly" },
+  { id: "m33-2", episodeId: 33, personId: "aiquis", productId: "max" },
+  { id: "m33-3", episodeId: 33, personId: "andrezao", productId: "delta-emulador" },
+  { id: "m33-4", episodeId: 33, personId: "paulo", productId: "raindrop" },
+  { id: "m33-5", episodeId: 33, personId: "miriam", productId: "chromecast" },
+  { id: "m33-6", episodeId: 33, personId: "karina", productId: "asana" },
+  { id: "m33-7", episodeId: 33, personId: "danilera", productId: "garmin-connect" },
+  { id: "m33-8", episodeId: 33, personId: "teles", productId: "garmin-connect" },
+  { id: "m33-9", episodeId: 33, personId: "edu", productId: "msc-for-me" },
+  { id: "m33-10", episodeId: 33, personId: "nina", productId: "whatsapp" },
+  { id: "m33-11", episodeId: 33, personId: "caue", productId: "capcut" },
+  { id: "m33-12", episodeId: 33, personId: "beicola", productId: "yazio" },
+  { id: "m33-13", episodeId: 33, personId: "lucas", productId: "google-scholar" },
+  { id: "m33-14", episodeId: 33, personId: "pilon", productId: "maya" },
+
   // Episode 34
   { id: "m34-1", episodeId: 34, personId: "arthur", productId: "instagram" },
   { id: "m34-2", episodeId: 34, personId: "aiquis", productId: "booking" },
