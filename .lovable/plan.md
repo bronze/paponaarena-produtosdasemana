@@ -1,9 +1,9 @@
 
 
-## Plano: Adicionar Episódio 23 (PMs precisam postar na Linkedisney pra ter sucesso?)
+## Plano: Adicionar Episódio 22 (Como a galera tá usando o ChatGPT no dia a dia?)
 
 ### Visão Geral
-Adicionar o episódio 23 com 12 menções de produtos. Este será o novo episódio mais antigo do dataset (antes do episódio 24).
+Adicionar o episódio 22 com 5 menções de produtos. Este será o novo episódio mais antigo do dataset (antes do episódio 23).
 
 ---
 
@@ -12,43 +12,24 @@ Adicionar o episódio 23 com 12 menções de produtos. Este será o novo episód
 **Produtos existentes:**
 | ID | Nome | Categoria |
 |----|------|-----------|
-| `loom` | Loom | Productivity |
-| `miro` | Miro | Productivity |
-| `linkedin` | LinkedIn | Social |
-| `samsung-health` | Samsung Health | Fitness |
+| `training-peaks` | Training Peaks | Fitness |
+| `notion` | Notion | Productivity |
+| `wise` | Wise | Finance |
 
 **Produtos a criar:**
 | ID | Nome | Categoria | URL | Observação |
 |----|------|-----------|-----|------------|
-| `rise-sleep` | Rise Sleep | Health | https://www.risescience.com/ | App de sono |
-| `planta` | Planta | Lifestyle | - | App de cuidados com plantas |
-| `clickbus` | ClickBus | Travel | - | Passagens de ônibus |
-| `google-agenda` | Google Agenda | Productivity | https://calendar.google.com | Variante do Google Docs |
-| `delboni` | Delboni Auriemo | Wellness | https://delboniauriemo.com.br/ | Laboratório de exames |
-| `delboni-chat` | Chat do Delboni | Wellness | https://delboniauriemo.com.br/ | Variante do Delboni |
-| `grab` | Grab | Transportation | https://www.grab.com/ | Super app asiático |
-| `ynab` | YNAB | Finance | https://www.ynab.com/ | App de orçamento pessoal |
-| `salesforce` | Salesforce | Business | https://www.salesforce.com/ | CRM |
+| `star-plus` | Star+ | Entertainment | - | Streaming (incorporado ao Disney+ em 2024) |
+| `oceanic-plus` | Oceanic Plus | Fitness | - | App de mergulho para Apple Watch Ultra |
 
 **Pessoas existentes:**
 | ID | Nome |
 |----|------|
-| `aiquis` | Aíquis |
 | `arthur` | Arthur |
-| `agata-cristina` | Ágata Cristina |
-| `pilon` | Pilon |
-| `montoya` | Montoya |
-| `cesar` | César |
-| `bruno` | Bruno |
+| `aiquis` | Aíquis |
+| `anonimo` | Anônimo |
 
-**Pessoas a criar:**
-| ID | Nome |
-|----|------|
-| `regis` | Régis |
-| `gabi-braga` | Gabi Braga |
-| `adriana-barros` | Adriana Barros |
-| `michele-morais` | Michele Morais |
-| `martin` | Martin |
+**Pessoas a criar:** Nenhuma
 
 ---
 
@@ -59,84 +40,36 @@ Adicionar o episódio 23 com 12 menções de produtos. Este será o novo episód
 
 ### Detalhes Técnicos
 
-**Passo 1 - Adicionar episódio** (inserir antes do episódio 24, início da lista):
+**Passo 1 - Adicionar episódio** (inserir antes do episódio 23, início da lista):
 ```typescript
   {
-    id: 23,
-    title: "PMs precisam postar na Linkedisney pra ter sucesso?",
-    date: "2024-01-24",
-    description: "Discussão sobre a presença de Product Managers no LinkedIn e se isso é necessário para o sucesso na carreira.",
+    id: 22,
+    title: "Como a galera tá usando o ChatGPT no dia a dia?",
+    date: "2024-01-19",
+    description: "Discussão sobre os usos práticos do ChatGPT no cotidiano das pessoas.",
   },
 ```
 
 **Passo 2 - Adicionar produtos novos:**
 
-Health:
+Entertainment:
 ```typescript
-  { id: "rise-sleep", name: "Rise Sleep", category: "Health", url: "https://www.risescience.com/" },
+  { id: "star-plus", name: "Star+", category: "Entertainment" },
 ```
 
-Lifestyle:
+Fitness:
 ```typescript
-  { id: "planta", name: "Planta", category: "Lifestyle" },
+  { id: "oceanic-plus", name: "Oceanic Plus", category: "Fitness" },
 ```
 
-Travel:
+**Passo 3 - Adicionar menções** (inserir antes do Episode 23):
 ```typescript
-  { id: "clickbus", name: "ClickBus", category: "Travel" },
-```
-
-Productivity (variante do Google Docs):
-```typescript
-  { id: "google-agenda", name: "Google Agenda", category: "Productivity", url: "https://calendar.google.com", parentId: "google-docs" },
-```
-
-Wellness:
-```typescript
-  { id: "delboni", name: "Delboni Auriemo", category: "Wellness", url: "https://delboniauriemo.com.br/" },
-  { id: "delboni-chat", name: "Chat do Delboni", category: "Wellness", url: "https://delboniauriemo.com.br/", parentId: "delboni" },
-```
-
-Transportation:
-```typescript
-  { id: "grab", name: "Grab", category: "Transportation", url: "https://www.grab.com/" },
-```
-
-Finance:
-```typescript
-  { id: "ynab", name: "YNAB", category: "Finance", url: "https://www.ynab.com/" },
-```
-
-Business:
-```typescript
-  { id: "salesforce", name: "Salesforce", category: "Business", url: "https://www.salesforce.com/" },
-```
-
-**Passo 3 - Adicionar pessoas:**
-```typescript
-  // Episode 23 contributors
-  { id: "regis", name: "Régis" },
-  { id: "gabi-braga", name: "Gabi Braga" },
-  { id: "adriana-barros", name: "Adriana Barros" },
-  { id: "michele-morais", name: "Michele Morais" },
-  { id: "martin", name: "Martin" },
-```
-
-**Passo 4 - Adicionar menções** (inserir antes do Episode 24):
-```typescript
-  // Episode 23
-  { id: "m23-1", episodeId: 23, personId: "aiquis", productId: "loom" },
-  { id: "m23-2", episodeId: 23, personId: "arthur", productId: "rise-sleep" },
-  { id: "m23-3", episodeId: 23, personId: "regis", productId: "planta" },
-  { id: "m23-4", episodeId: 23, personId: "gabi-braga", productId: "clickbus" },
-  { id: "m23-5", episodeId: 23, personId: "agata-cristina", productId: "google-agenda" },
-  { id: "m23-6", episodeId: 23, personId: "adriana-barros", productId: "linkedin", context: "ouvir o nome da pessoa" },
-  { id: "m23-7", episodeId: 23, personId: "michele-morais", productId: "miro" },
-  { id: "m23-8", episodeId: 23, personId: "pilon", productId: "delboni-chat" },
-  { id: "m23-9", episodeId: 23, personId: "martin", productId: "grab" },
-  { id: "m23-10", episodeId: 23, personId: "bruno", productId: "ynab" },
-  { id: "m23-11", episodeId: 23, personId: "montoya", productId: "samsung-health" },
-  { id: "m23-12", episodeId: 23, personId: "cesar", productId: "salesforce" },
+  // Episode 22
+  { id: "m22-1", episodeId: 22, personId: "arthur", productId: "training-peaks" },
+  { id: "m22-2", episodeId: 22, personId: "aiquis", productId: "star-plus" },
+  { id: "m22-3", episodeId: 22, personId: "anonimo", productId: "notion" },
+  { id: "m22-4", episodeId: 22, personId: "anonimo", productId: "wise" },
+  { id: "m22-5", episodeId: 22, personId: "anonimo", productId: "oceanic-plus" },
 ```
 
 ---
@@ -146,17 +79,14 @@ Business:
 | Item | Quantidade |
 |------|------------|
 | Episódio | 1 |
-| Pessoas novas | 5 |
-| Produtos novos | 9 |
-| Menções | 12 |
+| Pessoas novas | 0 |
+| Produtos novos | 2 (Star+, Oceanic Plus) |
+| Menções | 5 |
 
 ### Notas
-- Loom, Miro, LinkedIn e Samsung Health já existem e serão reutilizados
-- Google Agenda é tratado como variante do Google Docs (usando `parentId`) para agregar estatísticas
-- Chat do Delboni é variante do Delboni principal
-- Rise Sleep é o app de sono (categoria Health)
-- Grab é o super app asiático (categoria Transportation, similar ao Uber)
-- YNAB (You Need A Budget) é app de finanças pessoais
-- Salesforce é CRM (categoria Business)
-- A menção de Adriana Barros ao LinkedIn inclui context "ouvir o nome da pessoa"
+- Training Peaks, Notion e Wise já existem e serão reutilizados
+- Star+ era o serviço de streaming de esportes e conteúdo adulto da Disney (incorporado ao Disney+ em 2024)
+- Oceanic Plus é o app de mergulho para Apple Watch Ultra (categoria Fitness, junto com outros apps esportivos)
+- Há 3 menções do participante "Anônimo" neste episódio (Notion, Wise e Oceanic Plus)
+- A URL do Training Peaks no dataset já existe como `https://trainingpeaks.com`, mas o usuário forneceu `https://www.trainingpeaks.com/` - vou manter a existente
 
