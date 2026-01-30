@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
   // 2024 Episodes
   {
+    id: 23,
+    title: "PMs precisam postar na Linkedisney pra ter sucesso?",
+    date: "2024-01-24",
+    description: "Discussão sobre a presença de Product Managers no LinkedIn e se isso é necessário para o sucesso na carreira.",
+  },
+  {
     id: 24,
     title: "PMs e Zona de conforto, Palworld e esportes na Netflix",
     date: "2024-01-31",
@@ -659,6 +665,16 @@ export const products: Product[] = [
   { id: "munhequeira", name: "Munhequeira", category: "Fitness" },
   { id: "strava", name: "Strava", category: "Fitness", url: "https://strava.com" },
   { id: "samsung-health", name: "Samsung Health", category: "Fitness" },
+  // Episode 23 products
+  { id: "rise-sleep", name: "Rise Sleep", category: "Health", url: "https://www.risescience.com/" },
+  { id: "planta", name: "Planta", category: "Lifestyle" },
+  { id: "clickbus", name: "ClickBus", category: "Travel" },
+  { id: "google-agenda", name: "Google Agenda", category: "Productivity", url: "https://calendar.google.com", parentId: "google-docs" },
+  { id: "delboni", name: "Delboni Auriemo", category: "Wellness", url: "https://delboniauriemo.com.br/" },
+  { id: "delboni-chat", name: "Chat do Delboni", category: "Wellness", url: "https://delboniauriemo.com.br/", parentId: "delboni" },
+  { id: "grab", name: "Grab", category: "Transportation", url: "https://www.grab.com/" },
+  { id: "ynab", name: "YNAB", category: "Finance", url: "https://www.ynab.com/" },
+  { id: "salesforce", name: "Salesforce", category: "Business", url: "https://www.salesforce.com/" },
   { id: "app-maratona-chicago", name: "App da Maratona de Chicago", category: "Fitness" },
   { id: "hevy", name: "Hevy", category: "Fitness", url: "https://hevyapp.com" },
   { id: "gymrats", name: "GymRats", category: "Fitness", url: "https://gymratsapp.com" },
@@ -1408,10 +1424,30 @@ export const people: Person[] = [
   { id: "reis", name: "Reis" },
   // Episode 24 contributors
   { id: "eduardo-ep24", name: "Eduardo" },
+  // Episode 23 contributors
+  { id: "regis", name: "Régis" },
+  { id: "gabi-braga", name: "Gabi Braga" },
+  { id: "adriana-barros", name: "Adriana Barros" },
+  { id: "michele-morais", name: "Michele Morais" },
+  { id: "martin", name: "Martin" },
 ];
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 23
+  { id: "m23-1", episodeId: 23, personId: "aiquis", productId: "loom" },
+  { id: "m23-2", episodeId: 23, personId: "arthur", productId: "rise-sleep" },
+  { id: "m23-3", episodeId: 23, personId: "regis", productId: "planta" },
+  { id: "m23-4", episodeId: 23, personId: "gabi-braga", productId: "clickbus" },
+  { id: "m23-5", episodeId: 23, personId: "agata-cristina", productId: "google-agenda" },
+  { id: "m23-6", episodeId: 23, personId: "adriana-barros", productId: "linkedin", context: "ouvir o nome da pessoa" },
+  { id: "m23-7", episodeId: 23, personId: "michele-morais", productId: "miro" },
+  { id: "m23-8", episodeId: 23, personId: "pilon", productId: "delboni-chat" },
+  { id: "m23-9", episodeId: 23, personId: "martin", productId: "grab" },
+  { id: "m23-10", episodeId: 23, personId: "bruno", productId: "ynab" },
+  { id: "m23-11", episodeId: 23, personId: "montoya", productId: "samsung-health" },
+  { id: "m23-12", episodeId: 23, personId: "cesar", productId: "salesforce" },
+
   // Episode 24
   { id: "m24-1", episodeId: 24, personId: "aiquis", productId: "arc-windows" },
   { id: "m24-2", episodeId: 24, personId: "arthur", productId: "tv-time" },
