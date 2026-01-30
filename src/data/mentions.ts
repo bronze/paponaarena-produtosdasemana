@@ -38,13 +38,13 @@ export const episodes: Episode[] = [
   {
     id: 21,
     title: "As previsões que ninguém pediu sobre A.I. e Produto em 2024",
-    date: "2024-01-19",
+    date: "2024-01-10",
     description: "Discussão sobre previsões para inteligência artificial e produto em 2024.",
   },
   {
     id: 22,
     title: "Como a galera tá usando o ChatGPT no dia a dia?",
-    date: "2024-01-19",
+    date: "2024-01-17",
     description: "Discussão sobre os usos práticos do ChatGPT no cotidiano das pessoas.",
   },
   {
