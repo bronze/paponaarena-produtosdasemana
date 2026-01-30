@@ -1380,7 +1380,7 @@ export const people: Person[] = [
   { id: "eduardo", name: "Eduardo" },
   // Episode 36 contributors
   { id: "luiz", name: "Luiz" },
-  { id: "montoy", name: "Montoy" },
+  { id: "montoy", name: "Montoya" },
   // Episode 35 contributors
   { id: "cesar", name: "César" },
   // Episode 34 contributors
