@@ -1101,7 +1101,10 @@ export const products: Product[] = [
   { id: "ultragas", name: "Ultragás", category: "Business" },
   { id: "calculadora-ios18", name: "Calculadora do iOS 18", category: "Business" },
   { id: "speechify", name: "Speechify", category: "Business" },
-  { id: "sites-aluguel-apartamento", name: "Sites de aluguel de apartamento", category: "Business" },
+  { id: "zap-imoveis", name: "Zap Imóveis", category: "Business", url: "https://www.zapimoveis.com.br/" },
+  { id: "viva-real", name: "Viva Real", category: "Business", url: "https://www.vivareal.com.br/" },
+  { id: "net-imoveis", name: "Net Imóveis", category: "Business", url: "https://www.netimoveis.com/" },
+  { id: "combo-sites-imoveis", name: "Zap Imóveis + Quinto Andar + Viva Real + Net Imóveis", category: "Business", alsoCredits: ["zap-imoveis", "quinto-andar", "viva-real", "net-imoveis"] },
   { id: "raizs", name: "Raizs", category: "Business" },
   { id: "icasei", name: "Assessoria Vip / iCasei", category: "Business" },
   { id: "event-tracker-aiquis", name: "Event Tracker do Aíquis", category: "Business" },
@@ -1386,7 +1389,7 @@ export const people: Person[] = [
 export const mentions: Mention[] = [
   // Episode 27
   { id: "m27-1", episodeId: 27, personId: "arthur", productId: "sumone" },
-  { id: "m27-2", episodeId: 27, personId: "aiquis", productId: "sites-aluguel-apartamento" },
+  { id: "m27-2", episodeId: 27, personId: "aiquis", productId: "combo-sites-imoveis" },
   { id: "m27-3", episodeId: 27, personId: "boss", productId: "speechify" },
   { id: "m27-4", episodeId: 27, personId: "glauco", productId: "youtube-premium" },
   { id: "m27-5", episodeId: 27, personId: "andrezao", productId: "cifra-club" },
