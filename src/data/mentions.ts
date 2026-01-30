@@ -1380,7 +1380,7 @@ export const people: Person[] = [
   { id: "eduardo", name: "Eduardo" },
   // Episode 36 contributors
   { id: "luiz", name: "Luiz" },
-  { id: "montoy", name: "Montoya" },
+  { id: "montoya", name: "Montoya" },
   // Episode 35 contributors
   { id: "cesar", name: "César" },
   // Episode 34 contributors
@@ -1545,7 +1545,7 @@ export const mentions: Mention[] = [
   { id: "m36-6", episodeId: 36, personId: "nana", productId: "google-maps" },
   { id: "m36-7", episodeId: 36, personId: "amanda", productId: "zoom-loja" },
   { id: "m36-8", episodeId: 36, personId: "luiz", productId: "tunnelbear" },
-  { id: "m36-9", episodeId: 36, personId: "montoy", productId: "atlas-ti" },
+  { id: "m36-9", episodeId: 36, personId: "montoya", productId: "atlas-ti" },
 
   // Episode 37
   { id: "m37-1", episodeId: 37, personId: "aiquis", productId: "google-sheets" },
