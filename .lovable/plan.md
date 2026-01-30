@@ -1,9 +1,9 @@
 
 
-## Plano: Adicionar Episódio 35 (Cultura, silos, aquisições e politicagem)
+## Plano: Adicionar Episódio 34 (Comunicação em poucas palavras e como desenvolver PMs sem bullsh**agem)
 
 ### Visão Geral
-Adicionar o episódio 35 com 5 menções de produtos. Este será o episódio mais antigo do dataset.
+Adicionar o episódio 34 com 11 menções de produtos. Este será o episódio mais antigo do dataset.
 
 ---
 
@@ -12,28 +12,40 @@ Adicionar o episódio 35 com 5 menções de produtos. Este será o episódio mai
 **Produtos existentes:**
 | ID | Nome | Categoria |
 |----|------|-----------|
-| `whatsapp` | WhatsApp | Business |
-| `livelo` | Livelo | Finance |
-| `gov-br` | gov.br | Productivity |
+| `instagram` | Instagram | Social |
+| `booking` | Booking.com | Travel |
+| `kindle` | Kindle | Reading |
+| `brilliant` | Brilliant | Education |
+| `dasa` | Dasa | Wellness |
 
 **Produtos a criar:**
-| ID | Nome | Categoria | Observação |
-|----|------|-----------|------------|
-| `slack` | Slack | Productivity | Ferramenta de comunicação |
-| `zona-azul` | Zona Azul | Productivity | App de estacionamento |
+| ID | Nome | Categoria | URL | Observação |
+|----|------|-----------|-----|------------|
+| `overleaf` | Overleaf | Productivity | https://www.overleaf.com/ | Editor LaTeX online |
+| `omio` | Omio | Travel | https://www.omio.com.br/ | Comparador de viagens |
+| `excel` | Excel | Productivity | - | Microsoft Excel |
+| `gamepass` | GamePass | Entertainment | - | Xbox Game Pass |
+| `united-airlines` | United Airlines | Travel | - | Companhia aérea |
+| `tinder` | Tinder | Social | - | App de relacionamentos |
 
 **Pessoas existentes:**
 | ID | Nome |
 |----|------|
 | `arthur` | Arthur |
 | `aiquis` | Aíquis |
-| `paulo` | Paulo |
+| `lucas` | Lucas |
 | `glauco` | Glauco |
+| `andrezao` | Andrezão |
+| `mateus` | Mateus |
 
-**Pessoa a criar:**
-| ID | Nome |
-|----|------|
-| `cesar` | César |
+**Pessoas a criar:**
+| ID | Nome | Observação |
+|----|------|------------|
+| `eduardo-augusto` | Eduardo Augusto | Diferente de eduardo e eduardo-odon |
+| `ana-ep34` | Ana | ID único para ep. 34 |
+| `danilo-ep34` | Danilo | Diferente de danilo-penteado |
+| `sagradinho` | Sagradinho | Novo participante |
+| `anonimo` | Anônimo | Menção anônima |
 
 ---
 
@@ -42,27 +54,41 @@ Adicionar o episódio 35 com 5 menções de produtos. Este será o episódio mai
 **1 Episódio:**
 | ID | Título | Data |
 |----|--------|------|
-| 35 | Cultura, silos, aquisições e politicagem | 2024-05-07 |
+| 34 | Comunicação em poucas palavras e como desenvolver PMs sem bullsh**agem | 2024-05-01 |
 
-**1 Nova Pessoa:**
+**5 Novas Pessoas:**
 | ID | Nome |
 |----|------|
-| `cesar` | César |
+| `eduardo-augusto` | Eduardo Augusto |
+| `ana-ep34` | Ana |
+| `danilo-ep34` | Danilo |
+| `sagradinho` | Sagradinho |
+| `anonimo` | Anônimo |
 
-**2 Novos Produtos:**
+**6 Novos Produtos:**
 | ID | Nome | Categoria | URL |
 |----|------|-----------|-----|
-| `slack` | Slack | Productivity | https://slack.com |
-| `zona-azul` | Zona Azul | Productivity | - |
+| `overleaf` | Overleaf | Productivity | https://www.overleaf.com/ |
+| `omio` | Omio | Travel | https://www.omio.com.br/ |
+| `excel` | Excel | Productivity | - |
+| `gamepass` | GamePass | Entertainment | - |
+| `united-airlines` | United Airlines | Travel | - |
+| `tinder` | Tinder | Social | - |
 
-**5 Menções:**
+**11 Menções:**
 | Pessoa | Produto |
 |--------|---------|
-| Arthur | WhatsApp |
-| Aíquis | Livelo |
-| César | Slack |
-| Paulo | gov.br |
-| Glauco | Zona Azul |
+| Arthur | Instagram |
+| Aíquis | Booking.com |
+| Eduardo Augusto | Overleaf |
+| Lucas | Brilliant |
+| Ana | Omio |
+| Danilo | Kindle |
+| Sagradinho | Excel |
+| Andrezão | GamePass |
+| Glauco | Dasa |
+| Mateus | United Airlines |
+| Anônimo | Tinder |
 
 ---
 
@@ -73,13 +99,13 @@ Adicionar o episódio 35 com 5 menções de produtos. Este será o episódio mai
 
 ### Detalhes Técnicos
 
-**Passo 1 - Adicionar episódio** (inserir antes do episódio 36):
+**Passo 1 - Adicionar episódio** (inserir antes do episódio 35):
 ```typescript
   {
-    id: 35,
-    title: "Cultura, silos, aquisições e politicagem",
-    date: "2024-05-07",
-    description: "Discussão sobre cultura organizacional, silos, aquisições e politicagem no mundo de produto.",
+    id: 34,
+    title: "Comunicação em poucas palavras e como desenvolver PMs sem bullsh**agem",
+    date: "2024-05-01",
+    description: "Discussão sobre comunicação assertiva e desenvolvimento de product managers.",
   },
 ```
 
@@ -87,23 +113,50 @@ Adicionar o episódio 35 com 5 menções de produtos. Este será o episódio mai
 
 Productivity:
 ```typescript
-  { id: "slack", name: "Slack", category: "Productivity", url: "https://slack.com" },
-  { id: "zona-azul", name: "Zona Azul", category: "Productivity" },
+  { id: "overleaf", name: "Overleaf", category: "Productivity", url: "https://www.overleaf.com/" },
+  { id: "excel", name: "Excel", category: "Productivity" },
 ```
 
-**Passo 3 - Adicionar pessoa:**
+Travel:
 ```typescript
-  { id: "cesar", name: "César" },
+  { id: "omio", name: "Omio", category: "Travel", url: "https://www.omio.com.br/" },
+  { id: "united-airlines", name: "United Airlines", category: "Travel" },
 ```
 
-**Passo 4 - Adicionar menções** (inserir antes do Episode 36):
+Entertainment:
 ```typescript
-  // Episode 35
-  { id: "m35-1", episodeId: 35, personId: "arthur", productId: "whatsapp" },
-  { id: "m35-2", episodeId: 35, personId: "aiquis", productId: "livelo" },
-  { id: "m35-3", episodeId: 35, personId: "cesar", productId: "slack" },
-  { id: "m35-4", episodeId: 35, personId: "paulo", productId: "gov-br" },
-  { id: "m35-5", episodeId: 35, personId: "glauco", productId: "zona-azul" },
+  { id: "gamepass", name: "GamePass", category: "Entertainment" },
+```
+
+Social:
+```typescript
+  { id: "tinder", name: "Tinder", category: "Social" },
+```
+
+**Passo 3 - Adicionar pessoas:**
+```typescript
+  // Episode 34 contributors
+  { id: "eduardo-augusto", name: "Eduardo Augusto" },
+  { id: "ana-ep34", name: "Ana" },
+  { id: "danilo-ep34", name: "Danilo" },
+  { id: "sagradinho", name: "Sagradinho" },
+  { id: "anonimo", name: "Anônimo" },
+```
+
+**Passo 4 - Adicionar menções** (inserir antes do Episode 35):
+```typescript
+  // Episode 34
+  { id: "m34-1", episodeId: 34, personId: "arthur", productId: "instagram" },
+  { id: "m34-2", episodeId: 34, personId: "aiquis", productId: "booking" },
+  { id: "m34-3", episodeId: 34, personId: "eduardo-augusto", productId: "overleaf" },
+  { id: "m34-4", episodeId: 34, personId: "lucas", productId: "brilliant" },
+  { id: "m34-5", episodeId: 34, personId: "ana-ep34", productId: "omio" },
+  { id: "m34-6", episodeId: 34, personId: "danilo-ep34", productId: "kindle" },
+  { id: "m34-7", episodeId: 34, personId: "sagradinho", productId: "excel" },
+  { id: "m34-8", episodeId: 34, personId: "andrezao", productId: "gamepass" },
+  { id: "m34-9", episodeId: 34, personId: "glauco", productId: "dasa" },
+  { id: "m34-10", episodeId: 34, personId: "mateus", productId: "united-airlines" },
+  { id: "m34-11", episodeId: 34, personId: "anonimo", productId: "tinder" },
 ```
 
 ---
@@ -113,13 +166,16 @@ Productivity:
 | Item | Quantidade |
 |------|------------|
 | Episódio | 1 |
-| Pessoas novas | 1 |
-| Produtos novos | 2 |
-| Menções | 5 |
+| Pessoas novas | 5 |
+| Produtos novos | 6 |
+| Menções | 11 |
 
 ### Notas
-- WhatsApp, Livelo e gov.br já existem e serão reutilizados
-- Slack é uma ferramenta de comunicação empresarial da Salesforce
-- Zona Azul é o app de estacionamento rotativo digital
-- César é um novo participante do podcast
+- Instagram, Booking.com, Kindle, Brilliant e Dasa já existem e serão reutilizados
+- Eduardo Augusto é diferente de Eduardo (ep. 41) e Eduardo Odon
+- Ana recebe ID `ana-ep34` pois há outras pessoas com nomes similares (ana-romeu, etc.)
+- Danilo recebe ID `danilo-ep34` pois há Danilo Penteado já existente
+- Overleaf é um editor LaTeX online popular na academia
+- GamePass é o serviço de assinatura de jogos da Xbox/Microsoft
+- Omio é um comparador/agregador de viagens europeu
 
