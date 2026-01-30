@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
   // 2024 Episodes
   {
+    id: 24,
+    title: "PMs e Zona de conforto, Palworld e esportes na Netflix",
+    date: "2024-01-31",
+    description: "Discussão sobre Product Managers e zona de conforto, o fenômeno Palworld e a entrada da Netflix no esporte.",
+  },
+  {
     id: 25,
     title: "Apple Vision Pro: será que chegou a \"the next big thing?\"",
     date: "2024-02-07",
@@ -499,6 +505,7 @@ export const products: Product[] = [
   { id: "reserva-ink", name: "Reserva.Ink", category: "Entertainment", url: "https://reservaink.com.br/" },
   { id: "musixmatch", name: "Musixmatch", category: "Entertainment", url: "https://www.musixmatch.com/" },
   { id: "bandcamp", name: "Bandcamp", category: "Entertainment", url: "https://bandcamp.com/" },
+  { id: "tv-time", name: "TV Time", category: "Entertainment" },
   { id: "sports-alerts", name: "Sports Alerts", category: "Entertainment", url: "https://www.lunosoftware.com/" },
   { id: "rock-in-rio", name: "Rock in Rio", category: "Entertainment", url: "https://rockinrio.com/" },
   { id: "max-hbo", name: "MAX (HBO)", category: "Entertainment", parentId: "max" },
@@ -740,6 +747,9 @@ export const products: Product[] = [
   { id: "uber-taxi", name: "Uber Taxi", category: "Transportation", parentId: "uber" },
   { id: "waze", name: "Waze", category: "Transportation", url: "https://waze.com" },
   { id: "samsung-smart-switch", name: "Samsung Smart Switch", category: "Productivity" },
+  { id: "arc-browser", name: "Arc", category: "Productivity", url: "https://arc.net/" },
+  { id: "arc-windows", name: "Arc for Windows", category: "Productivity", url: "https://arc.net/", parentId: "arc-browser" },
+  { id: "diario-oficial-uniao", name: "App do Diário Oficial da União", category: "Productivity" },
   { id: "blablacar", name: "Blablacar", category: "Transportation", url: "https://blablacar.com" },
   { id: "turbi", name: "Turbi", category: "Transportation" },
   { id: "patinete-jet", name: "Patinete Jet", category: "Transportation" },
@@ -767,6 +777,7 @@ export const products: Product[] = [
   { id: "instagram-detox", name: "Instagram (detox)", category: "Social", parentId: "instagram" },
   { id: "tinder", name: "Tinder", category: "Social" },
   { id: "sumone", name: "SumOne", category: "Social" },
+  { id: "bumble", name: "Bumble", category: "Social", url: "https://bumble.com/" },
 
   // Productivity
   { id: "pipefy", name: "Pipefy", category: "Productivity", url: "https://pipefy.com" },
@@ -1395,10 +1406,22 @@ export const people: Person[] = [
   // Episode 25 contributors
   { id: "lara-parodi", name: "Lara Parodi" },
   { id: "reis", name: "Reis" },
+  // Episode 24 contributors
+  { id: "eduardo-ep24", name: "Eduardo" },
 ];
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 24
+  { id: "m24-1", episodeId: 24, personId: "aiquis", productId: "arc-windows" },
+  { id: "m24-2", episodeId: 24, personId: "arthur", productId: "tv-time" },
+  { id: "m24-3", episodeId: 24, personId: "danilera", productId: "c6" },
+  { id: "m24-4", episodeId: 24, personId: "agata-cristina", productId: "foodtosave" },
+  { id: "m24-5", episodeId: 24, personId: "reis", productId: "vivino" },
+  { id: "m24-6", episodeId: 24, personId: "eduardo-ep24", productId: "diario-oficial-uniao" },
+  { id: "m24-7", episodeId: 24, personId: "pilon", productId: "tag-sem-parar" },
+  { id: "m24-8", episodeId: 24, personId: "anonimo", productId: "bumble" },
+
   // Episode 25
   { id: "m25-1", episodeId: 25, personId: "arthur", productId: "fitness-plus" },
   { id: "m25-2", episodeId: 25, personId: "aiquis", productId: "samsung-smart-switch" },
