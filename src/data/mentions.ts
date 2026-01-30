@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
   // 2024 Episodes
   {
+    id: 30,
+    title: "A.I. e Futebol dá jogo? Como se tornar um PM mais técnico",
+    date: "2024-04-05",
+    description: "Discussão sobre inteligência artificial no futebol e como se tornar um product manager mais técnico.",
+  },
+  {
     id: 31,
     title: "Ninguém liga para o seu processo",
     date: "2024-04-09",
@@ -477,9 +483,14 @@ export const products: Product[] = [
   { id: "delta-emulador", name: "Delta", category: "Entertainment" },
   { id: "chromecast", name: "Chromecast", category: "Hardware" },
   { id: "skyview", name: "SkyView", category: "Entertainment" },
+  { id: "twitch", name: "Twitch", category: "Entertainment", url: "https://twitch.tv" },
+  { id: "yoosee", name: "Yoosee", category: "Hardware" },
 
   // Travel
   { id: "tripadvisor", name: "TripAdvisor", category: "Travel", url: "https://tripadvisor.com" },
+  { id: "airalo", name: "Airalo", category: "Travel", url: "https://www.airalo.com/" },
+  { id: "zillow", name: "Zillow", category: "Business", url: "https://zillow.com" },
+  { id: "b4waste", name: "B4waste", category: "Lifestyle", url: "https://b4waste.com.br/" },
 
   // AI Tools
   { id: "bolt", name: "Bolt", category: "AI Tools", url: "https://bolt.new" },
@@ -1335,6 +1346,16 @@ export const people: Person[] = [
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 30
+  { id: "m30-1", episodeId: 30, personId: "aiquis", productId: "twitch" },
+  { id: "m30-2", episodeId: 30, personId: "arthur", productId: "pocket" },
+  { id: "m30-3", episodeId: 30, personId: "dezao", productId: "b4waste" },
+  { id: "m30-4", episodeId: 30, personId: "nana", productId: "splitwise" },
+  { id: "m30-5", episodeId: 30, personId: "mateus", productId: "zillow" },
+  { id: "m30-6", episodeId: 30, personId: "pilon", productId: "quinto-andar" },
+  { id: "m30-7", episodeId: 30, personId: "glauco", productId: "mfit-personal" },
+  { id: "m30-8", episodeId: 30, personId: "fabio-beico", productId: "yoosee" },
+
   // Episode 31
   { id: "m31-1", episodeId: 31, personId: "aiquis", productId: "suno-ai" },
   { id: "m31-2", episodeId: 31, personId: "arthur", productId: "waze" },
