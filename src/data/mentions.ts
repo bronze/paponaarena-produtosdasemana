@@ -1057,7 +1057,6 @@ export const products: Product[] = [
 
   // Travel
   { id: "selina", name: "Selina", category: "Travel", url: "https://www.selinahotels.com/" },
-  { id: "airalo", name: "Airalo", category: "Travel", url: "https://www.airalo.com/" },
 
   // Business
   { id: "home-planner", name: "Home Planner", category: "Business" },
