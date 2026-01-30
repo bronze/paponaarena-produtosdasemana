@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Mic, ArrowRight, Calendar } from "lucide-react";
+import { Mic, ArrowRight, Calendar, Youtube, Music } from "lucide-react";
 import { getEpisodeYears, getEpisodesByYear, getMentionsByEpisode } from "@/data/mentions";
 import { formatEpisodeDate, compareDatesDesc } from "@/lib/utils";
 
@@ -61,9 +61,35 @@ export default function Episodes() {
                         {episode.description}
                       </p>
                       <div className="flex items-center justify-between pt-2">
-                        <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                          <Calendar className="w-3 h-3" />
-                          {formatEpisodeDate(episode.date)}
+                        <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                          <div className="flex items-center gap-1">
+                            <Calendar className="w-3 h-3" />
+                            {formatEpisodeDate(episode.date)}
+                          </div>
+                          <div className="flex items-center gap-1">
+                            {episode.youtubeLink && (
+                              <a
+                                href={episode.youtubeLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                className="p-1 rounded hover:bg-red-500/10 text-muted-foreground hover:text-red-600 transition-colors"
+                              >
+                                <Youtube className="w-4 h-4" />
+                              </a>
+                            )}
+                            {episode.spotifyLink && (
+                              <a
+                                href={episode.spotifyLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                className="p-1 rounded hover:bg-green-500/10 text-muted-foreground hover:text-green-600 transition-colors"
+                              >
+                                <Music className="w-4 h-4" />
+                              </a>
+                            )}
+                          </div>
                         </div>
                         <div className="flex items-center gap-1 text-sm font-medium text-primary">
                           {mentionCount} mentions

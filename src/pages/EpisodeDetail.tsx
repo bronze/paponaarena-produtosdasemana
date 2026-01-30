@@ -2,7 +2,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Calendar, MessageSquare } from "lucide-react";
+import { ArrowLeft, Calendar, MessageSquare, Youtube, Music } from "lucide-react";
 import { formatEpisodeDate } from "@/lib/utils";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, TooltipProps } from "recharts";
 import {
@@ -90,6 +90,28 @@ export default function EpisodeDetail() {
               <MessageSquare className="w-4 h-4" />
               {mentions.length} mentions
             </div>
+            {episode.youtubeLink && (
+              <a
+                href={episode.youtubeLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-md border border-red-500/30 text-red-600 hover:bg-red-500/10 transition-colors"
+              >
+                <Youtube className="w-4 h-4" />
+                YouTube
+              </a>
+            )}
+            {episode.spotifyLink && (
+              <a
+                href={episode.spotifyLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-md border border-green-500/30 text-green-600 hover:bg-green-500/10 transition-colors"
+              >
+                <Music className="w-4 h-4" />
+                Spotify
+              </a>
+            )}
           </div>
         </div>
       </div>
