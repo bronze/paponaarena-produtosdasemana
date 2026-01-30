@@ -1,66 +1,58 @@
 
 
-## Plano: Adicionar Episodio 38 (E quando "falta tempo" para consumir conteudo?)
+## Plano: Adicionar Episódio 37 (Aprendendo sobre pensamento crítico e analítico)
 
-### Visao Geral
-Adicionar o episodio 38 com 8 mencoes de produtos. Este sera o episodio mais antigo do dataset.
+### Visão Geral
+Adicionar o episódio 37 com 6 menções de produtos. Este será o episódio mais antigo do dataset.
 
 ---
 
-### Analise de Dados
+### Análise de Dados
 
 **Produtos existentes:**
 | ID | Nome |
 |----|------|
-| `magie` | Magie |
-| `duolingo` | Duolingo |
-| `quinto-andar` | Quinto Andar |
-| `splitwise` | Splitwise |
-| `chatgpt` | ChatGPT |
+| `google-slides` | Google Slides |
 
 **Pessoas existentes:**
 | ID | Nome |
 |----|------|
+| `aiquis` | Aíquis |
 | `arthur` | Arthur |
-| `aiquis` | Aiquis |
-| `miriam` | Miriam |
-| `karina` | Karina |
-| `caue` | Caue |
-| `neuri` | Neuri |
-| `lucas` | Lucas |
+| `pilon` | Pilon |
+| `natascha` | Natascha |
+| `danilera` | Danilera |
+| `beicola` | Beiçola |
+
+**Nota:** Natasha no episódio 37 provavelmente é a mesma pessoa que `natascha` já cadastrada.
 
 ---
 
 ### Novos Dados a Adicionar
 
-**1 Episodio:**
-| ID | Titulo | Data |
+**1 Episódio:**
+| ID | Título | Data |
 |----|--------|------|
-| 38 | E quando "falta tempo" para consumir conteudo? Um giro de noticias no mundo de A.I. | 2024-05-28 |
+| 37 | Aprendendo sobre pensamento crítico e analítico | 2024-05-21 |
 
-**1 Nova Pessoa:**
-| ID | Nome |
-|----|------|
-| `nat` | Nat |
-
-**3 Novos Produtos:**
-| ID | Nome | Categoria | URL | Observacao |
+**5 Novos Produtos:**
+| ID | Nome | Categoria | URL | Observação |
 |----|------|-----------|-----|------------|
-| `moxtopper` | MoxTopper | Entertainment | - | App para Magic: The Gathering |
-| `tecnofitbox` | TecnofitBox | Fitness | - | App/servico de fitness |
-| `swiftkey` | SwiftKey | Productivity | - | Teclado virtual da Microsoft |
+| `google-sheets` | Google Sheets | Productivity | - | Planilhas do Google |
+| `drink-water` | Drink Water | Lifestyle | - | App de lembrete de hidratação |
+| `lady-driver` | Lady Driver | Transportation | https://www.ladydriver.com.br/ | Transporte por app para mulheres |
+| `brawl-stars` | Brawl Stars | Entertainment | - | Jogo mobile |
+| `classpass` | ClassPass | Fitness | https://classpass.com | App de fitness |
 
-**8 Mencoes:**
+**6 Menções:**
 | Pessoa | Produto |
 |--------|---------|
-| Arthur | Magie |
-| Aiquis | Duolingo |
-| Miriam | Quinto Andar |
-| Karina | Splitwise |
-| Caue | MoxTopper |
-| Neuri | ChatGPT |
-| Nat | TecnofitBox |
-| Lucas | SwiftKey |
+| Aíquis | Google Sheets |
+| Arthur | Google Slides |
+| Pilon | Drink Water |
+| Natasha | Lady Driver |
+| Danilera | Brawl Stars |
+| Beiçola | ClassPass |
 
 ---
 
@@ -69,68 +61,73 @@ Adicionar o episodio 38 com 8 mencoes de produtos. Este sera o episodio mais ant
 
 ---
 
-### Detalhes Tecnicos
+### Detalhes Técnicos
 
-**Passo 1 - Adicionar episodio** (inserir antes do episodio 39, inicio da lista de episodios 2024):
+**Passo 1 - Adicionar episódio** (inserir antes do episódio 38, início da lista):
 ```typescript
   {
-    id: 38,
-    title: "E quando \"falta tempo\" para consumir conteúdo? Um giro de notícias no mundo de A.I.",
-    date: "2024-05-28",
-    description: "Discussão sobre consumo de conteúdo e um giro de notícias no mundo de inteligência artificial.",
+    id: 37,
+    title: "Aprendendo sobre pensamento crítico e analítico",
+    date: "2024-05-21",
+    description: "Discussão sobre pensamento crítico e analítico no contexto de produto.",
   },
 ```
 
 **Passo 2 - Adicionar produtos novos:**
 
+Productivity:
+```typescript
+  { id: "google-sheets", name: "Google Sheets", category: "Productivity" },
+```
+
+Lifestyle:
+```typescript
+  { id: "drink-water", name: "Drink Water", category: "Lifestyle" },
+```
+
+Transportation:
+```typescript
+  { id: "lady-driver", name: "Lady Driver", category: "Transportation", url: "https://www.ladydriver.com.br/" },
+```
+
 Entertainment:
 ```typescript
-  { id: "moxtopper", name: "MoxTopper", category: "Entertainment" },
+  { id: "brawl-stars", name: "Brawl Stars", category: "Entertainment" },
 ```
 
 Fitness:
 ```typescript
-  { id: "tecnofitbox", name: "TecnofitBox", category: "Fitness" },
+  { id: "classpass", name: "ClassPass", category: "Fitness", url: "https://classpass.com" },
 ```
 
-Productivity:
+**Passo 3 - Adicionar menções** (inserir antes do Episode 38):
 ```typescript
-  { id: "swiftkey", name: "SwiftKey", category: "Productivity" },
-```
-
-**Passo 3 - Adicionar pessoa:**
-```typescript
-  { id: "nat", name: "Nat" },
-```
-
-**Passo 4 - Adicionar mencoes** (inserir antes do Episode 39):
-```typescript
-  // Episode 38
-  { id: "m38-1", episodeId: 38, personId: "arthur", productId: "magie" },
-  { id: "m38-2", episodeId: 38, personId: "aiquis", productId: "duolingo" },
-  { id: "m38-3", episodeId: 38, personId: "miriam", productId: "quinto-andar" },
-  { id: "m38-4", episodeId: 38, personId: "karina", productId: "splitwise" },
-  { id: "m38-5", episodeId: 38, personId: "caue", productId: "moxtopper" },
-  { id: "m38-6", episodeId: 38, personId: "neuri", productId: "chatgpt" },
-  { id: "m38-7", episodeId: 38, personId: "nat", productId: "tecnofitbox" },
-  { id: "m38-8", episodeId: 38, personId: "lucas", productId: "swiftkey" },
+  // Episode 37
+  { id: "m37-1", episodeId: 37, personId: "aiquis", productId: "google-sheets" },
+  { id: "m37-2", episodeId: 37, personId: "arthur", productId: "google-slides" },
+  { id: "m37-3", episodeId: 37, personId: "pilon", productId: "drink-water" },
+  { id: "m37-4", episodeId: 37, personId: "natascha", productId: "lady-driver" },
+  { id: "m37-5", episodeId: 37, personId: "danilera", productId: "brawl-stars" },
+  { id: "m37-6", episodeId: 37, personId: "beicola", productId: "classpass" },
 ```
 
 ---
 
-### Resumo de Alteracoes
+### Resumo de Alterações
 
 | Item | Quantidade |
 |------|------------|
-| Episodio | 1 |
-| Pessoas novas | 1 |
-| Produtos novos | 3 |
-| Mencoes | 8 |
+| Episódio | 1 |
+| Pessoas novas | 0 |
+| Produtos novos | 5 |
+| Menções | 6 |
 
 ### Notas
-- Magie, Duolingo, Quinto Andar, Splitwise e ChatGPT ja existem no sistema e serao reutilizados
-- Nat e uma nova pessoa (diferente de Natascha que ja existe)
-- MoxTopper e um app para Magic: The Gathering, categorizado como Entertainment
-- TecnofitBox categorizado como Fitness
-- SwiftKey e o teclado virtual da Microsoft, categorizado como Productivity
+- Todas as pessoas já existem no sistema
+- "Natasha" mapeada para `natascha` existente
+- Google Slides já existe, será reutilizado
+- Google Sheets é novo e será adicionado
+- Lady Driver é um app de transporte focado em mulheres
+- Brawl Stars é um jogo mobile da Supercell
+- ClassPass é um app de fitness para aulas em academias
 
