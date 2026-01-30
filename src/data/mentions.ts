@@ -8,6 +8,8 @@ export interface Episode {
   title: string;
   date: string;
   description: string;
+  youtubeLink?: string;
+  spotifyLink?: string;
 }
 
 export interface Product {
