@@ -10,7 +10,11 @@ import { formatEpisodeDate, compareDatesDesc } from "@/lib/utils";
 export default function Episodes() {
   const years = getEpisodeYears();
   const [selectedYear, setSelectedYear] = useState<number | "all">("all");
-  const filteredEpisodes = getEpisodesByYear(selectedYear).sort((a, b) => compareDatesDesc(a.date, b.date));
+  const filteredEpisodes = getEpisodesByYear(selectedYear).sort((a, b) => {
+    const dateCompare = compareDatesDesc(a.date, b.date);
+    if (dateCompare !== 0) return dateCompare;
+    return b.id - a.id; // Episódio com ID maior aparece primeiro
+  });
 
   return (
     <div className="space-y-6">
