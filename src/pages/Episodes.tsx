@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Mic, ArrowRight, Calendar, Youtube, Music } from "lucide-react";
-import { getEpisodeYears, getEpisodesByYear, getMentionsByEpisode } from "@/data/mentions";
+import { getEpisodeYears, getEpisodesByYear, getMentionsByEpisode, YOUTUBE_PLAYLIST_SUFFIX } from "@/data/mentions";
 import { formatEpisodeDate, compareDatesDesc } from "@/lib/utils";
 
 export default function Episodes() {
@@ -69,7 +69,7 @@ export default function Episodes() {
                           <div className="flex items-center gap-1">
                             {episode.youtubeLink && (
                               <a
-                                href={episode.youtubeLink}
+                                href={`${episode.youtubeLink}${YOUTUBE_PLAYLIST_SUFFIX}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={(e) => e.stopPropagation()}
