@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
   // 2024 Episodes
   {
+    id: 34,
+    title: "Comunicação em poucas palavras e como desenvolver PMs sem bullsh**agem",
+    date: "2024-05-01",
+    description: "Discussão sobre comunicação assertiva e desenvolvimento de product managers.",
+  },
+  {
     id: 35,
     title: "Cultura, silos, aquisições e politicagem",
     date: "2024-05-07",
@@ -449,6 +455,7 @@ export const products: Product[] = [
   { id: "max-hbo", name: "MAX", category: "Entertainment", url: "https://www.hbomax.com/" },
   { id: "deezer", name: "Deezer", category: "Entertainment", url: "https://www.deezer.com/" },
   { id: "stickerly", name: "Sticker.ly", category: "Entertainment", url: "https://sticker.ly/" },
+  { id: "gamepass", name: "GamePass", category: "Entertainment" },
 
   // Travel
   { id: "tripadvisor", name: "TripAdvisor", category: "Travel", url: "https://tripadvisor.com" },
@@ -645,6 +652,8 @@ export const products: Product[] = [
   { id: "uk-eta", name: "UK ETA", category: "Travel" },
   { id: "smiles", name: "Smiles", category: "Travel", url: "https://smiles.com.br" },
   { id: "seats-aero", name: "Seats.aero", category: "Travel", url: "https://seats.aero" },
+  { id: "omio", name: "Omio", category: "Travel", url: "https://www.omio.com.br/" },
+  { id: "united-airlines", name: "United Airlines", category: "Travel" },
 
   // Transportation
   { id: "instacarro", name: "Instacarro", category: "Transportation", url: "https://instacarro.com" },
@@ -683,6 +692,7 @@ export const products: Product[] = [
   { id: "pixelfed", name: "Pixelfed", category: "Social" },
   { id: "instagram", name: "Instagram", category: "Social", url: "https://instagram.com" },
   { id: "instagram-detox", name: "Instagram (detox)", category: "Social", parentId: "instagram" },
+  { id: "tinder", name: "Tinder", category: "Social" },
 
   // Productivity
   { id: "pipefy", name: "Pipefy", category: "Productivity", url: "https://pipefy.com" },
@@ -752,6 +762,8 @@ export const products: Product[] = [
   { id: "atlas-ti", name: "Atlas.ti", category: "Productivity", url: "https://atlasti.com/" },
   { id: "slack", name: "Slack", category: "Productivity", url: "https://slack.com" },
   { id: "zona-azul", name: "Zona Azul", category: "Productivity" },
+  { id: "overleaf", name: "Overleaf", category: "Productivity", url: "https://www.overleaf.com/" },
+  { id: "excel", name: "Excel", category: "Productivity" },
   { id: "swiftkey", name: "SwiftKey", category: "Productivity" },
 
   // Education
@@ -1273,10 +1285,29 @@ export const people: Person[] = [
   { id: "montoy", name: "Montoy" },
   // Episode 35 contributors
   { id: "cesar", name: "César" },
+  // Episode 34 contributors
+  { id: "eduardo-augusto", name: "Eduardo Augusto" },
+  { id: "ana-ep34", name: "Ana" },
+  { id: "danilo-ep34", name: "Danilo" },
+  { id: "sagradinho", name: "Sagradinho" },
+  { id: "anonimo", name: "Anônimo" },
 ];
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 34
+  { id: "m34-1", episodeId: 34, personId: "arthur", productId: "instagram" },
+  { id: "m34-2", episodeId: 34, personId: "aiquis", productId: "booking" },
+  { id: "m34-3", episodeId: 34, personId: "eduardo-augusto", productId: "overleaf" },
+  { id: "m34-4", episodeId: 34, personId: "lucas", productId: "brilliant" },
+  { id: "m34-5", episodeId: 34, personId: "ana-ep34", productId: "omio" },
+  { id: "m34-6", episodeId: 34, personId: "danilo-ep34", productId: "kindle" },
+  { id: "m34-7", episodeId: 34, personId: "sagradinho", productId: "excel" },
+  { id: "m34-8", episodeId: 34, personId: "andrezao", productId: "gamepass" },
+  { id: "m34-9", episodeId: 34, personId: "glauco", productId: "dasa" },
+  { id: "m34-10", episodeId: 34, personId: "mateus", productId: "united-airlines" },
+  { id: "m34-11", episodeId: 34, personId: "anonimo", productId: "tinder" },
+
   // Episode 35
   { id: "m35-1", episodeId: 35, personId: "arthur", productId: "whatsapp" },
   { id: "m35-2", episodeId: 35, personId: "aiquis", productId: "livelo" },
