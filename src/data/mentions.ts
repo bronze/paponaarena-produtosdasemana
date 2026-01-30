@@ -36,6 +36,12 @@ export interface Mention {
 export const episodes: Episode[] = [
   // 2024 Episodes
   {
+    id: 25,
+    title: "Apple Vision Pro: será que chegou a \"the next big thing?\"",
+    date: "2024-02-07",
+    description: "Discussão sobre o lançamento do Apple Vision Pro e se ele representa a próxima grande revolução tecnológica.",
+  },
+  {
     id: 27,
     title: "Ideia boa é ideia na rua; um podcast feito por AI",
     date: "2024-02-28",
@@ -485,6 +491,7 @@ export const products: Product[] = [
   { id: "apple-watch", name: "Apple Watch", category: "Hardware" },
   { id: "sauna-portatil-lifepro", name: "Sauna Portátil Lifepro", category: "Hardware" },
   { id: "broadlink", name: "Broadlink", category: "Automation" },
+  { id: "starlink", name: "Starlink", category: "Utilities", url: "https://www.starlink.com/" },
 
   // Entertainment
   { id: "monument-valley", name: "Monument Valley", category: "Entertainment", url: "https://monumentvalleygame.com" },
@@ -1001,6 +1008,7 @@ export const products: Product[] = [
   { id: "xbox-series-s", name: "Xbox Series S", category: "Lifestyle" },
   { id: "nintendo-switch-2", name: "Nintendo Switch 2", category: "Lifestyle" },
   { id: "nintendo-switch", name: "Nintendo Switch", category: "Entertainment" },
+  { id: "blocos-carnaval-rua", name: "Blocos de Carnaval de Rua", category: "Entertainment" },
   { id: "cereal-snowflake", name: "Cereal Snowflake", category: "Lifestyle" },
   { id: "as-semanas-magicas", name: "As semanas mágicas", category: "Lifestyle" },
   { id: "beerpass", name: "Beerpass", category: "Lifestyle", url: "https://beerpass.com.br" },
@@ -1019,6 +1027,7 @@ export const products: Product[] = [
   // Delivery
   { id: "ze-delivery", name: "Zé Delivery", category: "Delivery", url: "https://zedelivery.com.br" },
   { id: "ifood", name: "iFood", category: "Delivery", url: "https://ifood.com.br" },
+  { id: "refood", name: "Refood", category: "Delivery" },
   { id: "shopper", name: "Shopper", category: "Delivery" },
   { id: "picnic", name: "PicNic", category: "Delivery" },
   { id: "pedidos-ya", name: "Pedidos Ya", category: "Delivery" },
@@ -1383,10 +1392,23 @@ export const people: Person[] = [
   { id: "edu", name: "Edu" },
   // Episode 27 contributor
   { id: "rodrigo-tavares", name: "Rodrigo Tavares" },
+  // Episode 25 contributors
+  { id: "lara-parodi", name: "Lara Parodi" },
+  { id: "reis", name: "Reis" },
 ];
 
 // Mentions
 export const mentions: Mention[] = [
+  // Episode 25
+  { id: "m25-1", episodeId: 25, personId: "arthur", productId: "fitness-plus" },
+  { id: "m25-2", episodeId: 25, personId: "aiquis", productId: "samsung-smart-switch" },
+  { id: "m25-3", episodeId: 25, personId: "lara-parodi", productId: "garmin-connect" },
+  { id: "m25-4", episodeId: 25, personId: "reis", productId: "blocos-carnaval-rua" },
+  { id: "m25-5", episodeId: 25, personId: "fabio-beico", productId: "starlink" },
+  { id: "m25-6", episodeId: 25, personId: "boss", productId: "elementor" },
+  { id: "m25-7", episodeId: 25, personId: "henrique", productId: "canva" },
+  { id: "m25-8", episodeId: 25, personId: "lucas", productId: "refood" },
+
   // Episode 27
   { id: "m27-1", episodeId: 27, personId: "arthur", productId: "sumone" },
   { id: "m27-2", episodeId: 27, personId: "aiquis", productId: "combo-sites-imoveis" },
