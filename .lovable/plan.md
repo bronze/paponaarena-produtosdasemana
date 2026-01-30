@@ -1,9 +1,9 @@
 
 
-## Plano: Adicionar Episódio 34 (Comunicação em poucas palavras e como desenvolver PMs sem bullsh**agem)
+## Plano: Adicionar Episódio 33 (O direito de se desconectar e quando microgerenciamento não é ruim)
 
 ### Visão Geral
-Adicionar o episódio 34 com 11 menções de produtos. Este será o episódio mais antigo do dataset.
+Adicionar o episódio 33 com 14 menções de produtos. Este será o novo episódio mais antigo do dataset.
 
 ---
 
@@ -12,40 +12,46 @@ Adicionar o episódio 34 com 11 menções de produtos. Este será o episódio ma
 **Produtos existentes:**
 | ID | Nome | Categoria |
 |----|------|-----------|
-| `instagram` | Instagram | Social |
-| `booking` | Booking.com | Travel |
-| `kindle` | Kindle | Reading |
-| `brilliant` | Brilliant | Education |
-| `dasa` | Dasa | Wellness |
+| `max` | MAX | Entertainment |
+| `raindrop` | Raindrop | Productivity |
+| `garmin-connect` | Garmin Connect | Fitness |
+| `capcut` | CapCut | Tech |
+| `yazio` | Yazio | Fitness |
+| `whatsapp` | WhatsApp | Business |
+| `nike` | Nike | Retail |
 
 **Produtos a criar:**
 | ID | Nome | Categoria | URL | Observação |
 |----|------|-----------|-----|------------|
-| `overleaf` | Overleaf | Productivity | https://www.overleaf.com/ | Editor LaTeX online |
-| `omio` | Omio | Travel | https://www.omio.com.br/ | Comparador de viagens |
-| `excel` | Excel | Productivity | - | Microsoft Excel |
-| `gamepass` | GamePass | Entertainment | - | Xbox Game Pass |
-| `united-airlines` | United Airlines | Travel | - | Companhia aérea |
-| `tinder` | Tinder | Social | - | App de relacionamentos |
+| `nike-alphafly` | Nike Alphafly | Fitness | - | Tênis de corrida, variante da Nike |
+| `delta-emulador` | Delta | Entertainment | - | Emulador Nintendo no iOS |
+| `chromecast` | Chromecast | Hardware | - | Dispositivo de streaming Google |
+| `asana` | Asana | Productivity | https://asana.com | Ferramenta de gestão de projetos |
+| `msc-for-me` | MSC for Me | Travel | - | App da MSC Cruzeiros |
+| `google-scholar` | Google Scholar | Education | https://scholar.google.com | Buscador acadêmico |
+| `maya` | Maya | Lifestyle | - | App de ciclo hormonal |
 
 **Pessoas existentes:**
 | ID | Nome |
 |----|------|
 | `arthur` | Arthur |
 | `aiquis` | Aíquis |
-| `lucas` | Lucas |
-| `glauco` | Glauco |
 | `andrezao` | Andrezão |
-| `mateus` | Mateus |
+| `paulo` | Paulo |
+| `miriam` | Miriam |
+| `karina` | Karina |
+| `danilera` | Danilera |
+| `nina` | Nina |
+| `caue` | Cauê |
+| `beicola` | Beiçola |
+| `lucas` | Lucas |
+| `pilon` | Pilon |
 
 **Pessoas a criar:**
 | ID | Nome | Observação |
 |----|------|------------|
-| `eduardo-augusto` | Eduardo Augusto | Diferente de eduardo e eduardo-odon |
-| `ana-ep34` | Ana | ID único para ep. 34 |
-| `danilo-ep34` | Danilo | Diferente de danilo-penteado |
-| `sagradinho` | Sagradinho | Novo participante |
-| `anonimo` | Anônimo | Menção anônima |
+| `teles` | Teles | Novo participante |
+| `edu` | Edu | Diferente de eduardo, eduardo-odon, eduardo-augusto |
 
 ---
 
@@ -54,41 +60,42 @@ Adicionar o episódio 34 com 11 menções de produtos. Este será o episódio ma
 **1 Episódio:**
 | ID | Título | Data |
 |----|--------|------|
-| 34 | Comunicação em poucas palavras e como desenvolver PMs sem bullsh**agem | 2024-05-01 |
+| 33 | O direito de se desconectar e quando microgerenciamento não é ruim | 2024-04-24 |
 
-**5 Novas Pessoas:**
+**2 Novas Pessoas:**
 | ID | Nome |
 |----|------|
-| `eduardo-augusto` | Eduardo Augusto |
-| `ana-ep34` | Ana |
-| `danilo-ep34` | Danilo |
-| `sagradinho` | Sagradinho |
-| `anonimo` | Anônimo |
+| `teles` | Teles |
+| `edu` | Edu |
 
-**6 Novos Produtos:**
+**7 Novos Produtos:**
 | ID | Nome | Categoria | URL |
 |----|------|-----------|-----|
-| `overleaf` | Overleaf | Productivity | https://www.overleaf.com/ |
-| `omio` | Omio | Travel | https://www.omio.com.br/ |
-| `excel` | Excel | Productivity | - |
-| `gamepass` | GamePass | Entertainment | - |
-| `united-airlines` | United Airlines | Travel | - |
-| `tinder` | Tinder | Social | - |
+| `nike-alphafly` | Nike Alphafly | Fitness | - |
+| `delta-emulador` | Delta | Entertainment | - |
+| `chromecast` | Chromecast | Hardware | - |
+| `asana` | Asana | Productivity | https://asana.com |
+| `msc-for-me` | MSC for Me | Travel | - |
+| `google-scholar` | Google Scholar | Education | https://scholar.google.com |
+| `maya` | Maya | Lifestyle | - |
 
-**11 Menções:**
+**14 Menções:**
 | Pessoa | Produto |
 |--------|---------|
-| Arthur | Instagram |
-| Aíquis | Booking.com |
-| Eduardo Augusto | Overleaf |
-| Lucas | Brilliant |
-| Ana | Omio |
-| Danilo | Kindle |
-| Sagradinho | Excel |
-| Andrezão | GamePass |
-| Glauco | Dasa |
-| Mateus | United Airlines |
-| Anônimo | Tinder |
+| Arthur | Nike Alphafly |
+| Aíquis | MAX |
+| Andrezão | Delta (emulador) |
+| Paulo | Raindrop |
+| Miriam | Chromecast |
+| Karina | Asana |
+| Danilera | Garmin Connect |
+| Teles | Garmin Connect |
+| Edu | MSC for Me |
+| Nina | WhatsApp |
+| Cauê | CapCut |
+| Beiçola | Yazio |
+| Lucas | Google Scholar |
+| Pilon | Maya |
 
 ---
 
@@ -99,64 +106,77 @@ Adicionar o episódio 34 com 11 menções de produtos. Este será o episódio ma
 
 ### Detalhes Técnicos
 
-**Passo 1 - Adicionar episódio** (inserir antes do episódio 35):
+**Passo 1 - Adicionar episódio** (inserir antes do episódio 34, início da lista):
 ```typescript
   {
-    id: 34,
-    title: "Comunicação em poucas palavras e como desenvolver PMs sem bullsh**agem",
-    date: "2024-05-01",
-    description: "Discussão sobre comunicação assertiva e desenvolvimento de product managers.",
+    id: 33,
+    title: "O direito de se desconectar e quando microgerenciamento não é ruim",
+    date: "2024-04-24",
+    description: "Discussão sobre o direito de se desconectar do trabalho e quando o microgerenciamento pode ser benéfico.",
   },
 ```
 
 **Passo 2 - Adicionar produtos novos:**
 
-Productivity:
+Fitness (variante da Nike):
 ```typescript
-  { id: "overleaf", name: "Overleaf", category: "Productivity", url: "https://www.overleaf.com/" },
-  { id: "excel", name: "Excel", category: "Productivity" },
-```
-
-Travel:
-```typescript
-  { id: "omio", name: "Omio", category: "Travel", url: "https://www.omio.com.br/" },
-  { id: "united-airlines", name: "United Airlines", category: "Travel" },
+  { id: "nike-alphafly", name: "Nike Alphafly", category: "Fitness", parentId: "nike" },
 ```
 
 Entertainment:
 ```typescript
-  { id: "gamepass", name: "GamePass", category: "Entertainment" },
+  { id: "delta-emulador", name: "Delta", category: "Entertainment" },
 ```
 
-Social:
+Hardware:
 ```typescript
-  { id: "tinder", name: "Tinder", category: "Social" },
+  { id: "chromecast", name: "Chromecast", category: "Hardware" },
+```
+
+Productivity:
+```typescript
+  { id: "asana", name: "Asana", category: "Productivity", url: "https://asana.com" },
+```
+
+Travel:
+```typescript
+  { id: "msc-for-me", name: "MSC for Me", category: "Travel" },
+```
+
+Education:
+```typescript
+  { id: "google-scholar", name: "Google Scholar", category: "Education", url: "https://scholar.google.com" },
+```
+
+Lifestyle:
+```typescript
+  { id: "maya", name: "Maya", category: "Lifestyle" },
 ```
 
 **Passo 3 - Adicionar pessoas:**
 ```typescript
-  // Episode 34 contributors
-  { id: "eduardo-augusto", name: "Eduardo Augusto" },
-  { id: "ana-ep34", name: "Ana" },
-  { id: "danilo-ep34", name: "Danilo" },
-  { id: "sagradinho", name: "Sagradinho" },
-  { id: "anonimo", name: "Anônimo" },
+  // Episode 33 contributors
+  { id: "teles", name: "Teles" },
+  { id: "edu", name: "Edu" },
 ```
 
-**Passo 4 - Adicionar menções** (inserir antes do Episode 35):
+**Passo 4 - Adicionar menções** (inserir antes do Episode 34):
 ```typescript
-  // Episode 34
-  { id: "m34-1", episodeId: 34, personId: "arthur", productId: "instagram" },
-  { id: "m34-2", episodeId: 34, personId: "aiquis", productId: "booking" },
-  { id: "m34-3", episodeId: 34, personId: "eduardo-augusto", productId: "overleaf" },
-  { id: "m34-4", episodeId: 34, personId: "lucas", productId: "brilliant" },
-  { id: "m34-5", episodeId: 34, personId: "ana-ep34", productId: "omio" },
-  { id: "m34-6", episodeId: 34, personId: "danilo-ep34", productId: "kindle" },
-  { id: "m34-7", episodeId: 34, personId: "sagradinho", productId: "excel" },
-  { id: "m34-8", episodeId: 34, personId: "andrezao", productId: "gamepass" },
-  { id: "m34-9", episodeId: 34, personId: "glauco", productId: "dasa" },
-  { id: "m34-10", episodeId: 34, personId: "mateus", productId: "united-airlines" },
-  { id: "m34-11", episodeId: 34, personId: "anonimo", productId: "tinder" },
+  // Episode 33
+  { id: "m33-1", episodeId: 33, personId: "arthur", productId: "nike-alphafly" },
+  { id: "m33-2", episodeId: 33, personId: "aiquis", productId: "max" },
+  { id: "m33-3", episodeId: 33, personId: "andrezao", productId: "delta-emulador" },
+  { id: "m33-4", episodeId: 33, personId: "paulo", productId: "raindrop" },
+  { id: "m33-5", episodeId: 33, personId: "miriam", productId: "chromecast" },
+  { id: "m33-6", episodeId: 33, personId: "karina", productId: "asana" },
+  { id: "m33-7", episodeId: 33, personId: "danilera", productId: "garmin-connect" },
+  { id: "m33-8", episodeId: 33, personId: "teles", productId: "garmin-connect" },
+  { id: "m33-9", episodeId: 33, personId: "edu", productId: "msc-for-me" },
+  { id: "m33-10", episodeId: 33, personId: "nina", productId: "whatsapp" },
+  { id: "m33-11", episodeId: 33, personId: "caue", productId: "capcut" },
+  { id: "m33-12", episodeId: 33, personId: "beicola", productId: "yazio" },
+  { id: "m33-13", episodeId: 33, personId: "lucas", productId: "google-scholar" },
+  { id: "m33-14", episodeId: 33, personId: "pilon", productId: "maya" },
 ```
 
 ---
@@ -166,16 +186,15 @@ Social:
 | Item | Quantidade |
 |------|------------|
 | Episódio | 1 |
-| Pessoas novas | 5 |
-| Produtos novos | 6 |
-| Menções | 11 |
+| Pessoas novas | 2 |
+| Produtos novos | 7 |
+| Menções | 14 |
 
 ### Notas
-- Instagram, Booking.com, Kindle, Brilliant e Dasa já existem e serão reutilizados
-- Eduardo Augusto é diferente de Eduardo (ep. 41) e Eduardo Odon
-- Ana recebe ID `ana-ep34` pois há outras pessoas com nomes similares (ana-romeu, etc.)
-- Danilo recebe ID `danilo-ep34` pois há Danilo Penteado já existente
-- Overleaf é um editor LaTeX online popular na academia
-- GamePass é o serviço de assinatura de jogos da Xbox/Microsoft
-- Omio é um comparador/agregador de viagens europeu
+- MAX, Raindrop, Garmin Connect, CapCut, Yazio e WhatsApp já existem e serão reutilizados
+- Nike Alphafly é uma variante da Nike (tênis de corrida), então terá `parentId: "nike"`
+- Delta é o emulador de Nintendo lançado para iOS, diferente de outras referências a "Delta"
+- Garmin Connect recebe 2 menções neste episódio (Danilera e Teles)
+- Edu é diferente de Eduardo (ep. 41), Eduardo Odon e Eduardo Augusto (ep. 34)
+- Maya é um app de ciclo hormonal, similar ao Clue já existente no sistema
 
