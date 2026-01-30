@@ -1,47 +1,71 @@
 
-
-## Plano: Reestruturar Hierarquia dos Produtos Google
+## Plano: Adicionar Episódio 36 (Os lançamentos da OpenAI e do Google)
 
 ### Visão Geral
-Transformar Google Docs no produto principal e converter Google Sheets, Google Slides e Timeline no Google Sheets em variantes (produtos filhos).
+Adicionar o episódio 36 com 9 menções de produtos. Este será o episódio mais antigo do dataset.
 
 ---
 
-### Estado Atual
+### Análise de Dados
 
-| ID | Nome | parentId |
-|----|------|----------|
-| `google-docs` | Google Docs | - |
-| `google-slides` | Google Slides | - |
-| `google-sheets` | Google Sheets | - |
-| `timeline-sheets` | Timeline no Google Sheets | - |
+**Produtos existentes:**
+| ID | Nome | Categoria |
+|----|------|-----------|
+| `kindle` | Kindle | Reading |
+| `magie` | Magie | AI Tools |
+| `google-maps` | Google Maps | Productivity |
+| `zoom-loja` | Zoom | Retail |
 
-### Estado Desejado
-
-| ID | Nome | parentId |
-|----|------|----------|
-| `google-docs` | Google Docs | - |
-| `google-slides` | Google Slides | `google-docs` |
-| `google-sheets` | Google Sheets | `google-docs` |
-| `timeline-sheets` | Timeline no Google Sheets | `google-docs` |
+**Pessoas existentes:**
+| ID | Nome |
+|----|------|
+| `arthur` | Arthur |
+| `aiquis` | Aíquis |
+| `pilon` | Pilon |
+| `cloves` | Cloves |
+| `danilera` | Danilera |
+| `nana` | Nana |
+| `amanda` | Amanda |
 
 ---
 
-### Impacto nas Menções
+### Novos Dados a Adicionar
 
-As menções existentes continuarão funcionando corretamente. O sistema já suporta a agregação de variantes ao produto pai, então:
+**1 Episódio:**
+| ID | Título | Data |
+|----|--------|------|
+| 36 | Os lançamentos da OpenAI e do Google | 2024-05-14 |
 
-| Episódio | Pessoa | Produto Mencionado | Agregado a |
-|----------|--------|-------------------|------------|
-| 37 | Aíquis | Google Sheets | Google Docs |
-| 37 | Arthur | Google Slides | Google Docs |
-| 75 | Aíquis | Google Slides | Google Docs |
-| 82 | Bruno Perrone | Google Docs | Google Docs |
-| 85 | Thais Nakahira | Timeline no Google Sheets | Google Docs |
-| 88 | Efrem | Google Docs | Google Docs |
-| 102 | Cassi Vilvert | Google Docs | Google Docs |
+**2 Novas Pessoas:**
+| ID | Nome |
+|----|------|
+| `luiz` | Luiz |
+| `montoy` | Montoy |
 
-**Total após agregação:** Google Docs terá 7 menções agregadas (3 diretas + 4 via variantes).
+**5 Novos Produtos:**
+| ID | Nome | Categoria | URL | Observação |
+|----|------|-----------|-----|------------|
+| `kindle-app` | Kindle App | Reading | - | Variante do Kindle (parentId: kindle) |
+| `nintendo-switch` | Nintendo Switch | Entertainment | - | Console/portátil original |
+| `blinkist` | Blinkist | Reading | https://www.blinkist.com | App de resumos de livros |
+| `surfview` | Surfview | Lifestyle | https://surfview.com.br/ | App/serviço de surf |
+| `tunnelbear` | TunnelBear | Productivity | https://www.tunnelbear.com | VPN |
+| `atlas-ti` | Atlas.ti | Productivity | https://atlasti.com/ | Software de análise qualitativa |
+
+**Nota sobre Atlas.ti:** Já existe um produto `atlas` (Apps) no sistema, mas é diferente. O Atlas.ti é um software de análise de dados qualitativos, então será criado como um produto separado com ID `atlas-ti`.
+
+**9 Menções:**
+| Pessoa | Produto |
+|--------|---------|
+| Arthur | Kindle App |
+| Aíquis | Nintendo Switch |
+| Pilon | Magie |
+| Cloves | Blinkist |
+| Danilera | Surfview |
+| Nana | Google Maps |
+| Amanda | Zoom (loja) |
+| Luiz | TunnelBear |
+| Montoy | Atlas.ti |
 
 ---
 
@@ -52,31 +76,62 @@ As menções existentes continuarão funcionando corretamente. O sistema já sup
 
 ### Detalhes Técnicos
 
-**Alteração 1 - Adicionar parentId ao Google Slides** (linha 715):
+**Passo 1 - Adicionar episódio** (inserir antes do episódio 37, início da lista):
 ```typescript
-// De:
-{ id: "google-slides", name: "Google Slides", category: "Productivity" },
-
-// Para:
-{ id: "google-slides", name: "Google Slides", category: "Productivity", parentId: "google-docs" },
+  {
+    id: 36,
+    title: "Os lançamentos da OpenAI e do Google",
+    date: "2024-05-14",
+    description: "Discussão sobre os lançamentos recentes da OpenAI e do Google.",
+  },
 ```
 
-**Alteração 2 - Adicionar parentId ao Google Sheets** (linha 716):
-```typescript
-// De:
-{ id: "google-sheets", name: "Google Sheets", category: "Productivity" },
+**Passo 2 - Adicionar produtos novos:**
 
-// Para:
-{ id: "google-sheets", name: "Google Sheets", category: "Productivity", parentId: "google-docs" },
+Reading (variante do Kindle):
+```typescript
+  { id: "kindle-app", name: "Kindle App", category: "Reading", parentId: "kindle" },
 ```
 
-**Alteração 3 - Adicionar parentId ao Timeline no Google Sheets** (linha 725):
+Entertainment:
 ```typescript
-// De:
-{ id: "timeline-sheets", name: "Timeline no Google Sheets", category: "Productivity" },
+  { id: "nintendo-switch", name: "Nintendo Switch", category: "Entertainment" },
+```
 
-// Para:
-{ id: "timeline-sheets", name: "Timeline no Google Sheets", category: "Productivity", parentId: "google-docs" },
+Reading:
+```typescript
+  { id: "blinkist", name: "Blinkist", category: "Reading", url: "https://www.blinkist.com" },
+```
+
+Lifestyle:
+```typescript
+  { id: "surfview", name: "Surfview", category: "Lifestyle", url: "https://surfview.com.br/" },
+```
+
+Productivity:
+```typescript
+  { id: "tunnelbear", name: "TunnelBear", category: "Productivity", url: "https://www.tunnelbear.com" },
+  { id: "atlas-ti", name: "Atlas.ti", category: "Productivity", url: "https://atlasti.com/" },
+```
+
+**Passo 3 - Adicionar pessoas:**
+```typescript
+  { id: "luiz", name: "Luiz" },
+  { id: "montoy", name: "Montoy" },
+```
+
+**Passo 4 - Adicionar menções** (inserir antes do Episode 37):
+```typescript
+  // Episode 36
+  { id: "m36-1", episodeId: 36, personId: "arthur", productId: "kindle-app" },
+  { id: "m36-2", episodeId: 36, personId: "aiquis", productId: "nintendo-switch" },
+  { id: "m36-3", episodeId: 36, personId: "pilon", productId: "magie" },
+  { id: "m36-4", episodeId: 36, personId: "cloves", productId: "blinkist" },
+  { id: "m36-5", episodeId: 36, personId: "danilera", productId: "surfview" },
+  { id: "m36-6", episodeId: 36, personId: "nana", productId: "google-maps" },
+  { id: "m36-7", episodeId: 36, personId: "amanda", productId: "zoom-loja" },
+  { id: "m36-8", episodeId: 36, personId: "luiz", productId: "tunnelbear" },
+  { id: "m36-9", episodeId: 36, personId: "montoy", productId: "atlas-ti" },
 ```
 
 ---
@@ -85,12 +140,15 @@ As menções existentes continuarão funcionando corretamente. O sistema já sup
 
 | Item | Quantidade |
 |------|------------|
-| Produtos modificados | 3 |
-| Menções alteradas | 0 |
+| Episódio | 1 |
+| Pessoas novas | 2 |
+| Produtos novos | 6 |
+| Menções | 9 |
 
-### Comportamento Esperado
-- Na lista de produtos, apenas "Google Docs" aparecerá (variantes são ocultadas)
-- Na página de detalhes do Google Docs, as variantes serão exibidas como "Includes variants"
-- Todas as 7 menções serão contabilizadas no total do Google Docs
-- Os nomes específicos das variantes serão preservados nas visualizações de menções
-
+### Notas
+- Kindle App é variante do Kindle (parentId: kindle) - menções serão agregadas
+- Nintendo Switch é diferente de Nintendo Switch 2 que já existe (ep. 84)
+- Amanda mencionou o Zoom comparador de preços (zoom.com.br), não a ferramenta de videoconferência
+- Atlas.ti é diferente do Atlas existente (um é software de pesquisa qualitativa, outro é app)
+- TunnelBear é um serviço de VPN, categorizado como Productivity
+- Magie e Google Maps já existem e serão reutilizados
