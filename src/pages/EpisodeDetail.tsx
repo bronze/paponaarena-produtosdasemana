@@ -82,37 +82,41 @@ export default function EpisodeDetail() {
           <h1 className="text-2xl font-bold text-foreground">
             Ep. {episode.id}: {episode.title}
           </h1>
-          <div className="flex items-center gap-4 mt-1">
-            <div className="flex items-center gap-1 text-sm text-muted-foreground">
-              <Calendar className="w-4 h-4" />
-              {formatEpisodeDate(episode.date)}
+          <div className="flex flex-col gap-2 mt-1">
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                <Calendar className="w-4 h-4" />
+                {formatEpisodeDate(episode.date)}
+              </div>
+              <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                <MessageSquare className="w-4 h-4" />
+                {mentions.length} mentions
+              </div>
             </div>
-            <div className="flex items-center gap-1 text-sm text-muted-foreground">
-              <MessageSquare className="w-4 h-4" />
-              {mentions.length} mentions
+            <div className="flex items-center gap-2">
+              {episode.youtubeLink && (
+                <a
+                  href={`${episode.youtubeLink}${YOUTUBE_PLAYLIST_SUFFIX}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-md border border-red-500/30 text-red-600 hover:bg-red-500/10 transition-colors"
+                >
+                  <Youtube className="w-4 h-4" />
+                  YouTube
+                </a>
+              )}
+              {episode.spotifyLink && (
+                <a
+                  href={episode.spotifyLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-md border border-green-500/30 text-green-600 hover:bg-green-500/10 transition-colors"
+                >
+                  <Music className="w-4 h-4" />
+                  Spotify
+                </a>
+              )}
             </div>
-            {episode.youtubeLink && (
-              <a
-                href={`${episode.youtubeLink}${YOUTUBE_PLAYLIST_SUFFIX}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-md border border-red-500/30 text-red-600 hover:bg-red-500/10 transition-colors"
-              >
-                <Youtube className="w-4 h-4" />
-                YouTube
-              </a>
-            )}
-            {episode.spotifyLink && (
-              <a
-                href={episode.spotifyLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-md border border-green-500/30 text-green-600 hover:bg-green-500/10 transition-colors"
-              >
-                <Music className="w-4 h-4" />
-                Spotify
-              </a>
-            )}
           </div>
         </div>
       </div>
