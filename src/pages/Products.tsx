@@ -15,16 +15,26 @@ import { products, getProductMentionCount, getMentionsByProduct, getCategories, 
 type SortKey = "name" | "mentions" | "episodes";
 type SortDir = "asc" | "desc";
 
-const ProductCard = ({ product, index }: { product: { id: string; name: string; category: string; mentionCount: number; episodeCount: number }; index: number }) => (
+const ProductCard = ({
+  product,
+  index,
+}: {
+  product: { id: string; name: string; category: string; mentionCount: number; episodeCount: number };
+  index: number;
+}) => (
   <Link to={`/products/${product.id}`} className="block group">
     <Card className="p-4 border-border hover:border-primary/50 transition-colors">
       <div className="flex items-start justify-between gap-3">
         <div className="flex-1 min-w-0">
           <div className="mb-2">
             <span className="text-sm text-muted-foreground font-medium">#{index + 1}</span>
-            <h3 className="font-medium text-foreground group-hover:text-primary transition-colors mt-1">{product.name}</h3>
+            <h3 className="font-medium text-foreground group-hover:text-primary transition-colors mt-1">
+              {product.name}
+            </h3>
           </div>
-          <Badge variant="secondary" className="text-xs">{product.category}</Badge>
+          <Badge variant="secondary" className="text-xs">
+            {product.category}
+          </Badge>
         </div>
         <div className="flex items-center gap-3 shrink-0">
           <div className="text-right">
@@ -136,9 +146,15 @@ export default function Products() {
         {isMobile && (
           <Tabs value={sortKey} onValueChange={handleTabSort}>
             <TabsList className="w-full">
-              <TabsTrigger value="mentions" className="flex-1">Menções</TabsTrigger>
-              <TabsTrigger value="name" className="flex-1">Nome</TabsTrigger>
-              <TabsTrigger value="episodes" className="flex-1">Episódios</TabsTrigger>
+              <TabsTrigger value="mentions" className="flex-1">
+                Mentions
+              </TabsTrigger>
+              <TabsTrigger value="name" className="flex-1">
+                Product
+              </TabsTrigger>
+              <TabsTrigger value="episodes" className="flex-1">
+                Episodes
+              </TabsTrigger>
             </TabsList>
           </Tabs>
         )}
