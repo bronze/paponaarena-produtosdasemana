@@ -31,6 +31,10 @@ const ProductCard = ({ product, index }: { product: { id: string; name: string; 
             <div className="font-semibold text-primary text-lg">{product.mentionCount}</div>
             <div className="text-xs text-muted-foreground">menções</div>
           </div>
+          <div className="text-right">
+            <div className="font-semibold text-muted-foreground text-lg">{product.episodeCount}</div>
+            <div className="text-xs text-muted-foreground">episódios</div>
+          </div>
           <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
         </div>
       </div>
@@ -93,7 +97,7 @@ export default function Products() {
 
   const handleTabSort = (value: string) => {
     setSortKey(value as SortKey);
-    setSortDir("desc");
+    setSortDir(value === "name" ? "asc" : "desc");
   };
 
   return (
