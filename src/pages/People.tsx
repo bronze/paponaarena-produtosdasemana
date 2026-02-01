@@ -21,9 +21,7 @@ export default function People() {
     };
   });
 
-  const filteredPeople = peopleData.filter((p) =>
-    p.name.toLowerCase().includes(search.toLowerCase())
-  );
+  const filteredPeople = peopleData.filter((p) => p.name.toLowerCase().includes(search.toLowerCase()));
 
   const sortedPeople = [...filteredPeople].sort((a, b) => {
     if (sortBy === "name") {
@@ -48,9 +46,7 @@ export default function People() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-foreground">People</h1>
-        <p className="text-muted-foreground mt-1">
-          Contributors and hosts who mentioned products
-        </p>
+        <p className="text-muted-foreground mt-1">Contributors and hosts who mentioned products</p>
       </div>
 
       <div className="flex flex-col sm:flex-row sm:items-center gap-4">
@@ -75,17 +71,15 @@ export default function People() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {sortedPeople.map((person) => (
           <Link key={person.id} to={`/people/${person.id}`}>
-            <Card className={`bg-card border-border hover:border-primary/50 transition-colors group h-full ${
-              person.avatarUrl ? "shadow-md border-primary/20" : ""
-            }`}>
+            <Card
+              className={`bg-card border-border hover:border-primary/50 transition-colors group h-full ${
+                person.avatarUrl ? "border-primary/40" : ""
+              }`}
+            >
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <Avatar className={`w-12 h-12 bg-primary/10 ${
-                    person.avatarUrl ? "ring-2 ring-primary/30" : ""
-                  }`}>
-                    {person.avatarUrl && (
-                      <AvatarImage src={person.avatarUrl} alt={person.name} />
-                    )}
+                  <Avatar className={`w-12 h-12 bg-primary/10 ${person.avatarUrl ? "ring-2 ring-primary/60" : ""}`}>
+                    {person.avatarUrl && <AvatarImage src={person.avatarUrl} alt={person.name} />}
                     <AvatarFallback className="bg-primary/10 text-primary font-medium">
                       {getInitials(person.name)}
                     </AvatarFallback>
@@ -94,9 +88,7 @@ export default function People() {
                     <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
                       {person.name}
                     </h3>
-                    <p className="text-sm text-muted-foreground">
-                      {person.mentionCount} products mentioned
-                    </p>
+                    <p className="text-sm text-muted-foreground">{person.mentionCount} products mentioned</p>
                     <p className="text-xs text-muted-foreground">
                       {person.episodeCount} / {episodes.length} episodes
                     </p>
@@ -110,9 +102,7 @@ export default function People() {
       </div>
 
       {filteredPeople.length === 0 && (
-        <div className="text-center py-8 text-muted-foreground">
-          No people found matching "{search}"
-        </div>
+        <div className="text-center py-8 text-muted-foreground">No people found matching "{search}"</div>
       )}
     </div>
   );
