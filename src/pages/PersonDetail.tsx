@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { ArrowLeft, MessageSquare, Mic, Package, Linkedin } from "lucide-react";
 import arthurAudio from "@/assets/audio/audio-arthur.mp3";
+import aquisAudio from "@/assets/audio/audio-aiquis.mp3";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import {
   getPersonById,
@@ -26,7 +27,7 @@ export default function PersonDetail() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const handleAvatarClick = () => {
-    if (person?.id === "arthur" && audioRef.current) {
+    if ((person?.id === "arthur" || person?.id === "aiquis") && audioRef.current) {
       audioRef.current.currentTime = 0;
       audioRef.current.play();
     }
@@ -109,8 +110,7 @@ export default function PersonDetail() {
         <div className="flex items-center gap-4">
           <Avatar
             className={`w-14 h-14 bg-primary/10 ${
-              // person.id === "arthur" ? "cursor-pointer hover:ring-2 hover:ring-primary/50 transition-all" : ""
-              person.id === "arthur" ? "" : ""
+              (person.id === "arthur" || person.id === "aiquis") ? "cursor-pointer hover:ring-2 hover:ring-primary/50 transition-all" : ""
             }`}
             onClick={handleAvatarClick}
           >
@@ -120,6 +120,7 @@ export default function PersonDetail() {
             </AvatarFallback>
           </Avatar>
           {person.id === "arthur" && <audio ref={audioRef} src={arthurAudio} preload="auto" />}
+          {person.id === "aiquis" && <audio ref={audioRef} src={aquisAudio} preload="auto" />}
           <div>
             <h1 className="text-2xl font-bold text-foreground">{person.name}</h1>
             <div className="flex flex-col gap-2 mt-1">
