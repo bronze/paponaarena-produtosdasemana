@@ -13,9 +13,7 @@ export default function Dashboard() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-foreground">Dashboard</h1>
-        <p className="text-muted-foreground mt-1">
-          Track product mentions from the Papo na Arena podcast
-        </p>
+        <p className="text-muted-foreground mt-1">Track product mentions from the Papo na Arena podcast</p>
       </div>
 
       {/* Stats Grid */}
@@ -46,6 +44,7 @@ export default function Dashboard() {
           value={mentions.length}
           icon={MessageSquare}
           description="Product mentions"
+          href="/people"
         />
       </div>
 
