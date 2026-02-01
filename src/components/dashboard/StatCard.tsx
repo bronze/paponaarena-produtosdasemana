@@ -29,11 +29,7 @@ export function StatCard({ title, value, icon: Icon, description, href }: StatCa
   );
 
   if (href) {
-    return (
-      <Link className="h-full" to={href}>
-        {cardContent}
-      </Link>
-    );
+    return <Link to={href}>{cardContent}</Link>;
   }
 
   return cardContent;
