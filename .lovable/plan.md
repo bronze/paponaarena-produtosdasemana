@@ -1,9 +1,9 @@
 
 
-## Plano: Estilizar botão do LinkedIn como YouTube/Spotify
+## Plano: Mover botão LinkedIn para linha separada
 
 ### Objetivo
-Atualizar o estilo do link do LinkedIn na página de perfil para seguir o mesmo padrão visual dos botões YouTube e Spotify na página de detalhes do episódio.
+Reposicionar o botão do LinkedIn para aparecer em uma linha abaixo do texto "Contributor analytics", seguindo o mesmo padrão de layout dos botões YouTube/Spotify no EpisodeDetail.
 
 ---
 
@@ -14,48 +14,56 @@ Atualizar o estilo do link do LinkedIn na página de perfil para seguir o mesmo 
 
 ### Alteração
 
-**Linhas 114-122** - Atualizar o estilo do link do LinkedIn:
+**Linhas 111-125** - Reestruturar o layout para usar flex-col:
 
 **Antes:**
 ```tsx
-<a
-  href={person.linkedinUrl}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="text-muted-foreground hover:text-primary transition-colors"
->
-  <Linkedin className="w-4 h-4" />
-</a>
+<div>
+  <h1 className="text-2xl font-bold text-foreground">{person.name}</h1>
+  <div className="flex items-center gap-2">
+    <p className="text-muted-foreground">Contributor analytics</p>
+    {person.linkedinUrl && (
+      <a ...>
+        <Linkedin className="w-4 h-4" />
+        LinkedIn
+      </a>
+    )}
+  </div>
+</div>
 ```
 
 **Depois:**
 ```tsx
-<a
-  href={person.linkedinUrl}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-md border border-blue-500/30 text-blue-600 hover:bg-blue-500/10 transition-colors"
->
-  <Linkedin className="w-4 h-4" />
-  LinkedIn
-</a>
+<div>
+  <h1 className="text-2xl font-bold text-foreground">{person.name}</h1>
+  <div className="flex flex-col gap-2 mt-1">
+    <p className="text-muted-foreground">Contributor analytics</p>
+    {person.linkedinUrl && (
+      <div className="flex items-center gap-2">
+        <a ...>
+          <Linkedin className="w-4 h-4" />
+          LinkedIn
+        </a>
+      </div>
+    )}
+  </div>
+</div>
 ```
 
 ---
 
-### Padrão Visual
+### Comparação com EpisodeDetail
 
-| Plataforma | Cor da borda | Cor do texto | Hover |
-|------------|--------------|--------------|-------|
-| YouTube | `red-500/30` | `red-600` | `red-500/10` |
-| Spotify | `green-500/30` | `green-600` | `green-500/10` |
-| LinkedIn | `blue-500/30` | `blue-600` | `blue-500/10` |
+| Elemento | EpisodeDetail | PersonDetail (após alteração) |
+|----------|---------------|-------------------------------|
+| Container | `flex flex-col gap-2 mt-1` | `flex flex-col gap-2 mt-1` |
+| Info text | Data + mentions | "Contributor analytics" |
+| Botões | YouTube + Spotify em div separada | LinkedIn em div separada |
 
 ---
 
 ### Resultado Esperado
-- Botão com borda azul clara e texto azul
-- Inclui o texto "LinkedIn" ao lado do ícone
-- Efeito hover com fundo azul translúcido
-- Consistência visual com os botões de mídia do EpisodeDetail
+- "Contributor analytics" aparece em uma linha
+- Botão LinkedIn aparece na linha abaixo
+- Layout consistente com a página de episódios
 
