@@ -1,68 +1,61 @@
 
 
-## Plano: Adicionar LinkedIn aos perfis dos hosts
+## Plano: Estilizar botão do LinkedIn como YouTube/Spotify
 
-### Visao Geral
-Adicionar campo opcional `linkedinUrl` na interface Person e exibir um botao de LinkedIn na pagina de perfil para os hosts que tiverem o link configurado.
-
----
-
-### Arquivos a Modificar
-
-**1. `src/data/mentions.ts`**
-
-Alterar a interface Person para incluir o campo opcional:
-
-```typescript
-export interface Person {
-  id: string;
-  name: string;
-  linkedinUrl?: string;
-}
-```
-
-Atualizar as entradas dos hosts (linhas 1393-1394):
-
-```typescript
-{ id: "arthur", name: "Arthur", linkedinUrl: "https://www.linkedin.com/in/arthurdecastroaraujo/" },
-{ id: "aiquis", name: "Aíquis", linkedinUrl: "https://www.linkedin.com/in/aiquis/" },
-```
+### Objetivo
+Atualizar o estilo do link do LinkedIn na página de perfil para seguir o mesmo padrão visual dos botões YouTube e Spotify na página de detalhes do episódio.
 
 ---
 
-**2. `src/pages/PersonDetail.tsx`**
+### Arquivo a Modificar
+`src/pages/PersonDetail.tsx`
 
-Adicionar o icone Linkedin na importacao do lucide-react (linha 6):
+---
 
-```typescript
-import { ArrowLeft, MessageSquare, Mic, Package, Linkedin } from "lucide-react";
-```
+### Alteração
 
-No header, apos "Contributor analytics" (linha 112), adicionar o link do LinkedIn quando disponivel:
+**Linhas 114-122** - Atualizar o estilo do link do LinkedIn:
 
+**Antes:**
 ```tsx
-<div>
-  <h1 className="text-2xl font-bold text-foreground">{person.name}</h1>
-  <div className="flex items-center gap-2">
-    <p className="text-muted-foreground">Contributor analytics</p>
-    {person.linkedinUrl && (
-      <a
-        href={person.linkedinUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-muted-foreground hover:text-primary transition-colors"
-      >
-        <Linkedin className="w-4 h-4" />
-      </a>
-    )}
-  </div>
-</div>
+<a
+  href={person.linkedinUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-muted-foreground hover:text-primary transition-colors"
+>
+  <Linkedin className="w-4 h-4" />
+</a>
 ```
+
+**Depois:**
+```tsx
+<a
+  href={person.linkedinUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-md border border-blue-500/30 text-blue-600 hover:bg-blue-500/10 transition-colors"
+>
+  <Linkedin className="w-4 h-4" />
+  LinkedIn
+</a>
+```
+
+---
+
+### Padrão Visual
+
+| Plataforma | Cor da borda | Cor do texto | Hover |
+|------------|--------------|--------------|-------|
+| YouTube | `red-500/30` | `red-600` | `red-500/10` |
+| Spotify | `green-500/30` | `green-600` | `green-500/10` |
+| LinkedIn | `blue-500/30` | `blue-600` | `blue-500/10` |
 
 ---
 
 ### Resultado Esperado
-- Icone do LinkedIn aparece ao lado de "Contributor analytics" apenas para Aiquis e Arthur
-- Clicar no icone abre o perfil do LinkedIn em nova aba
-- Outros contribuidores sem LinkedIn cadastrado nao exibem o icone
+- Botão com borda azul clara e texto azul
+- Inclui o texto "LinkedIn" ao lado do ícone
+- Efeito hover com fundo azul translúcido
+- Consistência visual com os botões de mídia do EpisodeDetail
 
