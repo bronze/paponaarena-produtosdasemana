@@ -114,7 +114,7 @@ export default function PersonDetail() {
         <div className="flex items-center gap-4">
           <Avatar 
             className={`w-14 h-14 bg-primary/10 ${
-              person.id === "arthur" ? "cursor-pointer hover:ring-2 hover:ring-primary/50 transition-all" : ""
+              // person.id === "arthur" ? "cursor-pointer hover:ring-2 hover:ring-primary/50 transition-all" : ""
             }`}
             onClick={handleAvatarClick}
           >
