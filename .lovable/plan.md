@@ -1,54 +1,68 @@
 
 
-## Plano: Corrigir cards mobile na pagina de Produtos
+## Plano: Adicionar LinkedIn aos perfis dos hosts
 
-### Problemas Identificados
-1. Os cards mobile nao mostram em quantos episodios o produto aparece
-2. Ao ordenar por nome, ordena Z-A ao inves de A-Z
-
----
-
-### Arquivo a Modificar
-`src/pages/Products.tsx`
+### Visao Geral
+Adicionar campo opcional `linkedinUrl` na interface Person e exibir um botao de LinkedIn na pagina de perfil para os hosts que tiverem o link configurado.
 
 ---
 
-### Alteracao 1: Adicionar contagem de episodios no ProductCard
+### Arquivos a Modificar
 
-**Linhas 29-33** - Adicionar episodeCount abaixo de mentionCount:
+**1. `src/data/mentions.ts`**
+
+Alterar a interface Person para incluir o campo opcional:
+
+```typescript
+export interface Person {
+  id: string;
+  name: string;
+  linkedinUrl?: string;
+}
+```
+
+Atualizar as entradas dos hosts (linhas 1393-1394):
+
+```typescript
+{ id: "arthur", name: "Arthur", linkedinUrl: "https://www.linkedin.com/in/arthurdecastroaraujo/" },
+{ id: "aiquis", name: "Aíquis", linkedinUrl: "https://www.linkedin.com/in/aiquis/" },
+```
+
+---
+
+**2. `src/pages/PersonDetail.tsx`**
+
+Adicionar o icone Linkedin na importacao do lucide-react (linha 6):
+
+```typescript
+import { ArrowLeft, MessageSquare, Mic, Package, Linkedin } from "lucide-react";
+```
+
+No header, apos "Contributor analytics" (linha 112), adicionar o link do LinkedIn quando disponivel:
 
 ```tsx
-<div className="flex items-center gap-3 shrink-0">
-  <div className="text-right">
-    <div className="font-semibold text-primary text-lg">{product.mentionCount}</div>
-    <div className="text-xs text-muted-foreground">mencoes</div>
+<div>
+  <h1 className="text-2xl font-bold text-foreground">{person.name}</h1>
+  <div className="flex items-center gap-2">
+    <p className="text-muted-foreground">Contributor analytics</p>
+    {person.linkedinUrl && (
+      <a
+        href={person.linkedinUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-muted-foreground hover:text-primary transition-colors"
+      >
+        <Linkedin className="w-4 h-4" />
+      </a>
+    )}
   </div>
-  <div className="text-right">
-    <div className="font-semibold text-muted-foreground text-lg">{product.episodeCount}</div>
-    <div className="text-xs text-muted-foreground">episodios</div>
-  </div>
-  <ChevronRight ... />
 </div>
 ```
 
 ---
 
-### Alteracao 2: Corrigir ordenacao por nome para A-Z
-
-**Linhas 94-97** - Modificar `handleTabSort` para usar "asc" quando ordenar por nome:
-
-```tsx
-const handleTabSort = (value: string) => {
-  setSortKey(value as SortKey);
-  // Para nome, ordenar A-Z (asc); para outros, ordenar maior primeiro (desc)
-  setSortDir(value === "name" ? "asc" : "desc");
-};
-```
-
----
-
 ### Resultado Esperado
-- Cards mobile exibem tanto mencoes quanto episodios
-- Tab "Nome" ordena de A-Z (ordem alfabetica natural)
-- Tabs "Mencoes" e "Episodios" continuam ordenando do maior para o menor
+- Icone do LinkedIn aparece ao lado de "Contributor analytics" apenas para Aiquis e Arthur
+- Clicar no icone abre o perfil do LinkedIn em nova aba
+- Outros contribuidores sem LinkedIn cadastrado nao exibem o icone
 
