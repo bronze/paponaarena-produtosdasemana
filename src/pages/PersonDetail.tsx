@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { ArrowLeft, MessageSquare, Mic, Package } from "lucide-react";
+import { ArrowLeft, MessageSquare, Mic, Package, Linkedin } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import {
   getPersonById,
@@ -109,7 +109,19 @@ export default function PersonDetail() {
           </Avatar>
           <div>
             <h1 className="text-2xl font-bold text-foreground">{person.name}</h1>
-            <p className="text-muted-foreground">Contributor analytics</p>
+            <div className="flex items-center gap-2">
+              <p className="text-muted-foreground">Contributor analytics</p>
+              {person.linkedinUrl && (
+                <a
+                  href={person.linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <Linkedin className="w-4 h-4" />
+                </a>
+              )}
+            </div>
           </div>
         </div>
       </div>
