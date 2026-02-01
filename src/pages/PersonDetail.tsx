@@ -116,9 +116,10 @@ export default function PersonDetail() {
                   href={person.linkedinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-md border border-blue-500/30 text-blue-600 hover:bg-blue-500/10 transition-colors"
                 >
                   <Linkedin className="w-4 h-4" />
+                  LinkedIn
                 </a>
               )}
             </div>
