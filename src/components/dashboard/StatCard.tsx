@@ -1,4 +1,5 @@
 import { LucideIcon } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 
 interface StatCardProps {
@@ -6,11 +7,12 @@ interface StatCardProps {
   value: string | number;
   icon: LucideIcon;
   description?: string;
+  href?: string;
 }
 
-export function StatCard({ title, value, icon: Icon, description }: StatCardProps) {
-  return (
-    <Card className="bg-card border-border">
+export function StatCard({ title, value, icon: Icon, description, href }: StatCardProps) {
+  const cardContent = (
+    <Card className={`bg-card border-border ${href ? "hover:border-primary/50 transition-colors cursor-pointer" : ""}`}>
       <CardContent className="p-6">
         <div className="flex items-start justify-between">
           <div className="space-y-1">
@@ -27,4 +29,10 @@ export function StatCard({ title, value, icon: Icon, description }: StatCardProp
       </CardContent>
     </Card>
   );
+
+  if (href) {
+    return <Link to={href}>{cardContent}</Link>;
+  }
+
+  return cardContent;
 }
