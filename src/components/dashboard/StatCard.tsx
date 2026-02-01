@@ -12,7 +12,9 @@ interface StatCardProps {
 
 export function StatCard({ title, value, icon: Icon, description, href }: StatCardProps) {
   const cardContent = (
-    <Card className={`bg-card border-border ${href ? "hover:border-primary/50 transition-colors cursor-pointer" : ""}`}>
+    <Card
+      className={`h-full bg-card border-border ${href ? "hover:border-primary/50 transition-colors cursor-pointer" : ""}`}
+    >
       <CardContent className="p-6">
         <div className="flex items-start justify-between">
           <div className="space-y-1">
