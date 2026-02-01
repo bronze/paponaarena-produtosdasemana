@@ -24,10 +24,15 @@ export interface Product {
   alsoCredits?: string[]; // For combo mentions that credit multiple products (e.g., uber-livelo → uber + livelo)
 }
 
+// Import host images
+import arthurAvatar from "@/assets/hosts/arthur.png";
+import aquisAvatar from "@/assets/hosts/aiquis.png";
+
 export interface Person {
   id: string;
   name: string;
   linkedinUrl?: string;
+  avatarUrl?: string;
 }
 
 export interface Mention {
@@ -1391,8 +1396,8 @@ export const products: Product[] = [
 // People (contributors/hosts)
 export const people: Person[] = [
   // Core hosts/contributors
-  { id: "arthur", name: "Arthur", linkedinUrl: "https://www.linkedin.com/in/arthurdecastroaraujo/" },
-  { id: "aiquis", name: "Aíquis", linkedinUrl: "https://www.linkedin.com/in/aiquis/" },
+  { id: "arthur", name: "Arthur", linkedinUrl: "https://www.linkedin.com/in/arthurdecastroaraujo/", avatarUrl: arthurAvatar },
+  { id: "aiquis", name: "Aíquis", linkedinUrl: "https://www.linkedin.com/in/aiquis/", avatarUrl: aquisAvatar },
   { id: "daniel-gonzalez", name: "Daniel Gonzalez" },
   { id: "thiago-simao", name: "Thiago Simão" },
   { id: "iona-oliveira", name: "Ionã Oliveira" },
