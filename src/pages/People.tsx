@@ -75,10 +75,14 @@ export default function People() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {sortedPeople.map((person) => (
           <Link key={person.id} to={`/people/${person.id}`}>
-            <Card className="bg-card border-border hover:border-primary/50 transition-colors group h-full">
+            <Card className={`bg-card border-border hover:border-primary/50 transition-colors group h-full ${
+              person.avatarUrl ? "shadow-md border-primary/20" : ""
+            }`}>
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <Avatar className="w-12 h-12 bg-primary/10">
+                  <Avatar className={`w-12 h-12 bg-primary/10 ${
+                    person.avatarUrl ? "ring-2 ring-primary/30" : ""
+                  }`}>
                     {person.avatarUrl && (
                       <AvatarImage src={person.avatarUrl} alt={person.name} />
                     )}
