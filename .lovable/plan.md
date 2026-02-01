@@ -1,111 +1,60 @@
 
-## Plano: Adicionar fotos dos hosts Arthur e Aíquis
+
+## Plano: Destacar cards dos hosts na página People
 
 ### Objetivo
-Distinguir os hosts do podcast dos demais contribuidores exibindo suas fotos nos avatares, tanto na lista de pessoas quanto na página de perfil individual.
+Adicionar diferenciação visual extra nos cards dos hosts Arthur e Aíquis para distingui-los dos demais contribuidores na página de People.
 
 ---
 
-### Arquivos a Criar
-
-**1. Copiar imagens para o projeto**
-- `src/assets/hosts/arthur.png` - Foto do Arthur
-- `src/assets/hosts/aiquis.png` - Foto do Aíquis
+### Arquivo a Modificar
+`src/pages/People.tsx`
 
 ---
 
-### Arquivos a Modificar
+### Abordagem
 
-**1. `src/data/mentions.ts`**
+Vou adicionar estilos condicionais para os hosts baseando-se na presença do `avatarUrl` (que só os hosts possuem). Os hosts terão:
 
-Adicionar campo opcional `avatarUrl` na interface Person:
-
-```typescript
-export interface Person {
-  id: string;
-  name: string;
-  linkedinUrl?: string;
-  avatarUrl?: string;
-}
-```
-
-Atualizar as entradas dos hosts com as URLs das imagens:
-
-```typescript
-{ 
-  id: "arthur", 
-  name: "Arthur", 
-  linkedinUrl: "https://www.linkedin.com/in/arthurdecastroaraujo/",
-  avatarUrl: "/hosts/arthur.png"  // será importado como módulo
-},
-{ 
-  id: "aiquis", 
-  name: "Aíquis", 
-  linkedinUrl: "https://www.linkedin.com/in/aiquis/",
-  avatarUrl: "/hosts/aiquis.png"  // será importado como módulo
-},
-```
+1. **Sombra sutil** - `shadow-md` para dar profundidade
+2. **Borda com cor primary** - `border-primary/20` para destacar
+3. **Anel ao redor do avatar** - `ring-2 ring-primary/30` para enfatizar a foto
 
 ---
 
-**2. `src/pages/People.tsx`**
+### Alteração
 
-Importar `AvatarImage` além de `AvatarFallback`:
-
-```typescript
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-```
-
-Atualizar o componente Avatar para exibir a foto quando disponível:
+**Linha 78** - Adicionar classes condicionais ao Card:
 
 ```tsx
-<Avatar className="w-12 h-12 bg-primary/10">
-  {person.avatarUrl && (
-    <AvatarImage src={person.avatarUrl} alt={person.name} />
-  )}
-  <AvatarFallback className="bg-primary/10 text-primary font-medium">
-    {getInitials(person.name)}
-  </AvatarFallback>
-</Avatar>
+<Card className={`bg-card border-border hover:border-primary/50 transition-colors group h-full ${
+  person.avatarUrl ? "shadow-md border-primary/20" : ""
+}`}>
 ```
 
----
-
-**3. `src/pages/PersonDetail.tsx`**
-
-Importar `AvatarImage` além de `AvatarFallback`:
-
-```typescript
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-```
-
-Atualizar o avatar no header para exibir a foto quando disponível:
+**Linha 81** - Adicionar anel ao Avatar dos hosts:
 
 ```tsx
-<Avatar className="w-14 h-14 bg-primary/10">
-  {person.avatarUrl && (
-    <AvatarImage src={person.avatarUrl} alt={person.name} />
-  )}
-  <AvatarFallback className="bg-primary/10 text-primary font-semibold text-lg">
-    {getInitials(person.name)}
-  </AvatarFallback>
-</Avatar>
+<Avatar className={`w-12 h-12 bg-primary/10 ${
+  person.avatarUrl ? "ring-2 ring-primary/30" : ""
+}`}>
 ```
 
 ---
 
-### Comportamento
+### Comparação Visual
 
-| Pessoa | Avatar |
-|--------|--------|
-| Arthur | Foto do Arthur |
-| Aíquis | Foto do Aíquis |
-| Outros | Iniciais (fallback) |
+| Elemento | Contribuidores | Hosts |
+|----------|----------------|-------|
+| Card border | `border-border` | `border-primary/20` |
+| Card shadow | nenhum | `shadow-md` |
+| Avatar | simples | `ring-2 ring-primary/30` |
 
 ---
 
 ### Resultado Esperado
-- Hosts aparecem com suas fotos reais nos avatares
-- Demais contribuidores mantêm as iniciais como fallback
-- Fotos aparecem tanto na lista de pessoas quanto no perfil individual
-- Imagens são carregadas de forma otimizada via bundler do Vite
+- Cards de Arthur e Aíquis se destacam com sombra e borda colorida
+- Avatares com fotos têm um anel sutil ao redor
+- Efeito é elegante e não poluído
+- Mantém consistência com o estilo do app
+
