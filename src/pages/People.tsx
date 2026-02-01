@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Search, ArrowRight } from "lucide-react";
 import { people, getPersonMentionCount, getMentionsByPerson, episodes } from "@/data/mentions";
@@ -79,6 +79,9 @@ export default function People() {
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
                   <Avatar className="w-12 h-12 bg-primary/10">
+                    {person.avatarUrl && (
+                      <AvatarImage src={person.avatarUrl} alt={person.name} />
+                    )}
                     <AvatarFallback className="bg-primary/10 text-primary font-medium">
                       {getInitials(person.name)}
                     </AvatarFallback>

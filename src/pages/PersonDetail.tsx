@@ -2,7 +2,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { ArrowLeft, MessageSquare, Mic, Package, Linkedin } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import {
@@ -103,6 +103,9 @@ export default function PersonDetail() {
         </Button>
         <div className="flex items-center gap-4">
           <Avatar className="w-14 h-14 bg-primary/10">
+            {person.avatarUrl && (
+              <AvatarImage src={person.avatarUrl} alt={person.name} />
+            )}
             <AvatarFallback className="bg-primary/10 text-primary font-semibold text-lg">
               {getInitials(person.name)}
             </AvatarFallback>
