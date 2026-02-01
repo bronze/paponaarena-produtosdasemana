@@ -16,13 +16,7 @@ import {
   getProductLinkId,
 } from "@/data/mentions";
 
-const COLORS = [
-  "hsl(140 20% 40%)",
-  "hsl(18 50% 55%)",
-  "hsl(45 40% 55%)",
-  "hsl(200 25% 50%)",
-  "hsl(340 30% 55%)",
-];
+const COLORS = ["hsl(140 20% 40%)", "hsl(18 50% 55%)", "hsl(45 40% 55%)", "hsl(200 25% 50%)", "hsl(340 30% 55%)"];
 
 export default function PersonDetail() {
   const { id } = useParams<{ id: string }>();
@@ -51,10 +45,9 @@ export default function PersonDetail() {
 
   const topProducts = getPersonTopProducts(person.id, 10);
   const chartData = topProducts.map((item) => {
-    const productMentions = mentions.filter(m => m.productId === item.product.id);
-    const episodeNumbers = [...new Set(productMentions.map(m => m.episodeId))]
-      .sort((a, b) => b - a);
-    
+    const productMentions = mentions.filter((m) => m.productId === item.product.id);
+    const episodeNumbers = [...new Set(productMentions.map((m) => m.episodeId))].sort((a, b) => b - a);
+
     return {
       id: item.product.id,
       name: item.product.name,
@@ -74,16 +67,20 @@ export default function PersonDetail() {
       .toUpperCase();
   };
 
-  const CustomTooltip = ({ active, payload }: { active?: boolean; payload?: Array<{ payload: { name: string; mentions: number; episodes: number[] } }> }) => {
+  const CustomTooltip = ({
+    active,
+    payload,
+  }: {
+    active?: boolean;
+    payload?: Array<{ payload: { name: string; mentions: number; episodes: number[] } }>;
+  }) => {
     if (!active || !payload?.length) return null;
-    
+
     const data = payload[0].payload;
     return (
       <div className="bg-card border border-border rounded-lg p-3 shadow-lg max-w-xs">
         <p className="font-semibold text-foreground">{data.name}</p>
-        <p className="text-sm text-muted-foreground">
-          {data.mentions} mentions
-        </p>
+        <p className="text-sm text-muted-foreground">{data.mentions} mentions</p>
         <div className="mt-2 pt-2 border-t border-border">
           <p className="text-xs text-muted-foreground mb-1">Episodes:</p>
           <div className="flex flex-wrap gap-1">
@@ -93,9 +90,7 @@ export default function PersonDetail() {
               </span>
             ))}
             {data.episodes.length > 8 && (
-              <span className="text-xs text-muted-foreground">
-                +{data.episodes.length - 8} more
-              </span>
+              <span className="text-xs text-muted-foreground">+{data.episodes.length - 8} more</span>
             )}
           </div>
         </div>
@@ -112,22 +107,19 @@ export default function PersonDetail() {
           </Link>
         </Button>
         <div className="flex items-center gap-4">
-          <Avatar 
+          <Avatar
             className={`w-14 h-14 bg-primary/10 ${
               // person.id === "arthur" ? "cursor-pointer hover:ring-2 hover:ring-primary/50 transition-all" : ""
+              person.id === "arthur" ? "" : ""
             }`}
             onClick={handleAvatarClick}
           >
-            {person.avatarUrl && (
-              <AvatarImage src={person.avatarUrl} alt={person.name} />
-            )}
+            {person.avatarUrl && <AvatarImage src={person.avatarUrl} alt={person.name} />}
             <AvatarFallback className="bg-primary/10 text-primary font-semibold text-lg">
               {getInitials(person.name)}
             </AvatarFallback>
           </Avatar>
-          {person.id === "arthur" && (
-            <audio ref={audioRef} src={arthurAudio} preload="auto" />
-          )}
+          {person.id === "arthur" && <audio ref={audioRef} src={arthurAudio} preload="auto" />}
           <div>
             <h1 className="text-2xl font-bold text-foreground">{person.name}</h1>
             <div className="flex flex-col gap-2 mt-1">
@@ -208,7 +200,7 @@ export default function PersonDetail() {
                     tick={{ fontSize: 12 }}
                     width={100}
                   />
-                  <Tooltip content={<CustomTooltip />} cursor={{ fill: 'hsl(var(--muted))' }} />
+                  <Tooltip content={<CustomTooltip />} cursor={{ fill: "hsl(var(--muted))" }} />
                   <Bar
                     dataKey="mentions"
                     radius={[0, 4, 4, 0]}
@@ -237,57 +229,57 @@ export default function PersonDetail() {
               {[...mentions]
                 .sort((a, b) => b.episodeId - a.episodeId)
                 .map((mention) => {
-                const product = getProductById(mention.productId);
-                const episode = getEpisodeById(mention.episodeId);
-                if (!product || !episode) return null;
+                  const product = getProductById(mention.productId);
+                  const episode = getEpisodeById(mention.episodeId);
+                  if (!product || !episode) return null;
 
-                return (
-                  <div
-                    key={mention.id}
-                    className="flex items-center justify-between p-3 rounded-lg bg-muted/50"
-                  >
-                    <div className="flex items-center gap-3 flex-wrap">
-                      {product.alsoCredits ? (
-                        <>
-                          {product.alsoCredits.map((creditedId, idx) => {
-                            const creditedProduct = getProductById(creditedId);
-                            if (!creditedProduct) return null;
-                            return (
-                              <span key={creditedId} className="flex items-center gap-1">
-                                {idx > 0 && <span className="text-muted-foreground">+</span>}
-                              <Link
-                                  to={`/products/${getProductLinkId(creditedProduct.id)}`}
-                                  className="font-medium text-foreground hover:text-primary transition-colors"
-                                >
-                                  {creditedProduct.name}
-                                </Link>
-                              </span>
-                            );
-                          })}
-                          <Badge variant="outline" className="text-xs">
-                            combo
-                          </Badge>
-                        </>
-                      ) : (
-                        <Link
-                          to={`/products/${getProductLinkId(product.id)}`}
-                          className="font-medium text-foreground hover:text-primary transition-colors"
+                  return (
+                    <div key={mention.id} className="flex items-center justify-between p-3 rounded-lg bg-muted/50">
+                      <div className="flex items-center gap-3 flex-wrap">
+                        {product.alsoCredits ? (
+                          <>
+                            {product.alsoCredits.map((creditedId, idx) => {
+                              const creditedProduct = getProductById(creditedId);
+                              if (!creditedProduct) return null;
+                              return (
+                                <span key={creditedId} className="flex items-center gap-1">
+                                  {idx > 0 && <span className="text-muted-foreground">+</span>}
+                                  <Link
+                                    to={`/products/${getProductLinkId(creditedProduct.id)}`}
+                                    className="font-medium text-foreground hover:text-primary transition-colors"
+                                  >
+                                    {creditedProduct.name}
+                                  </Link>
+                                </span>
+                              );
+                            })}
+                            <Badge variant="outline" className="text-xs">
+                              combo
+                            </Badge>
+                          </>
+                        ) : (
+                          <Link
+                            to={`/products/${getProductLinkId(product.id)}`}
+                            className="font-medium text-foreground hover:text-primary transition-colors"
+                          >
+                            {product.name}
+                          </Link>
+                        )}
+                        <Badge variant="secondary" className="text-xs">
+                          {product.category}
+                        </Badge>
+                      </div>
+                      <Link to={`/episodes/${episode.id}`}>
+                        <Badge
+                          variant="outline"
+                          className="hover:bg-primary hover:text-primary-foreground transition-colors"
                         >
-                          {product.name}
-                        </Link>
-                      )}
-                      <Badge variant="secondary" className="text-xs">
-                        {product.category}
-                      </Badge>
+                          Ep {episode.id}
+                        </Badge>
+                      </Link>
                     </div>
-                    <Link to={`/episodes/${episode.id}`}>
-                      <Badge variant="outline" className="hover:bg-primary hover:text-primary-foreground transition-colors">
-                        Ep {episode.id}
-                      </Badge>
-                    </Link>
-                  </div>
-                );
-              })}
+                  );
+                })}
             </div>
           </CardContent>
         </Card>
