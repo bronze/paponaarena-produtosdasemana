@@ -1,97 +1,75 @@
 
 
-## Plano: Tocar áudio ao clicar na foto do Arthur
+## Plano: Tornar cards de estatísticas clicáveis no Dashboard
 
 ### Objetivo
-Adicionar um easter egg no perfil do Arthur: quando alguém clicar na foto dele, um áudio especial será reproduzido. O áudio será carregado apenas na página de perfil do Arthur.
+Fazer com que os cards de Episodes, Products e Contributors no dashboard sejam clicáveis e levem para suas respectivas páginas, adicionando um efeito de hover sutil.
 
 ---
 
-### Arquivos a Criar
+### Arquivos a Modificar
 
-**1. Copiar áudio para o projeto**
-- `src/assets/audio/audio-arthur.mp3` - Áudio do Arthur
+**1. `src/components/dashboard/StatCard.tsx`**
 
----
-
-### Arquivo a Modificar
-`src/pages/PersonDetail.tsx`
-
----
-
-### Alterações
-
-**1. Importar o áudio condicionalmente**
-
-Importar o arquivo de áudio apenas para o Arthur:
+Adicionar prop opcional `href` para tornar o card clicável:
 
 ```typescript
-import arthurAudio from "@/assets/audio/audio-arthur.mp3";
+interface StatCardProps {
+  title: string;
+  value: string | number;
+  icon: LucideIcon;
+  description?: string;
+  href?: string;  // Nova prop opcional
+}
 ```
 
-**2. Adicionar state para controlar reprodução**
-
-```typescript
-import { useRef } from "react";
-
-// Dentro do componente:
-const audioRef = useRef<HTMLAudioElement | null>(null);
-
-const handleAvatarClick = () => {
-  if (person.id === "arthur") {
-    if (audioRef.current) {
-      audioRef.current.currentTime = 0;
-      audioRef.current.play();
-    }
-  }
-};
-```
-
-**3. Renderizar elemento de áudio para Arthur**
-
-```tsx
-{person.id === "arthur" && (
-  <audio ref={audioRef} src={arthurAudio} preload="auto" />
-)}
-```
-
-**4. Tornar avatar clicável apenas para Arthur**
-
-Adicionar cursor pointer e onClick no Avatar apenas para Arthur:
-
-```tsx
-<Avatar 
-  className={`w-14 h-14 bg-primary/10 ${
-    person.id === "arthur" ? "cursor-pointer hover:ring-2 hover:ring-primary/50 transition-all" : ""
-  }`}
-  onClick={handleAvatarClick}
->
-```
+Usar `Link` do react-router-dom quando `href` existir, mantendo o mesmo visual mas adicionando:
+- `hover:border-primary/50` - borda colorida no hover
+- `transition-colors` - transição suave
+- `cursor-pointer` - indicar que é clicável
+- `group` - para possíveis efeitos em elementos filhos
 
 ---
 
-### Comportamento
+**2. `src/pages/Dashboard.tsx`**
 
-| Perfil | Clique no Avatar |
-|--------|------------------|
-| Arthur | Reproduz áudio + cursor pointer |
-| Aíquis | Nada acontece |
-| Outros | Nada acontece |
+Adicionar a prop `href` aos 3 cards que devem ser clicáveis:
+
+| Card | href |
+|------|------|
+| Total Episodes | `/episodes` |
+| Products Tracked | `/products` |
+| Contributors | `/people` |
+| Total Mentions | (sem link - não tem página dedicada) |
 
 ---
 
 ### Detalhes Técnicos
 
-1. **Carregamento condicional**: O elemento `<audio>` só é renderizado quando `person.id === "arthur"`
-2. **Preload**: Usa `preload="auto"` para carregar o áudio antecipadamente
-3. **Replay**: `currentTime = 0` permite clicar novamente para tocar desde o início
-4. **Feedback visual**: Cursor pointer e efeito hover indicam que é clicável
+O StatCard será renderizado condicionalmente:
+- Com `href`: Envolto em `<Link>` com estilos de hover
+- Sem `href`: Renderiza como `<Card>` normal (comportamento atual)
+
+```tsx
+const CardWrapper = href ? Link : "div";
+const wrapperProps = href ? { to: href } : {};
+
+return (
+  <CardWrapper {...wrapperProps}>
+    <Card className={`bg-card border-border ${
+      href ? "hover:border-primary/50 transition-colors cursor-pointer" : ""
+    }`}>
+      {/* conteúdo existente */}
+    </Card>
+  </CardWrapper>
+);
+```
 
 ---
 
 ### Resultado Esperado
-- Apenas na página do Arthur, clicar na foto reproduz o áudio
-- Feedback visual indica que a foto é clicável
-- Áudio pode ser reproduzido múltiplas vezes
-- Não afeta outras páginas de perfil
+- Cards de Episodes, Products e Contributors são clicáveis
+- Hover mostra borda colorida (consistente com outros cards do app)
+- Card de Mentions permanece estático
+- Visual do card não muda, apenas adiciona interatividade
 
