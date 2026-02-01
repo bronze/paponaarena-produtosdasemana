@@ -1,9 +1,11 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
+import { useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { ArrowLeft, MessageSquare, Mic, Package, Linkedin } from "lucide-react";
+import arthurAudio from "@/assets/audio/audio-arthur.mp3";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import {
   getPersonById,
@@ -27,6 +29,14 @@ export default function PersonDetail() {
   const navigate = useNavigate();
   const person = getPersonById(id || "");
   const mentions = getMentionsByPerson(id || "");
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const handleAvatarClick = () => {
+    if (person?.id === "arthur" && audioRef.current) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.play();
+    }
+  };
 
   if (!person) {
     return (
@@ -102,7 +112,12 @@ export default function PersonDetail() {
           </Link>
         </Button>
         <div className="flex items-center gap-4">
-          <Avatar className="w-14 h-14 bg-primary/10">
+          <Avatar 
+            className={`w-14 h-14 bg-primary/10 ${
+              person.id === "arthur" ? "cursor-pointer hover:ring-2 hover:ring-primary/50 transition-all" : ""
+            }`}
+            onClick={handleAvatarClick}
+          >
             {person.avatarUrl && (
               <AvatarImage src={person.avatarUrl} alt={person.name} />
             )}
@@ -110,6 +125,9 @@ export default function PersonDetail() {
               {getInitials(person.name)}
             </AvatarFallback>
           </Avatar>
+          {person.id === "arthur" && (
+            <audio ref={audioRef} src={arthurAudio} preload="auto" />
+          )}
           <div>
             <h1 className="text-2xl font-bold text-foreground">{person.name}</h1>
             <div className="flex flex-col gap-2 mt-1">
