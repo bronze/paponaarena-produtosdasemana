@@ -639,14 +639,14 @@ export const episodes: Episode[] = [
     youtubeLink: "https://www.youtube.com/watch?v=aBnx15YhSKw",
     spotifyLink: "https://open.spotify.com/episode/6LVL69XcSrPe6aTYdWzHW2",
   },
-  {
-    id: 100,
-    title: "Papo na Arena 100! Retrospectiva Produteira e Melhores do Ano",
-    date: "2025-12-10",
-    description: "Episódio 100 com retrospectiva e melhores momentos do ano.",
-    youtubeLink: "https://www.youtube.com/watch?v=g9DSu1OR0DY",
-    spotifyLink: "https://open.spotify.com/episode/1tRctNfRWoinK92au6wTDV",
-  },
+  // {
+  //   id: 100,
+  //   title: "Papo na Arena 100! Retrospectiva Produteira e Melhores do Ano",
+  //   date: "2025-12-10",
+  //   description: "Episódio 100 com retrospectiva e melhores momentos do ano.",
+  //   youtubeLink: "https://www.youtube.com/watch?v=g9DSu1OR0DY",
+  //   spotifyLink: "https://open.spotify.com/episode/1tRctNfRWoinK92au6wTDV",
+  // },
   // 2026 Episodes
   {
     id: 101,
