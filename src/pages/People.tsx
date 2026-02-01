@@ -73,12 +73,12 @@ export default function People() {
           <Link key={person.id} to={`/people/${person.id}`}>
             <Card
               className={`bg-card border-border hover:border-primary/50 transition-colors group h-full ${
-                person.avatarUrl ? "border-primary/40" : ""
+                person.avatarUrl ? "border-primary/30" : ""
               }`}
             >
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <Avatar className={`w-12 h-12 bg-primary/10 ${person.avatarUrl ? "ring-2 ring-primary/60" : ""}`}>
+                  <Avatar className={`w-12 h-12 bg-primary/10 ${person.avatarUrl ? "ring-2 ring-primary/40" : ""}`}>
                     {person.avatarUrl && <AvatarImage src={person.avatarUrl} alt={person.name} />}
                     <AvatarFallback className="bg-primary/10 text-primary font-medium">
                       {getInitials(person.name)}
