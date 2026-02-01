@@ -25,18 +25,21 @@ export default function Dashboard() {
           value={episodes.length}
           icon={Mic}
           description="Recorded episodes"
+          href="/episodes"
         />
         <StatCard
           title="Products Tracked"
           value={products.length}
           icon={Package}
           description="Unique products"
+          href="/products"
         />
         <StatCard
           title="Contributors"
           value={people.length}
           icon={Users}
           description="People who mentioned"
+          href="/people"
         />
         <StatCard
           title="Total Mentions"
