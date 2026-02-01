@@ -27,6 +27,7 @@ export interface Product {
 export interface Person {
   id: string;
   name: string;
+  linkedinUrl?: string;
 }
 
 export interface Mention {
@@ -1390,8 +1391,8 @@ export const products: Product[] = [
 // People (contributors/hosts)
 export const people: Person[] = [
   // Core hosts/contributors
-  { id: "arthur", name: "Arthur" },
-  { id: "aiquis", name: "Aíquis" },
+  { id: "arthur", name: "Arthur", linkedinUrl: "https://www.linkedin.com/in/arthurdecastroaraujo/" },
+  { id: "aiquis", name: "Aíquis", linkedinUrl: "https://www.linkedin.com/in/aiquis/" },
   { id: "daniel-gonzalez", name: "Daniel Gonzalez" },
   { id: "thiago-simao", name: "Thiago Simão" },
   { id: "iona-oliveira", name: "Ionã Oliveira" },
