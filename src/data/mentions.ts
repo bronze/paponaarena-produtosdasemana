@@ -1559,7 +1559,6 @@ export const people: Person[] = [
   { id: "thiago-valinho", name: "Thiago Valinho" },
   { id: "vanessa-silva", name: "Vanessa Silva" },
   { id: "rodrigo-frumento", name: "Rodrigo Frumento" },
-  { id: "senra", name: "Senra" },
   { id: "cristiano", name: "Cristiano" },
   { id: "marcos-roman", name: "Marcos Roman" },
   { id: "paula-paradellas", name: "Paula Paradellas" },
