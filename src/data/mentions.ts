@@ -1571,7 +1571,6 @@ export const people: Person[] = [
   { id: "thiago", name: "Thiago" },
   { id: "andrezinho", name: "Andrézinho" },
   { id: "mila", name: "Mila" },
-  { id: "beicola", name: "Beiçola" },
   { id: "clovis", name: "Clovis" },
   { id: "alice", name: "Alice" },
   { id: "dezao", name: "Dezão" },
@@ -1774,7 +1773,7 @@ export const mentions: Mention[] = [
   { id: "m33-9", episodeId: 33, personId: "edu", productId: "msc-for-me" },
   { id: "m33-10", episodeId: 33, personId: "nina", productId: "whatsapp" },
   { id: "m33-11", episodeId: 33, personId: "caue", productId: "capcut" },
-  { id: "m33-12", episodeId: 33, personId: "beicola", productId: "yazio" },
+  { id: "m33-12", episodeId: 33, personId: "fabio-beico", productId: "yazio" },
   { id: "m33-13", episodeId: 33, personId: "lucas", productId: "google-scholar" },
   { id: "m33-14", episodeId: 33, personId: "pilon", productId: "maya" },
 
@@ -1815,7 +1814,7 @@ export const mentions: Mention[] = [
   { id: "m37-3", episodeId: 37, personId: "pilon", productId: "drink-water" },
   { id: "m37-4", episodeId: 37, personId: "natascha", productId: "lady-driver" },
   { id: "m37-5", episodeId: 37, personId: "danilera", productId: "brawl-stars" },
-  { id: "m37-6", episodeId: 37, personId: "beicola", productId: "classpass" },
+  { id: "m37-6", episodeId: 37, personId: "fabio-beico", productId: "classpass" },
 
   // Episode 38
   { id: "m38-1", episodeId: 38, personId: "arthur", productId: "magie" },
@@ -2027,7 +2026,7 @@ export const mentions: Mention[] = [
   { id: "m56-6", episodeId: 56, personId: "glauco", productId: "chatgpt" },
   { id: "m56-7", episodeId: 56, personId: "portinho", productId: "claude" },
   { id: "m56-8", episodeId: 56, personId: "leandro", productId: "omnivore" },
-  { id: "m56-9", episodeId: 56, personId: "beicola", productId: "whatsapp" },
+  { id: "m56-9", episodeId: 56, personId: "fabio-beico", productId: "whatsapp" },
   { id: "m56-10", episodeId: 56, personId: "danilera", productId: "age-of-empires-mobile" },
   { id: "m56-11", episodeId: 56, personId: "mat", productId: "trela" },
   { id: "m56-12", episodeId: 56, personId: "karina", productId: "training-peaks" },
@@ -2129,7 +2128,7 @@ export const mentions: Mention[] = [
   { id: "m64-10", episodeId: 64, personId: "nery", productId: "thefork" },
   { id: "m64-11", episodeId: 64, personId: "karina", productId: "kindle" },
   { id: "m64-12", episodeId: 64, personId: "pilon", productId: "instacarro" },
-  { id: "m64-13", episodeId: 64, personId: "beicola", productId: "lindt" },
+  { id: "m64-13", episodeId: 64, personId: "fabio-beico", productId: "lindt" },
   { id: "m64-14", episodeId: 64, personId: "bruna", productId: "gymrats" },
   { id: "m64-15", episodeId: 64, personId: "marcos-lavin", productId: "teams" },
   { id: "m64-16", episodeId: 64, personId: "clovis", productId: "magie" },
