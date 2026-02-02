@@ -17,25 +17,7 @@ export default function Dashboard() {
       </div>
 
       {/* Stats Grid */}
-      <div
-        className="
-           grid
-    grid-cols-1
-    sm:grid-cols-2
-    md:grid-cols-3
-    lg:grid-cols-5
-    gap-6
-    auto-rows-fr
-
-    [&>*:nth-child(4)]:md:col-span-3
-    [&>*:nth-child(4)]:md:grid
-    [&>*:nth-child(4)]:md:grid-cols-2
-    [&>*:nth-child(4)]:md:gap-6
-
-    [&>*:nth-child(4)]:lg:col-span-1
-    [&>*:nth-child(4)]:lg:block
-        "
-      >
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 auto-rows-fr">
         <StatCard
           title="Total Episodes"
           value={episodes.length}
@@ -64,7 +46,12 @@ export default function Dashboard() {
           description="People who mentioned"
           href="/people"
         />
-        <StatCard title="Total Mentions" value={mentions.length} icon={MessageSquare} description="Product mentions" />
+        <StatCard
+          title="Total Mentions"
+          value={mentions.length}
+          icon={MessageSquare}
+          description="Product mentions"
+        />
       </div>
 
       {/* Main Content Grid */}
