@@ -26,10 +26,14 @@ export default function PersonDetail() {
   const mentions = getMentionsByPerson(id || "");
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  const handleAvatarClick = () => {
+  const handleAvatarClick = (e: React.MouseEvent | React.TouchEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     if ((person?.id === "arthur" || person?.id === "aiquis") && audioRef.current) {
       audioRef.current.currentTime = 0;
-      audioRef.current.play();
+      audioRef.current.play().catch(() => {
+        // Silently handle autoplay restrictions
+      });
     }
   };
 
@@ -110,18 +114,24 @@ export default function PersonDetail() {
         <div className="flex items-center gap-4">
           <Avatar
             className={`w-14 h-14 bg-primary/10 ${
-              // (person.id === "arthur" || person.id === "aiquis") ? "cursor-pointer hover:ring-2 hover:ring-primary/50 transition-all" : ""
-              person.id === "arthur" || person.id === "aiquis" ? "" : ""
+              person.id === "arthur" || person.id === "aiquis" 
+                ? "cursor-pointer select-none active:scale-95 transition-transform" 
+                : ""
             }`}
             onClick={handleAvatarClick}
+            onTouchEnd={(e) => {
+              e.preventDefault();
+              handleAvatarClick(e);
+            }}
+            style={{ touchAction: 'manipulation' }}
           >
             {person.avatarUrl && <AvatarImage src={person.avatarUrl} alt={person.name} />}
             <AvatarFallback className="bg-primary/10 text-primary font-semibold text-lg">
               {getInitials(person.name)}
             </AvatarFallback>
           </Avatar>
-          {person.id === "arthur" && <audio ref={audioRef} src={arthurAudio} preload="auto" />}
-          {person.id === "aiquis" && <audio ref={audioRef} src={aquisAudio} preload="auto" />}
+          {person.id === "arthur" && <audio ref={audioRef} src={arthurAudio} preload="auto" playsInline />}
+          {person.id === "aiquis" && <audio ref={audioRef} src={aquisAudio} preload="auto" playsInline />}
           <div>
             <h1 className="text-2xl font-bold text-foreground">{person.name}</h1>
             <div className="flex flex-col gap-2 mt-1">
