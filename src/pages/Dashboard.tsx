@@ -1,4 +1,4 @@
-import { Mic, Package, Users, MessageSquare } from "lucide-react";
+import { Mic, Package, Users, MessageSquare, FolderOpen } from "lucide-react";
 import { StatCard } from "@/components/dashboard/StatCard";
 import { TopProductsChart } from "@/components/dashboard/TopProductsChart";
 import { ProductTrendsChart } from "@/components/dashboard/ProductTrendsChart";
@@ -6,7 +6,7 @@ import { CategoryTrendsChart } from "@/components/dashboard/CategoryTrendsChart"
 import { RecentMentions } from "@/components/dashboard/RecentMentions";
 import { LatestEpisodeCard } from "@/components/dashboard/LatestEpisodeCard";
 import { CategoryPieChart } from "@/components/dashboard/CategoryPieChart";
-import { episodes, products, people, mentions } from "@/data/mentions";
+import { episodes, products, people, mentions, getCategories } from "@/data/mentions";
 
 export default function Dashboard() {
   return (
@@ -17,7 +17,7 @@ export default function Dashboard() {
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-fr">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 auto-rows-fr">
         <StatCard
           title="Total Episodes"
           value={episodes.length}
@@ -33,6 +33,13 @@ export default function Dashboard() {
           href="/products"
         />
         <StatCard
+          title="Categories"
+          value={getCategories().length}
+          icon={FolderOpen}
+          description="Product categories"
+          href="/categories"
+        />
+        <StatCard
           title="Contributors"
           value={people.length}
           icon={Users}
@@ -44,7 +51,6 @@ export default function Dashboard() {
           value={mentions.length}
           icon={MessageSquare}
           description="Product mentions"
-          href="/people"
         />
       </div>
 
