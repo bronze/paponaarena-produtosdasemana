@@ -39,19 +39,21 @@ export default function Dashboard() {
           description="Product categories"
           href="/categories"
         />
-        <StatCard
-          title="Contributors"
-          value={people.length}
-          icon={Users}
-          description="People who mentioned"
-          href="/people"
-        />
-        <StatCard
-          title="Total Mentions"
-          value={mentions.length}
-          icon={MessageSquare}
-          description="Product mentions"
-        />
+        <div class="md:col-span-3 grid grid-cols-2 gap-6">
+          <StatCard
+            title="Contributors"
+            value={people.length}
+            icon={Users}
+            description="People who mentioned"
+            href="/people"
+          />
+          <StatCard
+            title="Total Mentions"
+            value={mentions.length}
+            icon={MessageSquare}
+            description="Product mentions"
+          />
+        </div>
       </div>
 
       {/* Main Content Grid */}
