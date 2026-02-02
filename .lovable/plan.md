@@ -1,126 +1,72 @@
 
 
-## Plano: Corrigir reprodução de áudio inconsistente no mobile
+## Plano: Adicionar card de categorias no Dashboard
 
-### Problema
-No mobile, clicar na foto do Arthur ou Aíquis nem sempre toca o som. Isso acontece por:
-
-1. **Política de autoplay**: Browsers mobile bloqueiam `audio.play()` se não for tratado corretamente
-2. **Eventos de toque**: `onClick` pode não capturar todos os toques em elementos complexos como Avatar
-3. **Promise não tratada**: O `play()` retorna uma Promise que pode falhar silenciosamente
+### Objetivo
+Adicionar um quinto card de estatística no Dashboard mostrando o número de categorias, clicável e levando para a página `/categories`.
 
 ---
 
-### Solução
+### Arquivo a Modificar
+`src/pages/Dashboard.tsx`
 
-Vou fazer três melhorias no arquivo `src/pages/PersonDetail.tsx`:
+---
 
-**1. Adicionar `onTouchEnd` além de `onClick`**
+### Alterações
 
-Em mobile, `onTouchEnd` é mais confiável que `onClick`:
+**1. Atualizar imports**
 
-```tsx
-<Avatar
-  onClick={handleAvatarClick}
-  onTouchEnd={handleAvatarClick}
->
+Adicionar a função `getCategories` ao import existente:
+
+```typescript
+import { episodes, products, people, mentions, getCategories } from "@/data/mentions";
 ```
 
-**2. Tratar a Promise do `play()`**
+Adicionar o ícone `FolderOpen` do Lucide (consistente com a página de Categories):
 
-Adicionar tratamento de erro e usar `.catch()` para evitar erros silenciosos:
-
-```tsx
-const handleAvatarClick = (e: React.MouseEvent | React.TouchEvent) => {
-  e.preventDefault();
-  if ((person?.id === "arthur" || person?.id === "aiquis") && audioRef.current) {
-    audioRef.current.currentTime = 0;
-    audioRef.current.play().catch((error) => {
-      console.log("Audio play failed:", error);
-    });
-  }
-};
+```typescript
+import { Mic, Package, Users, MessageSquare, FolderOpen } from "lucide-react";
 ```
 
-**3. Usar `playsInline` no elemento audio**
+**2. Adicionar novo StatCard**
 
-Adicionar atributo para melhor compatibilidade mobile:
+Inserir um novo card entre "Products Tracked" e "Contributors":
 
 ```tsx
-<audio ref={audioRef} src={arthurAudio} preload="auto" playsInline />
+<StatCard
+  title="Categories"
+  value={getCategories().length}
+  icon={FolderOpen}
+  description="Product categories"
+  href="/categories"
+/>
 ```
 
-**4. Adicionar estilos para melhor área de toque**
+**3. Ajustar grid para 5 colunas em telas grandes**
 
-Garantir que o Avatar tenha uma área de toque adequada com `touch-action: manipulation`:
+Atualizar o grid para acomodar 5 cards:
 
 ```tsx
-<Avatar
-  className="... cursor-pointer select-none"
-  style={{ touchAction: 'manipulation' }}
->
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 auto-rows-fr">
 ```
 
 ---
 
-### Alterações Detalhadas
+### Resultado Visual
 
-**Linha 29-34** - Atualizar `handleAvatarClick`:
-
-```tsx
-const handleAvatarClick = (e: React.MouseEvent | React.TouchEvent) => {
-  e.preventDefault();
-  e.stopPropagation();
-  if ((person?.id === "arthur" || person?.id === "aiquis") && audioRef.current) {
-    audioRef.current.currentTime = 0;
-    audioRef.current.play().catch(() => {
-      // Silently handle autoplay restrictions
-    });
-  }
-};
-```
-
-**Linhas 111-122** - Atualizar Avatar com eventos de toque:
-
-```tsx
-<Avatar
-  className={`w-14 h-14 bg-primary/10 ${
-    person.id === "arthur" || person.id === "aiquis" 
-      ? "cursor-pointer select-none active:scale-95 transition-transform" 
-      : ""
-  }`}
-  onClick={handleAvatarClick}
-  onTouchEnd={(e) => {
-    e.preventDefault();
-    handleAvatarClick(e);
-  }}
-  style={{ touchAction: 'manipulation' }}
->
-```
-
-**Linhas 123-124** - Adicionar `playsInline`:
-
-```tsx
-{person.id === "arthur" && <audio ref={audioRef} src={arthurAudio} preload="auto" playsInline />}
-{person.id === "aiquis" && <audio ref={audioRef} src={aquisAudio} preload="auto" playsInline />}
-```
+| Card | Valor | Link |
+|------|-------|------|
+| Total Episodes | Quantidade de episódios | /episodes |
+| Products Tracked | Quantidade de produtos | /products |
+| **Categories** | **Quantidade de categorias** | **/categories** |
+| Contributors | Quantidade de pessoas | /people |
+| Total Mentions | Quantidade de menções | - |
 
 ---
 
-### Por que isso resolve
+### Detalhes Técnicos
 
-| Problema | Solução |
-|----------|---------|
-| Toque não registrado | `onTouchEnd` + `preventDefault` |
-| Áudio bloqueado | `playsInline` + tratamento de Promise |
-| Área de toque pequena | `touchAction: manipulation` |
-| Feedback visual | `active:scale-95` para indicar que foi tocado |
-
----
-
-### Resultado Esperado
-- Tocar na foto no mobile sempre reproduz o áudio
-- Feedback visual (escala reduzida) indica que o toque foi registrado
-- Funciona consistentemente em iOS e Android
-- Mantém compatibilidade com desktop
+- O ícone `FolderOpen` é o mesmo usado na página de Categories, mantendo consistência visual
+- O card será clicável com hover effect (já implementado no StatCard)
+- `getCategories().length` retorna o número de categorias únicas extraídas dos produtos
 
