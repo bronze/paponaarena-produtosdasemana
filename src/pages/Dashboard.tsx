@@ -51,6 +51,7 @@ export default function Dashboard() {
           value={mentions.length}
           icon={MessageSquare}
           description="Product mentions"
+          href="/people"
         />
       </div>
 
