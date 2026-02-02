@@ -18,13 +18,23 @@ export default function Dashboard() {
 
       {/* Stats Grid */}
       <div
-        className="grid
+        className="
+           grid
     grid-cols-1
     sm:grid-cols-2
     md:grid-cols-3
     lg:grid-cols-5
-    gap-4
-    auto-rows-fr"
+    gap-6
+    auto-rows-fr
+
+    [&>*:nth-child(4)]:md:col-span-3
+    [&>*:nth-child(4)]:md:grid
+    [&>*:nth-child(4)]:md:grid-cols-2
+    [&>*:nth-child(4)]:md:gap-6
+
+    [&>*:nth-child(4)]:lg:col-span-1
+    [&>*:nth-child(4)]:lg:block
+        "
       >
         <StatCard
           title="Total Episodes"
@@ -47,29 +57,14 @@ export default function Dashboard() {
           description="Product categories"
           href="/categories"
         />
-        {/* wrapper só existe no md */}
-        <div
-          className="
-              md:col-span-3
-              md:grid md:grid-cols-2 md:gap-4
-              lg:col-span-1
-              lg:contents
-            "
-        >
-          <StatCard
-            title="Contributors"
-            value={people.length}
-            icon={Users}
-            description="People who mentioned"
-            href="/people"
-          />
-          <StatCard
-            title="Total Mentions"
-            value={mentions.length}
-            icon={MessageSquare}
-            description="Product mentions"
-          />
-        </div>
+        <StatCard
+          title="Contributors"
+          value={people.length}
+          icon={Users}
+          description="People who mentioned"
+          href="/people"
+        />
+        <StatCard title="Total Mentions" value={mentions.length} icon={MessageSquare} description="Product mentions" />
       </div>
 
       {/* Main Content Grid */}
