@@ -53,7 +53,7 @@ export default function Dashboard() {
               md:col-span-3
               md:grid md:grid-cols-2 md:gap-4
               lg:col-span-1
-              lg:block
+              lg:contents
             "
         >
           <StatCard
