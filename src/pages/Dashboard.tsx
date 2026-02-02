@@ -17,7 +17,15 @@ export default function Dashboard() {
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 auto-rows-fr">
+      <div
+        className="    grid
+    grid-cols-1
+    sm:grid-cols-2
+    md:grid-cols-3
+    lg:grid-cols-5
+    gap-4
+    auto-rows-fr"
+      >
         <StatCard
           title="Total Episodes"
           value={episodes.length}
@@ -39,7 +47,15 @@ export default function Dashboard() {
           description="Product categories"
           href="/categories"
         />
-        <div class="md:col-span-3 grid grid-cols-2 gap-6">
+        {/* wrapper só existe no md */}
+        <div
+          className="
+              md:col-span-3
+              md:grid md:grid-cols-2 md:gap-4
+              lg:col-span-1
+              lg:block
+            "
+        >
           <StatCard
             title="Contributors"
             value={people.length}
