@@ -114,16 +114,14 @@ export default function PersonDetail() {
         <div className="flex items-center gap-4">
           <Avatar
             className={`w-14 h-14 bg-primary/10 ${
-              person.id === "arthur" || person.id === "aiquis" 
-                ? "cursor-pointer select-none active:scale-95 transition-transform" 
-                : ""
+              person.id === "arthur" || person.id === "aiquis" ? "select-none active:scale-95 transition-transform" : ""
             }`}
             onClick={handleAvatarClick}
             onTouchEnd={(e) => {
               e.preventDefault();
               handleAvatarClick(e);
             }}
-            style={{ touchAction: 'manipulation' }}
+            style={{ touchAction: "manipulation" }}
           >
             {person.avatarUrl && <AvatarImage src={person.avatarUrl} alt={person.name} />}
             <AvatarFallback className="bg-primary/10 text-primary font-semibold text-lg">
