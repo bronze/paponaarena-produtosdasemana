@@ -35,8 +35,16 @@ export default function PersonDetail() {
   const playSound = () => {
     const audio = audioRef.current;
     if (!audio || !audioSrc) return;
+
+    const wasEnded = audio.ended;
     audio.pause();
     audio.currentTime = 0;
+
+    // On mobile, after audio ends it needs to be reloaded
+    if (wasEnded) {
+      audio.load();
+    }
+
     audio.play().catch(() => {});
   };
 
