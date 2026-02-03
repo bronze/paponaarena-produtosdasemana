@@ -5,8 +5,10 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { ArrowLeft, MessageSquare, Mic, Package, Linkedin } from "lucide-react";
+
 import arthurAudio from "@/assets/audio/audio-arthur.mp3";
 import aquisAudio from "@/assets/audio/audio-aiquis.mp3";
+
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from "recharts";
 
 import {
@@ -30,10 +32,8 @@ export default function PersonDetail() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   /*
-    Estratégia:
-    - src estável
-    - <audio> sempre montado
-    - evita unmount + bugs no mobile
+    src estável
+    evita recriar <audio> a cada render
   */
   const audioSrc = useMemo(() => {
     if (person?.id === "arthur") return arthurAudio;
@@ -42,9 +42,7 @@ export default function PersonDetail() {
   }, [person?.id]);
 
   /*
-    Handler robusto:
-    pause -> reset -> play
-    evita race conditions de play()
+    play determinístico mobile-safe
   */
   const playSound = () => {
     const audio = audioRef.current;
@@ -117,6 +115,9 @@ export default function PersonDetail() {
                 Ep {ep}
               </span>
             ))}
+            {data.episodes.length > 8 && (
+              <span className="text-xs text-muted-foreground">+{data.episodes.length - 8} more</span>
+            )}
           </div>
         </div>
       </div>
@@ -138,8 +139,8 @@ export default function PersonDetail() {
 
         <div className="flex items-center gap-4">
           <Avatar
-            className={`w-14 h-14 bg-primary/10 select-none ${
-              audioSrc ? "cursor-default active:scale-95 transition-transform" : ""
+            className={`w-14 h-14 bg-primary/10 select-none active:scale-95 transition-transform ${
+              audioSrc ? "cursor-pointer" : ""
             }`}
             onPointerUp={playSound}
             style={{ touchAction: "manipulation" }}
@@ -152,6 +153,7 @@ export default function PersonDetail() {
 
           <div>
             <h1 className="text-2xl font-bold text-foreground">{person.name}</h1>
+
             <p className="text-muted-foreground">Contributor analytics</p>
 
             {person.linkedinUrl && (
@@ -159,7 +161,7 @@ export default function PersonDetail() {
                 href={person.linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-blue-600 mt-2"
+                className="inline-flex items-center gap-2 mt-2 text-blue-600 hover:underline"
               >
                 <Linkedin className="w-4 h-4" />
                 LinkedIn
@@ -174,55 +176,89 @@ export default function PersonDetail() {
         <Card>
           <CardContent className="p-4 flex items-center gap-4">
             <MessageSquare className="w-5 h-5" />
-            {mentions.length}
+            <span>{mentions.length} Mentions</span>
           </CardContent>
         </Card>
 
         <Card>
           <CardContent className="p-4 flex items-center gap-4">
             <Package className="w-5 h-5" />
-            {productIds.length}
+            <span>{productIds.length} Products</span>
           </CardContent>
         </Card>
 
         <Card>
           <CardContent className="p-4 flex items-center gap-4">
             <Mic className="w-5 h-5" />
-            {episodeIds.length}
+            <span>{episodeIds.length} Episodes</span>
           </CardContent>
         </Card>
       </div>
 
-      {/* Chart */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Most Mentioned Products</CardTitle>
-        </CardHeader>
+      {/* Charts + Mentions */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Chart */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Most Mentioned Products</CardTitle>
+          </CardHeader>
 
-        <CardContent>
-          <div className="h-[280px]">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={chartData} layout="vertical">
-                <XAxis type="number" />
-                <YAxis type="category" dataKey="name" width={120} />
-                <Tooltip content={<CustomTooltip />} />
+          <CardContent>
+            <div className="h-[280px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={chartData} layout="vertical">
+                  <XAxis type="number" />
+                  <YAxis type="category" dataKey="name" width={120} />
+                  <Tooltip content={<CustomTooltip />} />
 
-                <Bar
-                  dataKey="mentions"
-                  cursor="pointer"
-                  onClick={(data) => {
-                    if (data?.id) navigate(`/products/${getProductLinkId(data.id)}`);
-                  }}
-                >
-                  {chartData.map((_, index) => (
-                    <Cell key={index} fill={COLORS[index % COLORS.length]} />
-                  ))}
-                </Bar>
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-        </CardContent>
-      </Card>
+                  <Bar
+                    dataKey="mentions"
+                    cursor="pointer"
+                    onClick={(data) => {
+                      if (data?.id) navigate(`/products/${getProductLinkId(data.id)}`);
+                    }}
+                  >
+                    {chartData.map((_, index) => (
+                      <Cell key={index} fill={COLORS[index % COLORS.length]} />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* All Mentions */}
+        <Card>
+          <CardHeader>
+            <CardTitle>All Mentions</CardTitle>
+          </CardHeader>
+
+          <CardContent>
+            <div className="space-y-3 max-h-[280px] overflow-auto">
+              {[...mentions]
+                .sort((a, b) => b.episodeId - a.episodeId)
+                .map((mention) => {
+                  const product = getProductById(mention.productId);
+                  const episode = getEpisodeById(mention.episodeId);
+                  if (!product || !episode) return null;
+
+                  return (
+                    <div key={mention.id} className="flex items-center justify-between p-3 rounded-lg bg-muted/50">
+                      <Link to={`/products/${getProductLinkId(product.id)}`} className="font-medium hover:text-primary">
+                        {product.name}
+                      </Link>
+
+                      <Link to={`/episodes/${episode.id}`}>
+                        <Badge variant="outline">Ep {episode.id}</Badge>
+                      </Link>
+                    </div>
+                  );
+                })}
+            </div>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 }
