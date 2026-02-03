@@ -1,16 +1,13 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { useRef, useMemo } from "react";
+import { useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { ArrowLeft, MessageSquare, Mic, Package, Linkedin } from "lucide-react";
-
 import arthurAudio from "@/assets/audio/audio-arthur.mp3";
 import aquisAudio from "@/assets/audio/audio-aiquis.mp3";
-
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from "recharts";
-
 import {
   getPersonById,
   getMentionsByPerson,
@@ -25,34 +22,19 @@ const COLORS = ["hsl(140 20% 40%)", "hsl(18 50% 55%)", "hsl(45 40% 55%)", "hsl(2
 export default function PersonDetail() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-
   const person = getPersonById(id || "");
   const mentions = getMentionsByPerson(id || "");
-
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  /*
-    src estável
-    evita recriar <audio> a cada render
-  */
-  const audioSrc = useMemo(() => {
-    if (person?.id === "arthur") return arthurAudio;
-    if (person?.id === "aiquis") return aquisAudio;
-    return null;
-  }, [person?.id]);
-
-  /*
-    play determinístico mobile-safe
-  */
-  const playSound = () => {
-    const audio = audioRef.current;
-    if (!audio || !audioSrc) return;
-
-    audio.pause();
-    audio.currentTime = 0;
-
-    const p = audio.play();
-    if (p) p.catch(() => {});
+  const handleAvatarClick = (e: React.MouseEvent | React.TouchEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if ((person?.id === "arthur" || person?.id === "aiquis") && audioRef.current) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.play().catch(() => {
+        // Silently handle autoplay restrictions
+      });
+    }
   };
 
   if (!person) {
@@ -67,10 +49,8 @@ export default function PersonDetail() {
   }
 
   const topProducts = getPersonTopProducts(person.id, 10);
-
   const chartData = topProducts.map((item) => {
     const productMentions = mentions.filter((m) => m.productId === item.product.id);
-
     const episodeNumbers = [...new Set(productMentions.map((m) => m.episodeId))].sort((a, b) => b - a);
 
     return {
@@ -84,12 +64,13 @@ export default function PersonDetail() {
   const episodeIds = [...new Set(mentions.map((m) => m.episodeId))];
   const productIds = [...new Set(mentions.map((m) => m.productId))];
 
-  const getInitials = (name: string) =>
-    name
+  const getInitials = (name: string) => {
+    return name
       .split(" ")
       .map((n) => n[0])
       .join("")
       .toUpperCase();
+  };
 
   const CustomTooltip = ({
     active,
@@ -101,12 +82,10 @@ export default function PersonDetail() {
     if (!active || !payload?.length) return null;
 
     const data = payload[0].payload;
-
     return (
       <div className="bg-card border border-border rounded-lg p-3 shadow-lg max-w-xs">
         <p className="font-semibold text-foreground">{data.name}</p>
         <p className="text-sm text-muted-foreground">{data.mentions} mentions</p>
-
         <div className="mt-2 pt-2 border-t border-border">
           <p className="text-xs text-muted-foreground mb-1">Episodes:</p>
           <div className="flex flex-wrap gap-1">
@@ -126,23 +105,22 @@ export default function PersonDetail() {
 
   return (
     <div className="space-y-6">
-      {/* áudio único persistente */}
-      <audio ref={audioRef} src={audioSrc ?? undefined} preload="auto" playsInline />
-
-      {/* Header */}
       <div className="flex items-center gap-4">
         <Button asChild variant="ghost" size="icon">
           <Link to="/people">
             <ArrowLeft className="w-4 h-4" />
           </Link>
         </Button>
-
         <div className="flex items-center gap-4">
           <Avatar
-            className={`w-14 h-14 bg-primary/10 select-none active:scale-95 transition-transform ${
-              audioSrc ? "cursor-pointer" : ""
+            className={`w-14 h-14 bg-primary/10 ${
+              person.id === "arthur" || person.id === "aiquis" ? "select-none active:scale-95 transition-transform" : ""
             }`}
-            onPointerUp={playSound}
+            onClick={handleAvatarClick}
+            onTouchEnd={(e) => {
+              e.preventDefault();
+              handleAvatarClick(e);
+            }}
             style={{ touchAction: "manipulation" }}
           >
             {person.avatarUrl && <AvatarImage src={person.avatarUrl} alt={person.name} />}
@@ -150,76 +128,99 @@ export default function PersonDetail() {
               {getInitials(person.name)}
             </AvatarFallback>
           </Avatar>
-
+          {person.id === "arthur" && <audio ref={audioRef} src={arthurAudio} preload="auto" playsInline />}
+          {person.id === "aiquis" && <audio ref={audioRef} src={aquisAudio} preload="auto" playsInline />}
           <div>
             <h1 className="text-2xl font-bold text-foreground">{person.name}</h1>
-
-            <p className="text-muted-foreground">Contributor analytics</p>
-
-            {person.linkedinUrl && (
-              <a
-                href={person.linkedinUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 mt-2 text-blue-600 hover:underline"
-              >
-                <Linkedin className="w-4 h-4" />
-                LinkedIn
-              </a>
-            )}
+            <div className="flex flex-col gap-2 mt-1">
+              <p className="text-muted-foreground">Contributor analytics</p>
+              {person.linkedinUrl && (
+                <div className="flex items-center gap-2">
+                  <a
+                    href={person.linkedinUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-md border border-blue-500/30 text-blue-600 hover:bg-blue-500/10 transition-colors"
+                  >
+                    <Linkedin className="w-4 h-4" />
+                    LinkedIn
+                  </a>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
 
       {/* Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <Card>
+        <Card className="bg-card border-border">
           <CardContent className="p-4 flex items-center gap-4">
-            <MessageSquare className="w-5 h-5" />
-            <span>{mentions.length} Mentions</span>
+            <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+              <MessageSquare className="w-5 h-5 text-primary" />
+            </div>
+            <div>
+              <p className="text-2xl font-bold text-foreground">{mentions.length}</p>
+              <p className="text-sm text-muted-foreground">Total Mentions</p>
+            </div>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="bg-card border-border">
           <CardContent className="p-4 flex items-center gap-4">
-            <Package className="w-5 h-5" />
-            <span>{productIds.length} Products</span>
+            <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+              <Package className="w-5 h-5 text-accent" />
+            </div>
+            <div>
+              <p className="text-2xl font-bold text-foreground">{productIds.length}</p>
+              <p className="text-sm text-muted-foreground">Unique Products</p>
+            </div>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="bg-card border-border">
           <CardContent className="p-4 flex items-center gap-4">
-            <Mic className="w-5 h-5" />
-            <span>{episodeIds.length} Episodes</span>
+            <div className="w-10 h-10 rounded-lg bg-chart-3/10 flex items-center justify-center">
+              <Mic className="w-5 h-5 text-chart-3" />
+            </div>
+            <div>
+              <p className="text-2xl font-bold text-foreground">{episodeIds.length}</p>
+              <p className="text-sm text-muted-foreground">Episodes Appeared</p>
+            </div>
           </CardContent>
         </Card>
       </div>
 
-      {/* Charts + Mentions */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Chart */}
-        <Card>
+        {/* Top Products Chart */}
+        <Card className="bg-card border-border">
           <CardHeader>
-            <CardTitle>Most Mentioned Products</CardTitle>
+            <CardTitle className="text-lg">Most Mentioned Products</CardTitle>
           </CardHeader>
-
           <CardContent>
             <div className="h-[280px]">
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={chartData} layout="vertical">
-                  <XAxis type="number" />
-                  <YAxis type="category" dataKey="name" width={120} />
-                  <Tooltip content={<CustomTooltip />} />
-
+                <BarChart data={chartData} layout="vertical" margin={{ left: 0, right: 20 }}>
+                  <XAxis type="number" tickLine={false} axisLine={false} tick={{ fontSize: 12 }} />
+                  <YAxis
+                    type="category"
+                    dataKey="name"
+                    tickLine={false}
+                    axisLine={false}
+                    tick={{ fontSize: 12 }}
+                    width={100}
+                  />
+                  <Tooltip content={<CustomTooltip />} cursor={{ fill: "hsl(var(--muted))" }} />
                   <Bar
                     dataKey="mentions"
+                    radius={[0, 4, 4, 0]}
                     cursor="pointer"
                     onClick={(data) => {
                       if (data?.id) navigate(`/products/${getProductLinkId(data.id)}`);
                     }}
                   >
                     {chartData.map((_, index) => (
-                      <Cell key={index} fill={COLORS[index % COLORS.length]} />
+                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                     ))}
                   </Bar>
                 </BarChart>
@@ -229,11 +230,10 @@ export default function PersonDetail() {
         </Card>
 
         {/* All Mentions */}
-        <Card>
+        <Card className="bg-card border-border">
           <CardHeader>
-            <CardTitle>All Mentions</CardTitle>
+            <CardTitle className="text-lg">All Mentions</CardTitle>
           </CardHeader>
-
           <CardContent>
             <div className="space-y-3 max-h-[280px] overflow-auto">
               {[...mentions]
@@ -245,12 +245,47 @@ export default function PersonDetail() {
 
                   return (
                     <div key={mention.id} className="flex items-center justify-between p-3 rounded-lg bg-muted/50">
-                      <Link to={`/products/${getProductLinkId(product.id)}`} className="font-medium hover:text-primary">
-                        {product.name}
-                      </Link>
-
+                      <div className="flex items-center gap-3 flex-wrap">
+                        {product.alsoCredits ? (
+                          <>
+                            {product.alsoCredits.map((creditedId, idx) => {
+                              const creditedProduct = getProductById(creditedId);
+                              if (!creditedProduct) return null;
+                              return (
+                                <span key={creditedId} className="flex items-center gap-1">
+                                  {idx > 0 && <span className="text-muted-foreground">+</span>}
+                                  <Link
+                                    to={`/products/${getProductLinkId(creditedProduct.id)}`}
+                                    className="font-medium text-foreground hover:text-primary transition-colors"
+                                  >
+                                    {creditedProduct.name}
+                                  </Link>
+                                </span>
+                              );
+                            })}
+                            <Badge variant="outline" className="text-xs">
+                              combo
+                            </Badge>
+                          </>
+                        ) : (
+                          <Link
+                            to={`/products/${getProductLinkId(product.id)}`}
+                            className="font-medium text-foreground hover:text-primary transition-colors"
+                          >
+                            {product.name}
+                          </Link>
+                        )}
+                        <Badge variant="secondary" className="text-xs">
+                          {product.category}
+                        </Badge>
+                      </div>
                       <Link to={`/episodes/${episode.id}`}>
-                        <Badge variant="outline">Ep {episode.id}</Badge>
+                        <Badge
+                          variant="outline"
+                          className="hover:bg-primary hover:text-primary-foreground transition-colors"
+                        >
+                          Ep {episode.id}
+                        </Badge>
                       </Link>
                     </div>
                   );
