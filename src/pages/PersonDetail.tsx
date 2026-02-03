@@ -1,5 +1,5 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -26,15 +26,18 @@ export default function PersonDetail() {
   const mentions = getMentionsByPerson(id || "");
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  const handleAvatarClick = (e: React.MouseEvent | React.TouchEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if ((person?.id === "arthur" || person?.id === "aiquis") && audioRef.current) {
-      audioRef.current.currentTime = 0;
-      audioRef.current.play().catch(() => {
-        // Silently handle autoplay restrictions
-      });
-    }
+  const audioSrc = useMemo(() => {
+    if (person?.id === "arthur") return arthurAudio;
+    if (person?.id === "aiquis") return aquisAudio;
+    return null;
+  }, [person?.id]);
+
+  const playSound = () => {
+    const audio = audioRef.current;
+    if (!audio || !audioSrc) return;
+    audio.pause();
+    audio.currentTime = 0;
+    audio.play().catch(() => {});
   };
 
   if (!person) {
@@ -114,13 +117,9 @@ export default function PersonDetail() {
         <div className="flex items-center gap-4">
           <Avatar
             className={`w-14 h-14 bg-primary/10 ${
-              person.id === "arthur" || person.id === "aiquis" ? "select-none active:scale-95 transition-transform" : ""
+              audioSrc ? "select-none active:scale-95 transition-transform cursor-pointer" : ""
             }`}
-            onClick={handleAvatarClick}
-            onTouchEnd={(e) => {
-              e.preventDefault();
-              handleAvatarClick(e);
-            }}
+            onPointerUp={playSound}
             style={{ touchAction: "manipulation" }}
           >
             {person.avatarUrl && <AvatarImage src={person.avatarUrl} alt={person.name} />}
@@ -128,8 +127,7 @@ export default function PersonDetail() {
               {getInitials(person.name)}
             </AvatarFallback>
           </Avatar>
-          {person.id === "arthur" && <audio ref={audioRef} src={arthurAudio} preload="auto" playsInline />}
-          {person.id === "aiquis" && <audio ref={audioRef} src={aquisAudio} preload="auto" playsInline />}
+          {audioSrc && <audio ref={audioRef} src={audioSrc} preload="auto" playsInline />}
           <div>
             <h1 className="text-2xl font-bold text-foreground">{person.name}</h1>
             <div className="flex flex-col gap-2 mt-1">
