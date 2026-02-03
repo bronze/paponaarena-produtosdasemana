@@ -138,8 +138,8 @@ export default function PersonDetail() {
 
         <div className="flex items-center gap-4">
           <Avatar
-            className={`w-14 h-14 bg-primary/10 select-none active:scale-95 transition-transform ${
-              audioSrc ? "cursor-default" : ""
+            className={`w-14 h-14 bg-primary/10 select-none ${
+              audioSrc ? "cursor-default active:scale-95 transition-transform" : ""
             }`}
             onPointerUp={playSound}
             style={{ touchAction: "manipulation" }}
