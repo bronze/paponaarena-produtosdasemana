@@ -1,72 +1,125 @@
 
 
-## Plano: Adicionar card de categorias no Dashboard
+## Plano: Easter Egg no Console do DevTools
 
 ### Objetivo
-Adicionar um quinto card de estatística no Dashboard mostrando o número de categorias, clicável e levando para a página `/categories`.
+Adicionar uma mensagem divertida com ASCII art que aparece no console do navegador quando alguém abre o DevTools.
 
 ---
 
 ### Arquivo a Modificar
-`src/pages/Dashboard.tsx`
+`src/main.tsx`
 
 ---
 
-### Alterações
+### Implementação
 
-**1. Atualizar imports**
-
-Adicionar a função `getCategories` ao import existente:
-
-```typescript
-import { episodes, products, people, mentions, getCategories } from "@/data/mentions";
-```
-
-Adicionar o ícone `FolderOpen` do Lucide (consistente com a página de Categories):
+Adicionar um bloco de código que executa `console.log()` com:
+1. ASCII art estilizado do nome "Papo na Arena"
+2. Mensagem divertida em português
+3. Links para YouTube e Spotify com estilos coloridos
 
 ```typescript
-import { Mic, Package, Users, MessageSquare, FolderOpen } from "lucide-react";
-```
+// Console Easter Egg
+console.log(
+  `%c
+  ╔═══════════════════════════════════════════╗
+  ║                                           ║
+  ║   🎙️  P A P O   N A   A R E N A  🎙️      ║
+  ║                                           ║
+  ╚═══════════════════════════════════════════╝
+  `,
+  "color: #8B5CF6; font-weight: bold; font-size: 14px;"
+);
 
-**2. Adicionar novo StatCard**
+console.log(
+  "%c🔍 Curioso(a), hein? Bom, já que está aqui... inscreva-se no podcast!",
+  "color: #F97316; font-size: 14px; font-weight: bold; padding: 8px 0;"
+);
 
-Inserir um novo card entre "Products Tracked" e "Contributors":
+console.log(
+  "%c▶️ YouTube: %chttps://www.youtube.com/@PaponaArena",
+  "color: #EF4444; font-weight: bold;",
+  "color: #60A5FA; text-decoration: underline;"
+);
 
-```tsx
-<StatCard
-  title="Categories"
-  value={getCategories().length}
-  icon={FolderOpen}
-  description="Product categories"
-  href="/categories"
-/>
-```
-
-**3. Ajustar grid para 5 colunas em telas grandes**
-
-Atualizar o grid para acomodar 5 cards:
-
-```tsx
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 auto-rows-fr">
+console.log(
+  "%c🎧 Spotify: %chttps://open.spotify.com/show/7lcBkPYn5HgEZjTkJhNUFJ",
+  "color: #22C55E; font-weight: bold;",
+  "color: #60A5FA; text-decoration: underline;"
+);
 ```
 
 ---
 
-### Resultado Visual
+### Código Final do main.tsx
 
-| Card | Valor | Link |
-|------|-------|------|
-| Total Episodes | Quantidade de episódios | /episodes |
-| Products Tracked | Quantidade de produtos | /products |
-| **Categories** | **Quantidade de categorias** | **/categories** |
-| Contributors | Quantidade de pessoas | /people |
-| Total Mentions | Quantidade de menções | - |
+```typescript
+import { createRoot } from "react-dom/client";
+import App from "./App.tsx";
+import "./index.css";
+
+// Console Easter Egg 🥚
+console.log(
+  `%c
+  ╔═══════════════════════════════════════════╗
+  ║                                           ║
+  ║   🎙️  P A P O   N A   A R E N A  🎙️      ║
+  ║                                           ║
+  ╚═══════════════════════════════════════════╝
+  `,
+  "color: #8B5CF6; font-weight: bold; font-size: 14px;"
+);
+
+console.log(
+  "%c🔍 Curioso(a), hein? Bom, já que está aqui... inscreva-se no podcast!",
+  "color: #F97316; font-size: 14px; font-weight: bold; padding: 8px 0;"
+);
+
+console.log(
+  "%c▶️ YouTube: %chttps://www.youtube.com/@PaponaArena",
+  "color: #EF4444; font-weight: bold;",
+  "color: #60A5FA; text-decoration: underline;"
+);
+
+console.log(
+  "%c🎧 Spotify: %chttps://open.spotify.com/show/7lcBkPYn5HgEZjTkJhNUFJ",
+  "color: #22C55E; font-weight: bold;",
+  "color: #60A5FA; text-decoration: underline;"
+);
+
+createRoot(document.getElementById("root")!).render(<App />);
+```
 
 ---
 
 ### Detalhes Técnicos
 
-- O ícone `FolderOpen` é o mesmo usado na página de Categories, mantendo consistência visual
-- O card será clicável com hover effect (já implementado no StatCard)
-- `getCategories().length` retorna o número de categorias únicas extraídas dos produtos
+| Elemento | Descrição |
+|----------|-----------|
+| `%c` | Permite aplicar estilos CSS ao console.log |
+| ASCII Box | Caixa decorativa com caracteres Unicode |
+| Cores | Roxo (#8B5CF6), Laranja (#F97316), Vermelho (#EF4444), Verde (#22C55E), Azul (#60A5FA) |
+| Emojis | 🎙️ microfone, 🔍 lupa, ▶️ play, 🎧 fones |
+
+---
+
+### Resultado Esperado
+
+Quando alguém abrir o DevTools (F12), verá:
+
+```text
+  ╔═══════════════════════════════════════════╗
+  ║                                           ║
+  ║   🎙️  P A P O   N A   A R E N A  🎙️      ║
+  ║                                           ║
+  ╚═══════════════════════════════════════════╝
+
+🔍 Curioso(a), hein? Bom, já que está aqui... inscreva-se no podcast!
+
+▶️ YouTube: https://www.youtube.com/@PaponaArena
+🎧 Spotify: https://open.spotify.com/show/7lcBkPYn5HgEZjTkJhNUFJ
+```
+
+Tudo colorido e estilizado!
 
