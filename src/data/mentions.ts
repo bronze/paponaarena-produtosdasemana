@@ -1623,8 +1623,6 @@ export const people: Person[] = [
   { id: "renato", name: "Renato" },
   // Episode 29 contributor
   { id: "renato-bassi", name: "Renato Bassi" },
-  // Episode 28 contributor
-  { id: "lucas-matos", name: "Lucas Matos" },
   // Episode 32 contributors
   { id: "sala", name: "Sala" },
   { id: "marmerola", name: "Marmerola" },
@@ -1708,7 +1706,7 @@ export const mentions: Mention[] = [
   // Episode 28
   { id: "m28-1", episodeId: 28, personId: "aiquis", productId: "corsair-hs80-wireless" },
   { id: "m28-2", episodeId: 28, personId: "arthur", productId: "daylio" },
-  { id: "m28-3", episodeId: 28, personId: "lucas-matos", productId: "swingvision" },
+  { id: "m28-3", episodeId: 28, personId: "lucas-mattos", productId: "swingvision" },
   { id: "m28-4", episodeId: 28, personId: "eduardo-augusto", productId: "expo-go" },
   { id: "m28-5", episodeId: 28, personId: "alice", productId: "feedly" },
   { id: "m28-6", episodeId: 28, personId: "glauco", productId: "wolfram" },
