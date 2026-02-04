@@ -678,6 +678,14 @@ export const episodes: Episode[] = [
     youtubeLink: "https://www.youtube.com/watch?v=dt3vQX5isqY",
     spotifyLink: "https://open.spotify.com/episode/3ISQhy14KTgTyIWURKarW5",
   },
+  {
+    id: 104,
+    title: "O que esperar do mercado de Produtos em 2026? Papo na Arena Ao Vivo",
+    date: "2026-02-04",
+    description: "Discussão sobre as expectativas do mercado de produtos para 2026.",
+    youtubeLink: "https://www.youtube.com/watch?v=0ollpnSCo6A",
+    spotifyLink: "https://open.spotify.com/episode/60JK89tSaF0cqDak74NEfE",
+  },
 ];
 
 // Products (unique across all episodes)
@@ -1171,6 +1179,11 @@ export const products: Product[] = [
   { id: "globo-esporte", name: "Globo Esporte", category: "Entertainment", url: "https://ge.globo.com" },
   { id: "app-olimpiadas", name: "App das Olimpíadas", category: "Entertainment" },
   { id: "potion-explosion", name: "Potion Explosion", category: "Entertainment" },
+  { id: "cartola", name: "Cartola", category: "Entertainment", url: "https://cartola.globo.com/" },
+  { id: "games-desempenho-neurologico", name: "Games de desempenho neurológico", category: "Entertainment" },
+  { id: "super-listo", name: "Super Listo", category: "Lifestyle" },
+  { id: "fincell", name: "Fincell", category: "Finance", url: "https://www.fincell.eu/" },
+  { id: "pastenow", name: "PasteNow", category: "Productivity", url: "https://pastenow.app/" },
 
   // Finance
   { id: "c6-ia", name: "C6 (IA)", category: "Finance", parentId: "c6" },
@@ -1642,6 +1655,19 @@ export const people: Person[] = [
   { id: "adriana-barros", name: "Adriana Barros" },
   { id: "michele-morais", name: "Michele Morais" },
   { id: "martin", name: "Martin" },
+  // Episode 104 contributors
+  { id: "marcos-masuchi", name: "Marcos Masuchi" },
+  { id: "renata-gagetti", name: "Renata Gagetti" },
+  { id: "kelly-costa", name: "Kelly Costa" },
+  { id: "gabriel-hamu", name: "Gabriel Hamú" },
+  { id: "renata-de-lima", name: "Renata de Lima" },
+  { id: "jonathan-siqueira", name: "Jonathan Siqueira" },
+  { id: "camila-ep104", name: "Camila" },
+  { id: "claudio-tai", name: "Claudio Tai" },
+  { id: "emerson-catani", name: "Emerson Catani" },
+  { id: "isaac-santos", name: "Isaac Santos" },
+  { id: "ana-carolina-portuga", name: "Ana Carolina Portuga" },
+  { id: "ulisses-scorchio", name: "Ulisses Scorchio" },
 ];
 
 // Mentions
@@ -2690,6 +2716,27 @@ export const mentions: Mention[] = [
   { id: "m103-28", episodeId: 103, personId: "amilker", productId: "notebooklm" },
   { id: "m103-29", episodeId: 103, personId: "bob", productId: "tidal-hifi" },
   { id: "m103-30", episodeId: 103, personId: "peixoto", productId: "lovable" },
+
+  // Episode 104
+  { id: "m104-1", episodeId: 104, personId: "aiquis", productId: "samsung-health" },
+  { id: "m104-2", episodeId: 104, personId: "arthur", productId: "ray-ban-meta" },
+  { id: "m104-3", episodeId: 104, personId: "marcos-masuchi", productId: "n8n" },
+  { id: "m104-4", episodeId: 104, personId: "marcos-masuchi", productId: "perplexity" },
+  { id: "m104-5", episodeId: 104, personId: "renata-gagetti", productId: "lovable" },
+  { id: "m104-6", episodeId: 104, personId: "kelly-costa", productId: "notebooklm" },
+  { id: "m104-7", episodeId: 104, personId: "kelly-costa", productId: "gemini" },
+  { id: "m104-8", episodeId: 104, personId: "gabriel-hamu", productId: "claude-code" },
+  { id: "m104-9", episodeId: 104, personId: "renata-de-lima", productId: "notebooklm" },
+  { id: "m104-10", episodeId: 104, personId: "jonathan-siqueira", productId: "ray-ban-meta" },
+  { id: "m104-11", episodeId: 104, personId: "daniel-gonzalez", productId: "replit" },
+  { id: "m104-12", episodeId: 104, personId: "camila-ep104", productId: "spotify" },
+  { id: "m104-13", episodeId: 104, personId: "claudio-tai", productId: "cartola" },
+  { id: "m104-14", episodeId: 104, personId: "emerson-catani", productId: "super-listo" },
+  { id: "m104-15", episodeId: 104, personId: "isaac-santos", productId: "fincell" },
+  { id: "m104-16", episodeId: 104, personId: "ana-carolina-portuga", productId: "alexa" },
+  { id: "m104-17", episodeId: 104, personId: "vanessa-silva", productId: "airbnb" },
+  { id: "m104-18", episodeId: 104, personId: "ulisses-scorchio", productId: "games-desempenho-neurologico" },
+  { id: "m104-19", episodeId: 104, personId: "lucas-mattos", productId: "pastenow" },
 ];
 
 // Helper functions
