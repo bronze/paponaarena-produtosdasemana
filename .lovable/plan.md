@@ -1,106 +1,79 @@
 
 
-## Plano: Adicionar Episódio 104 com Menções
+## Plano: Som aleatório para Aíquis
 
-### Resumo
-
-Adicionar o episódio 104 "O que esperar do mercado de Produtos em 2026? Papo na Arena Ao Vivo" com todas as 19 menções de produtos da semana.
+### Objetivo
+Quando clicar na foto do Aíquis, tocar aleatoriamente um dos dois sons: o atual ("aiquis-po") ou o novo ("aiquis-cara").
 
 ---
 
-### Alterações no arquivo `src/data/mentions.ts`
+### Alterações
 
-#### 1. Adicionar o Episódio 104
+#### 1. Copiar o novo arquivo de áudio
+Copiar `user-uploads://aiquis-cara.mp3` para `src/assets/audio/audio-aiquis-cara.mp3`
 
-Inserir após o episódio 103 (por volta da linha 680):
+#### 2. Modificar `src/pages/PersonDetail.tsx`
 
+**Adicionar import do novo áudio:**
 ```typescript
-{
-  id: 104,
-  title: "O que esperar do mercado de Produtos em 2026? Papo na Arena Ao Vivo",
-  date: "2026-02-04",
-  description: "Discussão sobre as expectativas do mercado de produtos para 2026.",
-  youtubeLink: "https://www.youtube.com/watch?v=0ollpnSCo6A",
-  spotifyLink: "https://open.spotify.com/episode/60JK89tSaF0cqDak74NEfE",
-},
+import aquisAudioCara from "@/assets/audio/audio-aiquis-cara.mp3";
+```
+
+**Atualizar a lógica do `audioSrc`:**
+
+Mudar de um valor fixo para um array de sons apenas para o Aíquis:
+```typescript
+const aquisAudios = [aquisAudio, aquisAudioCara];
+
+const audioSrc = useMemo(() => {
+  if (person?.id === "arthur") return arthurAudio;
+  if (person?.id === "aiquis") return aquisAudio; // valor inicial, será sobrescrito dinamicamente
+  return null;
+}, [person?.id]);
+```
+
+**Modificar a função `playSound`:**
+
+Para o Aíquis, selecionar aleatoriamente entre os dois sons antes de tocar:
+```typescript
+const playSound = () => {
+  const audio = audioRef.current;
+  if (!audio) return;
+  
+  // Para Aíquis, escolher som aleatório
+  if (person?.id === "aiquis") {
+    const randomAudio = aquisAudios[Math.floor(Math.random() * aquisAudios.length)];
+    audio.src = randomAudio;
+  }
+
+  const wasEnded = audio.ended;
+  audio.pause();
+  audio.currentTime = 0;
+
+  if (wasEnded) {
+    audio.load();
+  }
+
+  audio.play().catch(() => {});
+};
 ```
 
 ---
 
-#### 2. Adicionar Novos Produtos (5 produtos)
+### Resultado
 
-| ID | Nome | Categoria | URL |
-|----|------|-----------|-----|
-| `cartola` | Cartola | Entertainment | https://cartola.globo.com/ |
-| `super-listo` | Super Listo | Lifestyle | - |
-| `fincell` | Fincell | Finance | https://www.fincell.eu/ |
-| `games-desempenho-neurologico` | Games de desempenho neurológico | Entertainment | - |
-| `pastenow` | PasteNow | Productivity | https://pastenow.app/ |
+| Pessoa | Comportamento |
+|--------|---------------|
+| Arthur | Sempre toca o mesmo som |
+| Aíquis | Toca aleatoriamente "aiquis-po" ou "aiquis-cara" (50/50) |
+| Outros | Sem áudio |
 
 ---
 
-#### 3. Adicionar Novas Pessoas (12 pessoas)
+### Detalhes Técnicos
 
-| ID | Nome |
-|----|------|
-| `marcos-masuchi` | Marcos Masuchi |
-| `renata-gagetti` | Renata Gagetti |
-| `kelly-costa` | Kelly Costa |
-| `gabriel-hamu` | Gabriel Hamú |
-| `renata-de-lima` | Renata de Lima |
-| `jonathan-siqueira` | Jonathan Siqueira |
-| `camila-ep104` | Camila |
-| `claudio-tai` | Claudio Tai |
-| `emerson-catani` | Emerson Catani |
-| `isaac-santos` | Isaac Santos |
-| `ana-carolina-portuga` | Ana Carolina Portuga |
-| `ulisses-scorchio` | Ulisses Scorchio |
-
-Nota: Usarei `camila-ep104` para evitar conflito com outras "Camilas" já existentes (há `camila-jordana`, `camila-ruas`, `camila-meneghetti`).
-
----
-
-#### 4. Adicionar as 19 Menções do Episódio 104
-
-```typescript
-// Episode 104
-{ id: "m104-1", episodeId: 104, personId: "aiquis", productId: "samsung-health" },
-{ id: "m104-2", episodeId: 104, personId: "arthur", productId: "ray-ban-meta" },
-{ id: "m104-3", episodeId: 104, personId: "marcos-masuchi", productId: "n8n" },
-{ id: "m104-4", episodeId: 104, personId: "marcos-masuchi", productId: "perplexity" },
-{ id: "m104-5", episodeId: 104, personId: "renata-gagetti", productId: "lovable" },
-{ id: "m104-6", episodeId: 104, personId: "kelly-costa", productId: "notebooklm" },
-{ id: "m104-7", episodeId: 104, personId: "kelly-costa", productId: "gemini" },
-{ id: "m104-8", episodeId: 104, personId: "gabriel-hamu", productId: "claude-code" },
-{ id: "m104-9", episodeId: 104, personId: "renata-de-lima", productId: "notebooklm" },
-{ id: "m104-10", episodeId: 104, personId: "jonathan-siqueira", productId: "ray-ban-meta" },
-{ id: "m104-11", episodeId: 104, personId: "daniel-gonzalez", productId: "replit" },
-{ id: "m104-12", episodeId: 104, personId: "camila-ep104", productId: "spotify" },
-{ id: "m104-13", episodeId: 104, personId: "claudio-tai", productId: "cartola" },
-{ id: "m104-14", episodeId: 104, personId: "emerson-catani", productId: "super-listo" },
-{ id: "m104-15", episodeId: 104, personId: "isaac-santos", productId: "fincell" },
-{ id: "m104-16", episodeId: 104, personId: "ana-carolina-portuga", productId: "alexa" },
-{ id: "m104-17", episodeId: 104, personId: "vanessa-silva", productId: "airbnb" },
-{ id: "m104-18", episodeId: 104, personId: "ulisses-scorchio", productId: "games-desempenho-neurologico" },
-{ id: "m104-19", episodeId: 104, personId: "lucas-mattos", productId: "pastenow" },
-```
-
----
-
-### Resumo das Adições
-
-| Item | Quantidade |
-|------|------------|
-| Episódio | 1 |
-| Novos Produtos | 5 |
-| Novas Pessoas | 12 |
-| Menções | 19 |
-
----
-
-### Produtos e Pessoas já Existentes (Reutilizados)
-
-**Produtos existentes:** Samsung Health, Ray-Ban Meta, N8N, Perplexity, Lovable, NotebookLM, Gemini, Claude Code, Replit, Spotify, Alexa, Airbnb
-
-**Pessoas existentes:** Aíquis, Arthur, Daniel Gonzalez, Vanessa Silva, Lucas Mattos
+- `Math.random()` gera número entre 0 e 1
+- `Math.floor(Math.random() * 2)` retorna 0 ou 1 com probabilidade igual
+- O `audio.src` é atualizado dinamicamente antes de cada reprodução
+- Compatível com mobile (mantém `load()` após término)
 
