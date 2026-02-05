@@ -7,6 +7,9 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { ArrowLeft, MessageSquare, Mic, Package, Linkedin } from "lucide-react";
 import arthurAudio from "@/assets/audio/audio-arthur.mp3";
 import aquisAudio from "@/assets/audio/audio-aiquis.mp3";
+import aquisAudioCara from "@/assets/audio/audio-aiquis-cara.mp3";
+
+const aquisAudios = [aquisAudio, aquisAudioCara];
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import {
   getPersonById,
@@ -35,6 +38,12 @@ export default function PersonDetail() {
   const playSound = () => {
     const audio = audioRef.current;
     if (!audio || !audioSrc) return;
+
+    // Para Aíquis, escolher som aleatório
+    if (person?.id === "aiquis") {
+      const randomAudio = aquisAudios[Math.floor(Math.random() * aquisAudios.length)];
+      audio.src = randomAudio;
+    }
 
     const wasEnded = audio.ended;
     audio.pause();
