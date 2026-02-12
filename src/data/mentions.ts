@@ -686,6 +686,14 @@ export const episodes: Episode[] = [
     youtubeLink: "https://www.youtube.com/watch?v=0ollpnSCo6A",
     spotifyLink: "https://open.spotify.com/episode/60JK89tSaF0cqDak74NEfE",
   },
+  {
+    id: 105,
+    title: "SEMANA INSANA EM AI: Lançamentos, fofocas, Superbowl, investimentos bilionários",
+    date: "2026-02-12",
+    description: "Discussão sobre os lançamentos e investimentos bilionários em AI na semana.",
+    youtubeLink: "https://www.youtube.com/watch?v=Z_vnMYUBLoA",
+    spotifyLink: "https://open.spotify.com/episode/77B7MTGoHzTvO5VMG2nTge",
+  },
 ];
 
 // Products (unique across all episodes)
@@ -1404,6 +1412,16 @@ export const products: Product[] = [
     category: "Lifestyle",
     url: "https://substack.com/redirect/4e097965-e146-4a63-b675-520b7728263f?j=eyJ1IjoiM2Z4N2xsIn0.hprP9-m3wJcmtKuXGObKSXN8QwqEhdmH1uzVY49NegA",
   },
+
+  // Episode 105 products
+  { id: "lessie-ai", name: "Lessie.ai", category: "AI Tools", url: "https://lessie.ai/" },
+  { id: "getvamos", name: "GetVamos", category: "AI Tools", url: "https://getvamos.ai/" },
+  { id: "dolce-gusto", name: "Dolce Gusto", category: "Lifestyle" },
+  { id: "gamma", name: "Gamma", category: "Productivity", url: "https://gamma.app/" },
+  { id: "digipix", name: "DigiPix", category: "Lifestyle", url: "https://www.digipix.com.br/" },
+  { id: "posthog", name: "PostHog", category: "Business", url: "https://posthog.com" },
+  { id: "caneta", name: "Caneta", category: "Lifestyle" },
+  { id: "apple-fitness", name: "Apple Fitness", category: "Fitness" },
 ];
 
 // People (contributors/hosts)
@@ -1668,6 +1686,14 @@ export const people: Person[] = [
   { id: "isaac-santos", name: "Isaac Santos" },
   { id: "ana-carolina-portuga", name: "Ana Carolina Portuga" },
   { id: "ulisses-scorchio", name: "Ulisses Scorchio" },
+  // Episode 105 contributors
+  { id: "aline-amorim", name: "Aline Amorim" },
+  { id: "adriana-rosario", name: "Adriana Rosário" },
+  { id: "fernando-lenine", name: "Fernando Lenine" },
+  { id: "carorile-cardoso", name: "Carorile Cardoso" },
+  { id: "jose-neto", name: "José Neto" },
+  { id: "regiane-buny", name: "Regiane Buny" },
+  { id: "murilo-siqueira", name: "Murilo Siqueira" },
 ];
 
 // Mentions
@@ -2737,6 +2763,42 @@ export const mentions: Mention[] = [
   { id: "m104-17", episodeId: 104, personId: "vanessa-silva", productId: "airbnb" },
   { id: "m104-18", episodeId: 104, personId: "ulisses-scorchio", productId: "games-desempenho-neurologico" },
   { id: "m104-19", episodeId: 104, personId: "lucas-mattos", productId: "pastenow" },
+
+  // Episode 105
+  { id: "m105-1", episodeId: 105, personId: "arthur", productId: "cursor" },
+  { id: "m105-2", episodeId: 105, personId: "arthur", productId: "claude-code" },
+  { id: "m105-3", episodeId: 105, personId: "aiquis", productId: "cursor" },
+  { id: "m105-4", episodeId: 105, personId: "aiquis", productId: "claude-code" },
+  { id: "m105-5", episodeId: 105, personId: "beatriz-morales", productId: "cursor" },
+  { id: "m105-6", episodeId: 105, personId: "aline-amorim", productId: "chatgpt" },
+  { id: "m105-7", episodeId: 105, personId: "aline-amorim", productId: "perplexity" },
+  { id: "m105-8", episodeId: 105, personId: "aline-amorim", productId: "lessie-ai" },
+  { id: "m105-9", episodeId: 105, personId: "aline-amorim", productId: "getvamos" },
+  { id: "m105-10", episodeId: 105, personId: "adriana-rosario", productId: "duolingo" },
+  { id: "m105-11", episodeId: 105, personId: "adriana-rosario", productId: "lovable" },
+  { id: "m105-12", episodeId: 105, personId: "fernando-lenine", productId: "google-ai-studio" },
+  { id: "m105-13", episodeId: 105, personId: "carlos-bronze", productId: "claude-code" },
+  { id: "m105-14", episodeId: 105, personId: "carorile-cardoso", productId: "gemini" },
+  { id: "m105-15", episodeId: 105, personId: "amanda-couto", productId: "gemini" },
+  { id: "m105-16", episodeId: 105, personId: "amanda-couto", productId: "dolce-gusto" },
+  { id: "m105-17", episodeId: 105, personId: "danilo-penteado", productId: "cursor" },
+  { id: "m105-18", episodeId: 105, personId: "marcos-lavin", productId: "chatgpt" },
+  { id: "m105-19", episodeId: 105, personId: "marcos-lavin", productId: "notion" },
+  { id: "m105-20", episodeId: 105, personId: "marcos-lavin", productId: "youtube" },
+  { id: "m105-21", episodeId: 105, personId: "marcos-lavin", productId: "apple-fitness" },
+  { id: "m105-22", episodeId: 105, personId: "caue", productId: "gymrats" },
+  { id: "m105-23", episodeId: 105, personId: "iago-maciel", productId: "cursor" },
+  { id: "m105-24", episodeId: 105, personId: "iago-maciel", productId: "claude-code" },
+  { id: "m105-25", episodeId: 105, personId: "tammy-senra", productId: "spotify" },
+  { id: "m105-26", episodeId: 105, personId: "beatriz-fazolo", productId: "duolingo" },
+  { id: "m105-27", episodeId: 105, personId: "patricia-zago", productId: "chatgpt" },
+  { id: "m105-28", episodeId: 105, personId: "patricia-zago", productId: "gamma" },
+  { id: "m105-29", episodeId: 105, personId: "regiane-buny", productId: "wise" },
+  { id: "m105-30", episodeId: 105, personId: "regiane-buny", productId: "chatgpt" },
+  { id: "m105-31", episodeId: 105, personId: "regiane-buny", productId: "digipix" },
+  { id: "m105-32", episodeId: 105, personId: "murilo-siqueira", productId: "posthog" },
+  { id: "m105-33", episodeId: 105, personId: "jose-neto", productId: "caneta" },
+  { id: "m105-34", episodeId: 105, personId: "jose-neto", productId: "caderno" },
 ];
 
 // Helper functions
