@@ -1240,7 +1240,7 @@ export const products: Product[] = [
   { id: "kindle", name: "Kindle", category: "Reading", url: "https://amazon.com/kindle" },
   { id: "kindle-app", name: "Kindle App", category: "Reading", parentId: "kindle" },
   { id: "blinkist", name: "Blinkist", category: "Reading", url: "https://www.blinkist.com" },
-  { id: "caderno", name: "Caderno", category: "Lifestyle" },
+  { id: "caderno", name: "Caderno", category: "Hardware" },
   { id: "ipod-fake", name: "iPod Fake Classic", category: "Hardware", url: "https://a.aliexpress.com/_mtFXV0l" },
   { id: "camisa-preta", name: "Camisa Preta Básica", category: "Lifestyle" },
   { id: "copo-stanley", name: "Copo Stanley", category: "Lifestyle" },
@@ -1420,7 +1420,7 @@ export const products: Product[] = [
   { id: "gamma", name: "Gamma", category: "Productivity", url: "https://gamma.app/" },
   { id: "digipix", name: "DigiPix", category: "Lifestyle", url: "https://www.digipix.com.br/" },
   { id: "posthog", name: "PostHog", category: "Business", url: "https://posthog.com" },
-  { id: "caneta", name: "Caneta", category: "Lifestyle" },
+  { id: "caneta", name: "Caneta", category: "Hardware" },
   { id: "apple-fitness", name: "Apple Fitness", category: "Fitness" },
 ];
 
