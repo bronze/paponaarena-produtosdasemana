@@ -21,6 +21,9 @@ export function LatestEpisodeCard() {
               <span className="text-xs font-medium bg-primary-foreground/20 px-2 py-0.5 rounded">
                 Latest Episode
               </span>
+              <span className="text-xs font-medium bg-primary-foreground/10 px-2 py-0.5 rounded">
+                Ep. {latestEpisode.id}
+              </span>
             </div>
             <h3 className="text-lg font-semibold">{latestEpisode.title}</h3>
             <p className="text-sm text-primary-foreground/80">
