@@ -278,7 +278,7 @@ export default function PersonDetail() {
                                 </span>
                               );
                             })}
-                            <Badge variant="outline" className="text-xs">
+                            <Badge variant="outline" className="text-xs bg-primary/10 text-primary/70 border-primary/20">
                               combo
                             </Badge>
                           </>
