@@ -809,6 +809,12 @@ export const products: Product[] = [
     category: "AI Tools",
     alsoCredits: ["claude-code", "chatgpt"],
   },
+  {
+    id: "combo-cursor-claude-code",
+    name: "Cursor + Claude Code",
+    category: "Development",
+    alsoCredits: ["cursor", "claude-code"],
+  },
   { id: "codex-openai", name: "Codex da OpenAI", category: "AI Tools", url: "https://openai.com/pt-BR/codex/" },
   {
     id: "acrobat-ai",
@@ -2766,10 +2772,8 @@ export const mentions: Mention[] = [
   { id: "m104-19", episodeId: 104, personId: "lucas-mattos", productId: "pastenow" },
 
   // Episode 105
-  { id: "m105-1", episodeId: 105, personId: "arthur", productId: "cursor" },
-  { id: "m105-2", episodeId: 105, personId: "arthur", productId: "claude-code" },
-  { id: "m105-3", episodeId: 105, personId: "aiquis", productId: "cursor" },
-  { id: "m105-4", episodeId: 105, personId: "aiquis", productId: "claude-code" },
+  { id: "m105-1", episodeId: 105, personId: "arthur", productId: "combo-cursor-claude-code" },
+  { id: "m105-3", episodeId: 105, personId: "aiquis", productId: "combo-cursor-claude-code" },
   { id: "m105-5", episodeId: 105, personId: "beatriz-morales", productId: "cursor" },
   { id: "m105-6", episodeId: 105, personId: "aline-amorim", productId: "chatgpt" },
   { id: "m105-7", episodeId: 105, personId: "aline-amorim", productId: "perplexity" },
