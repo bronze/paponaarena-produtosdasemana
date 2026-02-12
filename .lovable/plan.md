@@ -1,38 +1,13 @@
 
+## Juntar Caroline Cardoso com Carol Cardoso
 
-## Mostrar numero do episodio no card "Latest Episode"
+### Resumo
 
-### Abordagem
+A pessoa "Caroline Cardoso" (`caroline-cardoso`) criada no episodio 105 eh a mesma "Carol Cardoso" (`carol-cardoso`) que ja existia desde o episodio 47. Vamos remover a entrada duplicada e apontar a mencao para o ID existente.
 
-Adicionar um badge com o numero do episodio ao lado do label "Latest Episode" no card do dashboard, usando o mesmo estilo de badge que ja existe na pagina de Episodes.
+### Alteracoes em `src/data/mentions.ts`
 
-### Resultado visual esperado
+1. **Remover** a entrada `{ id: "caroline-cardoso", name: "Caroline Cardoso" }` do array de pessoas
+2. **Alterar** a mencao `m105-14` de `personId: "caroline-cardoso"` para `personId: "carol-cardoso"`
 
-```text
-[Latest Episode]  [Ep. 105]
-SEMANA INSANA EM AI: Lancamentos...
-34 products mentioned
-[View Episode ->]
-```
-
-Os dois badges ficam lado a lado na mesma linha, com estilos complementares.
-
-### Alteracao
-
-**Arquivo:** `src/components/dashboard/LatestEpisodeCard.tsx`
-
-Adicionar um segundo badge com `Ep. {latestEpisode.id}` na div que contem o label "Latest Episode":
-
-```typescript
-<div className="flex items-center gap-2">
-  <span className="text-xs font-medium bg-primary-foreground/20 px-2 py-0.5 rounded">
-    Latest Episode
-  </span>
-  <span className="text-xs font-medium bg-primary-foreground/10 px-2 py-0.5 rounded">
-    Ep. {latestEpisode.id}
-  </span>
-</div>
-```
-
-O segundo badge usa `bg-primary-foreground/10` (mais sutil) para diferenciar visualmente do label principal.
-
+Resultado: Carol Cardoso fica com 5 mencoes (eps 47, 79, 83, 89, 105) todas sob o mesmo ID.
