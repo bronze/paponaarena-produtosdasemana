@@ -1,31 +1,37 @@
 
 
-## Criar combo Cursor + Claude Code no Ep. 105 (Arthur e Aiquis)
+## Estilizar badge "combo" com cor sutil
 
-### Resumo
+### O que muda
 
-Arthur e Aiquis mencionaram Cursor e Claude Code separadamente no episodio 105. Vamos criar um produto combo e substituir as mencoes individuais por combo para ambos.
+O badge "combo" (que hoje usa `variant="outline"` sem cor especial) vai ganhar um fundo leve e cor de texto sutil para se destacar visualmente sem chamar muita atencao.
 
-### Alteracoes em `src/data/mentions.ts`
+### Estilo proposto
 
-1. **Adicionar produto combo** no array de produtos:
-   ```
-   { id: "combo-cursor-claude-code", name: "Cursor + Claude Code", category: "Development", alsoCredits: ["cursor", "claude-code"] }
-   ```
+Um tom rosado/coral bem suave, alinhado com a paleta primaria do app:
+- Fundo: `bg-primary/10` (coral com 10% de opacidade)
+- Texto: `text-primary/70` (coral com 70% de opacidade)  
+- Borda: `border-primary/20` (coral com 20% de opacidade)
 
-2. **Substituir mencoes do Arthur** (m105-1 cursor + m105-2 claude-code) por:
-   ```
-   { id: "m105-1", episodeId: 105, personId: "arthur", productId: "combo-cursor-claude-code" }
-   ```
-   Remover m105-2.
+Isso cria um destaque sutil que diferencia o badge "combo" dos badges de produto sem competir visualmente com eles.
 
-3. **Substituir mencoes do Aiquis** (m105-3 cursor + m105-4 claude-code) por:
-   ```
-   { id: "m105-3", episodeId: 105, personId: "aiquis", productId: "combo-cursor-claude-code" }
-   ```
-   Remover m105-4.
+### Arquivos afetados
 
-### Resultado
+Tres arquivos contem o badge combo e precisam da mesma alteracao:
 
-Na pagina do episodio 105, Arthur e Aiquis aparecerao com badges linkados "Cursor + Claude Code" com o badge "combo". As contagens individuais de Cursor e Claude Code continuam sendo creditadas via `alsoCredits`.
+1. `src/components/dashboard/RecentMentions.tsx`
+2. `src/pages/EpisodeDetail.tsx`
+3. `src/pages/PersonDetail.tsx` (se existir o mesmo padrao)
+
+### Alteracao
+
+De:
+```tsx
+<Badge variant="outline" className="text-xs">combo</Badge>
+```
+
+Para:
+```tsx
+<Badge variant="outline" className="text-xs bg-primary/10 text-primary/70 border-primary/20">combo</Badge>
+```
 
