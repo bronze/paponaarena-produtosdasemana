@@ -1241,6 +1241,7 @@ export const products: Product[] = [
   { id: "kindle-app", name: "Kindle App", category: "Reading", parentId: "kindle" },
   { id: "blinkist", name: "Blinkist", category: "Reading", url: "https://www.blinkist.com" },
   { id: "caderno", name: "Caderno", category: "Hardware" },
+  { id: "combo-caneta-caderno", name: "Caneta + Caderno", category: "Hardware", alsoCredits: ["caneta", "caderno"] },
   { id: "ipod-fake", name: "iPod Fake Classic", category: "Hardware", url: "https://a.aliexpress.com/_mtFXV0l" },
   { id: "camisa-preta", name: "Camisa Preta Básica", category: "Lifestyle" },
   { id: "copo-stanley", name: "Copo Stanley", category: "Lifestyle" },
@@ -2797,8 +2798,7 @@ export const mentions: Mention[] = [
   { id: "m105-30", episodeId: 105, personId: "regiane-buny", productId: "chatgpt" },
   { id: "m105-31", episodeId: 105, personId: "regiane-buny", productId: "digipix" },
   { id: "m105-32", episodeId: 105, personId: "murilo-siqueira", productId: "posthog" },
-  { id: "m105-33", episodeId: 105, personId: "jose-neto", productId: "caneta" },
-  { id: "m105-34", episodeId: 105, personId: "jose-neto", productId: "caderno" },
+  { id: "m105-33", episodeId: 105, personId: "jose-neto", productId: "combo-caneta-caderno" },
 ];
 
 // Helper functions
