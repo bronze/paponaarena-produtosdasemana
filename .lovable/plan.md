@@ -1,37 +1,35 @@
 
 
-## Estilizar badge "combo" com cor sutil
+## Adicionar fonte Inter ao site
 
-### O que muda
+### Resumo
 
-O badge "combo" (que hoje usa `variant="outline"` sem cor especial) vai ganhar um fundo leve e cor de texto sutil para se destacar visualmente sem chamar muita atencao.
+Adicionar a fonte Inter (do Google Fonts) como fonte principal do site, substituindo a fonte padrao do sistema.
 
-### Estilo proposto
+### Alteracoes
 
-Um tom rosado/coral bem suave, alinhado com a paleta primaria do app:
-- Fundo: `bg-primary/10` (coral com 10% de opacidade)
-- Texto: `text-primary/70` (coral com 70% de opacidade)  
-- Borda: `border-primary/20` (coral com 20% de opacidade)
+1. **`index.html`** - Adicionar link do Google Fonts no `<head>`:
+   ```html
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+   ```
 
-Isso cria um destaque sutil que diferencia o badge "combo" dos badges de produto sem competir visualmente com eles.
+2. **`tailwind.config.ts`** - Definir Inter como fonte sans-serif padrao:
+   ```ts
+   fontFamily: {
+     sans: ["Inter", "system-ui", "sans-serif"],
+   },
+   ```
 
-### Arquivos afetados
+3. **`src/index.css`** - Aplicar a fonte no body para cobertura total:
+   ```css
+   body {
+     font-family: 'Inter', system-ui, sans-serif;
+   }
+   ```
 
-Tres arquivos contem o badge combo e precisam da mesma alteracao:
+### Resultado
 
-1. `src/components/dashboard/RecentMentions.tsx`
-2. `src/pages/EpisodeDetail.tsx`
-3. `src/pages/PersonDetail.tsx` (se existir o mesmo padrao)
-
-### Alteracao
-
-De:
-```tsx
-<Badge variant="outline" className="text-xs">combo</Badge>
-```
-
-Para:
-```tsx
-<Badge variant="outline" className="text-xs bg-primary/10 text-primary/70 border-primary/20">combo</Badge>
-```
+Todo o texto do site passara a usar a fonte Inter, com fallback para system-ui e sans-serif.
 
