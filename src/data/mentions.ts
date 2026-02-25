@@ -694,6 +694,14 @@ export const episodes: Episode[] = [
     youtubeLink: "https://www.youtube.com/watch?v=Z_vnMYUBLoA",
     spotifyLink: "https://open.spotify.com/episode/77B7MTGoHzTvO5VMG2nTge",
   },
+  {
+    id: 106,
+    title: "Como estamos usando IA no dia a dia de produto? (Atualizado 8 meses depois)",
+    date: "2026-02-25",
+    description: "Atualização sobre como profissionais de produto estão usando IA no dia a dia, 8 meses depois.",
+    youtubeLink: "https://www.youtube.com/watch?v=oDe5TtY_zpA",
+    spotifyLink: "https://open.spotify.com/episode/4vi4mWFnyKuSlnHDhg7crF",
+  },
 ];
 
 // Products (unique across all episodes)
@@ -1429,6 +1437,25 @@ export const products: Product[] = [
   { id: "posthog", name: "PostHog", category: "Business", url: "https://posthog.com" },
   { id: "caneta", name: "Caneta", category: "Hardware" },
   { id: "apple-fitness", name: "Apple Fitness", category: "Fitness" },
+
+  // Episode 106 products
+  { id: "copy-paste-google-docs", name: "Copy + Paste do Google Docs", category: "Productivity", parentId: "google-docs" },
+  { id: "voice-recorder-motorola", name: "Voice Recorder do Motorola", category: "Hardware" },
+  { id: "chess-com", name: "Chess.com", category: "Entertainment", url: "https://www.chess.com/" },
+  { id: "gemini-code-assistant", name: "Gemini Code Assistant", category: "AI Tools", parentId: "gemini" },
+  { id: "vscode", name: "VSCode", category: "Development", url: "https://code.visualstudio.com/" },
+  { id: "beats", name: "Beats", category: "Hardware" },
+  { id: "nanobot", name: "Nanobot", category: "AI Tools", url: "https://github.com/HKUDS/nanobot" },
+  { id: "soundcore-sport-x20", name: "Fone de ouvido Soundcore Sport X20", category: "Hardware" },
+  { id: "vercel", name: "Vercel", category: "Development", url: "https://vercel.com" },
+  { id: "life360", name: "Life360", category: "Apps", url: "https://life360.com" },
+  { id: "air-fryer", name: "Air Fryer", category: "Hardware" },
+  {
+    id: "combo-gemini-vercel",
+    name: "Gemini + Vercel",
+    category: "AI Tools",
+    alsoCredits: ["gemini", "vercel"],
+  },
 ];
 
 // People (contributors/hosts)
@@ -1701,6 +1728,17 @@ export const people: Person[] = [
   { id: "jose-neto", name: "José Neto" },
   { id: "regiane-buny", name: "Regiane Buny" },
   { id: "murilo-siqueira", name: "Murilo Siqueira" },
+  // Episode 106 contributors
+  { id: "paulo-de-almeida", name: "Paulo de Almeida" },
+  { id: "erika", name: "Erika" },
+  { id: "vinicius-santos", name: "Vinicius Santos" },
+  { id: "danilo-franco", name: "Danilo Franco" },
+  { id: "marlon", name: "Marlon" },
+  { id: "nessa-carla", name: "Nessa Carla" },
+  { id: "adriano-pereira", name: "Adriano Pereira" },
+  { id: "gustavo-cardoso", name: "Gustavo Cardoso" },
+  { id: "yuri", name: "Yuri" },
+  { id: "ana-carolina", name: "Ana Carolina" },
 ];
 
 // Mentions
@@ -2802,6 +2840,38 @@ export const mentions: Mention[] = [
   { id: "m105-31", episodeId: 105, personId: "regiane-buny", productId: "digipix" },
   { id: "m105-32", episodeId: 105, personId: "murilo-siqueira", productId: "posthog" },
   { id: "m105-33", episodeId: 105, personId: "jose-neto", productId: "combo-caneta-caderno" },
+
+  // Episode 106
+  { id: "m106-1", episodeId: 106, personId: "efrem", productId: "copy-paste-google-docs" },
+  { id: "m106-2", episodeId: 106, personId: "efrem", productId: "voice-recorder-motorola" },
+  { id: "m106-3", episodeId: 106, personId: "arthur", productId: "replit" },
+  { id: "m106-4", episodeId: 106, personId: "aiquis", productId: "chess-com" },
+  { id: "m106-5", episodeId: 106, personId: "carlos-bronze", productId: "claude" },
+  { id: "m106-6", episodeId: 106, personId: "carlos-bronze", productId: "claude-code" },
+  { id: "m106-7", episodeId: 106, personId: "paulo-de-almeida", productId: "gemini-code-assistant" },
+  { id: "m106-8", episodeId: 106, personId: "paulo-de-almeida", productId: "vscode" },
+  { id: "m106-9", episodeId: 106, personId: "erika", productId: "notebooklm" },
+  { id: "m106-10", episodeId: 106, personId: "erika", productId: "chatgpt" },
+  { id: "m106-11", episodeId: 106, personId: "erika", productId: "beats" },
+  { id: "m106-12", episodeId: 106, personId: "vinicius-santos", productId: "notebooklm" },
+  { id: "m106-13", episodeId: 106, personId: "vinicius-santos", productId: "claude" },
+  { id: "m106-14", episodeId: 106, personId: "danilo-franco", productId: "nanobot" },
+  { id: "m106-15", episodeId: 106, personId: "cristiano", productId: "antigravity" },
+  { id: "m106-16", episodeId: 106, personId: "marlon", productId: "gemini" },
+  { id: "m106-17", episodeId: 106, personId: "marlon", productId: "notebooklm" },
+  { id: "m106-18", episodeId: 106, personId: "beatriz-morales", productId: "cursor" },
+  { id: "m106-19", episodeId: 106, personId: "beatriz-morales", productId: "snowflake" },
+  { id: "m106-20", episodeId: 106, personId: "walmir", productId: "soundcore-sport-x20" },
+  { id: "m106-21", episodeId: 106, personId: "peixoto", productId: "lovable" },
+  { id: "m106-22", episodeId: 106, personId: "peixoto", productId: "manus-ai" },
+  { id: "m106-23", episodeId: 106, personId: "peixoto", productId: "replit" },
+  { id: "m106-24", episodeId: 106, personId: "rafael-ferreira", productId: "replit" },
+  { id: "m106-25", episodeId: 106, personId: "thays-bueno", productId: "cursor" },
+  { id: "m106-26", episodeId: 106, personId: "nessa-carla", productId: "gymrats" },
+  { id: "m106-27", episodeId: 106, personId: "adriano-pereira", productId: "combo-gemini-vercel", context: "pro Adriano, Gemini + Vercel é combo" },
+  { id: "m106-28", episodeId: 106, personId: "gustavo-cardoso", productId: "whatsapp" },
+  { id: "m106-29", episodeId: 106, personId: "yuri", productId: "life360" },
+  { id: "m106-30", episodeId: 106, personId: "ana-carolina", productId: "air-fryer" },
 ];
 
 // Helper functions
