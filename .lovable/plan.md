@@ -1,35 +1,68 @@
 
 
-## Adicionar fonte Inter ao site
+## Atualizar plano do Ep 106: Gemini + Vercel como combo
 
-### Resumo
+### Mudanca em relacao ao plano anterior
 
-Adicionar a fonte Inter (do Google Fonts) como fonte principal do site, substituindo a fonte padrao do sistema.
+Em vez de 2 mencoes separadas para o Adriano Pereira (Gemini e Vercel), sera criado 1 produto combo que credita ambos:
 
-### Alteracoes
+**Produto combo a criar:**
+```
+id: "combo-gemini-vercel"
+name: "Gemini + Vercel"
+category: "AI Tools"
+alsoCredits: ["gemini", "vercel"]
+```
 
-1. **`index.html`** - Adicionar link do Google Fonts no `<head>`:
-   ```html
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-   ```
+**Mencoes do Adriano Pereira:**
+- Antes: 2 mencoes separadas (gemini + vercel)
+- Agora: 1 mencao para `combo-gemini-vercel` com context "pro Adriano, Gemini + Vercel e combo"
 
-2. **`tailwind.config.ts`** - Definir Inter como fonte sans-serif padrao:
-   ```ts
-   fontFamily: {
-     sans: ["Inter", "system-ui", "sans-serif"],
-   },
-   ```
+Isso faz com que a mencao conte para os totais tanto do Gemini quanto do Vercel individualmente, e na UI apareca com os links separados por "+" e o badge "combo".
 
-3. **`src/index.css`** - Aplicar a fonte no body para cobertura total:
-   ```css
-   body {
-     font-family: 'Inter', system-ui, sans-serif;
-   }
-   ```
+### Plano completo atualizado
 
-### Resultado
+Tudo em `src/data/mentions.ts`:
 
-Todo o texto do site passara a usar a fonte Inter, com fallback para system-ui e sans-serif.
+**1. Episodio 106** (sem mudanca)
+
+**2. Produtos** - 12 novos (era 11, agora inclui o combo):
+- Os 11 do plano anterior (copy-paste-google-docs, voice-recorder-motorola, chess-com, gemini-code-assistant, vscode, beats, nanobot, soundcore-sport-x20, vercel, life360, air-fryer)
+- `combo-gemini-vercel` (alsoCredits: ["gemini", "vercel"])
+
+**3. Pessoas** - 10 novas (sem mudanca)
+
+**4. Mencoes** - 30 entradas (era 31, agora sao 30 porque as 2 do Adriano viram 1 combo):
+```
+Efrem -> copy-paste-google-docs
+Efrem -> voice-recorder-motorola
+Arthur -> replit
+Aiquis -> chess-com
+Carlos Bronze -> claude
+Carlos Bronze -> claude-code
+Paulo de Almeida -> gemini-code-assistant
+Paulo de Almeida -> vscode
+Erika -> notebooklm
+Erika -> chatgpt
+Erika -> beats
+Vinicius Santos -> notebooklm
+Vinicius Santos -> claude
+Danilo Franco -> nanobot
+Cristiano -> antigravity
+Marlon -> gemini
+Marlon -> notebooklm
+Beatriz Morales -> cursor
+Beatriz Morales -> snowflake
+Walmir -> soundcore-sport-x20
+Peixoto -> lovable
+Peixoto -> manus-ai
+Peixoto -> replit
+Rafael Ferreira -> replit
+Thays Bueno -> cursor
+Nessa Carla -> gymrats
+Adriano Pereira -> combo-gemini-vercel (context: "pro Adriano, Gemini + Vercel e combo")
+Gustavo Cardoso -> whatsapp
+Yuri -> life360
+Ana Carolina -> air-fryer
+```
 
