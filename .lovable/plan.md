@@ -1,27 +1,28 @@
 
 
-## Corrigir mencao do Efrem no Ep 88: Google Docs -> Copy + Paste do Google Docs
+## Corrigir produto Beats: adicionar URL e ajustar categoria
 
 ### Resumo
 
-No episodio 88, a mencao do Efrem a "Google Docs" era na verdade "Copy + Paste do Google Docs". Como esse produto ja existe no banco (criado para o ep 106, com `parentId: "google-docs"`), basta trocar o `productId` da mencao.
+O "Beats" mencionado pela Erika no ep 106 nao e o headphone da Apple, e sim a marca de bebidas Beats (ex-Skol Beats). Precisa corrigir categoria e adicionar URL.
 
 ### Alteracao
 
-**Arquivo:** `src/data/mentions.ts`, linha 2549
+**Arquivo:** `src/data/mentions.ts`, linha 1447
 
 **De:**
 ```typescript
-{ id: "m88-3", episodeId: 88, personId: "efrem", productId: "google-docs" },
+{ id: "beats", name: "Beats", category: "Hardware" },
 ```
 
 **Para:**
 ```typescript
-{ id: "m88-3", episodeId: 88, personId: "efrem", productId: "copy-paste-google-docs" },
+{ id: "beats", name: "Beats", category: "Food & Drink", url: "https://www.beatsoficial.com.br/" },
 ```
 
 ### Impacto
 
-- As estatisticas do Google Docs nao mudam, pois `copy-paste-google-docs` tem `parentId: "google-docs"` e suas mencoes ja sao agregadas ao produto pai.
-- Na UI, a mencao do Efrem no ep 88 passara a mostrar "Copy + Paste do Google Docs" em vez de "Google Docs".
+- A categoria muda de "Hardware" para "Food & Drink" (seguindo o padrao de categorias do projeto)
+- O link externo aparecera na pagina de detalhe do produto
+- Nenhuma outra mencao e afetada
 
