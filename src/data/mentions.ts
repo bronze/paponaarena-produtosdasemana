@@ -1444,7 +1444,7 @@ export const products: Product[] = [
   { id: "chess-com", name: "Chess.com", category: "Entertainment", url: "https://www.chess.com/" },
   { id: "gemini-code-assistant", name: "Gemini Code Assistant", category: "AI Tools", parentId: "gemini" },
   { id: "vscode", name: "VSCode", category: "Development", url: "https://code.visualstudio.com/" },
-  { id: "beats", name: "Beats", category: "Hardware" },
+  { id: "beats", name: "Beats", category: "Food & Drink", url: "https://www.beatsoficial.com.br/" },
   { id: "nanobot", name: "Nanobot", category: "AI Tools", url: "https://github.com/HKUDS/nanobot" },
   { id: "soundcore-sport-x20", name: "Fone de ouvido Soundcore Sport X20", category: "Hardware" },
   { id: "vercel", name: "Vercel", category: "Development", url: "https://vercel.com" },
