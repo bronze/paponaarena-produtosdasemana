@@ -702,6 +702,14 @@ export const episodes: Episode[] = [
     youtubeLink: "https://www.youtube.com/watch?v=oDe5TtY_zpA",
     spotifyLink: "https://open.spotify.com/episode/4vi4mWFnyKuSlnHDhg7crF",
   },
+  {
+    id: 107,
+    title: "😱 4.000 demissões: o que está por trás do layoff da Block?",
+    date: "2026-03-04",
+    description: "Discussão sobre o layoff massivo da Block e o que está por trás das 4.000 demissões.",
+    youtubeLink: "https://www.youtube.com/watch?v=-8VRA_OJqRk",
+    spotifyLink: "https://open.spotify.com/episode/05B58SR0sSordFWYtwDv6t?si=e972e0f55106447d",
+  },
 ];
 
 // Products (unique across all episodes)
@@ -1093,7 +1101,7 @@ export const products: Product[] = [
   { id: "apple-passwords", name: "Passwords da Apple", category: "Productivity" },
   { id: "kong-api", name: "Kong API Gateway", category: "Productivity" },
   { id: "testflight", name: "TestFlight", category: "Productivity" },
-  { id: "cloud-cowork", name: "Claude Cowork", category: "AI Tools" },
+  
   { id: "gchat", name: "GChat", category: "Productivity" },
   { id: "jira", name: "Jira", category: "Productivity", url: "https://www.atlassian.com/software/jira" },
   { id: "google-script", name: "Google Script", category: "Productivity" },
@@ -1456,6 +1464,17 @@ export const products: Product[] = [
     category: "AI Tools",
     alsoCredits: ["gemini", "vercel"],
   },
+
+  // Episode 107 products
+  { id: "dwarkesh-podcast", name: "Dwarkesh Podcast", category: "Entertainment", url: "https://www.dwarkesh.com/" },
+  { id: "colossus", name: "Colossus.com", category: "Entertainment", url: "https://colossus.com/" },
+  { id: "centene", name: "Centene", category: "Business", url: "https://centene.com.br" },
+  { id: "genspark", name: "Genspark", category: "AI Tools" },
+  { id: "chatgpt-go", name: "ChatGPT Go", category: "AI Tools", parentId: "chatgpt" },
+  { id: "gsd-meta-prompt", name: "GSD meta-prompt", category: "AI Tools", url: "https://github.com/gsd-build/get-shit-done" },
+  { id: "claude-cowork", name: "Claude Cowork", category: "AI Tools", parentId: "claude" },
+  { id: "bacio-di-latte", name: "App da Bacio di Latte", category: "Food & Drink", url: "https://baciodilatte.com.br/" },
+  { id: "granola", name: "Granola", category: "AI Tools" },
 ];
 
 // People (contributors/hosts)
@@ -1739,6 +1758,18 @@ export const people: Person[] = [
   { id: "gustavo-cardoso", name: "Gustavo Cardoso" },
   { id: "yuri", name: "Yuri" },
   { id: "ana-carolina", name: "Ana Carolina" },
+  // Episode 107 contributors
+  { id: "bruno-agostinho", name: "Bruno Agostinho" },
+  { id: "nelson-de-moura", name: "Nelson de Moura" },
+  { id: "priscila-chagas", name: "Priscila Chagas" },
+  { id: "andre-santos", name: "André Santos" },
+  { id: "lucas-bittencourt", name: "Lucas Bittencourt" },
+  { id: "ben-alves", name: "Ben Alves" },
+  { id: "ianka-coelho", name: "Ianka Coelho" },
+  { id: "wilson-morais", name: "Wilson Morais" },
+  { id: "bruno-correa", name: "Bruno Correa" },
+  { id: "aline-albertoni", name: "Aline Albertoni" },
+  { id: "juliana-volotao", name: "Juliana Volotão" },
 ];
 
 // Mentions
@@ -2760,7 +2791,7 @@ export const mentions: Mention[] = [
   { id: "m103-1", episodeId: 103, personId: "aiquis", productId: "duo-gourmet" },
   { id: "m103-2", episodeId: 103, personId: "arthur", productId: "massageador-pescoco" },
   { id: "m103-3", episodeId: 103, personId: "caiman", productId: "manus-ai" },
-  { id: "m103-4", episodeId: 103, personId: "iago-maciel", productId: "cloud-cowork" },
+  { id: "m103-4", episodeId: 103, personId: "iago-maciel", productId: "claude-cowork" },
   { id: "m103-5", episodeId: 103, personId: "thiago-valinho", productId: "gemini" },
   { id: "m103-6", episodeId: 103, personId: "thiago-valinho", productId: "gchat" },
   { id: "m103-7", episodeId: 103, personId: "thiago-valinho", productId: "canvas" },
@@ -2872,6 +2903,47 @@ export const mentions: Mention[] = [
   { id: "m106-28", episodeId: 106, personId: "gustavo-cardoso", productId: "whatsapp" },
   { id: "m106-29", episodeId: 106, personId: "yuri", productId: "life360" },
   { id: "m106-30", episodeId: 106, personId: "ana-carolina", productId: "air-fryer" },
+
+  // Episode 107
+  { id: "m107-1", episodeId: 107, personId: "aiquis", productId: "dwarkesh-podcast" },
+  { id: "m107-2", episodeId: 107, personId: "aiquis", productId: "colossus" },
+  { id: "m107-3", episodeId: 107, personId: "arthur", productId: "centene" },
+  { id: "m107-4", episodeId: 107, personId: "adriano-pereira", productId: "genspark" },
+  { id: "m107-5", episodeId: 107, personId: "carlos-bronze", productId: "claude-code" },
+  { id: "m107-6", episodeId: 107, personId: "carlos-bronze", productId: "replit" },
+  { id: "m107-7", episodeId: 107, personId: "izabela-oliveira", productId: "cursor" },
+  { id: "m107-8", episodeId: 107, personId: "fernando-lenine", productId: "claude-code" },
+  { id: "m107-9", episodeId: 107, personId: "fernando-lenine", productId: "google-ai-studio" },
+  { id: "m107-10", episodeId: 107, personId: "caiman", productId: "claude" },
+  { id: "m107-11", episodeId: 107, personId: "bruno-agostinho", productId: "chatgpt-go" },
+  { id: "m107-12", episodeId: 107, personId: "erika", productId: "gemini" },
+  { id: "m107-13", episodeId: 107, personId: "erika", productId: "chatgpt" },
+  { id: "m107-14", episodeId: 107, personId: "erika", productId: "claude" },
+  { id: "m107-15", episodeId: 107, personId: "erika", productId: "beats" },
+  { id: "m107-16", episodeId: 107, personId: "nelson-de-moura", productId: "claude-code" },
+  { id: "m107-17", episodeId: 107, personId: "nelson-de-moura", productId: "gsd-meta-prompt" },
+  { id: "m107-18", episodeId: 107, personId: "thays-bueno", productId: "cursor" },
+  { id: "m107-19", episodeId: 107, personId: "priscila-chagas", productId: "notebooklm" },
+  { id: "m107-20", episodeId: 107, personId: "rafael-ferreira", productId: "figma-make" },
+  { id: "m107-21", episodeId: 107, personId: "andre-santos", productId: "whatsapp" },
+  { id: "m107-22", episodeId: 107, personId: "lucas-bittencourt", productId: "claude-code" },
+  { id: "m107-23", episodeId: 107, personId: "lucas-bittencourt", productId: "air-fryer" },
+  { id: "m107-24", episodeId: 107, personId: "renata-de-lima", productId: "glean" },
+  { id: "m107-25", episodeId: 107, personId: "juliana-volotao", productId: "bacio-di-latte" },
+  { id: "m107-26", episodeId: 107, personId: "ben-alves", productId: "lovable" },
+  { id: "m107-27", episodeId: 107, personId: "alexandre-pereira", productId: "claude-code" },
+  { id: "m107-28", episodeId: 107, personId: "agata-cristina", productId: "shopee" },
+  { id: "m107-29", episodeId: 107, personId: "jessica-luz", productId: "claude-code" },
+  { id: "m107-30", episodeId: 107, personId: "jessica-luz", productId: "claude-cowork" },
+  { id: "m107-31", episodeId: 107, personId: "ianka-coelho", productId: "figma-make" },
+  { id: "m107-32", episodeId: 107, personId: "wilson-morais", productId: "claude" },
+  { id: "m107-33", episodeId: 107, personId: "bruno-correa", productId: "claude-code" },
+  { id: "m107-34", episodeId: 107, personId: "carol-cardoso", productId: "gemini" },
+  { id: "m107-35", episodeId: 107, personId: "aline-albertoni", productId: "spotify" },
+  { id: "m107-36", episodeId: 107, personId: "rafael-valente", productId: "granola" },
+  { id: "m107-37", episodeId: 107, personId: "henrique", productId: "cursor" },
+  { id: "m107-38", episodeId: 107, personId: "huxley", productId: "cursor" },
+  { id: "m107-39", episodeId: 107, personId: "iago", productId: "lovable" },
 ];
 
 // Helper functions
