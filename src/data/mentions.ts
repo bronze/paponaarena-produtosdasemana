@@ -1760,7 +1760,7 @@ export const people: Person[] = [
   { id: "ana-carolina", name: "Ana Carolina" },
   // Episode 107 contributors
   { id: "bruno-agostinho", name: "Bruno Agostinho" },
-  { id: "nelson-de-moura", name: "Nelson de Moura" },
+  
   { id: "priscila-chagas", name: "Priscila Chagas" },
   { id: "andre-santos", name: "André Santos" },
   { id: "lucas-bittencourt", name: "Lucas Bittencourt" },
@@ -2920,8 +2920,8 @@ export const mentions: Mention[] = [
   { id: "m107-13", episodeId: 107, personId: "erika", productId: "chatgpt" },
   { id: "m107-14", episodeId: 107, personId: "erika", productId: "claude" },
   { id: "m107-15", episodeId: 107, personId: "erika", productId: "beats" },
-  { id: "m107-16", episodeId: 107, personId: "nelson-de-moura", productId: "claude-code" },
-  { id: "m107-17", episodeId: 107, personId: "nelson-de-moura", productId: "gsd-meta-prompt" },
+  { id: "m107-16", episodeId: 107, personId: "nelson-moura", productId: "claude-code" },
+  { id: "m107-17", episodeId: 107, personId: "nelson-moura", productId: "gsd-meta-prompt" },
   { id: "m107-18", episodeId: 107, personId: "thays-bueno", productId: "cursor" },
   { id: "m107-19", episodeId: 107, personId: "priscila-chagas", productId: "notebooklm" },
   { id: "m107-20", episodeId: 107, personId: "rafael-ferreira", productId: "figma-make" },
