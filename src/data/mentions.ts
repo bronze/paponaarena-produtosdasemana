@@ -1574,7 +1574,7 @@ export const people: Person[] = [
   { id: "efrem", name: "Efrem" },
   { id: "andre", name: "Andre" },
   { id: "nery", name: "Nery" },
-  { id: "izabela", name: "Izabela" },
+  
   { id: "vini-maia", name: "Vini Maia" },
   { id: "tairo", name: "Tairo" },
   { id: "carol", name: "Carol" },
@@ -2451,7 +2451,7 @@ export const mentions: Mention[] = [
   // Episode 80
   { id: "m80-1", episodeId: 80, personId: "arthur", productId: "elementor" },
   { id: "m80-2", episodeId: 80, personId: "aiquis", productId: "cursor" },
-  { id: "m80-3", episodeId: 80, personId: "izabela", productId: "perplexity" },
+  { id: "m80-3", episodeId: 80, personId: "izabela-oliveira", productId: "perplexity" },
   { id: "m80-4", episodeId: 80, personId: "brian", productId: "songsterr" },
   { id: "m80-5", episodeId: 80, personId: "andrezao", productId: "clair-obscur" },
   { id: "m80-6", episodeId: 80, personId: "matt-lopes", productId: "anyigo" },
@@ -2566,7 +2566,7 @@ export const mentions: Mention[] = [
   { id: "m87-2", episodeId: 87, personId: "arthur", productId: "n8n" },
   { id: "m87-3", episodeId: 87, personId: "brian", productId: "moises-ai" },
   { id: "m87-4", episodeId: 87, personId: "nina", productId: "tiktok" },
-  { id: "m87-5", episodeId: 87, personId: "izabela", productId: "manus-ai" },
+  { id: "m87-5", episodeId: 87, personId: "izabela-oliveira", productId: "manus-ai" },
   { id: "m87-6", episodeId: 87, personId: "andrezao", productId: "buyticket" },
   { id: "m87-7", episodeId: 87, personId: "danilera", productId: "hotmart" },
   { id: "m87-8", episodeId: 87, personId: "mat", productId: "mfit-personal" },
