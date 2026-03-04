@@ -1492,7 +1492,7 @@ export const people: Person[] = [
   { id: "iona-oliveira", name: "Ionã Oliveira" },
   { id: "walmir", name: "Walmir" },
   { id: "ronald-falcao", name: "Ronald Falcão" },
-  { id: "wilson-moraes", name: "Wilson Moraes" },
+  
   { id: "portinho", name: "Portinho" },
   { id: "vanessa", name: "Vanessa" },
   { id: "novellino", name: "Novellino" },
@@ -1605,7 +1605,7 @@ export const people: Person[] = [
   { id: "natascha", name: "Natascha" },
   { id: "arthur-guimaraes", name: "Arthur Guimarães" },
   { id: "bruno-perrone", name: "Bruno Perrone" },
-  { id: "wilson", name: "Wilson" },
+  
   { id: "vinicius", name: "Vinicius" },
   { id: "marina-coimbra", name: "Marina Coimbra" },
   { id: "luiza-muri", name: "Luiza Muri" },
@@ -1634,7 +1634,7 @@ export const people: Person[] = [
   { id: "amanda-farias", name: "Amanda Farias" },
   { id: "diego-silva", name: "Diego Silva" },
   { id: "lucas-furtado", name: "Lucas Furtado" },
-  { id: "wilson-jr", name: "Wilson Jr" },
+  
   { id: "thais", name: "Thais" },
   // Episode 103 contributors
   { id: "caiman", name: "Caiman" },
@@ -1876,7 +1876,7 @@ export const mentions: Mention[] = [
   { id: "m32-3", episodeId: 32, personId: "boss", productId: "contracoes" },
   { id: "m32-4", episodeId: 32, personId: "nana", productId: "google-maps" },
   { id: "m32-5", episodeId: 32, personId: "priscila-chagas", productId: "todoist" },
-  { id: "m32-6", episodeId: 32, personId: "wilson-moraes", productId: "total-pass" },
+  { id: "m32-6", episodeId: 32, personId: "wilson-morais", productId: "total-pass" },
   { id: "m32-7", episodeId: 32, personId: "miriam", productId: "strava" },
   { id: "m32-8", episodeId: 32, personId: "paulo", productId: "splitwise" },
   { id: "m32-9", episodeId: 32, personId: "andrezao", productId: "skyview" },
@@ -2418,7 +2418,7 @@ export const mentions: Mention[] = [
   { id: "m77-6", episodeId: 77, personId: "thais", productId: "duolingo" },
   { id: "m77-7", episodeId: 77, personId: "fabio-beico", productId: "irpf2025" },
   { id: "m77-8", episodeId: 77, personId: "caue", productId: "smart-things-samsung" },
-  { id: "m77-9", episodeId: 77, personId: "wilson-jr", productId: "training-peaks" },
+  { id: "m77-9", episodeId: 77, personId: "wilson-morais", productId: "training-peaks" },
 
   // Episode 78
   { id: "m78-1", episodeId: 78, personId: "arthur", productId: "zapier" },
@@ -2431,7 +2431,7 @@ export const mentions: Mention[] = [
   { id: "m78-8", episodeId: 78, personId: "glauco", productId: "wellhub" },
   { id: "m78-9", episodeId: 78, personId: "nina", productId: "uno" },
   { id: "m78-10", episodeId: 78, personId: "pilon", productId: "bblend" },
-  { id: "m78-11", episodeId: 78, personId: "wilson", productId: "strava" },
+  { id: "m78-11", episodeId: 78, personId: "wilson-morais", productId: "strava" },
   { id: "m78-12", episodeId: 78, personId: "lucas", productId: "pagol" },
   { id: "m78-13", episodeId: 78, personId: "iago", productId: "mindstudio" },
 
@@ -2463,7 +2463,7 @@ export const mentions: Mention[] = [
   { id: "m81-2", episodeId: 81, personId: "aiquis", productId: "moonlight" },
   { id: "m81-3", episodeId: 81, personId: "arthur", productId: "wisprflow" },
   { id: "m81-4", episodeId: 81, personId: "camila-jordana", productId: "teams" },
-  { id: "m81-5", episodeId: 81, personId: "wilson", productId: "canva" },
+  { id: "m81-5", episodeId: 81, personId: "wilson-morais", productId: "canva" },
   { id: "m81-6", episodeId: 81, personId: "brian", productId: "adobe-lightroom" },
   { id: "m81-7", episodeId: 81, personId: "andrezao", productId: "dominguinho" },
   { id: "m81-8", episodeId: 81, personId: "vinicius", productId: "n8n" },
@@ -2727,7 +2727,7 @@ export const mentions: Mention[] = [
   {
     id: "m101-7",
     episodeId: 101,
-    personId: "wilson-moraes",
+    personId: "wilson-morais",
     productId: "strava",
     context: "Atenção ao Quitter's Day em 19 de janeiro",
   },
