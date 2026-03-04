@@ -1,4 +1,5 @@
 import { Mic, Package, Users, MessageSquare, FolderOpen } from "lucide-react";
+import { useMemo } from "react";
 import { StatCard } from "@/components/dashboard/StatCard";
 import { TopProductsChart } from "@/components/dashboard/TopProductsChart";
 import { ProductTrendsChart } from "@/components/dashboard/ProductTrendsChart";
@@ -9,6 +10,8 @@ import { CategoryPieChart } from "@/components/dashboard/CategoryPieChart";
 import { episodes, products, people, mentions, getCategories } from "@/data/mentions";
 
 export default function Dashboard() {
+  const uniqueProducts = useMemo(() => products.filter(p => !p.parentId && !p.alsoCredits), []);
+
   return (
     <div className="space-y-6">
       <div>
@@ -27,7 +30,7 @@ export default function Dashboard() {
         />
         <StatCard
           title="Products Tracked"
-          value={products.length}
+          value={uniqueProducts.length}
           icon={Package}
           description="Unique products"
           href="/products"
