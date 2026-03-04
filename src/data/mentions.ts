@@ -1617,14 +1617,14 @@ export const people: Person[] = [
   { id: "eduardo-odon", name: "Eduardo Odon" },
   { id: "henrique-boz", name: "Henrique Boz" },
   { id: "marcos-magalhaes", name: "Marcos Magalhães" },
-  { id: "agata-cristina", name: "Agata Cristina" },
+  { id: "agata-cristina", name: "Agatha Cristina" },
   { id: "pedro-motta", name: "Pedro Motta" },
   { id: "mateus", name: "Mateus" },
   { id: "marina-fernandes", name: "Marina Fernandes" },
   { id: "camila-meneghetti", name: "Camila Meneghetti" },
   { id: "bia-saito", name: "Bia Saito" },
   { id: "larissa-souza", name: "Larissa Souza" },
-  { id: "izabela-oliveira", name: "Izabela Oliveira" },
+  { id: "izabela-oliveira", name: "Isabela Oliveira" },
   { id: "yasmin", name: "Yasmin" },
   { id: "michelli-chagas", name: "Michelli Chagas" },
   { id: "fabio-beico", name: "Fábio Beiço" },
@@ -1637,7 +1637,7 @@ export const people: Person[] = [
   
   { id: "thais", name: "Thais" },
   // Episode 103 contributors
-  { id: "caiman", name: "Caiman" },
+  { id: "caiman", name: "Caiman Oliveira" },
   { id: "iago-maciel", name: "Iago Maciel" },
   { id: "thiago-valinho", name: "Thiago Valinho" },
   { id: "vanessa-silva", name: "Vanessa Silva" },
@@ -1742,14 +1742,14 @@ export const people: Person[] = [
   // Episode 105 contributors
   { id: "aline-amorim", name: "Aline Amorim" },
   { id: "adriana-rosario", name: "Adriana Rosário" },
-  { id: "fernando-lenine", name: "Fernando Lenine" },
+  { id: "fernando-lenine", name: "Fernando Lenini" },
   
   { id: "jose-neto", name: "José Neto" },
   { id: "regiane-buny", name: "Regiane Buny" },
   { id: "murilo-siqueira", name: "Murilo Siqueira" },
   // Episode 106 contributors
   { id: "paulo-de-almeida", name: "Paulo de Almeida" },
-  { id: "erika", name: "Erika" },
+  { id: "erika", name: "Erika Oliveira" },
   { id: "vinicius-santos", name: "Vinicius Santos" },
   { id: "danilo-franco", name: "Danilo Franco" },
   { id: "marlon", name: "Marlon" },
@@ -1766,9 +1766,9 @@ export const people: Person[] = [
   { id: "lucas-bittencourt", name: "Lucas Bittencourt" },
   { id: "ben-alves", name: "Ben Alves" },
   { id: "ianka-coelho", name: "Hyanka Coelho" },
-  { id: "wilson-morais", name: "Wilson Morais" },
-  { id: "bruno-correa", name: "Bruno Correa" },
-  { id: "aline-albertoni", name: "Aline Albertoni" },
+  { id: "wilson-morais", name: "Wilson Moraes" },
+  { id: "bruno-correa", name: "Bruno Correia" },
+  { id: "aline-albertoni", name: "Aline Abertoni" },
   { id: "juliana-volotao", name: "Juliana Volotão" },
 ];
 
