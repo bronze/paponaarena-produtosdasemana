@@ -1810,7 +1810,7 @@ export const people: Person[] = [
   { id: "renata-dilima", name: "Renata Dilima" },
   { id: "rodrigo-menali", name: "Rodrigo Menali" },
   { id: "jaqueline", name: "Jaqueline" },
-  { id: "laine-moraes", name: "Laíne Moraes" },
+  { id: "laine-moraes", name: "Laíny Moraes" },
   { id: "cintia-ribeiro", name: "Cintia Ribeiro" },
   { id: "valmir", name: "Valmir" },
   { id: "isabela-rubinich", name: "Isabela Rubinich" },
