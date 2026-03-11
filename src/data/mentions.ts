@@ -710,6 +710,14 @@ export const episodes: Episode[] = [
     youtubeLink: "https://www.youtube.com/watch?v=-8VRA_OJqRk",
     spotifyLink: "https://open.spotify.com/episode/05B58SR0sSordFWYtwDv6t?si=e972e0f55106447d",
   },
+  {
+    id: 108,
+    title: "Aprendizados de mais de 20 anos de produto e liderança - Joca Neto",
+    date: "2026-03-11",
+    description: "Entrevista com Joca Neto sobre aprendizados de mais de 20 anos de produto e liderança.",
+    youtubeLink: "https://www.youtube.com/watch?v=6iQ7OnsAmME",
+    spotifyLink: "https://open.spotify.com/show/7lcBkPYn5HgEZjTkJhNUFJ",
+  },
 ];
 
 // Products (unique across all episodes)
