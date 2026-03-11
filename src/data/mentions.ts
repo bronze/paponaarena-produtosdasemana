@@ -1726,7 +1726,7 @@ export const people: Person[] = [
   // Episode 31 contributors
   { id: "renato", name: "Renato" },
   // Episode 29 contributor
-  { id: "renato-bassi", name: "Renato Bassi" },
+  { id: "renato-bassi", name: "Renato Basse" },
   // Episode 32 contributors
   { id: "sala", name: "Sala" },
   { id: "marmerola", name: "Marmerola" },
