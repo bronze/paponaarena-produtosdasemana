@@ -1483,6 +1483,18 @@ export const products: Product[] = [
   { id: "claude-cowork", name: "Claude Cowork", category: "AI Tools", parentId: "claude" },
   { id: "bacio-di-latte", name: "App da Bacio di Latte", category: "Food & Drink", url: "https://baciodilatte.com.br/" },
   { id: "granola", name: "Granola", category: "AI Tools" },
+
+  // Episode 108 products
+  { id: "google-flow", name: "Google Flow", category: "AI Tools" },
+  { id: "combo-elevenlabs-google-flow-suno", name: "ElevenLabs + Google Flow + Suno", category: "AI Tools", alsoCredits: ["elevenlabs", "google-flow", "suno-ai"] },
+  { id: "sofia-by-layers", name: "Sofia By Layers", category: "AI Tools" },
+  { id: "monica-ai", name: "Mônica AI", category: "AI Tools" },
+  { id: "oura-ring", name: "Oura Ring", category: "Hardware", url: "https://ouraring.com" },
+  { id: "combo-antigravity-obsidian", name: "AntiGravity + Obsidian", category: "AI Tools", alsoCredits: ["antigravity", "obsidian"] },
+  { id: "combo-google-maps-tripadvisor", name: "Google Maps + TripAdvisor", category: "Travel", alsoCredits: ["google-maps", "tripadvisor"] },
+  { id: "combo-v0-cursor", name: "V0 + Cursor", category: "AI Tools", alsoCredits: ["v0", "cursor"] },
+  { id: "combo-skoob-twitter", name: "Skoob + Twitter", category: "Social", alsoCredits: ["skoob", "twitter"] },
+  { id: "combo-skeelo-audible", name: "Skeelo + Audible", category: "Education", alsoCredits: ["skeelo", "audible"] },
 ];
 
 // People (contributors/hosts)
