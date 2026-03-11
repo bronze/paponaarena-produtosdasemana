@@ -1537,7 +1537,7 @@ export const people: Person[] = [
   { id: "marcella-paiva", name: "Marcella Paiva" },
   { id: "huxley", name: "Huxley" },
   { id: "carlos-henrique", name: "Carlos Henrique" },
-  { id: "joca", name: "Joca" },
+  { id: "joca", name: "Joca Neto" },
   { id: "marcos-lavin", name: "Marcos Lavin" },
   { id: "peixoto", name: "Peixoto" },
   { id: "marcel-amiach", name: "Marcel Amiach" },
