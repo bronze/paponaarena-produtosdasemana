@@ -716,7 +716,7 @@ export const episodes: Episode[] = [
     date: "2026-03-11",
     description: "Entrevista com Joca Neto sobre aprendizados de mais de 20 anos de produto e liderança.",
     youtubeLink: "https://www.youtube.com/watch?v=6iQ7OnsAmME",
-    spotifyLink: "https://open.spotify.com/show/7lcBkPYn5HgEZjTkJhNUFJ",
+    spotifyLink: "https://open.spotify.com/episode/3bSkGaTVqKlpE1IwAXlHwQ",
   },
 ];
 
